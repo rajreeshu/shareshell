@@ -548,7 +548,7 @@
                 $("#main_img_thumb").attr('data-thumb', '<?=base_url("utility/main_image/");?>'+data.data.main_image);
                 $("#main_img_slider").attr('src',  '<?=base_url("utility/main_image/");?>'+data.data.main_image);
                 $("#property_city").html("Property In "+data.data.city);
-                $("#property_price").html(data.data.price);
+                $("#property_price").html("&#8377 "+data.data.price);
                 $("#property_description").html(data.data.description);
                 $("#property_addon").html("<h3>"+data.data.addon.toUpperCase()+"</h3>");
 
