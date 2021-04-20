@@ -90,26 +90,26 @@
 
                                     <fieldset class="padding-5">
                                         <div class="row">
-                                            <div class="col-xs-6">
+                                            <div class="col">
                                                 <label for="price-range">Price range (rs):</label>
-                                                <input type="text" class="span2" value="" data-slider-min="1000" 
-                                                       data-slider-max="100000" data-slider-step="5" 
-                                                       data-slider-value="[0,450]" id="price-range" ><br />
-                                                <b class="pull-left color">1000</b> 
+                                                <input type="text" class="span2" value="" data-slider-min="500" 
+                                                       data-slider-max="100000" data-slider-step="100" 
+                                                       data-slider-value="[5000,50000]" id="price-range" ><br />
+                                                <b class="pull-left color">500</b> 
                                                 <b class="pull-right color">100000</b>                                                
                                             </div>
-                                            <div class="col-xs-6">
+                                           <!--  <div class="col-xs-6">
                                                 <label for="property-geo">Property geo (m2) :</label>
                                                 <input type="text" class="span2" value="" data-slider-min="40" 
                                                        data-slider-max="12000" data-slider-step="5" 
                                                        data-slider-value="[40,450]" id="property-geo" ><br />
                                                 <b class="pull-left color">40m</b> 
                                                 <b class="pull-right color">12000m</b>                                                
-                                            </div>                                            
+                                            </div>   -->                                          
                                         </div>
                                     </fieldset>                                
 
-                                    <fieldset class="padding-5">
+                                    <!-- <fieldset class="padding-5">
                                         <div class="row">
                                             <div class="col-xs-6">
                                                 <label for="price-range">Min baths :</label>
@@ -130,19 +130,19 @@
 
                                             </div>
                                         </div>
-                                    </fieldset>
+                                    </fieldset> -->
 
                                     <fieldset class="padding-5">
                                         <div class="row">
                                             <div class="col-xs-6">
                                                 <div class="checkbox">
-                                                    <label> <input type="checkbox" checked> Fire Place</label>
+                                                    <label> <input type="checkbox"  name="filter_addon" value="fire"> Fire Place</label>
                                                 </div> 
                                             </div>
 
                                             <div class="col-xs-6">
                                                 <div class="checkbox">
-                                                    <label> <input type="checkbox">Mess(food)</label>
+                                                    <label> <input type="checkbox" name="filter_addon" value="mess">Mess(food)</label>
                                                 </div>
                                             </div>                                            
                                         </div>
@@ -154,12 +154,12 @@
                                         <div class="row">
                                             <div class="col-xs-6"> 
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox"> Laundry  </label>
+                                                    <label><input type="checkbox" name="filter_addon" value="laundry"> Laundry  </label>
                                                 </div>
                                             </div>  
                                             <div class="col-xs-6"> 
                                                 <div class="checkbox">
-                                                    <label> <input type="checkbox"> Emergency Exit</label>
+                                                    <label> <input type="checkbox" name="filter_addon" value="exit"> Emergency Exit</label>
                                                 </div>
                                             </div>  
                                         </div>
@@ -172,7 +172,7 @@
                                     <fieldset >
                                         <div class="row">
                                             <div class="col-xs-12">  
-                                                <input class="button btn largesearch-btn" value="Search" type="submit">
+                                                <input class="button btn largesearch-btn" value="Search" type="submit" id="btn-search-main">
                                             </div>  
                                         </div>
                                     </fieldset>                                     
@@ -366,6 +366,12 @@
 
 function load_page_content(page_no){
 
+    var addon_array = [];
+    
+    $("input:checkbox[name=filter_addon]:checked").each(function() {
+        addon_array.push($(this).val());
+    });
+
     $.ajax({
         url:"<?=base_url('main_helper/get_all_property_list');?>",
         type:"POST",
@@ -376,7 +382,9 @@ function load_page_content(page_no){
             page_no:page_no,
             filter_avail:$("#filter_avail").val(),
             filter_city:$("#filter_city").val(),
-            filter_status:$("#filter_status").val()
+            filter_status:$("#filter_status").val(),
+            filter_price:$("#price-range").val(),
+            filter_addon:addon_array
             },
             dataType:"json",
             // processData:false,
@@ -407,14 +415,14 @@ function load_page_content(page_no){
                     property_list+='<div class="col-sm-6 col-md-4 p0">';
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
-                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+this.main_image+'"></a>';
+                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+this.main_image+'" style="height:225px;"></a>';
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
                     property_list+='<h5><a href="property-1.html"> '+this.name.toUpperCase()+' </a></h5>';
                     property_list+='<div class="dot-hr"></div>';
                     property_list+='<span class="pull-left"><b>'+this.sn+' :- '+this.min_bed+' </b></span>';
                     property_list+='<span class="proerty-price pull-right">'+this.price+'</span>';
-                    property_list+='<p style="display: none;">'+this.description+'</p>';
+                    property_list+='<p style="display: none; overflow: hidden; text-overflow: ellipsis;max-height: 72px;-webkit-line-clamp: 2;">'+this.description+'</p>';
                     property_list+='<div class="property-icon">';
                     property_list+='<span style="font-size:22px;"><b> &#9893;</b></span><span style="text-transform: capitalize;"> ( '+type_change+' ) |</span>';
                     property_list+='<span style="font-size:22px;"><b> &#9963;</b></span><span style="text-transform: capitalize;"> ( '+this.type+' ) |</span>';
@@ -451,6 +459,12 @@ load_page_content(1);
     $("#items_per_page").change(function() {
         load_page_content(1);
     });
+
+    $("#btn-search-main").click(function(event) {
+        event.preventDefault();
+        load_page_content(1);
+    });
+
 
 
 

@@ -356,7 +356,7 @@
                                     <img src="<?=base_url();?>assets/img/ads.jpg">
                                 </div>
                             </div>
-
+<!-- 
                             <div class="panel panel-default sidebar-menu wow fadeInRight animated" >
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Smart search</h3>
@@ -488,7 +488,7 @@
                                         </fieldset>                                     
                                     </form>
                                 </div>
-                            </div>
+                            </div> -->
 
 
                         </aside>

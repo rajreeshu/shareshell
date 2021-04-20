@@ -123,10 +123,10 @@ public function get_all_property_list(){
 			$input['filter_addon'][$i]="";
 		}
 	}
-	$data['extra']=$input['filter_addon'];
+	$data['extra']=$input['filter_addon']; 
 
 	// $input['filter_addon'][5]="";
-	// $data['input']=$input['filter_addon'];
+	$data['input']=$input;
 
 
 	$data['row_count']=$this->db->get('property_info')->num_rows();
