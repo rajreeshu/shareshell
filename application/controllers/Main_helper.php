@@ -129,9 +129,12 @@ public function get_all_property_list(){
 	$data['input']=$input;
 
 
-	$data['row_count']=$this->db->get('property_info')->num_rows();
+	$data['row_count']=$this->db->select('sn,listed_by,name,price,address,contact,main_image,description,avail,city,status,type,min_bed,addon,add_image,add_video')->like(['avail'=>$input['filter_avail'],'city'=>$input['filter_city'],'status'=>$input['filter_status'],'addon'=>$input['filter_addon'][0]])->like('addon',$input['filter_addon'][1])->like('addon',$input['filter_addon'][2])->like('addon',$input['filter_addon'][3])->where('price >',(int)$property_price[0]-10)->where('price < ',(int)$property_price[1]+10)->get('property_info')->num_rows();
+
 
 	$data['data']=$this->db->select('sn,listed_by,name,price,address,contact,main_image,description,avail,city,status,type,min_bed,addon,add_image,add_video')->like(['avail'=>$input['filter_avail'],'city'=>$input['filter_city'],'status'=>$input['filter_status'],'addon'=>$input['filter_addon'][0]])->like('addon',$input['filter_addon'][1])->like('addon',$input['filter_addon'][2])->like('addon',$input['filter_addon'][3])->where('price >',(int)$property_price[0]-10)->where('price < ',(int)$property_price[1]+10)->order_by('sn','DESC')->limit($input['items_per_page'],($input['page_no']-1)*$input['items_per_page'])->get('property_info')->result();
+
+
 	$data['key']=$this->security->get_csrf_hash();
 
 	echo json_encode($data);

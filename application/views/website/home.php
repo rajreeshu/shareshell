@@ -49,7 +49,7 @@
                             <div class="col-md-12">
                                 <div class="col-md-4">
                                     <select data-live-search="true" data-live-search-style="begins" id="filter_avail" class="selectpicker show-tick form-control" title="-Available for-">
-                                        <option value="">-Available for-</option>
+                                        <option value="">All</option>
                                         <option value="girl">Girls</option>
                                         <option value="boy">Boys</option> 
                                         <option value="combined">Girls/Boys(combined)</option> 
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col-md-4">                                     
                                     <select id="filter_status" data-live-search="true" data-live-search-style="begins"class="selectpicker show-tick form-control" title="-Status-">
-                                        
+                                        <option value="">All</option>
                                         <option value="rent">Rent </option>
                                         <option value="pg">PG</option>
                                     
