@@ -15,7 +15,7 @@
 <?php
     $this->load->view('website/link_import');
     $this->load->view('website/header');
-?>   
+?>    
         <div class="slider-area">
             <div class="slider">
                 <div id="bg-slider" class="owl-carousel owl-theme">
@@ -630,11 +630,11 @@ function load_page_content(){
 }
 load_page_content();
 
-    $("#filter_avail").change(function() {
-        // load_page_content(); 
-        console.log($("#price-range").val());
-        // console.log($("#property-geo").val());
-    });
+    // $("#filter_avail").change(function() {
+    //     // load_page_content(); 
+    //     console.log($("#price-range").val());
+    //     // console.log($("#property-geo").val());
+    // });
 
     // $("#filter_city").change(function() {
     //     load_page_content();
