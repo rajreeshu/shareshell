@@ -250,12 +250,12 @@
                     <div class="col-md-12 clear"> 
                         <div class="col-xs-10 page-subheader sorting pl0">
                             <ul class="sort-by-list">
-                                <li class="active">
+                                <li class="active" id="sort_date">
                                     <a href="javascript:void(0);" class="order_by_date" data-orderby="property_date" data-order="ASC">
                                         Property Date <i class="fa fa-sort-amount-asc"></i>					
                                     </a>
                                 </li>
-                                <li class="">
+                                <li class="" id="sort_price">
                                     <a href="javascript:void(0);" class="order_by_price" data-orderby="property_price" data-order="DESC">
                                         Property Price <i class="fa fa-sort-numeric-desc"></i>						
                                     </a>
@@ -363,6 +363,10 @@
     // console.log("1st key:"+key);
     var property_list="";
 
+    var sort_by="sn";
+    var sort_by_val="DESC";
+    var i=1;
+
 
 function load_page_content(page_no){
 
@@ -384,7 +388,9 @@ function load_page_content(page_no){
             filter_city:$("#filter_city").val(),
             filter_status:$("#filter_status").val(),
             filter_price:$("#price-range").val(),
-            filter_addon:addon_array
+            filter_addon:addon_array,
+            filter_sort:sort_by,
+            filter_sort_by:sort_by_val
             },
             dataType:"json",
             // processData:false,
@@ -421,7 +427,7 @@ function load_page_content(page_no){
                     property_list+='<h5><a href="property-1.html"> '+this.name.toUpperCase()+' </a></h5>';
                     property_list+='<div class="dot-hr"></div>';
                     property_list+='<span class="pull-left"><b>'+this.sn+' :- '+this.min_bed+' </b></span>';
-                    property_list+='<span class="proerty-price pull-right">'+this.price+'</span>';
+                    property_list+='<span class="proerty-price pull-right"> &#8377 '+this.price+'</span>';
                     property_list+='<p style="display: none; overflow: hidden; text-overflow: ellipsis;max-height: 72px;-webkit-line-clamp: 2;">'+this.description+'</p>';
                     property_list+='<div class="property-icon">';
                     property_list+='<span style="font-size:22px;"><b> &#9893;</b></span><span style="text-transform: capitalize;"> ( '+type_change+' ) |</span>';
@@ -462,6 +468,22 @@ load_page_content(1);
 
     $("#btn-search-main").click(function(event) {
         event.preventDefault();
+        load_page_content(1);
+    });
+
+    $("#sort_price").click(function(event) {
+        sort_by="price";
+        sort_by_val="ASC";
+        $("#sort_date").removeClass('active');
+        $("#sort_price").addClass('active');
+        load_page_content(1);
+    });
+
+    $("#sort_date").click(function(event) {
+        sort_by="sn";
+        sort_by_val="DESC";
+        $("#sort_price").removeClass('active');
+        $("#sort_date").addClass('active');
         load_page_content(1);
     });
 

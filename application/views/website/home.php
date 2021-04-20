@@ -567,7 +567,10 @@ function load_page_content(){
             filter_city:$("#filter_city").val(),
             filter_status:$("#filter_status").val(),
             filter_price:$("#price-range").val(),
-            filter_addon:addon_array
+            filter_addon:addon_array,
+            filter_sort:'sn',
+            filter_sort_by:'DESC'
+
             },
             dataType:"json",
             // processData:false,
