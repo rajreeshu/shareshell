@@ -35,6 +35,13 @@ class Main extends CI_Controller {
 		$this->load->view('website/property_submited');
 	}
 
+	public function log_user(){
+		$this->load->view('website/login_signup');
+	}
+	public function signup_detail(){
+		$this->load->view('website/signup_second');
+	}
+
 
 
 

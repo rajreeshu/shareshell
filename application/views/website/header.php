@@ -50,7 +50,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">Login</button>
+                        <a class="navbar-btn nav-button wow bounceInRight login" href="<?=base_url('main/log_user');?>" data-wow-delay="0.4s">Login</a>
                         <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('<?=base_url('main/submit_property');?>')" data-wow-delay="0.5s">Submit</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">

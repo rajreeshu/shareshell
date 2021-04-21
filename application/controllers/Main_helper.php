@@ -141,6 +141,15 @@ public function get_all_property_list(){
 	echo json_encode($data);
 }
 
+public function signup_validate_data(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	$data['data']=$this->db->where($input['datatype'],$input['data'])->get('user_detail')->num_rows();
+
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
 
 
 
