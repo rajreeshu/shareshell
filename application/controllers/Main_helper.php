@@ -6,11 +6,13 @@ class Main_helper extends CI_Controller {
 	public function submit_property()
 	{
 		$input=$this->security->xss_clean($this->input->post());
+
+		// $data['input']=$input;
 		
 
 		// $data['data']=$input;
 
-		$addon="";
+		$addon=""; 
 
 		if(isset($input['emergency_exit'])){
 			$addon=$addon."exit,";
@@ -43,36 +45,14 @@ class Main_helper extends CI_Controller {
 							'listed_date'=>date('Y-m-d H:i:s')
 		 );
 
-		//	$db_array = array('listed_by' => '1',
-			// 				'name'	   => $input['prop_name'],
-			// 				'price'	   => $input['prop_price'],
-			// 				'address'  => $input['prop_address'],
-			// 				'contact'  =>$input['prop_contact'],
-			// 				'main_image'=>'',
-			// 				'description'=>$input['prop_description'],
-			// 				'avail'	   => $input['prop_avail'],
-			// 				'city'	   => $input['prop_city'],
-			// 				'status'   => $input['prop_status'],
-			// 				'type'     => $input['prop_type'],
-			// 				'min_bed'  => $input['min_bed'],
-			// 				'addon'	   => $input['addon'],
-			// 				'add_image'=> '',
-			// 				'add_video'=> $input['video']
-		 // );
-		// $data['input']=$input;
 		$insert_prop_data =$this->db->insert('property_info',$db_array);
 		$insertId = $this->db->insert_id();
 
-		//file uploading code
-		$this->load->library('upload');
-		$upload_config=array(
-								'upload_path'=>'utility/main_image',
-								'allowed_types'=>'jpg|png|jpeg',
-								'max_size'=>5000,
-								'file_name'=>$insertId
-							);
-		$this->upload->initialize($upload_config);
-		$main_img_upload =$this->upload->do_upload('main_img');
+		$this->load->model('upload_model');
+		$main_img_upload=$this->upload_model->upload_file($insertId,'jpg|png|jpeg','utility/main_image','main_img');
+
+
+
 		$upload_data = $this->upload->data(); //Returns array of containing all of the data related to the file you uploaded.
 		if($main_img_upload==true){
 			$this->db->where('sn',$insertId)->update('property_info',['main_image'=>$upload_data['file_name']]);
@@ -150,6 +130,89 @@ public function signup_validate_data(){
 	echo json_encode($data);
 }
 
+// public function set_session(){
+// 	$input=$this->security->xss_clean($this->input->post());
+
+// 	$data['input']=$input;
+	
+// 	$this->session->set_userdata($input['session_name'], $input['session_value']);
+
+		
+	
+// 	$data['key']=$this->security->get_csrf_hash();
+// 	echo json_encode($data);
+// }
+
+// public function get_session(){
+// 	$input=$this->security->xss_clean($this->input->post());
+	
+// 	$data['data']=$this->session->userdata($input['session_name']);
+	
+// 	$data['key']=$this->security->get_csrf_hash();
+// 	echo json_encode($data);
+// }
+
+// public function delete_session(){
+// 	$input=$this->security->xss_clean($this->input->post());
+	
+// 	$data['data']=$this->session->unset_userdata($input['session_name']);
+	
+// 	$data['key']=$this->security->get_csrf_hash();
+// 	echo json_encode($data);
+// }
+
+public function password_create_hash(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	$this->load->model('password_model');
+	$data['data']=$this->password_model->create_hash($input['email'],$input['password']);
+
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
+public function submit_signup_data(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	// $data['input']=$input;
+
+	$db_array=array(
+					'first_name'=>$input['first_name_field'],
+					'last_name'=>$input['last_name_field'],
+					'username'=>$input['username_field'],
+					'email'=>$input['email_field'],
+					'password'=>$input['password_field'],
+					'website'=>$input['website_field_new'],
+					'phone'=>$input['phone_field'],
+					'facebook'=>$input['facebook_field'],
+					'twitter'=>$input['twitter_field'],
+					'account_created_on'=>date('Y-m-d H:i:s')
+	);
+
+	$insert_prop_data =$this->db->insert('user_detail',$db_array);
+	$insertId = $this->db->insert_id();
+
+	if($insert_prop_data==1){
+		$this->session->set_flashdata('account_created', '1');
+	}
+	
+
+	if($input['image_field_check']!=""){
+		$this->load->model('upload_model');
+		$main_img_upload=$this->upload_model->upload_file($insertId,'jpg|png|jpeg','utility/user_image','image_field');
+		
+		$upload_data = $this->upload->data();
+		if($main_img_upload==true){
+				$this->db->where('sn',$insertId)->update('user_detail',['image'=>$upload_data['file_name']]);
+			}
+		$data['upload_error']=$this->upload->display_errors();
+	}
+	
+
+	$data['data']=$insert_prop_data;
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
 
 
 

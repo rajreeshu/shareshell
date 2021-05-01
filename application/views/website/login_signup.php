@@ -66,7 +66,7 @@
                                     <input type="password" class="form-control" id="signup_re_password" placeholder="********">
                                 </div>
                                 <div class="text-center" style=" ">
-                                    <a type="submit" class="btn btn-default align-content-center" style="width:100px;" id="signup_submit" value="Register">Register</a>
+                                    <button type="submit" class="btn btn-default align-content-center" style="width:100px;" id="signup_submit" value="Register">Register</button>
                                 </div>
                             </form>
                         </div>
@@ -133,7 +133,6 @@
     $this->load->view('website/footer');
 
     $this->load->view('website/js_import'); 
-
 
 ?>
     </body>
@@ -231,9 +230,11 @@ var signup_password_btn_active=0;
 $("#signup_password").blur(function(event) {
 
     signup_password_func();
+    signup_re_password_func();
 
 });
 
+var signup_password;
 function signup_password_func(){
     signup_password=$("#signup_password").val();
 
@@ -249,9 +250,133 @@ function signup_password_func(){
     }
 }
 
+var signup_re_password_btn_active=0;
+$("#signup_re_password").blur(function(event) {
+    
+    signup_re_password_func();
+});
+
+function signup_re_password_func(){
+    signup_re_password=$("#signup_re_password").val();
+
+    console.log(signup_password_btn_active);
+
+    if(signup_re_password==""){
+        $("#signup_re_password_error").text("");
+        signup_re_password_btn_active=0;
+    }else if(signup_password_btn_active==1&&signup_re_password!=signup_password){
+        $("#signup_re_password_error").text("Password Dosen't Match");
+        signup_re_password_btn_active=0;
+    }else if(signup_password_btn_active==1 && signup_re_password==signup_password){
+        $("#signup_re_password_error").html("<b class='text-success'> &#10003; </b>");
+        signup_re_password_btn_active=1;
+
+    }else{
+        $("#signup_re_password_error").text("");
+        signup_re_password_btn_active=0;
+    }
+}
+
+// function delete_session(sessionName){
+//     $.ajax({
+//         url:"<?=base_url('main_helper/delete_session');?>",
+//         type:"POST",
+//         async:false,
+//         data:{
+//             "<?php echo $this->security->get_csrf_token_name();?>":key,
+//             session_name:sessionName,
+//             },
+//             dataType:"json",
+//             success:function(data){
+//                 key=data.key;
+//                 console.log(data);
+                
+//             },
+//             error:function(data){
+//                 console.log(data);
+//                 // result=data;
+//             }
+//     });
+// }
+
+// delete_session('signup_username');
+// delete_session('signup_email');
+// delete_session('signup_password');
+
+// function set_session(sessionName,sessionValue){
+//     $.ajax({
+//         url:"<?=base_url('main_helper/set_session');?>",
+//         type:"POST",
+//         async:false,
+//         data:{
+//             "<?php echo $this->security->get_csrf_token_name();?>":key,
+//             session_name:sessionName,
+//             session_value:sessionValue
+//             },
+//             dataType:"json",
+//             success:function(data){
+//                 key=data.key;
+//                 console.log(data);
+                
+//             },
+//             error:function(data){
+//                 console.log(data);
+//                 // result=data;
+//             }
+//     });
+// }
+
 $("#signup_submit").click(function(event) {
-    if(signup_username_btn_active==1&&signup_email_btn_active==1&&signup_password_btn_active==1){
-        window.location.href = "<?=base_url('main/signup_detail');?>"; 
+    event.preventDefault();
+
+    var password_hash;
+    var signup_email=$("#signup_email").val();
+    var signup_password=$("#signup_password").val();
+
+
+    if(signup_username_btn_active==1&&signup_email_btn_active==1&&signup_password_btn_active==1&&signup_re_password_btn_active==1){
+
+        
+    
+    $.ajax({
+        url:"<?=base_url('main_helper/password_create_hash');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            email:signup_email,
+            password:signup_password
+            },
+            dataType:"json",
+            success:function(data){
+                key=data.key;
+                password_hash=data.data;
+            },
+            error:function(data){
+                console.log(data);
+                // result=data;
+            }
+    });
+
+    var signup_username_url_data="";
+    if($("#signup_username").val()!=""){
+        // set_session('signup_username',$("#signup_username").val());
+        signup_username_url_data="&&u="+signup_username;
+    }
+
+
+
+
+    
+    // set_session('signup_email',$("#signup_email").val());
+    // set_session('signup_password',password_hash);
+
+
+        // console.log(date);
+
+        // alert("success");
+
+        window.location.href = "<?=base_url().'main/signup_detail?p=';?>"+password_hash+"&&e="+signup_email+""+signup_username_url_data; 
         // alert('success');       
     }else{
         if(signup_username_btn_active==0){
@@ -265,6 +390,14 @@ $("#signup_submit").click(function(event) {
         if(signup_password_btn_active==0){
            $("#signup_password_error").fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150); 
            signup_password_func();
+        }
+        if(signup_re_password_btn_active==0){
+
+            $("#signup_re_password_error").fadeOut(150).fadeIn(150).fadeOut(150).fadeIn(150); 
+            signup_re_password_func();
+            if($("#signup_re_password").val()==""){
+                $("#signup_re_password_error").text("Empty Confirm Password*");
+            }
         }
         
         

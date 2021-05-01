@@ -287,19 +287,22 @@
                                 </div>
                             </div>
                         </div>
-
+                    <a href="<?=base_url('properties');?>" >
                         <div class="col-sm-6 col-md-3 p0">
                             <div class="box-tree more-proerty text-center">
-                                <div class="item-tree-icon">
+                                
+                                <div class="item-tree-icon" id="more_property_icon">
                                     <i class="fa fa-th"></i>
                                 </div>
+                                
                                 <div class="more-entry overflow">
-                                    <h5><a href="<?=base_url('properties');?>" >CAN'T DECIDE ? </a></h5>
+                                    <h5>CAN'T DECIDE ?</h5>
                                     <h5 class="tree-sub-ttl">Show all properties</h5>
-                                    <button class="btn border-btn more-black" value="All properties"><a href="<?=base_url('properties');?>">properties</a></button>
+                                    <button class="btn border-btn more-black" value="All properties"></button>
                                 </div>
                             </div>
                         </div>
+                    </a>
 
 
 
@@ -544,6 +547,11 @@
     var key="<?php echo $this->security->get_csrf_hash(); ?>";    
     // console.log("1st key:"+key);
     var property_list="";
+
+    $(".box-tree").click(function(event) {
+        event.preventDefault();
+        console.log("gg");
+    });
 
 
 function load_page_content(){

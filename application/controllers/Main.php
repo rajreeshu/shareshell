@@ -8,7 +8,7 @@ class Main extends CI_Controller {
 		$this->load->view('website/home');	
 	} 
 
-	public function properties(){
+	public function properties(){ 
 
 		$this->load->view('website/properties');
 	}
@@ -39,9 +39,12 @@ class Main extends CI_Controller {
 		$this->load->view('website/login_signup');
 	}
 	public function signup_detail(){
+		
 		$this->load->view('website/signup_second');
 	}
-
+	public function account_created(){
+		$this->load->view('website/account_created');
+	}
 
 
 

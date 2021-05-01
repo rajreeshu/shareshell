@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
         <title>SHARESHELL| Home page</title>
         <meta name="shareshell" content="Making rental easy">
         <meta name="author" content="Kimarotec">
@@ -40,126 +40,6 @@
     </head>
     <body>
 
-     <!--    <div id="preloader">
-            <div id="status">&nbsp;</div>
-        </div> -->
-        <!-- Body content -->
-
-    <!--     <div class="header-connect">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-5 col-sm-8  col-xs-12">
-                        <div class="header-half header-call">
-                            <p>
-                                <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
-                                <span><i class="pe-7s-mail"></i>ShareShell.net</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
-                        <div class="header-half header-social">
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-vine"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>         -->   
-        <!--End top header -->
-
-      <!--   <nav class="navbar navbar-default ">
-            <div class="container"> -->
-                <!-- Brand and toggle get grouped for better mobile display -->
-<!--                 <div class="navbar-header"> -->
-             <!--        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html" style="font-size: 35px;font-weight: bold;">ShareShell<img src="assets/img/logo" alt=""></a>
-                </div> -->
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <!-- <div class="collapse navbar-collapse yamm" id="navigation">
-                    <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">Login</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
-                    </div>
-                    <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html">Home</a>
-                            
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="property.html">Property</a></li>
-                        <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Others <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="yamm-content">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <h5>Advertisements</h5>
-                                                <ul>
-                                                    <li><a href="faq.html">FAQ page</a> </li> 
-                                                    <li><a href="404.html">404 page</a>  </li>
-                                                </ul>
-                                               
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Pages and blog</h5>
-                                                <ul>
-                                                    
-                                                    <li><a href="single-right.html">Blog Post</a>  </li>
-                                                    
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Services</h5>
-                                                <ul>
-                                                    <li><a href="service.html">our service</a> </li>
-                                                    
-                                                </ul>
-
-                                                                       
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property process</h5>
-                                                <ul> 
-                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
-                                                </ul>
-                                                <h5>User account</h5>
-                                                <ul>
-                                                    <li><a href="register.html">Register / login</a>   </li>
-                                                    <li><a href="user-properties.html">Your properties</a>  </li>
-                                                    <li><a href="submit-property.html">Submit property</a>  </li>
-                                                    <li><a href="change-password.html">Change password</a> </li>
-                                                    <li><a href="user-profile.html">Your profile</a>  </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                    <!-- /.yamm-content -->
-                              <!--   </li>
-                            </ul>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
-                    </ul> -->
-          <!--       </div>
-            </div>
-        </nav> -->
-        <!-- End of nav bar -->
 
         <div class="page-head"> 
             <div class="container">
@@ -178,7 +58,8 @@
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 profiel-container">
 
-                        <form action="" method="">
+                        <form enctype="multipart/form-data" method="post" id="form_field">
+                            
                             <div class="profiel-header">
                                 <h3>
                                     <b>BUILD</b> YOUR PROFILE <br>
@@ -191,36 +72,42 @@
                                 <div class="col-sm-3 col-sm-offset-1">
                                     <div class="picture-container">
                                         <div class="picture">
-                                            <img src="assets/img/avatar.png" class="picture-src" id="wizardPicturePreview" title=""/>
-                                            <input type="file" id="wizard-picture">
+                                            <img src="" style=" height: 100%;object-fit: cover;" title="" id="show_image_field" />
+                                            <div style=" margin-top:70px;"><b>Click and Upload</b></div>
+                                            <input type="file" id="image_field" name="image_field">
                                         </div>
                                         <h6>Choose Picture</h6>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 padding-top-25">
-
+                                    <div class="form-group">
+                                        <label>Username </label>&nbsp
+                                        <b><span class="text-danger mr-1" id="signup_username_error"></span></b>
+                                        <input name="username_field" type="text" class="form-control" placeholder="myusername" id="username_field">
+                                    </div> 
                                     <div class="form-group">
                                         <label>First Name <small>(required)</small></label>
-                                        <input name="firstname" type="text" class="form-control" placeholder="Andrew...">
+                                        <b><span class="text-danger mr-1" id="signup_first_name_error"></span></b>
+                                        <input name="first_name_field" type="text" class="form-control" placeholder="first name" id="first_name_field">
                                     </div>
                                     <div class="form-group">
-                                        <label>Last Name <small>(required)</small></label>
-                                        <input name="lastname" type="text" class="form-control" placeholder="Smith...">
+                                        <label>Last Name </label>
+                                        <b><span class="text-danger mr-1" id="signup_last_name_error"></span></b>
+                                        <input name="last_name_field" type="text" class="form-control" placeholder="last name" id="last_name_field">
                                     </div> 
-                                    <div class="form-group">
-                                        <label>Email <small>(required)</small></label>
-                                        <input name="email" type="email" class="form-control" placeholder="andrew@email@email.com.com">
-                                    </div> 
+                                    
                                 </div>
                                 <div class="col-sm-3 padding-top-25">
                                     <div class="form-group">
-                                        <label>Password <small>(required)</small></label>
-                                        <input name="Password" type="password" class="form-control">
+                                        <label>Email <small>(required)</small></label>
+                                        <b><span class="text-danger mr-1" id="signup_email_error"></span></b>
+                                        <input name="email_field" type="text" class="form-control" placeholder="abc123@xyz.com" id="email_field">
                                     </div>
                                     <div class="form-group">
-                                        <label>Confirm password : <small>(required)</small></label>
-                                        <input type="password" class="form-control">
+                                        <label>Password : <small>(required)</small></label>
+                                        <b><span class="text-danger mr-1" id="signup_password_error"></span></b>
+                                        <input type="password" name="password_field" class="form-control" placeholder="******" id="password_field">
                                     </div>
                                 </div>  
 
@@ -231,40 +118,37 @@
                                 <hr>
                                 <br>
                                 <div class="col-sm-5 col-sm-offset-1">
-                                    <div class="form-group">
-                                        <label>Facebook :</label>
-                                        <input name="Facebook" type="text" class="form-control" placeholder="https://facebook.com/user">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Twitter :</label>
-                                        <input name="Twitter" type="text" class="form-control" placeholder="https://Twitter.com/@user">
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label>Website :</label>
-                                        <input name="website" type="text" class="form-control" placeholder="https://yoursite.com/">
+                                        <b><span class="text-danger mr-1" id="website_username_error"></span></b>
+                                        <input name="website_field" type="text" class="form-control" placeholder="https://yoursite.com/" id="website_field">
                                     </div>
+                                    <div class="form-group">
+                                        <b><span class="text-danger mr-1" id="phone_username_error"></span></b>
+                                        <label>Phone :</label>
+                                        <input name="phone_field" type="number" class="form-control" placeholder="+91 9090909090" id="phone_field">
+                                    </div>
+
                                 </div>  
 
                                 <div class="col-sm-5">
                                     <div class="form-group">
-                                        <label>Public email :</label>
-                                        <input name="p-email" type="email" class="form-control" placeholder="p-email@rmail.com">
+                                        <label>Facebook :</label>
+                                        <b><span class="text-danger mr-1" id="signup_facebook_error"></span></b>
+                                        <input name="facebook_field" type="text" class="form-control" placeholder="https://facebook.com/user" id="fb_field">
                                     </div>
                                     <div class="form-group">
-                                        <label>Phone :</label>
-                                        <input name="Phone" type="text" class="form-control" placeholder="+1 9090909090">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>FAX :</label>
-                                        <input name="FAX" type="text" class="form-control" placeholder="+1 9090909090">
+                                        <label>Twitter :</label>
+                                        <b><span class="text-danger mr-1" id="signup_twitter_error"></span></b>
+                                        <input name="twitter_field" type="text" class="form-control" placeholder="https://Twitter.com/@user" id="twitter_field">
                                     </div>
                                 </div>
  
                             </div>
-                    
                             <div class="col-sm-5 col-sm-offset-1">
                                 <br>
-                                <input type='button' class='btn btn-finish btn-primary' name='finish' value='Finish' />
+                                <input type='submit' class='btn btn-finish btn-primary' name='field_submit' value='Finish' id="field_submit" >
                             </div>
                             <br>
                     </form>
@@ -275,144 +159,6 @@
         </div>
     </div>
 
-
-          <!-- Footer area-->
-<!--         <div class="footer-area">
-
-            <div class=" footer">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>About us </h4>
-                                <div class="footer-title-line"></div>
-
-                                <img src="assets/img/footer-logo.png" alt="" class="wow pulse" data-wow-delay="1s">
-                                <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
-                                <ul class="footer-adress">
-                                    <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                    <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                    <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>Quick links </h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-menu">
-                                    <li><a href="properties.html">Properties</a>  </li> 
-                                    <li><a href="#">Services</a>  </li> 
-                                    <li><a href="submit-property.html">Submit property </a></li> 
-                                    <li><a href="contact.html">Contact us</a></li> 
-                                    <li><a href="faq.html">fqa</a>  </li> 
-                                    <li><a href="faq.html">Terms </a>  </li> 
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>Last News</h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-blog">
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer news-letter">
-                                <h4>Stay in touch</h4>
-                                <div class="footer-title-line"></div>
-                                <p>Lorem ipsum dolor sit amet, nulla  suscipit similique quisquam molestias. Vel unde, blanditiis.</p>
-
-                                <form>
-                                    <div class="input-group">
-                                        <input class="form-control" type="text" placeholder="E-mail ... ">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
-                                        </span>
-                                    </div>
-                                     /input-group -->
-<!--                                 </form> 
-
-                                <div class="social pull-right"> 
-                                    <ul>
-                                        <li><a class="wow fadeInUp animated" href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
-                                    </ul> 
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-copy text-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="pull-left">
-                            <span> (C) <a href="http://www.KimaroTec.com">ShareShell</a> , All rights reserved 2021 </span> 
-                        </div> 
-                        <div class="bottom-menu pull-right"> 
-                            <ul> 
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">Home</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
-                            </ul> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>  -->
 
 
 <!--         <script src="assets/js/vendor/modernizr-2.6.2.min.js"></script>
@@ -435,10 +181,222 @@
 <?php
     $this->load->view('website/footer');
 
-    $this->load->view('website/js_import'); 
+    $this->load->view('website/js_import');
+
+    $session_username="";
+    if(isset($_GET['u'])){
+        $session_username=$_GET['u'];
+    }
+
+    
+
+    // $temp_session=$this->session->flashdata('item'); 
 
 
 ?>
+
+<script type="text/javascript">  
+
+var key="<?php echo $this->security->get_csrf_hash(); ?>"; 
+    
+    function isEmail(email) {
+      var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      return regex.test(email);
+    }
+
+    function isURL(str) {
+      var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+        '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+      return !!pattern.test(str);
+}
+
+    function blur_field(fieldName){
+        $(fieldName).css('background', '#eeeeee');
+        $(fieldName).focus(function() {
+            $(fieldName).blur();
+        });
+    }
+
+    function validate_data(datatype,userdata){
+        var result;
+        $.ajax({
+            url:"<?=base_url('main_helper/signup_validate_data');?>",
+            type:"POST",
+            async:false,
+            data:{
+                "<?php echo $this->security->get_csrf_token_name();?>":key,
+                datatype:datatype,
+                data:userdata
+                
+                        
+                },
+                dataType:"json",
+                success:function(data){
+                    key=data.key;
+                    // console.log(data);
+                    result=data.data;
+                },
+                error:function(data){
+                    console.log(data);
+                    // result=data;
+                }
+        });
+        return result;  
+    }   
+
+    var session_username="<?=$session_username;?>";
+    var session_email="<?=$_GET['e'];?>";
+    var session_password="<?=$_GET['p'];?>";
+
+    if(isEmail(session_email)==false||session_password==""||(session_username!=""&&session_username.length<6)){
+        window.location.href = "<?=base_url('main/log_user');?>"; 
+        // console.log("red");
+    }
+
+    if(session_username!=""){
+        $("#username_field").val(session_username);
+        blur_field("#username_field");
+           
+    }
+
+    $("#email_field").val(session_email);
+    blur_field("#email_field");
+    var emai_unique=validate_data('email',session_email);
+    if(emai_unique==1){
+        window.location.href = "<?=base_url('main/log_user');?>"; 
+    }  
+    
+    $("#password_field").val(session_password);
+    blur_field("#password_field");
+
+function field_error_css(fieldName){
+    $(fieldName).css('border','1px solid red');
+    // $(fieldName).css('background','#fd94b4');
+}
+
+function field_error_cssRemove(fieldName){
+    $(fieldName).css('border','1px solid #DADADA');
+}
+
+
+    function previewFile(){
+        var file = $("#image_field").get(0).files[0];
+ 
+        if(file){
+            var reader = new FileReader();
+ 
+            reader.onload = function(){
+                $("#show_image_field").attr("src", reader.result);
+            }
+ 
+            reader.readAsDataURL(file);
+        }
+    }
+
+    $("#image_field").change(function() {
+        previewFile();
+        console.log("chagne");
+    });
+
+var formFieldData_check=1; 
+
+$("#form_field").submit(function(event) {
+    event.preventDefault();
+
+    formFieldData_check=1;
+    var isUrl_var=isURL($("#website_field").val());
+    var new_website_field=$("#website_field").val();       
+
+    if($("#username_field").val()!=""&&$("#username_field").val().length<6){
+        // formFieldData_check=0;
+        formFieldData_check=0;
+        field_error_css("#username_field");
+        $("#signup_username_error").html("Too Small");
+    }else{
+        result=validate_data('username',$("#username_field").val());
+        if(result>0&&$("#username_field").val()!=""){
+            $("#signup_username_error").html('Unavailable');
+            formFieldData_check=0;
+            field_error_css("#username_field");
+
+        }else{
+            field_error_cssRemove('#username_field'); 
+            $("#signup_username_error").html('');
+        }        
+    }
+
+    if($("#first_name_field").val()==""){
+        formFieldData_check=0;
+        field_error_css("#first_name_field");
+        console.log("first name 0");
+    }else{
+        field_error_cssRemove('#first_name_field');
+        
+    }
+
+    if(new_website_field==""||isUrl_var==true){
+        if(new_website_field!=""&&new_website_field.substring(0,4)!="http"){
+            new_website_field="https://"+new_website_field;
+        }
+        
+        field_error_cssRemove("#website_field");
+
+    }else{
+        formFieldData_check=0;
+        field_error_css("#website_field");
+        console.log("website 0");
+    }
+
+    var formData = new FormData(this);
+    formData.append("<?= $this->security->get_csrf_token_name();?>",key);
+    formData.append('website_field_new',new_website_field);
+    
+    var image_field_check=$("#image_field").val();
+    formData.append('image_field_check',image_field_check);
+
+    // for (var pair of formData.entries()){
+    //     console.log(pair[0]+ ': '+ pair[1]); 
+    // }
+
+    if(formFieldData_check==0){
+        // formData.delete('website_field');
+        console.log(formFieldData_check);
+    }else{
+        $.ajax({
+            type:"POST",
+            url:"<?=base_url('main_helper/submit_signup_data');?>",
+            async:false,
+            data: formData,
+            dataType:"json",
+            processData: false,
+            contentType: false,
+            success:function(data){
+                key=data.key;
+
+                if(data.data==true){
+                    window.location.href = "<?=base_url('main/account_created');?>"; 
+                }else{
+                    alert("Something Went Wrong.");
+                }
+
+                console.log(data);
+                    
+            },
+            error:function(data){
+                console.log(data);
+                    // result=data;
+            }
+        });
+    }
+
+
+});
+
+</script>
 
 </body>
 </html>
