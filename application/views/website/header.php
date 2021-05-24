@@ -10,12 +10,12 @@
 
     }else{
 
-        $submit_property_button="";
+        $submit_property_button="<button class=\"navbar-btn nav-button wow fadeInRight\" onclick=\" window.open('".base_url('main/submit_property')."')\" data-wow-delay=\"0.5s\"><B>PostProperty<span style=\"color: red;\"> FREE</b></span></button>";
         // $submit_property_button="<button class=\"navbar-btn nav-button wow fadeInRight\" onclick=\" window.open('".base_url('main/submit_property')."')\" data-wow-delay=\"0.5s\">submit</button>";
 
-        $login_logout_button="<a class=\"navbar-btn nav-button wow bounceInRight login \" href=\"".base_url('main/log_user')."\" data-wow-delay=\"0.5s\" id=\"login_button_header\" style=\"position:relative;top:10px;\">Login</a>";
+        $login_logout_button="<a class=\"navbar-btn nav-button wow bounceInRight login \" href=\"".base_url('main/log_user')."\" data-wow-delay=\"0.5s\" id=\"login_button_header\" style=\"position:relative;\">Login</a>";
 
-        $header_tab_shift="margin-right: 100px;";
+        $header_tab_shift="";
     }
 
 ?>
