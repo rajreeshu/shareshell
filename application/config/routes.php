@@ -58,3 +58,4 @@ $route['properties'] = "main/properties";
 $route['property'] = "main/property";
 $route['contact'] = "main/contact";
 $route['faq'] = "main/faq";
+$route['account']="main/account";

@@ -1,5 +1,24 @@
 
+<?php
 
+    if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
+        $submit_property_button="<button class=\"navbar-btn nav-button wow fadeInRight\" onclick=\" window.open('".base_url('main/submit_property')."')\" data-wow-delay=\"0.5s\"><B>PostProperty<span style=\"color: red;\"> FREE</b></span></button>";
+
+        $login_logout_button="<a class=\"navbar-btn nav-button wow bounceInRight login\" href=".base_url('account')." data-wow-delay=\"0.4s\" id=\"account_button_header\">Account</a>";
+
+        $header_tab_shift="";
+
+    }else{
+
+        $submit_property_button="";
+        // $submit_property_button="<button class=\"navbar-btn nav-button wow fadeInRight\" onclick=\" window.open('".base_url('main/submit_property')."')\" data-wow-delay=\"0.5s\">submit</button>";
+
+        $login_logout_button="<a class=\"navbar-btn nav-button wow bounceInRight login \" href=\"".base_url('main/log_user')."\" data-wow-delay=\"0.5s\" id=\"login_button_header\" style=\"position:relative;top:10px;\">Login</a>";
+
+        $header_tab_shift="margin-right: 100px;";
+    }
+
+?>
         <div id="preloader">
             <div id="status">&nbsp;</div>
         </div>
@@ -13,7 +32,7 @@
                         <div class="header-half header-call">
                             <p>
                                 <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
-                                <span><i class="pe-7s-mail"></i> ShareShell.net</span>
+                                <span><i class="pe-7s-mail"></i> contactus@shareshell.in</span>
                             </p>
                         </div>
                     </div>
@@ -44,14 +63,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?=base_url();?>"style="font-size: 35px;font-weight: bold;">ShareShell</a>
+                    <a class="navbar-brand" href="<?=base_url();?>"style="font-size: 35px;font-weight: bold;"><img
+                        style="max-height: 44px;" src="<?=base_url('assets/img/shareshell_logo.png');?>" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse yamm" id="navigation">
+                <div class="collapse navbar-collapse yamm" id="navigation" style="<?=$header_tab_shift;?>">
                     <div class="button navbar-right">
-                        <a class="navbar-btn nav-button wow bounceInRight login" href="<?=base_url('main/log_user');?>" data-wow-delay="0.4s">Login</a>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('<?=base_url('main/submit_property');?>')" data-wow-delay="0.5s">Submit</button>
+                         <!-- <a class="navbar-btn nav-button wow bounceInRight login" href="<?=base_url('main/log_user');?>" data-wow-delay="0.4s">Login</a> -->
+                        <?=$login_logout_button;?>
+                        <?=$submit_property_button;?>
+
+                        <!-- <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" -->
+                        <!-- data-wow-delay="0.5s"><B>PostProperty<span style="color: red;"> FREE</b></span></button> -->
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
@@ -60,7 +84,7 @@
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="<?=base_url('properties');?>">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="<?=base_url('property');?>">Property</a></li>
+                        
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Others<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -83,15 +107,23 @@
                                                     
                                                 </ul>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <h5>Services</h5>
-                                                <ul>
-                                                    <li><a href="service.html">our service</a> </li>
-                                                    
-                                                </ul>
+                                             <div class="col-sm-3">
+                                            <h5>More Links</h5>
+                                            <ul>
+                                                <li><a href="testimonials.html">testimonials</a> </li>
 
-                                                                       
-                                            </div>
+                                            </ul>
+                                            <ul>
+                                                <li><a href="privacy-policy.html">Privacy and Policy</a> </li>
+
+                                            </ul>
+                                            <ul>
+                                                <li><a href="terms-conditions.html">Terms and Condition</a> </li>
+
+                                            </ul>
+
+
+                                        </div>
                                             <div class="col-sm-3">
                                                 <h5>Property process</h5>
                                                 <ul> 
@@ -115,12 +147,55 @@
                             </ul>
                         </li>
 
+                                            <li class="dropdown yamm-fw" data-wow-delay="0.1s">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                            data-delay="200">About Us<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h5>PROFILE</h5>
+                                            <ul>
+                                                <li><a href="company-profile.html">Company Profile</a> </li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>TEAM</h5>
+                                            <ul>
+
+                                                <li><a href="single-right.html">Team Members</a> </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>COMMUNITY</h5>
+                                            <ul>
+                                                <li><a href="service.html">Links</a> </li>
+
+                                            </ul>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- /.yamm-content -->
+                            </li>
+                        </ul>
+                    </li>
+
                         <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="<?=base_url('contact');?>">Contact</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
         <!-- End of nav bar -->
+
+
+
 
 
 

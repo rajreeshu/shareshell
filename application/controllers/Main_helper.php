@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Main_helper extends CI_Controller { 
+class Main_helper extends CI_Controller {  
 
 	public function submit_property()
 	{
@@ -214,6 +214,59 @@ public function submit_signup_data(){
 	echo json_encode($data);
 }
 
+
+public function login_validate_data(){
+
+	$input=$this->security->xss_clean($this->input->post());
+
+	// $data['input']=$input;
+
+	$dbpass=$this->db->select('sn as userid,password')->where('email',$input['email'])->get('user_detail')->row();
+
+	$data['data']=password_verify($input['email']."//".$input['password'],$dbpass->password);
+
+	if($data['data']){
+		$this->session->unset_userdata('user_id_shareshell');
+		$this->session->set_userdata('user_id_shareshell',$dbpass->userid);
+
+	}
+
+
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+
+
+
+}
+
+public function logout_account(){
+
+	$input=$this->security->xss_clean($this->input->post());
+	$this->session->unset_userdata('user_id_shareshell');
+
+	if(!$this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
+		redirect("main/log_user");
+	}else{
+		redirect("account");
+		// $data['data']=false;
+	}
+
+	// $data['key']=$this->security->get_csrf_hash();
+	
+
+}
+
+public function user_account_detail(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	$data['data']=$this->db->select('first_name,last_name,username,email,image,website,facebook,twitter,account_created_on')->where('sn',$input['user_id'])->get('user_detail')->row();
+
+
+
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+
+}
 
 
 

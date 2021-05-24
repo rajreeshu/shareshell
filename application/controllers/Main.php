@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+class Main extends CI_Controller { 
 
 	public function index(){
 
@@ -36,7 +36,14 @@ class Main extends CI_Controller {
 	}
 
 	public function log_user(){
-		$this->load->view('website/login_signup');
+
+		if(!$this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
+			$this->load->view('website/login_signup');
+		}else{
+			redirect('account');
+		}
+
+		
 	}
 	public function signup_detail(){
 		
@@ -44,6 +51,15 @@ class Main extends CI_Controller {
 	}
 	public function account_created(){
 		$this->load->view('website/account_created');
+	}
+
+	public function account(){
+		if(isset($_SESSION['user_id_shareshell'])){
+			$this->load->view('website/useraccount');	
+		}else{
+			redirect('main/log_user');
+		}
+		
 	}
 
 

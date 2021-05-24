@@ -18,18 +18,23 @@
 ?>    
         <div class="slider-area">
             <div class="slider">
-                <div id="bg-slider" class="owl-carousel owl-theme">
+            <div id="bg-slider" class="owl-carousel owl-theme">
  
-                    <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-2.jpg" alt="The Last of us"></div>
-                    <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-1.jpg" alt="GTA V"></div>
+                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-0.jpg" alt="The Last of us"></div>
+                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-1.jpg" alt="The Last of us"></div>
+                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-2.jpg" alt="GTA V"></div>
+                <div class="item"><img style="" src="assets/img/slide1/slider-image-3.jpg" alt="The Last of us"></div>
+                <div class="item"><img style="" src="assets/img/slide1/slider-image-4.jpg" alt="GTA V"></div>
 
-                </div>
+            </div>
             </div>
             <div class="container slider-content">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-                        <h2>property Searching Just Got So Easy</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi deserunt deleniti, ullam commodi sit ipsam laboriosam velit adipisci quibusdam aliquam teneturo!</p>
+                        <h2 style="text-shadow:1px 1px white;">property Searching Just Got So Easy</h2>
+                        <h5 style="color: rgb(252, 252, 252); text-shadow: 1px 1px 3px grey;">“Now, one thing I tell everyone is learn about real estate.
+                        Repeat after me: real estate provides the highest returns, the greatest values and the least
+                        risk. ”</h5>
 
                     </div>
                 </div>

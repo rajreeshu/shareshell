@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SHARESHELL| Home page</title>
+    <meta name="shareshell" content="Making rental easy">
+    <meta name="author" content="Kimarotec">
+    <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>-->
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+ <!--   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/fontello.css">
+    <link href="assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/icheck.min_all.css">
+    <link rel="stylesheet" href="assets/css/price-range.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.css">
+    <link rel="stylesheet" href="assets/css/owl.transitions.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css"> -->
+</head>
+
+<body>
+<?php
+    $this->load->view('website/link_import');
+    $this->load->view('website/header');
+?>  
+
+    <div class="page-head">
+        <div class="container">
+            <div class="row">
+                <div class="page-head-content">
+                    <h1 class="page-title">Hello : <span class="orange strong">YOUR NAME</span></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End page header -->
+
+ 
+
+    <!-- property area -->
+    <div class="content-area user-profiel" style="background-color: #FCFCFC;">&nbsp;
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 profiel-container">
+
+                    
+                        <div class="profiel-header">
+                            <h3>
+                                <b> YOUR PROFILE</b><br>
+                                <small>This information will let us know more about you.</small>
+                            </h3>
+                            <hr>
+                        </div>
+ 
+                        <div class="clear">
+                            <div class="col-sm-3 col-sm-offset-1">
+                                <div class="picture-container">
+                                    <div class="picture" style="height:auto; background: #d0d0d0;">
+                                        
+                                        <img src="https://www.pinclipart.com/picdir/big/559-5590325_avatar-icon-png-clipart.png" class="picture-src" id="PicturePreview" title="" style="object-fit: cover;"/>
+                                        <!-- <input type="file" id="wizard-picture"> -->
+                                    </div>
+                                    <h6>Profile Pic</h6>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3 padding-top-25">
+
+                                <div class="form-group">
+                                    <label>Name: <span style="color:#999999;" id="user_name"></span></label>
+
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label>Last Name: </label>
+
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Email: <span style="color:#999999;" id="user_email"></span></label>
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Username: <span style="color:#999999;" id="user_username"></span></label>
+
+                                </div>
+
+                                <div class="form-group">
+                            <label>Facebook: <span style="color:#999999;" id="user_facebook"></span></label>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>Twitter: <span style="color:#999999;" id="user_twitter"></span></label>
+
+                            </div>
+                            </div>
+
+
+                        </div>
+
+                </div>
+
+                <div class="clear">
+                    <br>
+                    <hr>
+                    <br>
+                    <div class="col-sm-5 col-sm-offset-1">
+
+                    </div>
+
+                </div>
+
+
+
+            <div class="col-sm-4 col-sm-offset-1">
+                <br>
+               <a href="contact.html"><input  type='button' class='btn btn-finish btn-primary' name='Male us your problem (help)' value='E-male us (help)' /></a> 
+
+               
+                
+            </div>
+            
+            
+            <div class="col-sm-4 col-sm-offset-2 float-right" style="">
+                <br>
+                <a href="summited_properties.html"><input type='button' class='btn btn-finish btn-primary' name='See your submitted property' value='Submitted property' /></a>
+            </div>
+            <br>
+
+                        <div class="col-sm-4 col-sm-offset-1">
+                <br>
+               <a href="contact.html"><input  type='button' class='btn btn-finish btn-primary' name='Male us your problem (help)' value='Forget Password' /></a> 
+
+               
+                
+            </div>
+            
+            
+            <div class="col-sm-4 col-sm-offset-2 float-right" style="">
+                <br>
+                <a href="summited_properties.html"><input type='button' class='btn btn-finish btn-primary' name='See your submitted property' value='Edit Profile' /></a>
+            </div>
+            
+
+
+    </div>
+    </div>
+
+</div>
+    <br>
+    <br>
+
+
+    <!-- Footer area-->
+<?php
+    $this->load->view('website/footer');
+
+    $this->load->view('website/js_import'); 
+
+?>
+</body>
+
+<script type="text/javascript">
+
+    var key="<?php echo $this->security->get_csrf_hash(); ?>"; 
+    console.log(key);
+
+    $("#account_button_header").text("Logout");
+    $("#account_button_header").attr("href","<?=base_url('main_helper/logout_account');?>");
+
+    // $("#account_button_header").click(function(e){
+    //     e.preventDefault();
+
+    //     $.ajax({
+    //     url:"<?=base_url('main_helper/logout_account');?>",
+    //     type:"POST",
+    //     async:false,
+    //     data:{
+    //         "<?php echo $this->security->get_csrf_token_name();?>":key
+    //         // user_id:"<?=$_SESSION['user_id_shareshell'];?>"
+    //         },
+    //         dataType:"json",
+    //         success:function(data){
+    //             console.log(key);
+    //             key=data.key;
+    //             console.log(key);
+
+               
+    //             console.log(data);
+    //         },
+    //         error:function(data){
+    //             console.log(data);
+    //             // result=data;
+    //         }
+    //     });
+
+    // });
+
+
+
+        $.ajax({
+        url:"<?=base_url('main_helper/user_account_detail');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            user_id:"<?=$_SESSION['user_id_shareshell'];?>"
+            },
+            dataType:"json",
+            success:function(data){
+                key=data.key;
+
+                $("#user_name").html(data.data['first_name'].charAt(0).toUpperCase()+data.data['first_name'].slice(1)+" "+data.data['last_name']);
+                $("#user_email").html(data.data['email']);
+                $("#user_username").html(data.data['username']);
+                $("#user_facebook").html(data.data['facebook']);
+                $("#user_twitter").html(data.data['twitter']);
+                if(data.data['image']!=""){
+                    $("#PicturePreview").attr("src","<?=base_url('utility/user_image/');?>"+data.data['image']);
+                }
+                console.log(data);
+            },
+            error:function(data){
+                console.log(data);
+                // result=data;
+            }
+    });
+
+</script>
+
+</html>

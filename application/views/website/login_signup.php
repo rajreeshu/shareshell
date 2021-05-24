@@ -20,7 +20,7 @@
 ?>  
 
     
-        </nav>
+     
         <!-- End of nav bar -->
         <div class="page-head"> 
             <div class="container">
@@ -80,16 +80,16 @@
                             <form action="" method="post">
                                 <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email">
+                                    <label for="email">Email</label> &nbsp <b><span class="text-danger mr-1" id="login_email_error"></span></b> 
+                                    <input type="text" class="form-control" placeholder="abc123@xyz.com" id="login_email">
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <label for="password">Password</label> &nbsp <b><span class="text-danger mr-1" id="login_password_error"></span></b> 
+                                    <input type="password" class="form-control" placeholder="********" id="login_password">
                                 </div>
                                 <div class="text-center">
                                     
-                                    <input type="submit" class="btn btn-default" value="Log in" id=""> 
+                                    <input type="submit" class="btn btn-default" value="Log in" id="login_submit"> 
                                 </div>
 
                             </form>
@@ -404,6 +404,73 @@ $("#signup_submit").click(function(event) {
     }
 });
 
+
+
+//login field code starts here
+
+
+
+$("#login_email").blur(function(){
+    var login_email_temp=$("#login_email").val();
+
+    if(isEmail(login_email_temp)){
+        $("#login_email_error").html("<b class='text-success'> &#10003; </b>");
+    }else{
+        $("#login_email_error").html("*Invalid Email");
+    }
+
+});
+
+$("#login_submit").click(function(e){
+    e.preventDefault();
+
+    var login_email_temp=$("#login_email").val();
+    var login_password_temp=$("#login_password").val();
+    
+    if(login_email_temp.length<1){
+        $("#login_email_error").html("*Empty Field");
+        return;
+    }else 
+
+    if(login_password_temp.length<1){
+        $("#login_password_error").html("*Empty Field");
+        return;
+    }else{
+        $("#login_password_error").html("");
+    }
+
+
+   
+    $.ajax({
+        url:"<?=base_url('main_helper/login_validate_data');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            email:login_email_temp,
+            password:login_password_temp
+            },
+            dataType:"json",
+            success:function(data){
+                key=data.key;
+                if(data.data==false){
+                    $("#login_password").val("");
+                    $("#login_email_error").html("*Incorrect Emain/Password");
+                }else{
+                    window.location.href="<?=base_url('account');?>";
+                }
+
+                console.log(data);
+                
+            },
+            error:function(data){
+                console.log(data);
+                // result=data;
+            }
+    });
+
+
+}); 
 
 
 

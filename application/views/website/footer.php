@@ -11,7 +11,8 @@
                                 <div class="footer-title-line"></div>
 
                                 <!-- <img src="<?=base_url();?>assets/img/footer-logo." alt="ShareShell"> -->
-                               <b>ShareShell</b>
+                               <!-- <b>ShareShell</b> -->
+                               <img src="<?=base_url('assets/img/shareshell_mobile_logo.png');?>" alt="ShareShell">
                                 <br>
                                 <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
                                 <ul class="footer-adress">
@@ -90,7 +91,9 @@
                             <div class="single-footer news-letter">
                                 <h4>Stay in touch</h4>
                                 <div class="footer-title-line"></div>
-                                <p>Lorem ipsum dolor sit amet, nulla  suscipit similique quisquam molestias. Vel unde, blanditiis.</p>
+                                <p>Toll Free 1800 41 99099</br>
+                                Monday - Saturday (9:00AM to 7:00PM IST)</br>
+                                Email: contactus@shareshell.in</p>
 
                                 <form>
                                     <div class="input-group">
@@ -121,17 +124,34 @@
             <div class="footer-copy text-center">
                 <div class="container">
                     <div class="row">
-                        <div class="pull-left">
-                            <span> (C) <a href="http://www.shareshell.net">shareshell</a> , All rights reserved 2021  </span> 
+                        <p class="" style="text-align:left;margin-bottom: -20px;">
+                            <b>Disclaimer:-</b><br> Shareshell Realty Services Limited is only an intermediary offering its
+                            platform to advertise properties of Seller for a Customer/Buyer/User coming on its Website
+                            and is not and cannot be a party to or privy to or control in any manner any transactions
+                            between the Seller and the Customer/Buyer/User. All the offers and discounts on this Website
+                            have been extended by various Builder(s)/Developer(s) who have advertised their products.
+                            Shareshell is only communicating the offers and not selling or rendering any of those
+                            products or services. It neither warrants nor is it making any representations with respect
+                            to offer(s) made on the site.Shareshell Realty Services Limited shall neither be
+                            responsible nor liable to mediate or resolve any disputes or disagreements between the
+                            Customer/Buyer/User and the Seller and both Seller and Customer/Buyer/User shall settle all
+                            such disputes without involving Magicbricks Realty Services Limited in any manner.
+                        </p>
+                        <hr>
+                        <div  style="margin-top:-15px;">
+                        <div class="pull-left ">
+                            <span> (C) <a href="<?=base_url();?>">shareshell</a> , All rights reserved 2021  </span> 
                         </div> 
                         <div class="bottom-menu pull-right"> 
                             <ul> 
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">Home</a></li>
+                                <li><a class="wow fadeInUp animated" href="<?=base_url();?>" data-wow-delay="0.2s">Home</a></li>
                                 <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
                                 <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
                                 <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
                             </ul> 
                         </div>
+                    </div>
+
                     </div>
                 </div>
             </div>
