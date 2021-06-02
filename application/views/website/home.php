@@ -50,125 +50,50 @@
                         
                        
 
-                        <form action="" class=" form-inline">
-                            <div class="col-md-12">
-                                <div class="col-md-4">
-                                    <select data-live-search="true" data-live-search-style="begins" id="filter_avail" class="selectpicker show-tick form-control" title="-Available for-">
-                                        <option value="">All</option>
-                                        <option value="girl">Girls</option>
-                                        <option value="boy">Boys</option> 
-                                        <option value="combined">Girls/Boys(combined)</option> 
-                                    </select>
-
-                                </div>
-                                <div class="col-md-4">                                   
-                                    <select id="filter_city" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select your city">
-                                        <option value="bhubaneswar">Bhubaneshwar</option>
-                                        
-                                    </select>
-                                </div>
-                                <div class="col-md-4">                                     
-                                    <select id="filter_status" data-live-search="true" data-live-search-style="begins"class="selectpicker show-tick form-control" title="-Status-">
-                                        <option value="">All</option>
-                                        <option value="rent">Rent </option>
-                                        <option value="pg">PG</option>
-                                    
-
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-12 ">
-                                <div class="search-row">   
-
-                                    <div class="col-sm-3">
-                                        <label for="price-range">Price range ($):</label>
-                                        <input type="text" class="span2" value="" data-slider-min="500" 
-                                               data-slider-max="100000" data-slider-step="100" 
-                                               data-slider-value="[750,50000]" id="price-range" value="750,50000"><br/>
-                                        <b class="pull-left color">500</b> 
-                                        <b class="pull-right color">100000</b>
-                                    </div>
-                                    <!-- End of  -->  
-
-                                    <!-- <div class="col-sm-3">
-                                        <label for="property-geo">Property geo (m2) :</label>
-                                        <input type="text" class="span2" value="" data-slider-min="40" 
-                                               data-slider-max="12000" data-slider-step="5" 
-                                               data-slider-value="[0,4450]" id="property-geo" ><br />
-                                        <b class="pull-left color">40m</b> 
-                                        <b class="pull-right color">12000m</b>
-                                    </div> -->
-                                    <!-- End of  --> 
-
-                                    <!-- <div class="col-sm-3">
-                                        <label for="price-range">Min baths :</label>
-                                        <input type="text" class="span2" value="" data-slider-min="0" 
-                                               data-slider-max="10" data-slider-step="1" 
-                                               data-slider-value="[250,450]" id="min-baths" ><br />
-                                        <b class="pull-left color">1</b> 
-                                        <b class="pull-right color">10</b>
-                                    </div> -->
-                                    <!-- End of  --> 
-
-                                    <!-- <div class="col-sm-3">
-                                        <label for="property-geo">Min bed :</label>
-                                        <input type="text" class="span2" value="" data-slider-min="1" 
-                                               data-slider-max="10" data-slider-step="1" 
-                                               data-slider-value="[250,450]" id="min-bed" ><br />
-                                        <b class="pull-left color">1</b> 
-                                        <b class="pull-right color">10</b>
-                                    </div> -->
-                                    <!-- End of  --> 
-
-                                </div>
-
-                                <div class="search-row">  
-
-                                    <div class="col-sm-3">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="filter_addon" value="fire"> Fire Place(3100)
-                                            </label>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- End of  -->  
+                    <form action="" class=" form-inline">
 
 
-                                    <div class="col-sm-3">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="filter_addon" value="exit"> Emergency Exit(200)
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <!-- End of  --> 
 
-                                    <div class="col-sm-3">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="filter_addon" value="laundry"> Laundry(10073)
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <!-- End of  -->  
+<div class="col-md-12" style="list-style: none;display: flex;padding: 10px;">
+    <li
+        style="margin-right: 28px;margin-left: 15px;cursor: pointer;border-bottom: 3px solid rgb(241, 240, 240);">
+        <a>R E N T</a></li>
+    <li style="margin-right: 28px;cursor: pointer;border-bottom: 3px solid rgb(241, 240, 240);">
+        <a>B U Y</a></li>
+    <li style="margin-right: 28px;cursor: pointer;border-bottom: 3px solid rgb(241, 240, 240);">
+        <a>P L O T</a></li>
 
-                                   
+</div>
 
-                                    <div class="col-sm-3">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="filter_addon" value="mess">Mess(food)
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <!-- End of  --> 
-                                </div>   
-                            </div>  
-                            <div class="center">
-                                <input type="submit" value="" class="btn btn-default btn-lg-sheach" id="btn-search-main">
-                            </div>
-                        </form>
+<div class="col-md-12 ">
+
+
+    <div class="small" style="align-content: center;align-items: center;display:flex;">
+
+
+
+        <input class="search" type="text"
+            placeholder="Search property on your desired location....."
+            style="border: 1px solid grey;border-radius: 40px;height:3em;background-color: rgb(248, 245, 245);align-items: center;align-content: center;">
+
+        <span>
+
+            <button
+                style="border-radius: 40px;border: 2px solid rgb(255, 255, 255);font-size: 15px;width:8em;"
+                class='  btn-primary '><a href=></a>SEARCH</button>
+
+        </span>
+
+    </div>
+
+
+
+</div>
+
+
+</div>
+
+</form>
                     
 
                     </div>
