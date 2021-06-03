@@ -7,7 +7,7 @@ class Main_helper extends CI_Controller {
 	{
 		$input=$this->security->xss_clean($this->input->post());
 
-		// $data['input']=$input;
+		$data['input']=$input;
 		
 
 		// $data['data']=$input;
@@ -27,7 +27,7 @@ class Main_helper extends CI_Controller {
 			$addon=$addon."mess,";
 		}
 
-		$db_array = array('listed_by' => '1',
+		$db_array = array('listed_by' => $this->security->xss_clean($this->session->userdata('user_id_shareshell')),
 							'name'	   => $input['propertyname'],
 							'price'	   => $input['propertyprice'],
 							'address'  => $input['propertyaddress'],
@@ -51,6 +51,8 @@ class Main_helper extends CI_Controller {
 		$this->load->model('upload_model');
 		$main_img_upload=$this->upload_model->upload_file($insertId,'jpg|png|jpeg','utility/main_image','main_img');
 
+		
+
 
 
 		$upload_data = $this->upload->data(); //Returns array of containing all of the data related to the file you uploaded.
@@ -59,6 +61,25 @@ class Main_helper extends CI_Controller {
 		}
 
 		$data['upload_error']=$this->upload->display_errors();
+
+		$multiple_img_upload_no=1;
+		// $data['file_name']="";
+		while($multiple_img_upload_no<$input['property_image_no']){
+			$upload_multi=false;
+			$multi_file_name='prs'.$multiple_img_upload_no;
+
+
+			$upload_multi=$this->upload_model->upload_file($insertId."_".$multiple_img_upload_no,'jpg|png|jpeg','utility/main_image',$multi_file_name);
+			$upload_data_multi = $this->upload->data();
+			if($upload_multi){
+				$this->db->insert('property_image',['property_id'=>$insertId,'image'=>$upload_data_multi['file_name'],'date_time'=>date('Y-m-d H:i:s')]);
+			}
+			// $data['upload_error_multi'.$multiple_img_upload_no]=$this->upload->display_errors();
+			
+			// $data['file_name'].=' '.$multi_file_name;
+			// $data['upload_data']=$upload_data_multi;
+			$multiple_img_upload_no++;
+		}
 
 		// $data['input']=$input;
 		
@@ -71,6 +92,16 @@ public function get_property_data(){
 	$input=$this->security->xss_clean($this->input->post());
 
 	$data['data']=$this->db->select('listed_by,name,price,address,contact,main_image,description,avail,city,status,type,min_bed,addon,add_image,add_video')->where('sn',$input['id'])->get('property_info')->row();
+	$data['key']=$this->security->get_csrf_hash();
+
+	echo json_encode($data);
+}
+
+public function get_property_images(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	$data['data']=$this->db->select('image_id,image')->where('property_id',$input['property_id'])->get('property_image')->result();
+
 	$data['key']=$this->security->get_csrf_hash();
 
 	echo json_encode($data);
@@ -120,6 +151,9 @@ public function get_all_property_list(){
 
 	echo json_encode($data);
 }
+
+// public function get_user_data
+
 
 public function signup_validate_data(){
 	$input=$this->security->xss_clean($this->input->post());
@@ -174,6 +208,8 @@ public function password_create_hash(){
 public function submit_signup_data(){
 	$input=$this->security->xss_clean($this->input->post());
 
+	$otp_random=rand(1000,9999);
+
 	// $data['input']=$input;
 
 	$db_array=array(
@@ -182,10 +218,13 @@ public function submit_signup_data(){
 					'username'=>$input['username_field'],
 					'email'=>$input['email_field'],
 					'password'=>$input['password_field'],
+					'user_bio'=>$input['bio_area'],
+					'address'=>$input['address_area'],
 					'website'=>$input['website_field_new'],
 					'phone'=>$input['phone_field'],
 					'facebook'=>$input['facebook_field'],
 					'twitter'=>$input['twitter_field'],
+					'gender'=>$input['gender_field'],
 					'account_created_on'=>date('Y-m-d H:i:s')
 	);
 
@@ -194,6 +233,12 @@ public function submit_signup_data(){
 
 	if($insert_prop_data==1){
 		$this->session->set_flashdata('account_created', '1');
+
+		$this->db->where('sn',$insertId)->update('user_detail',['otp'=>password_hash($otp_random,PASSWORD_BCRYPT),'otp_sent_time'=>date('Y-m-d H:i:s')]);
+
+		$this->session->set_userdata('otp_verify_signup_shareshell',$insertId);
+		// $data['error']=$this->db->error();
+
 	}
 	
 
@@ -208,12 +253,30 @@ public function submit_signup_data(){
 		$data['upload_error']=$this->upload->display_errors();
 	}
 	
-
+	$data['otp']=$otp_random;
 	$data['data']=$insert_prop_data;
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 }
 
+public function verify_otp(){
+
+	$input=$this->security->xss_clean($this->input->post());
+
+	$db_data=$this->db->select('otp,otp_sent_time')->where('sn',$input['user_id'])->get('user_detail')->row();
+
+	$data['data']=password_verify($input['otp'],$db_data->otp);
+
+	if($data['data']){
+		$this->session->unset_userdata('otp_verify_signup_shareshell');
+		$this->db->where('sn',$input['user_id'])->update('user_detail',['status'=>1]);
+	}
+	// $data['input']=$input;
+	// $data['db']=$db_data;
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+
+}
 
 public function login_validate_data(){
 
@@ -221,17 +284,18 @@ public function login_validate_data(){
 
 	// $data['input']=$input;
 
-	$dbpass=$this->db->select('sn as userid,password')->where('email',$input['email'])->get('user_detail')->row();
+	$dbpass=$this->db->select('sn as userid,password,status')->where('email',$input['email'])->get('user_detail')->row();
 
 	$data['data']=password_verify($input['email']."//".$input['password'],$dbpass->password);
 
-	if($data['data']){
+
+	if($data['data']&&$dbpass->status==1){
 		$this->session->unset_userdata('user_id_shareshell');
 		$this->session->set_userdata('user_id_shareshell',$dbpass->userid);
 
 	}
 
-
+	$data['account_status']=$dbpass->status;
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 
@@ -259,8 +323,44 @@ public function logout_account(){
 public function user_account_detail(){
 	$input=$this->security->xss_clean($this->input->post());
 
-	$data['data']=$this->db->select('first_name,last_name,username,email,image,website,facebook,twitter,account_created_on')->where('sn',$input['user_id'])->get('user_detail')->row();
+	$data['data']=$this->db->select('first_name,last_name,username,email,phone,gender,image,user_bio,website,facebook,twitter')->where('sn',$input['user_id'])->get('user_detail')->row();
 
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+
+}
+
+public function user_detail_public(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	$data['data']=$this->db->select('first_name,last_name,username,gender,image,address,user_bio,website,facebook,twitter')->where('sn',$input['user_id'])->get('user_detail')->row();
+
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
+public function change_password(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	$user_detail=$this->db->select('email,password')->where('sn',$input['user_id'])->get('user_detail')->row();
+
+
+
+	$isSame=password_verify($user_detail->email."//".$input['old_password'],$user_detail->password);
+
+	$this->load->model('password_model');
+	$new_password_hash=$this->password_model->create_hash($user_detail->email,$input['new_password']);
+	
+	$updated=false;
+
+	if($isSame){
+		$data['isSamePassword']=true;
+		$updated=$this->db->where('sn',$input['user_id'])->update("user_detail",['password'=>$new_password_hash]);
+	}else{
+		$data['isSamePassword']=false;
+	}
+
+	$data['updated']=$updated;
 
 
 	$data['key']=$this->security->get_csrf_hash();
@@ -268,6 +368,39 @@ public function user_account_detail(){
 
 }
 
+
+public function my_property_data(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	$this->db->select('sn,listed_by,name,price,address,contact,main_image,description,avail,city,status,type,min_bed,addon,add_image,add_video');
+	// $this->db->like(['avail'=>$input['filter_avail'],'city'=>$input['filter_city'],'status'=>$input['filter_status'],'addon'=>$input['filter_addon'][0]])
+	// $this->db->like('addon',$input['filter_addon'][1]);
+	// $this->db->like('addon',$input['filter_addon'][2]);
+	// $this->db->like('addon',$input['filter_addon'][3]);
+	// $this->db->where('price >',(int)$property_price[0]-10);
+	// $this->db->where('price < ',(int)$property_price[1]+10);
+	// $this->db->order_by($input['filter_sort'],$input['filter_sort_by']);
+	// $this->db->limit($input['items_per_page'],($input['page_no']-1)*$input['items_per_page']);
+	$this->db->where('listed_by',$input['user_id']);
+	$data['data']=$this->db->get('property_info')->result();
+
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
+public function delete_property_byid(){
+
+	$input=$this->security->xss_clean($this->input->post());
+
+	if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
+		$this->db->where('sn',$input['property_id'])->delete('property_info');
+	}
+
+	
+
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
 
 
 

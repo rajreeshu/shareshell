@@ -304,7 +304,12 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="property-images">Chose Images :</label>
-                                                    <input class="form-control" type="file" id="property-images" name="property-images">
+                                                    <span id="for_multiple_image">
+                                                        <!-- <input class="form-control property-images" type="file" id="" name="property-images" style="margin-top:10px;">
+                                                        <input class="form-control property-images" type="file" id="" name="property-images" style="margin-top:10px;">
+                                                        <input class="form-control property-images" type="file" id="" name="property-images" style="margin-top:10px;">
+ -->                                                    </span>
+                                                    
                                                     <p class="help-block">Select multipel images for your property .</p>
                                                 </div>
                                             </div>
@@ -433,7 +438,10 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
         if((onPage==1)&&prop_name==""||prop_price==""||prop_address==""||prop_contact==""||main_img==""){
             // $("#next_btn").css('opacity', '0.3').removeClass('btn-next');
             $("#next_btn").css('opacity', '0.3');
+            
+            //temporarly removed
             $("#next_btn").attr('disabled', '');
+            
             $("#next_btn").css({
                 backgroundColor: '',
                 color: '#215655'
@@ -595,6 +603,36 @@ $("#property_type").on("change",function() {
 //third page
 var video;
 
+var property_image_no=1;
+
+var multiple_image_html='<input class="form-control property-images" type="file" id="property-images'+property_image_no+'" name="prs'+property_image_no+'" style="margin-top:10px;">';
+multiple_image_html+='<input type="hidden" name="property_image_no" id="property_image_no">';
+
+$("#for_multiple_image").html(multiple_image_html);
+
+// $(".property-images").attr('id','property-images'+property_image_no);
+
+
+// $(".property-images").change(function(){
+    $(document).on("change",".property-images",function(){
+    console.log('hello triggered');
+    if($(this).val()!=""&&property_image_no<16){
+        property_image_no++;
+        $("#for_multiple_image").append('<input class="form-control property-images" type="file" id="property-images'+property_image_no+'" name="prs'+property_image_no+'" style="margin-top:10px;">');
+        $("#property_image_no").val(property_image_no);
+        
+    }
+    
+
+});
+
+// for(i=1;i<=property_image_no;i++){
+//     console.log("hello");
+// }
+
+
+
+
 function get_all_value_3(){
     video=$("#video_link").val();
 }
@@ -633,14 +671,20 @@ $("#form1").submit(function(e) {
         get_all_inp_value();
         get_all_inp_value_two();
         get_all_value_3();
-        
+
+        var formData=new FormData(this);
+        // console.log(formData);
+//         for (var pair of formData.entries()) {
+//   console.log(pair[0] + " - " + pair[1]);
+// }
+//         return;
 
 
              $.ajax({
                 type:"post",
                 url:"<?=base_url('main_helper/submit_property');?>",
                 async:false,
-                data:new FormData(this),
+                data:formData,
                 //{
                 //     "<?php echo $this->security->get_csrf_token_name();?>":key,
                 //     prop_name:prop_name,
@@ -666,9 +710,9 @@ $("#form1").submit(function(e) {
                     $("#loader").show();
                 },
                 success:function(data){
-                        // console.log(data);
+                        // console.log();
                     key=data.key;
-                    console.log(data);
+                    // console.log(data);
                     window.location.href = 'property_submited';
                 },
         

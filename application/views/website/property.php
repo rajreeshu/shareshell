@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
-<html class="no-js"> <!--<![endif]-->
+<html class="no-js"> 
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +10,34 @@
 
        
         <link rel="stylesheet" href="assets/css/lightslider.min.css">
+
+<style type="text/css">
+    .thumb_class{
+        /*border: 3px solid blue;*/
+
+    }
+    .thumb_class_src{
+        height:472px;
+        width: 100%;
+        object-fit: cover;
+        /*border: 3px solid red;*/
+    }
+
+    .lSPager{
+        /*padding: 10px;*/
+        /*border: 3px solid red;*/
+    }
+    .lSSlideOuter .lSPager.lSGallery img{
+        /*border: 3px solid pink;*/
+        height: 50px;
+        width: 80px;
+        object-fit: cover;
+    }
+    .lSGallery img{
+        /*height: 100px;*/
+        /*border: 3px solid blue;*/
+    }
+</style>
 <?php
     $this->load->view('website/link_import');
     $this->load->view('website/header');
@@ -50,18 +74,9 @@
                                     </div> 
 
                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                        <li data-thumb="<?=base_url();?>assets/img/property-1/property1.jpg" id="main_img_thumb"> 
-                                            <img src="<?=base_url();?>assets/img/property-1/property1.jpg" id="main_img_slider"/>
-                                        </li>
-                                        <li data-thumb="<?=base_url();?>assets/img/property-1/property2.jpg"> 
-                                            <img src="<?=base_url();?>assets/img/property-1/property3.jpg" />
-                                        </li>
-                                        <li data-thumb="<?=base_url();?>assets/img/property-1/property3.jpg"> 
-                                            <img src="<?=base_url();?>assets/img/property-1/property3.jpg" />
-                                        </li>
-                                        <li data-thumb="<?=base_url();?>assets/img/property-1/property4.jpg"> 
-                                            <img src="<?=base_url();?>assets/img/property-1/property4.jpg" />
-                                        </li>                                         
+                                        <li data-thumb="" id="main_img_thumb" class="thumb_class"> 
+                                            <img src="" id="main_img_slider" class="thumb_class_src">
+                                        </li>                                      
                                     </ul>
                                 </div>
                             </div>
@@ -112,12 +127,6 @@
                                 </div>
 
                                 <div class="col-xs-3 col-sm-3 col-md-3 p-b-15">
-                                    <!-- <span class="property-info-icon icon-bath">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 48 48">
-                                        <path class="meta-icon" fill="#FFA500" d="M37.003 48.016h-4v-3.002h-18v3.002h-4.001v-3.699c-4.66-1.65-8.002-6.083-8.002-11.305v-4.003h-3v-3h48.006v3h-3.001v4.003c0 5.223-3.343 9.655-8.002 11.305v3.699zm-30.002-24.008h-4.001v-17.005s0-7.003 8.001-7.003h1.004c.236 0 7.995.061 7.995 8.003l5.001 4h-14l5-4-.001.01.001-.009s.938-4.001-3.999-4.001h-1s-4 0-4 3v17.005000000000003h-.001z"></path>
-                                        </svg>
-
-                                    </span> -->
 
                                     <span class="property-info-entry" >
                                         <h1 style="color:#FFA500; margin-top: -20px;"> &#9893;</h1>
@@ -125,20 +134,6 @@
                                         <span class="property-info-value" id="property_avail" style="margin-left: -25px;">3.5</span>
                                     </span>
                                 </div>
-
-                      <!--           <div class="col-xs-3 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info-icon icon-garage">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 48 48">
-                                        <path class="meta-icon" fill="#FFA500" d="M44 0h-40c-2.21 0-4 1.791-4 4v44h6v-40c0-1.106.895-2 2-2h31.999c1.106 0 2.001.895 2.001 2v40h6v-44c0-2.209-1.792-4-4-4zm-36 8.001h31.999v2.999h-31.999zm0 18h6v5.999h-2c-1.104 0-2 .896-2 2.001v6.001c0 1.103.896 1.998 2 1.998h2v2.001c0 1.104.896 2 2 2s2-.896 2-2v-2.001h11.999v2.001c0 1.104.896 2 2.001 2 1.104 0 2-.896 2-2v-2.001h2c1.104 0 2-.895 2-1.998v-6.001c0-1.105-.896-2.001-2-2.001h-2v-5.999h5.999v-3h-31.999v3zm8 12.999c-1.104 0-2-.895-2-1.999s.896-2 2-2 2 .896 2 2-.896 1.999-2 1.999zm10.5 2h-5c-.276 0-.5-.225-.5-.5 0-.273.224-.498.5-.498h5c.275 0 .5.225.5.498 0 .275-.225.5-.5.5zm1-2h-7c-.275 0-.5-.225-.5-.5s.226-.499.5-.499h7c.275 0 .5.224.5.499s-.225.5-.5.5zm-6.5-2.499c0-.276.224-.5.5-.5h5c.275 0 .5.224.5.5s-.225.5-.5.5h-5c-.277 0-.5-.224-.5-.5zm11 2.499c-1.104 0-2.001-.895-2.001-1.999s.896-2 2.001-2c1.104 0 2 .896 2 2s-.896 1.999-2 1.999zm0-12.999v5.999h-16v-5.999h16zm-24-13.001h31.999v3h-31.999zm0 5h31.999v3h-31.999z"></path>
-                                        </svg>
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Garages</span>
-                                        <span class="property-info-value">2</span>
-                                    </span>
-                                </div> -->
-
-
                             </div>
                             <!-- .property-meta -->
 
@@ -238,31 +233,31 @@
 
                                         <div class="clear">
                                             <div class="col-xs-4 col-sm-4 dealer-face">
-                                                <a href="">
-                                                    <img src="<?=base_url();?>assets/img/client-face1.png" class="img-circle">
-                                                </a>
+                                                <!-- <a href=""> -->
+                                                    <img src="<?=base_url();?>assets/img/client-face1.png" class="img-circle" id="user_img" style="height: 100px; width: 100px; object-fit: cover; margin: 0px;padding: 0px;">
+                                                <!-- </a> -->
                                             </div>
                                             <div class="col-xs-8 col-sm-8 ">
-                                                <h3 class="dealer-name">
-                                                    <a href="">Nathan James</a>
-                                                    <span>Real Estate Agent</span>        
+                                                <h3 class="dealer-name" style="padding-bottom:10px;">
+                                                    <a href="" id="agent_name" style="">my name</a>
+                                                    <div id="agent_username" style="font-size: 15px;">My Username</div>        
                                                 </h3>
                                                 <div class="dealer-social-media">
-                                                    <a class="twitter" target="_blank" href="">
-                                                        <i class="fa fa-twitter"></i>
+                                                    <a class="twitter" target="_blank" href="" id="agent_twitter_link">
+                                                        <!-- <i class="fa fa-twitter-square fa-2x" id="agent_twitter"style="margin-right: 20px;"></i> -->
                                                     </a>
-                                                    <a class="facebook" target="_blank" href="">
-                                                        <i class="fa fa-facebook"></i>
+                                                    <a class="facebook" target="_blank" href="" id="agent_facebook_link">
+                                                        <!-- <i class="fa fa-facebook-official fa-2x" id="agent_facebook"></i> -->
                                                     </a>
-                                                    <a class="gplus" target="_blank" href="">
+                                                   <!--  <a class="gplus" target="_blank" href="">
                                                         <i class="fa fa-google-plus"></i>
                                                     </a>
                                                     <a class="linkedin" target="_blank" href="">
                                                         <i class="fa fa-linkedin"></i>
-                                                    </a> 
-                                                    <a class="instagram" target="_blank" href="">
+                                                    </a>  -->
+                                                 <!--    <a class="instagram" target="_blank" href="">
                                                         <i class="fa fa-instagram"></i>
-                                                    </a>       
+                                                    </a>     -->   
                                                 </div>
 
                                             </div>
@@ -270,11 +265,11 @@
 
                                         <div class="clear">
                                             <ul class="dealer-contacts">                                       
-                                                <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                                <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                                <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
+                                                <li><i class="pe-7s-map-marker strong"> </i><span id="agent_address"> 9089 your adress her</span></li>
+                                                <!-- <li><i class="pe-7s-mail strong"> </i> <span id="agent_email">email@yourcompany.com</span></li> -->
+                                                <!-- <li><i class="pe-7s-call strong"> </i> <span id="agent_phone">+1 908 967 5906</span></li> -->
                                             </ul>
-                                            <p>Duis mollis  blandit tempus porttitor curabiturDuis mollis  blandit tempus porttitor curabitur , est non…</p>
+                                            <p id="agent_bio">Duis mollis  blandit tempus porttitor curabiturDuis mollis  blandit tempus porttitor curabitur , est non…</p>
                                         </div>
 
                                     </div>
@@ -356,140 +351,6 @@
                                     <img src="<?=base_url();?>assets/img/ads.jpg">
                                 </div>
                             </div>
-<!-- 
-                            <div class="panel panel-default sidebar-menu wow fadeInRight animated" >
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Smart search</h3>
-                                </div>
-                                <div class="panel-body search-widget">
-                                    <form action="" class=" form-inline"> 
-                                        <fieldset>
-                                            <div class="row">
-                                                <div class="col-xs-12">
-                                                    
-                                                    <div class="col-md-4 col-lg-12">
-                                                        <select data-live-search="true" data-live-search-style="begins" id="basic" class="selectpicker show-tick form-control" title="-Available for-">
-                                            
-                                                            <option>Girls</option>
-                                                            <option>Boys</option> 
-                                                            <option>Girls/Boys(combined)</option> 
-                                                        </select>
-                    
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-
-                                        <fieldset>
-                                            <div class="row">
-                                                <div class="col-xs-6">
-
-                                                    <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select Your City">
-
-                                                        <option>Bhubaneshwar</option>
-                                                        
-                                                    </select>
-                                                </div>
-                                                <div class="col-xs-6">
-
-                                                    <select id="basic" data-live-search="true" class="selectpicker show-tick form-control" title="-Status-">
-                                                        <option> -Status- </option>
-                                                        <option>PG </option>
-                                                        <option>Rent</option>
-                                                          
-
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-
-                                        <fieldset class="padding-5">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <label for="price-range">Price range (rs):</label>
-                                                    <input type="text" class="span2" value="" data-slider-min="1000" 
-                                                           data-slider-max="100000" data-slider-step="5" 
-                                                           data-slider-value="[1000,4450]" id="price-range" ><br />
-                                                    <b class="pull-left color">1000</b> 
-                                                    <b class="pull-right color">100000</b>                                                
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <label for="property-geo">Property geo (m2) :</label>
-                                                    <input type="text" class="span2" value="" data-slider-min="40" 
-                                                           data-slider-max="12000" data-slider-step="5" 
-                                                           data-slider-value="[40,4450]" id="property-geo" ><br />
-                                                    <b class="pull-left color">40m</b> 
-                                                    <b class="pull-right color">12000m</b>                                                
-                                                </div>                                            
-                                            </div>
-                                        </fieldset>                                
-
-                                        <fieldset class="padding-5">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <label for="price-range">Min baths :</label>
-                                                    <input type="text" class="span2" value="" data-slider-min="1" 
-                                                           data-slider-max="10" data-slider-step="1" 
-                                                           data-slider-value="[1,5]" id="min-baths" ><br />
-                                                    <b class="pull-left color">1</b> 
-                                                    <b class="pull-right color">10</b>                                                
-                                                </div>
-
-                                                <div class="col-xs-6">
-                                                    <label for="property-geo">Min bed :</label>
-                                                    <input type="text" class="span2" value="" data-slider-min="1" 
-                                                           data-slider-max="10" data-slider-step="1" 
-                                                           data-slider-value="[1,10]" id="min-bed" ><br />
-                                                    <b class="pull-left color">1</b> 
-                                                    <b class="pull-right color">10</b>
-
-                                                </div>
-                                            </div>
-                                        </fieldset>
-
-                                        <fieldset class="padding-5">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <div class="checkbox">
-                                                        <label> <input type="checkbox" checked> Fire Place</label>
-                                                    </div> 
-                                                </div>
-
-                                                <div class="col-xs-6">
-                                                    <div class="checkbox">
-                                                        <label> <input type="checkbox">Mess(food)</label>
-                                                    </div>
-                                                </div>                                            
-                                            </div>
-                                        </fieldset>
-
-                                        
-
-                                        <fieldset class="padding-5">
-                                            <div class="row">
-                                                <div class="col-xs-6"> 
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox"> Laundry Room </label>
-                                                    </div>
-                                                </div>  
-                                                <div class="col-xs-6"> 
-                                                    <div class="checkbox">
-                                                        <label> <input type="checkbox"> Emergency Exit</label>
-                                                    </div>
-                                                </div>  
-                                            </div>
-                                        </fieldset>
-                                        <fieldset >
-                                            <div class="row">
-                                                <div class="col-xs-12">  
-                                                    <input class="button btn largesearch-btn" value="Search" type="submit">
-                                                </div>  
-                                            </div>
-                                        </fieldset>                                     
-                                    </form>
-                                </div>
-                            </div> -->
-
 
                         </aside>
                     </div>
@@ -510,20 +371,10 @@
 ?>
 <script type="text/javascript" src="<?=base_url();?>assets/js/lightslider.min.js"></script>
  <script>
-        var key="<?php echo $this->security->get_csrf_hash(); ?>";          
+        var key="<?php echo $this->security->get_csrf_hash(); ?>";   
 
-                                $('#image-gallery').lightSlider({
-                                    gallery: true,
-                                    item: 1,
-                                    thumbItem: 9,
-                                    slideMargin: 0,
-                                    speed: 500,
-                                    auto: true,
-                                    loop: true,
-                                    onSliderLoad: function () {
-                                        $('#image-gallery').removeClass('cS-hidden');
-                                    }
-                                });
+        var property_by="";       
+
     $.ajax({
         url:"<?=base_url('main_helper/get_property_data');?>",
         type:"POST",
@@ -540,7 +391,8 @@
             success:function(data){
                 key=data.key;
 
-                // console.log(data.data.add_video);
+                console.log(data.data);
+                property_by=data.data.listed_by;
 
                     //start
 
@@ -558,7 +410,7 @@
                 }else{
                     video_play_link=data.data.add_video;
                 }
-                console.log(typeof(video_play_link));
+                // console.log(typeof(video_play_link));
                 $("#property_video").attr('src', video_play_link);
 
                 $("#property_status").html("For "+data.data.status.toUpperCase());
@@ -574,7 +426,96 @@
                 console.log(data);
             }
         });
-                            
+
+    $.ajax({
+        url:"<?=base_url('main_helper/get_property_images');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            property_id:"<?= $property_no;?>"
+                    
+            },
+        dataType:"json",
+        success:function(data){
+            key=data.key;
+            console.log(data);
+
+            var image_insert="";
+            $.each(data.data,function(){
+                // console.log(this.image);
+                image_insert+='<li data-thumb="<?=base_url();?>utility/main_image/'+this.image+'" class="thumb_class">';
+                image_insert+='<img src="<?=base_url();?>utility/main_image/'+this.image+'"  class="thumb_class_src"/>';
+                image_insert+='</li>';
+
+            });
+            // while(data.data){
+            //     console.log("h");
+            // }
+            $("#image-gallery").append(image_insert);
+        },
+        error:function(data){
+            console.log(data);
+            alert("something went wrong");
+        }
+    });
+
+    $.ajax({
+        url:"<?=base_url('main_helper/user_detail_public');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            user_id:property_by
+                    
+            },
+        dataType:"json",
+        success:function(data){
+            key=data.key;
+            console.log(data);
+            
+            $("#agent_name").html(data.data.first_name+' '+data.data.last_name);
+            $("#agent_username").html(data.data.username);
+            $("#agent_address").html(data.data.address);
+            $("#agent_bio").html(data.data.user_bio);
+            if(data.data.twitter!=""){
+                $("#agent_twitter_link").html('<i class="fa fa-twitter-square fa-2x" id="agent_twitter"style="margin-right: 20px;"></i>');
+            }
+            $("#agent_twitter_link").attr("href",data.data.twitter);
+            if(data.data.facebook!=""){
+                $("#agent_facebook_link").html('<i class="fa fa-facebook-official fa-2x" id="agent_facebook"></i>');
+            }
+            $("#agent_facebook_link").attr("href",data.data.facebook);
+
+            if(data.data.image!=""){
+                $("#user_img").attr("src","<?=base_url('utility/user_image/');?>"+data.data.image);
+            }else{
+                 $("#user_img").attr("src",'<?=base_url('assets/img/');?>'+user_image_male_female(data.data['gender']));
+            }
+
+
+        },
+        error:function(data){
+            console.log(data);
+            alert("something went wrong");
+        }
+    });
+
+        
+
+
+$('#image-gallery').lightSlider({
+    gallery: true,
+    item: 1,
+    thumbItem: 9,
+    slideMargin: 0,
+    speed: 500,
+    auto: true,
+    loop: true,
+    onSliderLoad: function () {
+        $('#image-gallery').removeClass('cS-hidden');
+    }
+});                    
         </script>
 </body>
 </html>

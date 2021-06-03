@@ -66,6 +66,7 @@
                                     <small>This information will let us know more about you.</small>
                                 </h3>
                                 <hr>
+                                <!-- <div class="alert btn-finish btn-primary rounded wow fadeInRight" style="position: absolute; float: right; right:10px; top:10px;cursor: context-menu; " data-wow-delay="0.1s"><b>OTP send to your E-Mail</b></div> -->
                             </div>
 
                             <div class="clear">
@@ -96,6 +97,12 @@
                                         <b><span class="text-danger mr-1" id="signup_last_name_error"></span></b>
                                         <input name="last_name_field" type="text" class="form-control" placeholder="last name" id="last_name_field">
                                     </div> 
+                                    <div class="form-group">
+                                        <label>Bio: <!-- <small>(required)</small> --></label> 
+                                        <b><span class="text-danger mr-1" id="bio_error"></span></b>
+                                        <!-- <input type="text" name="bio_field" class="form-control" placeholder="1234" id="bio_field"> -->
+                                        <textarea rows="3" cols="" placeholder="Hiii! I have Awsm Properties to Sell. check my account for ......" class="form-control" id="bio_area" name="bio_area" ></textarea>
+                                    </div>
                                     
                                 </div>
                                 <div class="col-sm-3 padding-top-25">
@@ -109,6 +116,22 @@
                                         <b><span class="text-danger mr-1" id="signup_password_error"></span></b>
                                         <input type="password" name="password_field" class="form-control" placeholder="******" id="password_field">
                                     </div>
+                                    <div class="form-group">
+                                        <label>Gender:</label> <b><span class="text-danger mr-1" id="signup_gender_error"></span></b>
+                                        <select class="form-control" id="signup_gender" name="gender_field">
+                                            <option value="" selected>Select</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Address:</label>
+                                        <textarea rows="3" cols="" placeholder="sakunat kala, station road, khandak par ....." class="form-control" id="address_area" name="address_area" ></textarea>
+
+                                    </div>
+                                    
                                 </div>  
 
                             </div>
@@ -338,6 +361,37 @@ $("#form_field").submit(function(event) {
         
     }
 
+    // console.log($("#signup_gender").val());
+
+    if($("#signup_gender").val()==""){
+        formFieldData_check=0;
+        field_error_css("#signup_gender");
+        // console.log("first name 0");
+    }else{
+        field_error_cssRemove('#signup_gender');
+        
+    }
+
+    if($("#address_area").val()==""){
+        formFieldData_check=0;
+        field_error_css("#address_area");
+    }else{
+        field_error_cssRemove('#address_area');
+    }
+
+    // if($("#otp_field").val()==""){
+    //     formFieldData_check=0;
+    //     field_error_css("#otp_field");
+    //     // console.log("first name 0");
+    // }else if($("#otp_field").val().length!=4){
+    //     $("#signup_otp_error").html("*Require 4 Digit");
+    // }
+    // else{
+    //     field_error_cssRemove('#otp_field');
+        
+    // }
+
+
     if(new_website_field==""||isUrl_var==true){
         if(new_website_field!=""&&new_website_field.substring(0,4)!="http"){
             new_website_field="https://"+new_website_field;
@@ -378,7 +432,7 @@ $("#form_field").submit(function(event) {
                 key=data.key;
 
                 if(data.data==true){
-                    window.location.href = "<?=base_url('main/account_created');?>"; 
+                    window.location.href = "<?=base_url('main/account_created');?>?otp="+data.otp; 
                 }else{
                     alert("Something Went Wrong.");
                 }
@@ -388,6 +442,7 @@ $("#form_field").submit(function(event) {
             },
             error:function(data){
                 console.log(data);
+                alert("something went wrong");
                     // result=data;
             }
         });
