@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="home-lager-shearch" style="background-color: rgb(252, 252, 252); padding-top: 25px; margin-top: -125px;">
+        <div class="home-lager-shearch" style="background-color: rgb(252, 252, 252); padding-top: 25px; margin-top: -125px; opacity:1;">
             <div class="container">
                 <div class="col-md-12 large-search"> 
                     <div class="search-form wow pulse">
@@ -50,7 +50,7 @@
                         
                        
 
-                    <form action="" class=" form-inline">
+                    <form action="" class=" form-inline" id="search_form">
 
 
 
@@ -72,7 +72,7 @@
 
 
 
-        <input class="search" type="text"
+        <input class="search" id="search_box_home" type="text"
             placeholder="Search property on your desired location....."
             style="border: 1px solid grey;border-radius: 40px;height:3em;background-color: rgb(248, 245, 245);align-items: center;align-content: center;">
 
@@ -80,7 +80,7 @@
 
             <button
                 style="border-radius: 40px;border: 2px solid rgb(255, 255, 255);font-size: 15px;width:8em;"
-                class='  btn-primary '><a href=></a>SEARCH</button>
+                class='  btn-primary '>SEARCH</button>
 
         </span>
 
@@ -480,7 +480,7 @@
 
     $(".box-tree").click(function(event) {
         event.preventDefault();
-        console.log("gg");
+        // console.log("gg");
     });
 
 
@@ -492,20 +492,21 @@ function load_page_content(){
         addon_array.push($(this).val());
     });
     // console.log(addon_array);
-
+    // dummy_array=["",""];
     $.ajax({
         url:"<?=base_url('main_helper/get_all_property_list');?>",
         type:"POST",
         async:false,
         data:{
             "<?php echo $this->security->get_csrf_token_name();?>":key,
+            // search_text:$("#search_box_home").val(),
             items_per_page:7,
             page_no:1,
-            filter_avail:$("#filter_avail").val(),
-            filter_city:$("#filter_city").val(),
-            filter_status:$("#filter_status").val(),
-            filter_price:$("#price-range").val(),
-            filter_addon:addon_array,
+            filter_avail:"",
+            filter_city:"",
+            filter_status:"",
+            filter_price:"",
+            filter_addon:[''],
             filter_sort:'sn',
             filter_sort_by:'DESC'
 
@@ -518,8 +519,9 @@ function load_page_content(){
                 key=data.key;
 
                 console.log(data);
-                console.log($("#price-range").val());
+                // console.log($("#price-range").val());
                 var property_list="";
+                var dot_after_name="";
 
                 $.each(data.data,function() {
                     
@@ -532,15 +534,21 @@ function load_page_content(){
                         type_change="M";
                     }
 
+                    if(this.name.length>9){
+                        dot_after_name="...";
+                    }else{
+                        dot_after_name="";
+                    }
+
                     property_list+='<div class="col-sm-6 col-md-3 p0">';
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
                     property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+this.main_image+'" style="height:225px;"></a>';
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
-                    property_list+='<h5><a href="property-1.html" >'+this.name+'</a></h5>';
+                    property_list+='<h5><a href="property-1.html" >'+this.name.slice(0,10)+''+dot_after_name+'</a></h5>';
                     property_list+='<div class="dot-hr"></div>';
-                    property_list+='<span class="pull-left"><b>'+this.sn+' :- '+this.min_bed+' </b></span>';
+                    property_list+='<span class="pull-left"><b>'+capital_first(this.city)+' </b></span>';
                     property_list+='<span class="proerty-price pull-right">&#8377; '+this.price+'</span>';
                     property_list+='</div>';
                     property_list+='</div>';
@@ -594,6 +602,11 @@ load_page_content();
     $("#btn-search-main").click(function(event) {
         event.preventDefault();
         load_page_content();
+    });
+
+    $("#search_form").submit(function(e){
+        e.preventDefault();
+        window.location.href="<?=base_url('properties');?>?s="+$("#search_box_home").val();    
     });
 
 </script>

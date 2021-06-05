@@ -23,7 +23,8 @@
         <script src="<?=base_url();?>assets/js/price-range.js"></script>
 
         <script src="<?=base_url();?>assets/js/main.js"></script>
-<script src="<?=base_url();?>assets/js/myjs.js"></script>
+        
+        <script src="<?=base_url();?>assets/js/myjs.js"></script>
 <!-- <script type="text/javascript">
     
     $("#aboutus_cover").click(function(){

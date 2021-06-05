@@ -10,6 +10,7 @@
 
        
         <link rel="stylesheet" href="assets/css/lightslider.min.css">
+        <link href="<?=base_url('assets');?>/css/lightgallery.min.css" rel="stylesheet">
 
 <style type="text/css">
     .thumb_class{
@@ -37,6 +38,43 @@
         /*height: 100px;*/
         /*border: 3px solid blue;*/
     }
+
+            .demo-gallery > ul > li {
+                float: left;
+                margin-bottom: 15px;
+                margin-right: 20px;
+                width: 230px;
+
+            }
+            .demo-gallery > ul > li a {
+                border: 1px solid #FDC600;
+                border-radius: 3px;
+                display: block;
+                overflow: hidden;
+                position: relative;
+                float: left;
+                height: 120px;
+            }
+            .demo-gallery > ul > li a > img {
+                -webkit-transition: -webkit-transform 0.15s ease 0s;
+                -moz-transition: -moz-transform 0.15s ease 0s;
+                -o-transition: -o-transform 0.15s ease 0s;
+                transition: transform 0.15s ease 0s;
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+                height: 100%;
+                width: 100%;
+            }
+            .demo-gallery > ul > li a:hover > img {
+                -webkit-transform: scale3d(1.1, 1.1, 1.1);
+                transform: scale3d(1.1, 1.1, 1.1);
+            }
+            .demo-gallery > ul > li a:hover .demo-gallery-poster > img {
+                opacity: 1;
+            }
+
+
+            
 </style>
 <?php
     $this->load->view('website/link_import');
@@ -145,7 +183,7 @@
                             </div>
                             <!-- End description area  -->
 
-                            <div class="section additional-details">
+                           <!--  <div class="section additional-details">
 
                                 <h4 class="s-property-title">Additional Details</h4>
 
@@ -180,7 +218,7 @@
                                     </li> 
 
                                 </ul>
-                            </div>  
+                            </div>  --> 
                             <!-- End additional-details area  -->
 
                             <div class="section property-features">      
@@ -198,7 +236,55 @@
                             </div>
                             <!-- End features area  -->
 
-                            <div class="section property-video"> 
+                            <!-- gallery area starts -->
+<h4 class="s-property-title">Gallery</h4>
+        <div class="demo-gallery">
+            <ul id="lightgallery" class="list-unstyled row">
+                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_2.jpg');?>" >
+                    <a href="">
+                        <img class="img-responsive" src="<?=base_url('assets/images/room_2.jpg');?>" alt="Thumb-1">
+                    </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_3.jpg');?>" >
+                    <a href="">
+                        <img class="img-responsive" src="<?=base_url('assets/images/room_3.jpg');?>" alt="Thumb-2">
+                    </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_4.jpg');?>" >
+                    <a href="">
+                        <img class="img-responsive" src="<?=base_url('assets/images/room_4.jpg');?>" alt="Thumb-3">
+                    </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_5.jpg');?>">
+                    <a href="">
+                        <img class="img-responsive" src="<?=base_url('assets/images/room_5.jpg');?>" alt="Thumb-4">
+                    </a>
+                </li>
+                 <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_2.jpg');?>" >
+                    <a href="">
+                        <img class="img-responsive" src="<?=base_url('assets/images/room_2.jpg');?>" alt="Thumb-1">
+                    </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_3.jpg');?>" >
+                    <a href="">
+                        <img class="img-responsive" src="<?=base_url('assets/images/room_3.jpg');?>" alt="Thumb-2">
+                    </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_4.jpg');?>" >
+                    <a href="">
+                        <img class="img-responsive" src="<?=base_url('assets/images/room_4.jpg');?>" alt="Thumb-3">
+                    </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_5.jpg');?>">
+                    <a href="">
+                        <img class="img-responsive" src="<?=base_url('assets/images/room_5.jpg');?>" alt="Thumb-4">
+                    </a>
+                </li>
+            </ul>
+        </div>
+                            <!-- gallery area ends -->
+
+                            <div class="section property-video" id="property_video"> 
                                 <h4 class="s-property-title">Property Video</h4> 
                                 <div class="video-thumb">
                                     <a class="video-popup" href="yout" title="Virtual Tour">
@@ -370,7 +456,26 @@
     }
 ?>
 <script type="text/javascript" src="<?=base_url();?>assets/js/lightslider.min.js"></script>
+
+<!-- gallery js -->
+
+        <script src="<?=base_url('assets/js');?>/picturefill.min.js"></script>
+        <script src="<?=base_url('assets/js');?>/lightgallery.min.js"></script>
+        <script src="<?=base_url('assets/js');?>/lg-pager.min.js"></script>
+        <script src="<?=base_url('assets/js');?>/lg-autoplay.min.js"></script>
+        <script src="<?=base_url('assets/js');?>/lg-fullscreen.min.js"></script>
+        <script src="<?=base_url('assets/js');?>/lg-zoom.min.js"></script>
+        <script src="<?=base_url('assets/js');?>/lg-hash.min.js"></script>
+        <!-- <script src="<?=base_url('assets/js');?>/lg-share.min.js"></script> -->
+        <script src="<?=base_url('assets');?>/js/lg-rotate.min.js"></script>
+
+
+<!-- end gallery js -->
+
  <script>
+    lightGallery(document.getElementById('lightgallery'));
+    // window.history.replaceState(null, null, "https://localhost/git_shareshell/shareshell/propertys");
+
         var key="<?php echo $this->security->get_csrf_hash(); ?>";   
 
         var property_by="";       
@@ -402,13 +507,18 @@
                 $("#property_city").html("Property In "+data.data.city);
                 $("#property_price").html("&#8377 "+data.data.price);
                 $("#property_description").html(data.data.description);
-                $("#property_addon").html("<h3>"+data.data.addon.toUpperCase()+"</h3>");
+                $("#property_addon").html("<h3>"+data.data.addon.slice(0,-1).toUpperCase()+"</h3>");
 
-                var video_play_link="";
-                if(data.data.add_video.search('embed')==-1){
-                    video_play_link=data.data.add_video.replace('/watch?v=',/embed/);
+                
+                if(data.data.add_video!=""){
+                   var video_play_link="";
+                    if(data.data.add_video.search('embed')==-1){
+                        video_play_link=data.data.add_video.replace('/watch?v=',/embed/);
+                    }else{
+                        video_play_link=data.data.add_video;
+                    } 
                 }else{
-                    video_play_link=data.data.add_video;
+                    $("#property_video").css("display","none");
                 }
                 // console.log(typeof(video_play_link));
                 $("#property_video").attr('src', video_play_link);

@@ -48,7 +48,7 @@
         <div class="container">
             <div class="row">
                 <div class="page-head-content">
-                    <h1 class="page-title">Hello : <span class="orange strong">YOUR NAME</span></h1>
+                    <h1 class="page-title">Hello : <span class="orange strong" id="title_name"></span></h1>
                 </div>
             </div>
         </div>
@@ -246,6 +246,7 @@
                 key=data.key;
 
                 $("#user_name").html(data.data['first_name'].charAt(0).toUpperCase()+data.data['first_name'].slice(1)+" "+data.data['last_name']);
+                $("#title_name").html(data.data.first_name+" "+data.data.last_name);
                 $("#user_email").html(data.data['email']);
                 $("#user_phone").html(data.data['phone']);
                 $("#user_gender").html(data.data['gender']);

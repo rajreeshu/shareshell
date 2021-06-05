@@ -5,3 +5,7 @@ function user_image_male_female(gender){
         return "avatar_girl.jpg";
     }
 }
+
+function capital_first(str){
+    return str.charAt(0).toUpperCase()+str.slice(1);
+}
