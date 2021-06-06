@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SHARESHELL| Home page</title>
+    <title>SHARESHELL| Profile</title>
     <meta name="shareshell" content="Making rental easy">
     <meta name="author" content="Kimarotec">
     <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -48,7 +48,7 @@
         <div class="container">
             <div class="row">
                 <div class="page-head-content">
-                    <h1 class="page-title">Hello : <span class="orange strong">YOUR NAME</span></h1>
+                    <h1 class="page-title">Hello : <span class="orange strong" id="title_name"></span></h1>
                 </div>
             </div>
         </div>
@@ -77,14 +77,16 @@
                                 <div class="picture-container">
                                     <div class="picture" style="height:auto; background: #d0d0d0;">
                                         
-                                        <img src="https://www.pinclipart.com/picdir/big/559-5590325_avatar-icon-png-clipart.png" class="picture-src" id="PicturePreview" title="" style="object-fit: cover;"/>
+                                        <img src="<?=base_url('assets/img/avatar_boy.jpg');?>" class="picture-src" id="PicturePreview" title="" style="object-fit: cover;"/>
                                         <!-- <input type="file" id="wizard-picture"> -->
                                     </div>
-                                    <h6>Profile Pic</h6>
+                                    <h5>
+                                        <p id="user_bio" style="text-align:left; margin-top: -30px; padding-left: 5px ; font-family: Gill Sans Extrabold, sans-serif; font-size: 12px; color: grey;"></p>
+                                    </h5>
                                 </div>
                             </div>
 
-                            <div class="col-sm-3 padding-top-25">
+                            <div class="col-sm-6 padding-top-25">
 
                                 <div class="form-group">
                                     <label>Name: <span style="color:#999999;" id="user_name"></span></label>
@@ -99,17 +101,31 @@
 
                                 </div>
                                 <div class="form-group">
+                                    <label>Phone: <span style="color:#999999;" id="user_phone"></span></label>
+
+                                </div>
+                                <div class="form-group">
                                     <label>Username: <span style="color:#999999;" id="user_username"></span></label>
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender: <span style="color:#999999;" id="user_gender"></span></label>
 
                                 </div>
 
                                 <div class="form-group">
-                            <label>Facebook: <span style="color:#999999;" id="user_facebook"></span></label>
+                            <label>Facebook: 
+                                <a href="" id="user_facebook_link" target="_blank">
+                                    <span style="color:#999999;" id="user_facebook"></span></a></label>
 
                             </div>
 
                             <div class="form-group">
-                                <label>Twitter: <span style="color:#999999;" id="user_twitter"></span></label>
+                                <label>Twitter: 
+                                <a href="" id="user_twitter_link" target="_blank">
+                                    <span style="color:#999999;" id="user_twitter"></span>
+                                </a>
+                            </label>
 
                             </div>
                             </div>
@@ -122,7 +138,7 @@
                 <div class="clear">
                     <br>
                     <hr>
-                    <br>
+                    
                     <div class="col-sm-5 col-sm-offset-1">
 
                     </div>
@@ -133,7 +149,7 @@
 
             <div class="col-sm-4 col-sm-offset-1">
                 <br>
-               <a href="contact.html"><input  type='button' class='btn btn-finish btn-primary' name='Male us your problem (help)' value='E-male us (help)' /></a> 
+               <a href="<?=base_url('contact');?>"><input  type='button' class='btn btn-finish btn-primary' name='Male us your problem (help)' value='E-male us (help)' /></a> 
 
                
                 
@@ -142,13 +158,13 @@
             
             <div class="col-sm-4 col-sm-offset-2 float-right" style="">
                 <br>
-                <a href="summited_properties.html"><input type='button' class='btn btn-finish btn-primary' name='See your submitted property' value='Submitted property' /></a>
+                <a href="<?=base_url("main/myProperties");?>"><input type='button' class='btn btn-finish btn-primary' name='See your submitted property' value='My properties' /></a>
             </div>
             <br>
 
                         <div class="col-sm-4 col-sm-offset-1">
                 <br>
-               <a href="contact.html"><input  type='button' class='btn btn-finish btn-primary' name='Male us your problem (help)' value='Forget Password' /></a> 
+               <a href="<?=base_url('main/changePassword');?>"><input  type='button' class='btn btn-finish btn-primary' name='Male us your problem (help)' value='Change Password' /></a> 
 
                
                 
@@ -157,7 +173,7 @@
             
             <div class="col-sm-4 col-sm-offset-2 float-right" style="">
                 <br>
-                <a href="summited_properties.html"><input type='button' class='btn btn-finish btn-primary' name='See your submitted property' value='Edit Profile' /></a>
+                <a href="#"><input type='button' class='btn btn-finish btn-primary' name='See your submitted property' value='Edit Profile' /></a>
             </div>
             
 
@@ -167,7 +183,7 @@
 
 </div>
     <br>
-    <br>
+    
 
 
     <!-- Footer area-->
@@ -230,14 +246,22 @@
                 key=data.key;
 
                 $("#user_name").html(data.data['first_name'].charAt(0).toUpperCase()+data.data['first_name'].slice(1)+" "+data.data['last_name']);
+                $("#title_name").html(data.data.first_name+" "+data.data.last_name);
                 $("#user_email").html(data.data['email']);
+                $("#user_phone").html(data.data['phone']);
+                $("#user_gender").html(data.data['gender']);
                 $("#user_username").html(data.data['username']);
+                $("#user_bio").html(data.data['user_bio']);
                 $("#user_facebook").html(data.data['facebook']);
+                $("#user_facebook_link").attr('href',data.data['facebook']);
                 $("#user_twitter").html(data.data['twitter']);
+                $("#user_twitter_link").attr('href',data.data['twitter']);
                 if(data.data['image']!=""){
                     $("#PicturePreview").attr("src","<?=base_url('utility/user_image/');?>"+data.data['image']);
+                }else{
+                    $("#PicturePreview").attr("src",'<?=base_url('assets/img/');?>'+user_image_male_female(data.data['gender']));
                 }
-                console.log(data);
+                console.log(user_image_male_female(data.data['gender']));
             },
             error:function(data){
                 console.log(data);

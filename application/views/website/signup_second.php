@@ -66,6 +66,7 @@
                                     <small>This information will let us know more about you.</small>
                                 </h3>
                                 <hr>
+                                <!-- <div class="alert btn-finish btn-primary rounded wow fadeInRight" style="position: absolute; float: right; right:10px; top:10px;cursor: context-menu; " data-wow-delay="0.1s"><b>OTP send to your E-Mail</b></div> -->
                             </div>
 
                             <div class="clear">
@@ -78,6 +79,12 @@
                                         </div>
                                         <h6>Choose Picture</h6>
                                     </div>
+<!--  -->
+                                    <!-- <img src="" id="compressed_image" height="100" width="100" style="border:3px solid black;"> -->
+                                    <a id="compress">Compress</a>
+                                    <a id="upload">Upload</a>
+<!--  -->
+
                                 </div>
 
                                 <div class="col-sm-3 padding-top-25">
@@ -96,6 +103,12 @@
                                         <b><span class="text-danger mr-1" id="signup_last_name_error"></span></b>
                                         <input name="last_name_field" type="text" class="form-control" placeholder="last name" id="last_name_field">
                                     </div> 
+                                    <div class="form-group">
+                                        <label>Bio: <!-- <small>(required)</small> --></label> 
+                                        <b><span class="text-danger mr-1" id="bio_error"></span></b>
+                                        <!-- <input type="text" name="bio_field" class="form-control" placeholder="1234" id="bio_field"> -->
+                                        <textarea rows="3" cols="" placeholder="Hiii! I have Awsm Properties to Sell. check my account for ......" class="form-control" id="bio_area" name="bio_area" ></textarea>
+                                    </div>
                                     
                                 </div>
                                 <div class="col-sm-3 padding-top-25">
@@ -109,6 +122,22 @@
                                         <b><span class="text-danger mr-1" id="signup_password_error"></span></b>
                                         <input type="password" name="password_field" class="form-control" placeholder="******" id="password_field">
                                     </div>
+                                    <div class="form-group">
+                                        <label>Gender:</label> <b><span class="text-danger mr-1" id="signup_gender_error"></span></b>
+                                        <select class="form-control" id="signup_gender" name="gender_field">
+                                            <option value="" selected>Select</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Address:</label>
+                                        <textarea rows="3" cols="" placeholder="sakunat kala, station road, khandak par ....." class="form-control" id="address_area" name="address_area" ></textarea>
+
+                                    </div>
+                                    
                                 </div>  
 
                             </div>
@@ -194,6 +223,83 @@
 
 
 ?>
+<!-- image compressor starts -->
+<script src="<?=base_url('assets/js');?>/JIC.js"></script>
+<script>
+    var output_format = null;
+    var file_name = null;
+    function readFile(evt) {
+        var file = evt.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            var i = document.getElementById("show_image_field");
+            console.log(i);
+                i.src = event.target.result;
+                i.onload = function(){
+                    
+                    console.log("Image loaded");
+                }
+        };
+        output_format = file.name.split(".").pop();
+        file_name = file.name;
+        console.log("Filename:" + file.name);
+        console.log("Fileformat:" + output_format);
+        console.log("Filesize:" + (parseInt(file.size) / 1024) + " Kb");
+        console.log("Type:" + file.type);
+        reader.readAsDataURL(file);
+        $("#compress").show();
+        return false;
+    }
+ // compress image
+    // $( "#compress" ).click(function() {
+        function compress_image_jic(){
+        var source_image = document.getElementById("show_image_field");
+        if (source_image.src == "") {
+            alert("You must load an image first!");
+            return false;
+        }
+
+        var quality = 30;
+        
+        console.log("process start...");
+        console.log("process start compress ...");
+        var compressed_image = document.getElementById("show_image_field");
+        compressed_image.src = jic.compress(source_image,quality,output_format).src;
+        // $("#upload").show();
+        
+    // });
+}
+
+
+    // upload imange
+    // $( "#upload" ).click(function() {
+        function upload_image_jic(new_name) {
+        var compressed_image = document.getElementById("show_image_field");
+        if (compressed_image.src == "") {
+            alert("You must compress image first!");
+            return false;
+        }
+
+        var successCallback= function(response){
+            console.log("image uploaded successfully! :)");
+            console.log(response);       
+        }
+
+        var errorCallback= function(response){
+            console.log("image Filed to upload! :)");
+            console.log(response); 
+        }
+        
+        console.log("process start upload ...");
+        jic.upload(compressed_image, "<?=base_url('main_helper/upload_test');?>", "file", file_name,successCallback,errorCallback);
+    }
+        
+    // });
+
+document.getElementById("image_field").addEventListener("change", readFile, false);
+</script>
+<!-- image compressor ends  -->
+
 
 <script type="text/javascript">  
 
@@ -302,10 +408,23 @@ function field_error_cssRemove(fieldName){
         console.log("chagne");
     });
 
+// ////////////////////////////////////////////////////
+    $("#compress").click(function(){
+        compress_image_jic();    
+    });
+
+    $("#upload").click(function(){
+        upload_image_jic();
+    });
+
+////////////////////////////////////////////////////////
 var formFieldData_check=1; 
 
 $("#form_field").submit(function(event) {
     event.preventDefault();
+
+    // compress_image_jic();
+
 
     formFieldData_check=1;
     var isUrl_var=isURL($("#website_field").val());
@@ -338,6 +457,37 @@ $("#form_field").submit(function(event) {
         
     }
 
+    // console.log($("#signup_gender").val());
+
+    if($("#signup_gender").val()==""){
+        formFieldData_check=0;
+        field_error_css("#signup_gender");
+        // console.log("first name 0");
+    }else{
+        field_error_cssRemove('#signup_gender');
+        
+    }
+
+    if($("#address_area").val()==""){
+        formFieldData_check=0;
+        field_error_css("#address_area");
+    }else{
+        field_error_cssRemove('#address_area');
+    }
+
+    // if($("#otp_field").val()==""){
+    //     formFieldData_check=0;
+    //     field_error_css("#otp_field");
+    //     // console.log("first name 0");
+    // }else if($("#otp_field").val().length!=4){
+    //     $("#signup_otp_error").html("*Require 4 Digit");
+    // }
+    // else{
+    //     field_error_cssRemove('#otp_field');
+        
+    // }
+
+
     if(new_website_field==""||isUrl_var==true){
         if(new_website_field!=""&&new_website_field.substring(0,4)!="http"){
             new_website_field="https://"+new_website_field;
@@ -350,6 +500,7 @@ $("#form_field").submit(function(event) {
         field_error_css("#website_field");
         console.log("website 0");
     }
+    compress_image_jic(); 
 
     var formData = new FormData(this);
     formData.append("<?= $this->security->get_csrf_token_name();?>",key);
@@ -366,6 +517,7 @@ $("#form_field").submit(function(event) {
         // formData.delete('website_field');
         console.log(formFieldData_check);
     }else{
+
         $.ajax({
             type:"POST",
             url:"<?=base_url('main_helper/submit_signup_data');?>",
@@ -376,18 +528,24 @@ $("#form_field").submit(function(event) {
             contentType: false,
             success:function(data){
                 key=data.key;
+                 console.log(data);
+                    
+                    console.log(data.user_id);
+                    upload_image_jic(data.user_id);
+                    // return;
 
                 if(data.data==true){
-                    window.location.href = "<?=base_url('main/account_created');?>"; 
+                    window.location.href = "<?=base_url('main/account_created');?>?otp="+data.otp; 
                 }else{
                     alert("Something Went Wrong.");
                 }
 
-                console.log(data);
+               
                     
             },
             error:function(data){
                 console.log(data);
+                alert("something went wrong");
                     // result=data;
             }
         });

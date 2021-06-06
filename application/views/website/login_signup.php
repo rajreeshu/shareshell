@@ -81,12 +81,17 @@
                                 <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                 <div class="form-group">
                                     <label for="email">Email</label> &nbsp <b><span class="text-danger mr-1" id="login_email_error"></span></b> 
-                                    <input type="text" class="form-control" placeholder="abc123@xyz.com" id="login_email">
+                                    <input type="text" class="form-control" placeholder="abc123@xyz.com" id="login_email" name="email">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label> &nbsp <b><span class="text-danger mr-1" id="login_password_error"></span></b> 
+
                                     <input type="password" class="form-control" placeholder="********" id="login_password">
+                                    &nbsp <small>
+
+                                    <a href="<?=base_url('main/forgetpassword');?>" id="forget_password">Forgot password ?</a> </small>
                                 </div>
+
                                 <div class="text-center">
                                     
                                     <input type="submit" class="btn btn-default" value="Log in" id="login_submit"> 
@@ -414,7 +419,8 @@ $("#login_email").blur(function(){
     var login_email_temp=$("#login_email").val();
 
     if(isEmail(login_email_temp)){
-        $("#login_email_error").html("<b class='text-success'> &#10003; </b>");
+        // $("#login_email_error").html("<b class='text-success'> &#10003; </b>");
+        $("#login_email_error").html("");
     }else{
         $("#login_email_error").html("*Invalid Email");
     }
@@ -456,6 +462,8 @@ $("#login_submit").click(function(e){
                 if(data.data==false){
                     $("#login_password").val("");
                     $("#login_email_error").html("*Incorrect Emain/Password");
+                }else if(data.account_status==0){
+                    window.location.href="<?=base_url('main/account_created');?>";
                 }else{
                     window.location.href="<?=base_url('account');?>";
                 }

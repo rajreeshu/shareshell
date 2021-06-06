@@ -26,9 +26,30 @@ class Main extends CI_Controller {
 		$this->load->view('website/faq');
 	}
 
+	public function aboutus(){
+		$this->load->view('website/about_us');
+	}
+
+	public function testimonial(){
+		$this->load->view('website/testimonial_page');
+	}
+
+	public function privacypolicy(){
+		$this->load->view('website/privacy_policy');
+	}
+
+	public function termsconditions(){
+		$this->load->view('website/terms_conditions');
+	}
+
 
 	public function Submit_property(){
-		$this->load->view('website/property_submit');
+		if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
+			$this->load->view('website/property_submit');	
+		}else{
+			redirect('main/log_user');
+		}
+		
 	}
 
 	public function property_submited(){
@@ -50,16 +71,45 @@ class Main extends CI_Controller {
 		$this->load->view('website/signup_second');
 	}
 	public function account_created(){
-		$this->load->view('website/account_created');
+		if($this->security->xss_clean($this->session->userdata('otp_verify_signup_shareshell'))){
+			$this->load->view('website/account_created');
+		}else{
+			redirect("main/log_user");
+		}
+		
 	}
 
 	public function account(){
-		if(isset($_SESSION['user_id_shareshell'])){
+		if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
 			$this->load->view('website/useraccount');	
 		}else{
 			redirect('main/log_user');
 		}
 		
+	}
+
+	public function changePassword(){
+		if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
+			$this->load->view('website/change_password');	
+		}else{
+			redirect('main/log_user');
+		}
+	}
+
+	public function myProperties(){
+		if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
+			$this->load->view('website/my_properties');
+		}else{
+			redirect('main/log_user');
+		}
+	}
+
+	public function forgetpassword(){
+		if(!$this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
+			$this->load->view('website/forget_password');
+		}else{
+			redirect('main/account');
+		}
 	}
 
 

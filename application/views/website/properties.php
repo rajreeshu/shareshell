@@ -49,12 +49,22 @@
                             <div class="panel-body search-widget">
                                 <form action="" class=" form-inline"> 
                                     <fieldset>
+                                        <div class="row" style="padding-bottom: 10px;">
+                                            <div class="col-xs-12">
+                                                <div class="col-md-4 col-lg-12">
+                                                <input type="text" id="search_box" placeholder="Type to Search ....." name="" class="form-control">
+                                            </div>
+                                            </div>    
+                                        </div>
+
                                         <div class="row">
                                             <div class="col-xs-12">
+
+                                                
                                                
                                                 <div class="col-md-4 col-lg-12">
                                                     <select data-live-search="true" data-live-search-style="begins" id="filter_avail" class="selectpicker show-tick form-control" title="-Available for-">
-                                                        <option value="">All</option>
+                                                        <option value="all">All</option>
                                                         <option value="girl">Girls</option>
                                                         <option value="boy">Boys</option> 
                                                         <option value="combined">Girls/Boys(combined)</option> 
@@ -337,12 +347,12 @@
                         <div class="pull-right">
                             <div class="pagination">
                                 <ul id="pagination_pages">
-                                    <li><a href="#">Prev</a></li>
+                                    <!-- <li><a href="#">Prev</a></li>
                                     <li><a href="#">1</a></li>
                                     <li><a href="#">2</a></li>
                                     <li><a href="#">3</a></li>
                                     <li><a href="#">4</a></li>
-                                    <li><a href="#">Next</a></li>
+                                    <li><a href="#">Next</a></li> -->
                                 </ul>
                             </div>
                         </div>                
@@ -355,6 +365,9 @@
     $this->load->view('website/footer');
 
     $this->load->view('website/js_import');
+
+    $url_gets=$this->security->xss_clean($this->input->get('s'));
+    $url_get=(isset($url_gets))?$url_gets:"";
 ?>
 
 <script type="text/javascript">
@@ -367,6 +380,8 @@
     var sort_by_val="DESC";
     var i=1;
 
+    $("#search_box").val("<?=$url_get;?>");
+    // console.log("<?=$url_get;?>");
 
 function load_page_content(page_no){
 
@@ -382,6 +397,7 @@ function load_page_content(page_no){
         async:false,
         data:{
             "<?php echo $this->security->get_csrf_token_name();?>":key,
+            search_text:$("#search_box").val(),
             items_per_page:$("#items_per_page").val(),
             page_no:page_no,
             filter_avail:$("#filter_avail").val(),
@@ -404,6 +420,8 @@ function load_page_content(page_no){
                 var no_of_page="";
                 var no_of_page_code="";
 
+                var dot_after_name="";
+
                 no_of_page=Math.ceil(data.row_count/$("#items_per_page").val());
                 console.log(no_of_page);
 
@@ -418,15 +436,21 @@ function load_page_content(page_no){
                         type_change="M";
                     }
 
+                    if(this.name.length>9){
+                        dot_after_name="...";
+                    }else{
+                        dot_after_name="";
+                    }
+
                     property_list+='<div class="col-sm-6 col-md-4 p0">';
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
                     property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+this.main_image+'" style="height:225px;"></a>';
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
-                    property_list+='<h5><a href="property-1.html"> '+this.name.toUpperCase()+' </a></h5>';
+                    property_list+='<h5><a href="<?=base_url('property?id=');?>'+this.sn+'"> '+this.name.slice(0,10)+''+dot_after_name+' </a></h5>';
                     property_list+='<div class="dot-hr"></div>';
-                    property_list+='<span class="pull-left"><b>'+this.sn+' :- '+this.min_bed+' </b></span>';
+                    property_list+='<span class="pull-left"><b>'+capital_first(this.city)+'  </b></span>';
                     property_list+='<span class="proerty-price pull-right"> &#8377 '+this.price+'</span>';
                     property_list+='<p style="display: none; overflow: hidden; text-overflow: ellipsis;max-height: 72px;-webkit-line-clamp: 2;">'+this.description+'</p>';
                     property_list+='<div class="property-icon">';
@@ -442,7 +466,7 @@ function load_page_content(page_no){
                 });
                 $("#list-type").html(property_list);
                 // console.log(property_list);
-
+                if(no_of_page>1){
                     for(i=1;i<=no_of_page;i++){
                         if(i==page_no){
                             no_of_page_code+='<li><a href="#" class="pagination_box" onclick="load_page_content('+i+')">'+i+'</a></li>';
@@ -451,7 +475,12 @@ function load_page_content(page_no){
                         }
                         
                     }
-                    $("#pagination_pages").html(no_of_page_code);
+
+                    
+                }
+
+                $("#pagination_pages").html(no_of_page_code);
+                    
 
 
             },
@@ -463,11 +492,6 @@ function load_page_content(page_no){
 load_page_content(1);
 
     $("#items_per_page").change(function() {
-        load_page_content(1);
-    });
-
-    $("#btn-search-main").click(function(event) {
-        event.preventDefault();
         load_page_content(1);
     });
 
@@ -487,9 +511,18 @@ load_page_content(1);
         load_page_content(1);
     });
 
+    $("#price-range").focus(function(){
+        console.log("chagne");
+    });
 
 
+    $("#btn-search-main").click(function(event) {
+        event.preventDefault();
 
+        window.history.replaceState(null, null, "<?=base_url('properties');?>?s="+$("#search_box").val());
+
+        load_page_content(1);
+    });
 
 </script>
 </body>

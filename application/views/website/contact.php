@@ -98,7 +98,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="message">Message</label>
-                                            <textarea id="message" class="form-control"></textarea>
+                                            <textarea id="message" class="form-control" rows="10"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-center">
