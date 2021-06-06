@@ -81,7 +81,7 @@
                                 <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                 <div class="form-group">
                                     <label for="email">Email</label> &nbsp <b><span class="text-danger mr-1" id="login_email_error"></span></b> 
-                                    <input type="text" class="form-control" placeholder="abc123@xyz.com" id="login_email">
+                                    <input type="text" class="form-control" placeholder="abc123@xyz.com" id="login_email" name="email">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label> &nbsp <b><span class="text-danger mr-1" id="login_password_error"></span></b> 

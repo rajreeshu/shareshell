@@ -88,6 +88,13 @@ class Main_helper extends CI_Controller {
 	}
 
 
+
+
+
+
+
+
+
 public function get_property_data(){
 	$input=$this->security->xss_clean($this->input->post());
 
@@ -224,7 +231,7 @@ public function submit_signup_data(){
 
 	$otp_random=rand(1000,9999);
 
-	// $data['input']=$input;
+	$data['input']=$input;
 
 	$db_array=array(
 					'first_name'=>$input['first_name_field'],
@@ -251,26 +258,67 @@ public function submit_signup_data(){
 		$this->db->where('sn',$insertId)->update('user_detail',['otp'=>password_hash($otp_random,PASSWORD_BCRYPT),'otp_sent_time'=>date('Y-m-d H:i:s')]);
 
 		$this->session->set_userdata('otp_verify_signup_shareshell',$insertId);
+		
+		$ext=pathinfo($input['image_field_check'], PATHINFO_EXTENSION);
+		if($ext=='jpg'||$ext=='jpeg'||$ext=="png"){
+			$this->session->set_userdata('img_upload_temp_user',$insertId.'.'.$ext);
+		}else{
+			$this->session->unset_userdata('img_upload_temp_user');
+		}
+		
 		// $data['error']=$this->db->error();
 
 	}
 	
 
-	if($input['image_field_check']!=""){
-		$this->load->model('upload_model');
-		$main_img_upload=$this->upload_model->upload_file($insertId,'jpg|png|jpeg','utility/user_image','image_field');
+	// if($input['image_field_check']!=""){
+	// 	$this->load->model('upload_model');
+	// 	$main_img_upload=$this->upload_model->upload_file($insertId,'jpg|png|jpeg','utility/user_image','image_field');
 		
-		$upload_data = $this->upload->data();
-		if($main_img_upload==true){
-				$this->db->where('sn',$insertId)->update('user_detail',['image'=>$upload_data['file_name']]);
-			}
-		$data['upload_error']=$this->upload->display_errors();
-	}
+	// 	$upload_data = $this->upload->data();
+	// 	if($main_img_upload==true){
+	// 			$this->db->where('sn',$insertId)->update('user_detail',['image'=>$upload_data['file_name']]);
+	// 		}
+	// 	$data['upload_error']=$this->upload->display_errors();
+	// }
 	
 	$data['otp']=$otp_random;
 	$data['data']=$insert_prop_data;
+	$data['user_id']=$insertId;
+	// $data['ext']=;
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
+}
+
+public function upload_test(){
+	$input=$this->security->xss_clean($this->input->post());
+	$insertId=$this->security->xss_clean($this->session->userdata('otp_verify_signup_shareshell'));
+	$img_name=$this->security->xss_clean($this->session->userdata('img_upload_temp_user'));
+	if($img_name){
+		
+		$this->load->model('upload_model');
+	
+		if($img_name){
+			
+			$up_img=$this->upload_model->compressor_upload('utility/user_image',$img_name,$input);
+			
+			if($up_img){
+			$this->db->where('sn',$insertId)->update('user_detail',['image'=>$img_name]);
+			}
+		}
+		
+		
+
+	}
+	
+	
+
+
+	// return end(explode(".", $_FILES["file"]["name"]));;
+
+	// $target_dir = "utility/";
+	// move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir.$_FILES["file"]["name"]);
+	// return $input;
 }
 
 public function verify_otp(){
@@ -416,6 +464,8 @@ public function delete_property_byid(){
 	echo json_encode($data);
 }
 
+
+
 private function property_detail($input){
 
 	$this->db->select('sn,name,price,main_image,description,avail,city,status,type');
@@ -457,6 +507,7 @@ private function property_detail($input){
 	return $this->db->order_by($input['filter_sort'],$input['filter_sort_by']);
 
 }
+
 
 
 }

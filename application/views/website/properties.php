@@ -448,7 +448,7 @@ function load_page_content(page_no){
                     property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+this.main_image+'" style="height:225px;"></a>';
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
-                    property_list+='<h5><a href="property-1.html"> '+this.name.slice(0,10)+''+dot_after_name+' </a></h5>';
+                    property_list+='<h5><a href="<?=base_url('property?id=');?>'+this.sn+'"> '+this.name.slice(0,10)+''+dot_after_name+' </a></h5>';
                     property_list+='<div class="dot-hr"></div>';
                     property_list+='<span class="pull-left"><b>'+capital_first(this.city)+'  </b></span>';
                     property_list+='<span class="proerty-price pull-right"> &#8377 '+this.price+'</span>';
