@@ -243,43 +243,63 @@
                                                 </a>
                                             </div>
                                             <div class="col-xs-8 col-sm-8 ">
-                                                <h3 class="dealer-name">
-                                                    <a href="">Nathan James</a>
-                                                    <span>Real Estate Agent</span>        
-                                                </h3>
-                                                <div class="dealer-social-media">
-                                                    <a class="twitter" target="_blank" href="">
-                                                        <i class="fa fa-twitter"></i>
-                                                    </a>
-                                                    <a class="facebook" target="_blank" href="">
-                                                        <i class="fa fa-facebook"></i>
-                                                    </a>
-                                                    <a class="gplus" target="_blank" href="">
-                                                        <i class="fa fa-google-plus"></i>
-                                                    </a>
-                                                    <a class="linkedin" target="_blank" href="">
-                                                        <i class="fa fa-linkedin"></i>
-                                                    </a> 
-                                                    <a class="instagram" target="_blank" href="">
-                                                        <i class="fa fa-instagram"></i>
-                                                    </a>       
+                                            <h3 class="dealer-name">
+                                                <a href="" style="color:rgb(255, 255, 255);">CONTACT OWNER</a>
+                                                <span>Kishore Mishra</span><br>
+                                                <span>+98087...</span>
+                                                <span
+                                                    style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);">show
+                                                    number</span>
+
+                                            </h3>
+
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="clear">
+                                        <ul class="dealer-contacts">
+                                            <li><b>Please share your contact</b></li>
+                                            <br>
+                                            
+                                            <div>
+                                                <div class="form-group">
+                                                    <label>Name<small>(required)</small></label>
+                                                    <input class="form-control">
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>phone<small>(required)</small></label>
+                                                    <input class="form-control">
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Email<small>(required)</small></label>
+                                                    <input class="form-control">
+
                                                 </div>
 
                                             </div>
-                                        </div>
+                                    </div>
 
-                                        <div class="clear">
-                                            <ul class="dealer-contacts">                                       
-                                                <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                                <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                                <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
-                                            </ul>
-                                            <p>Duis mollis  blandit tempus porttitor curabiturDuis mollis  blandit tempus porttitor curabitur , est non…</p>
-                                        </div>
+                                    <div>
+
+                                        </ul>
+                                        <p><input type="checkbox"> I agree to be contacted my Shareshell and other
+                                            agents via SMS,call,Email etc.</p>
 
                                     </div>
+
+                                    <button type="submit" class="btn btn-primary text-center"><i
+                                            class="fa fa-envelope-o"></i> Send Details</button>
+
+
                                 </div>
+
                             </div>
+                        </div>
+
 
 
                             <div class="panel panel-default sidebar-menu similar-property-wdg wow fadeInRight animated">
