@@ -114,6 +114,7 @@ class Main extends CI_Controller {
 
 
 
+
 	public function my404(){
 		$this->load->view('website/404');
 	}

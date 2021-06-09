@@ -75,9 +75,9 @@
                         <div class="clear">
                             <div class="col-sm-3 col-sm-offset-1">
                                 <div class="picture-container">
-                                    <div class="picture" style="height:auto; background: #d0d0d0;">
+                                    <div class="picture" style="height:auto; background-color: white; border: 0px;">
                                         
-                                        <img src="<?=base_url('assets/img/avatar_boy.jpg');?>" class="picture-src" id="PicturePreview" title="" style="object-fit: cover;"/>
+                                        <img src="<?=base_url('assets/img/avatar_boy.jpg');?>" class="picture-src" id="PicturePreview" title="" style="object-fit: cover; border-radius: 3px; border:2px solid #fdc600;"/>
                                         <!-- <input type="file" id="wizard-picture"> -->
                                     </div>
                                     <h5>
@@ -198,7 +198,7 @@
 <script type="text/javascript">
 
     var key="<?php echo $this->security->get_csrf_hash(); ?>"; 
-    console.log(key);
+    // console.log(key);
 
     $("#account_button_header").text("Logout");
     $("#account_button_header").attr("href","<?=base_url('main_helper/logout_account');?>");
@@ -257,11 +257,11 @@
                 $("#user_twitter").html(data.data['twitter']);
                 $("#user_twitter_link").attr('href',data.data['twitter']);
                 if(data.data['image']!=""){
-                    $("#PicturePreview").attr("src","<?=base_url('utility/user_image/');?>"+data.data['image']);
+                    $("#PicturePreview").attr("src","<?=base_url('utility/user_image/');?>"+data.data['image'].replace(/\.[^/.]+$/, "_thumb")+"."+/[^.]+$/.exec(data.data.image));
                 }else{
                     $("#PicturePreview").attr("src",'<?=base_url('assets/img/');?>'+user_image_male_female(data.data['gender']));
                 }
-                console.log(user_image_male_female(data.data['gender']));
+                // console.log(user_image_male_female(data.data['gender']));
             },
             error:function(data){
                 console.log(data);

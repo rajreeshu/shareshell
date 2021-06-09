@@ -16,7 +16,7 @@ class Main_helper extends CI_Controller {
 
 		if(isset($input['emergency_exit'])){
 			$addon=$addon."exit,";
-		}
+		} 
 		if(isset($input['fire_place'])){
 			$addon=$addon."fire,";
 		}
@@ -48,46 +48,93 @@ class Main_helper extends CI_Controller {
 		$insert_prop_data =$this->db->insert('property_info',$db_array);
 		$insertId = $this->db->insert_id();
 
-		$this->load->model('upload_model');
-		$main_img_upload=$this->upload_model->upload_file($insertId,'jpg|png|jpeg','utility/main_image','main_img');
+		// $this->load->model('upload_model');
+		// $main_img_upload=$this->upload_model->upload_file($insertId,'jpg|png|jpeg','utility/main_image','main_img');
 
 		
 
 
 
-		$upload_data = $this->upload->data(); //Returns array of containing all of the data related to the file you uploaded.
-		if($main_img_upload==true){
-			$this->db->where('sn',$insertId)->update('property_info',['main_image'=>$upload_data['file_name']]);
-		}
+		// $upload_data = $this->upload->data(); //Returns array of containing all of the data related to the file you uploaded.
+		// if($main_img_upload==true){
+		// 	$this->db->where('sn',$insertId)->update('property_info',['main_image'=>$upload_data['file_name']]);
+		// }
 
-		$data['upload_error']=$this->upload->display_errors();
+		// $data['upload_error']=$this->upload->display_errors();
 
-		$multiple_img_upload_no=1;
+		// $multiple_img_upload_no=1;
 		// $data['file_name']="";
-		while($multiple_img_upload_no<$input['property_image_no']){
-			$upload_multi=false;
-			$multi_file_name='prs'.$multiple_img_upload_no;
+		// while($multiple_img_upload_no<$input['property_image_no']){
+		// 	$upload_multi=false;
+		// 	$multi_file_name='prs'.$multiple_img_upload_no;
 
 
-			$upload_multi=$this->upload_model->upload_file($insertId."_".$multiple_img_upload_no,'jpg|png|jpeg','utility/main_image',$multi_file_name);
-			$upload_data_multi = $this->upload->data();
-			if($upload_multi){
-				$this->db->insert('property_image',['property_id'=>$insertId,'image'=>$upload_data_multi['file_name'],'date_time'=>date('Y-m-d H:i:s')]);
-			}
-			// $data['upload_error_multi'.$multiple_img_upload_no]=$this->upload->display_errors();
+		// 	$upload_multi=$this->upload_model->upload_file($insertId."_".$multiple_img_upload_no,'jpg|png|jpeg','utility/main_image',$multi_file_name);
+		// 	$upload_data_multi = $this->upload->data();
+		// 	if($upload_multi){
+		// 		$this->db->insert('property_image',['property_id'=>$insertId,'image'=>$upload_data_multi['file_name'],'date_time'=>date('Y-m-d H:i:s')]);
+		// 	}
+		// 	// $data['upload_error_multi'.$multiple_img_upload_no]=$this->upload->display_errors();
 			
-			// $data['file_name'].=' '.$multi_file_name;
-			// $data['upload_data']=$upload_data_multi;
-			$multiple_img_upload_no++;
-		}
+		// 	// $data['file_name'].=' '.$multi_file_name;
+		// 	// $data['upload_data']=$upload_data_multi;
+		// 	$multiple_img_upload_no++;
+		// }
 
 		// $data['input']=$input;
-		
+		$data['property_id']=$insertId;
 		$data['key']=$this->security->get_csrf_hash();
 		echo json_encode($data);
 	}
 
+public function upload_multi_prop_img(){
+	$input=$this->security->xss_clean($this->input->post());
+	$insertId=$this->security->xss_clean($this->session->userdata('user_id_shareshell'));
+	// $img_name=$this->security->xss_clean($this->session->userdata('img_upload_temp_user'));
+	
+	if($insertId){
+		
+		$this->load->model('upload_model');
+		$up_img=$this->upload_model->compressor_upload('utility/main_image',$insertId,$input);
+		// $up_img=$this->upload_model->compressor_upload('utility/user_image','x.jpg',$input);
+			
+			
 
+
+			// echo $_FILES["file"]["name"];
+
+			// echo $this->image_lib->display_errors();
+
+			
+
+		if($up_img){
+			$config['image_library'] = 'gd2';
+			$config['source_image'] = 'utility/main_image/'.$_FILES["file"]["name"];
+			$config['create_thumb'] = TRUE;
+			$config['maintain_ratio'] = TRUE;
+			$config['width']         = 200;
+			// $config['height']       = 250;
+
+			$this->load->library('image_lib', $config);
+
+			$this->image_lib->resize();
+
+			
+			if(substr_count($_FILES["file"]["name"],"_")){
+				$this->db->insert('property_image',['property_id'=>strstr($_FILES["file"]["name"],"_",true),'image'=>$_FILES["file"]["name"],'date_time'=>date('Y-m-d H:i:s')]);
+				// echo "if worked";
+			}else{
+				$this->db->where('sn',strstr($_FILES["file"]["name"],".",true))->update('property_info',['main_image'=>$_FILES["file"]["name"]]);
+				// echo "else worked -> ".strstr($_FILES["file"]["name"],".",true);
+			}
+			
+				// $this->db->where('sn',$insertId)->update('user_detail',['image'=>$img_name]);
+		}
+
+	}
+	
+	
+}
 
 
 
@@ -294,31 +341,72 @@ public function upload_test(){
 	$input=$this->security->xss_clean($this->input->post());
 	$insertId=$this->security->xss_clean($this->session->userdata('otp_verify_signup_shareshell'));
 	$img_name=$this->security->xss_clean($this->session->userdata('img_upload_temp_user'));
+	
 	if($img_name){
 		
 		$this->load->model('upload_model');
-	
-		if($img_name){
+		$up_img=$this->upload_model->compressor_upload('utility/user_image',$img_name,$input);
+		// $up_img=$this->upload_model->compressor_upload('utility/user_image','x.jpg',$input);
 			
-			$up_img=$this->upload_model->compressor_upload('utility/user_image',$img_name,$input);
 			
+			$config['image_library'] = 'gd2';
+			$config['source_image'] = 'utility/user_image/'.$img_name;
+			$config['create_thumb'] = TRUE;
+			$config['maintain_ratio'] = TRUE;
+			$config['width']         = 200;
+			// $config['height']       = 250;
+
+			$this->load->library('image_lib', $config);
+
+			$this->image_lib->resize();
+
+			echo $this->image_lib->display_errors();
+
+			
+
 			if($up_img){
-			$this->db->where('sn',$insertId)->update('user_detail',['image'=>$img_name]);
+				$this->db->where('sn',$insertId)->update('user_detail',['image'=>$img_name]);
 			}
-		}
-		
-		
 
 	}
 	
 	
+}
 
+public function upload_property_image(){
+	$input=$this->security->xss_clean($this->input->post());
+	$insertId=$this->security->xss_clean($this->session->userdata('user_id_shareshell'));
+	$img_name=$this->security->xss_clean($this->session->userdata('img_upload_temp_user'));
+	
+	if($img_name){
+		
+		$this->load->model('upload_model');
+		$up_img=$this->upload_model->compressor_upload('utility/user_image',$img_name,$input);
+		// $up_img=$this->upload_model->compressor_upload('utility/user_image','x.jpg',$input);
+			
+			
+			$config['image_library'] = 'gd2';
+			$config['source_image'] = 'utility/user_image/'.$img_name;
+			$config['create_thumb'] = TRUE;
+			$config['maintain_ratio'] = TRUE;
+			$config['width']         = 200;
+			// $config['height']       = 250;
 
-	// return end(explode(".", $_FILES["file"]["name"]));;
+			$this->load->library('image_lib', $config);
 
-	// $target_dir = "utility/";
-	// move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir.$_FILES["file"]["name"]);
-	// return $input;
+			$this->image_lib->resize();
+
+			echo $this->image_lib->display_errors();
+
+			
+
+			if($up_img){
+				$this->db->where('sn',$insertId)->update('user_detail',['image'=>$img_name]);
+			}
+
+	}
+	
+	
 }
 
 public function verify_otp(){

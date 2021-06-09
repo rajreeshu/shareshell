@@ -87,10 +87,13 @@
                                                    
                                                     <!-- <form  enctype="multipart/form-data"  method="post" id="form_main_img" > -->
                                                         <input type="file" id="main_img" name="main_img" accept=".jpg,.jpeg,.png" style="display: none;">
+
                                                         <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
                                                         <!-- <input type="submit" name="submit_main_img" value="upload" id="submit_main_img"> -->
 
                                                     <!-- </form> -->
+
+
                                                    
                                                     </div> 
                                                 </div>
@@ -304,6 +307,9 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="property-images">Chose Images :</label>
+                                                    <div id="prev_multi_image">
+                                                        <!-- <img src="" id="prev_img" height="100" width="100"> -->
+                                                    </div>
                                                     <span id="for_multiple_image">
                                                         <!-- <input class="form-control property-images" type="file" id="" name="property-images" style="margin-top:10px;">
                                                         <input class="form-control property-images" type="file" id="" name="property-images" style="margin-top:10px;">
@@ -318,6 +324,9 @@
                                                     <label for="property-video">Property video :</label>
                                                     <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text" id="video_link">
                                                 </div> 
+<!-- <button id="read">Read</button>
+<button id="compress">compress</button>
+<button id="upload">Upload</button> -->
 
                                                <!--  <div class="form-group">
                                                     <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
@@ -329,6 +338,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <!--  End step 3 -->
 
 
@@ -392,6 +402,161 @@
       
 </body>
 
+
+<!-- image compressor starts -->
+<script src="<?=base_url('assets/js');?>/JIC.js"></script>
+<script>
+    var output_format = null;
+    var file_name = null;
+    function readFile(evt,prev) {
+        console.log(prev);
+        var file = evt.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            var i = document.getElementById(prev);
+            console.log(i);
+                i.src = event.target.result;
+                i.onload = function(){
+                    
+                    console.log("Image loaded");
+                }
+        };
+        output_format = file.name.split(".").pop();
+        file_name = file.name;
+        reader.readAsDataURL(file);
+        // $("#compress").show();
+        return false;
+    }
+ // compress image
+    // $( "#compress" ).click(function() {
+        function compress_image_jic(prev,ext){
+        var source_image = document.getElementById(prev);
+        console.log('Source Image: '+prev);
+        if (source_image.src == "") {
+            alert("You must load an image first!");
+            return false;
+        }
+
+        var quality = 30;
+        
+        console.log("process start...");
+        console.log("process start compress ...");
+        var compressed_image = document.getElementById(prev);
+        compressed_image.src = jic.compress(source_image,quality,ext).src;
+        // $("#upload").show();
+        
+    // });
+}
+
+
+    // upload imange
+    // $( "#upload" ).click(function() {
+    function upload_image_jic(prev,file_transfer) {
+        var compressed_image = document.getElementById(prev);
+        if (compressed_image.src == "") {
+            alert("You must compress image first!");
+            return false;
+        }
+
+        var successCallback= function(response){
+            console.log("image uploaded successfully! :)");
+            console.log(response);       
+        }
+
+        var errorCallback= function(response){
+            console.log("image Filed to upload! :)");
+            console.log(response); 
+        }
+        
+        console.log("process start upload ...");
+        jic.upload(compressed_image, "<?=base_url('main_helper/upload_multi_prop_img');?>", "file", file_transfer,successCallback,errorCallback);
+    }
+        
+    // });
+
+// document.getElementById("main_img").addEventListener("change", readFile, false);
+
+
+
+
+// $(".property-images").change(function(event){
+//     // readFile(event);
+//     events_arr.push(event);
+//     console.log(events_arr);
+// });
+
+
+// $(document).on('change',".property-images",function(){
+//     events_arr.push(event);
+//     console.log(events_arr);
+// });
+// $("#read").click(function(e){
+
+//     e.preventDefault();
+
+//     var i=1;
+//     while(i<property_image_no){
+//         readFile(events_arr[i-1],'prev_img'+i);
+//         i++;
+//     }
+
+// });
+
+// $("#compress").click(function(e){
+//     e.preventDefault();
+//     // compress_image_jic('prev_img1');
+
+//         var k=1;
+//     while(k<property_image_no){
+//         compress_image_jic('prev_img'+k);
+//         break;
+//         k++;
+//     }
+
+
+//     // document.getElementById("main_img").addEventListener("change", readFile, false);
+//     // readFile();
+    
+// });
+
+// function sleep(milliseconds) {
+//   const date = Date.now();
+//   let currentDate = null;
+//   do {
+//     currentDate = Date.now();
+//   } while (currentDate - date < milliseconds);
+// }
+
+// $("#upload").click(function(e){
+//     e.preventDefault();
+ 
+//     var j=1;
+//     while(j<property_image_no){
+//         filee=events_arr[j-1].target.files[0];
+//         file_name_tra=filee.name;
+//         ext = filee.name.split(".").pop();
+//         compress_image_jic('prev_img'+j,ext); 
+//         upload_image_jic('prev_img'+j,file_name_tra); 
+//        // upload_image_jic('prev_img'+j);
+//         j++;
+//     } 
+
+// i=1;
+// (function myLoop(i) {
+//   setTimeout(function() {
+//     // console.log('hello'); //  your code here  
+//     file_name_tra=events_arr[i-1].target.files[0].name; 
+//     upload_image_jic('prev_img'+j,file_name_tra);  
+//     j++;           
+//     if (--i) myLoop(i);   //  decrement i and call myLoop again if i > 0
+//   }, 3000)
+// })(3); 
+
+// });
+</script>
+<!-- image compressor ends  -->
+
+
 <script type="text/javascript">
 
     var key="<?php echo $this->security->get_csrf_hash(); ?>";
@@ -439,9 +604,9 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
             // $("#next_btn").css('opacity', '0.3').removeClass('btn-next');
             $("#next_btn").css('opacity', '0.3');
             
-            //temporarly removed
+///////////            //temporarly removed
             $("#next_btn").attr('disabled', '');
-            
+/////////// 
             $("#next_btn").css({
                 backgroundColor: '',
                 color: '#215655'
@@ -475,22 +640,26 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
     });
     
 
-    function previewFile(input){
-        var file = $("#main_img").get(0).files[0];
+    function previewFile(img,prev){
+        var file = $(img).get(0).files[0];
+        console.log(file);
  
         if(file){
+
             var reader = new FileReader();
- 
+
             reader.onload = function(){
-                $("#main_img_prev").attr("src", reader.result);
+                // console.log(prev);
+                $(prev).attr("src", reader.result);
             }
  
             reader.readAsDataURL(file);
         }
     }
-
-    $("#main_img").change(function() {
-        previewFile();
+    var main_img_event;
+    $("#main_img").change(function(event) {
+        main_img_event=event;
+        previewFile("#main_img","#main_img_prev");
     });
 
 
@@ -566,7 +735,9 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
         get_all_inp_value_two();
         if((onPage==2) && (prop_description==""||prop_avail==""||prop_city==""||prop_status==""||prop_type=="")){
             $("#next_btn").css('opacity', '0.3');
+////////
             $("#next_btn").attr('disabled', '');
+////////            
             $("#next_btn").css({
                 backgroundColor: '',
                 color: '#215655'
@@ -614,10 +785,20 @@ $("#for_multiple_image").html(multiple_image_html);
 
 
 // $(".property-images").change(function(){
-    $(document).on("change",".property-images",function(){
-    console.log('hello triggered');
+var events_arr=[];
+
+    $(document).on("change",".property-images",function(event){
+    // console.log('hello triggered');
     if($(this).val()!=""&&property_image_no<16){
+        events_arr.push(event);
+        console.log(events_arr);
+        $("#prev_multi_image").append('<img src="<?=base_url();?>assets/img/default-property.jpg" id="prev_img'+property_image_no+'" height="100" width="100" style="background:red;">');
+
+        previewFile("#property-images"+property_image_no,"#prev_img"+property_image_no);
+       // $("#prev_img"+property_image_no).css('opacity',0.5);
+
         property_image_no++;
+
         $("#for_multiple_image").append('<input class="form-control property-images" type="file" id="property-images'+property_image_no+'" name="prs'+property_image_no+'" style="margin-top:10px;">');
         $("#property_image_no").val(property_image_no);
         
@@ -712,8 +893,27 @@ $("#form1").submit(function(e) {
                 success:function(data){
                         // console.log();
                     key=data.key;
-                    // console.log(data);
+                    
+                    main_img_filee=main_img_event.target.files[0];
+                    main_img_file_name_tra=main_img_filee.name;
+                    main_img_ext=main_img_filee.name.split(".").pop();
+
+                    compress_image_jic('main_img_prev',main_img_ext); 
+                    upload_image_jic('main_img_prev',data.property_id+"."+main_img_ext); 
+
+
+                    var j=1;
+                    while(j<property_image_no){
+                        filee=events_arr[j-1].target.files[0];
+                        file_name_tra=filee.name;
+                        ext = filee.name.split(".").pop();
+                        compress_image_jic('prev_img'+j,ext); 
+                        upload_image_jic('prev_img'+j,data.property_id+"_"+j+"."+ext); 
+                       // upload_image_jic('prev_img'+j);
+                        j++;
+                    } 
                     window.location.href = 'property_submited';
+                    console.log(data);
                 },
         
                 error:function(data){
@@ -721,7 +921,7 @@ $("#form1").submit(function(e) {
                }
             });
     }else{
-        alert("not seletcted");
+        alert("Click the CheckBox to Continue..");
     } 
 
 });

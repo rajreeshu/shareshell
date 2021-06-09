@@ -81,8 +81,8 @@
                                     </div>
 <!--  -->
                                     <!-- <img src="" id="compressed_image" height="100" width="100" style="border:3px solid black;"> -->
-                                    <a id="compress">Compress</a>
-                                    <a id="upload">Upload</a>
+                                   <!--  <a id="compress">Compress</a>
+                                    <a id="upload">Upload</a> -->
 <!--  -->
 
                                 </div>
@@ -500,7 +500,7 @@ $("#form_field").submit(function(event) {
         field_error_css("#website_field");
         console.log("website 0");
     }
-    compress_image_jic(); 
+
 
     var formData = new FormData(this);
     formData.append("<?= $this->security->get_csrf_token_name();?>",key);
@@ -528,10 +528,11 @@ $("#form_field").submit(function(event) {
             contentType: false,
             success:function(data){
                 key=data.key;
-                 console.log(data);
-                    
-                    console.log(data.user_id);
+                if(image_field_check!=""){
+                    compress_image_jic(); 
                     upload_image_jic(data.user_id);
+                }
+                    
                     // return;
 
                 if(data.data==true){
