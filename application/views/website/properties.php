@@ -442,10 +442,15 @@ function load_page_content(page_no){
                         dot_after_name="";
                     }
 
+                    thumb_img=this.main_image.split('.').slice(0, -1).join('.')+"_thumb."+this.main_image.substr(this.main_image.lastIndexOf('.') + 1);
+
+
                     property_list+='<div class="col-sm-6 col-md-4 p0">';
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
-                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+this.main_image+'" style="height:225px;"></a>';
+                   
+                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px;"></a>';
+                   
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
                     property_list+='<h5><a href="<?=base_url('property?id=');?>'+this.sn+'"> '+this.name.slice(0,10)+''+dot_after_name+' </a></h5>';

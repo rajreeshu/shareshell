@@ -9,3 +9,7 @@ function user_image_male_female(gender){
 function capital_first(str){
     return str.charAt(0).toUpperCase()+str.slice(1);
 }
+
+function get_thumb_name(name){
+    return name.split('.').slice(0, -1).join('.')+"_thumb."+name.substr(name.lastIndexOf('.') + 1);
+}

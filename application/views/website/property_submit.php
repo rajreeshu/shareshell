@@ -46,6 +46,15 @@
   }
 }
 
+.prev_img{
+    height:100px;
+    width:100px; 
+    object-fit:cover; 
+    border:2px solid #FFC500; 
+    border-radius:5px; 
+    margin:3px;
+}
+
     </style>
 <?php
     $this->load->view('website/link_import');
@@ -306,17 +315,21 @@
                                         <div class="row">  
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="property-images">Chose Images :</label>
-                                                    <div id="prev_multi_image">
+                                                    <label for="property-images">Select Images :</label>
+                                                    <div>
+                                                        <span id="prev_multi_image">
                                                         <!-- <img src="" id="prev_img" height="100" width="100"> -->
+                                                        </span>
+                                                        <img src="<?=base_url('assets/img/add.png');?>" id="add_image_click" class="prev_img">
                                                     </div>
+                                                    
                                                     <span id="for_multiple_image">
                                                         <!-- <input class="form-control property-images" type="file" id="" name="property-images" style="margin-top:10px;">
                                                         <input class="form-control property-images" type="file" id="" name="property-images" style="margin-top:10px;">
                                                         <input class="form-control property-images" type="file" id="" name="property-images" style="margin-top:10px;">
  -->                                                    </span>
                                                     
-                                                    <p class="help-block">Select multipel images for your property .</p>
+                                                    <!-- <p class="help-block">Select multipel images for your property .</p> -->
                                                 </div>
                                             </div>
                                             <div class="col-sm-6"> 
@@ -776,7 +789,8 @@ var video;
 
 var property_image_no=1;
 
-var multiple_image_html='<input class="form-control property-images" type="file" id="property-images'+property_image_no+'" name="prs'+property_image_no+'" style="margin-top:10px;">';
+var multiple_image_html='<input class="form-control property-images" type="file" id="property-images'+property_image_no+'" name="prs'+property_image_no+'" style="margin-top:10px; display:none;">';
+
 multiple_image_html+='<input type="hidden" name="property_image_no" id="property_image_no">';
 
 $("#for_multiple_image").html(multiple_image_html);
@@ -792,20 +806,27 @@ var events_arr=[];
     if($(this).val()!=""&&property_image_no<16){
         events_arr.push(event);
         console.log(events_arr);
-        $("#prev_multi_image").append('<img src="<?=base_url();?>assets/img/default-property.jpg" id="prev_img'+property_image_no+'" height="100" width="100" style="background:red;">');
+        $("#prev_multi_image").append('<img src="<?=base_url();?>assets/img/default-property.jpg" id="prev_img'+property_image_no+'" class="prev_img" >');
 
         previewFile("#property-images"+property_image_no,"#prev_img"+property_image_no);
        // $("#prev_img"+property_image_no).css('opacity',0.5);
+       $("#property-images"+property_image_no).hide();
 
         property_image_no++;
 
-        $("#for_multiple_image").append('<input class="form-control property-images" type="file" id="property-images'+property_image_no+'" name="prs'+property_image_no+'" style="margin-top:10px;">');
+
+
+        $("#for_multiple_image").append('<input class="form-control property-images" type="file" id="property-images'+property_image_no+'" name="prs'+property_image_no+'" style="margin-top:10px; display:none;">');
         $("#property_image_no").val(property_image_no);
         
     }
     
 
 });
+
+    $("#add_image_click").click(function(){
+        $("#property-images"+property_image_no).click();
+    });
 
 // for(i=1;i<=property_image_no;i++){
 //     console.log("hello");

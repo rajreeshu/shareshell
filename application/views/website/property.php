@@ -42,8 +42,8 @@
             .demo-gallery > ul > li {
                 float: left;
                 margin-bottom: 15px;
-                margin-right: 20px;
-                width: 230px;
+                /* margin-right: 20px; */
+                /* width: 230px; */
 
             }
             .demo-gallery > ul > li a {
@@ -240,46 +240,13 @@
 <h4 class="s-property-title">Gallery</h4>
         <div class="demo-gallery">
             <ul id="lightgallery" class="list-unstyled row">
-                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_2.jpg');?>" >
-                    <a href="">
-                        <img class="img-responsive" src="<?=base_url('assets/images/room_2.jpg');?>" alt="Thumb-1">
-                    </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_3.jpg');?>" >
+                
+                <!-- <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_3.jpg');?>" >
                     <a href="">
                         <img class="img-responsive" src="<?=base_url('assets/images/room_3.jpg');?>" alt="Thumb-2">
                     </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_4.jpg');?>" >
-                    <a href="">
-                        <img class="img-responsive" src="<?=base_url('assets/images/room_4.jpg');?>" alt="Thumb-3">
-                    </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_5.jpg');?>">
-                    <a href="">
-                        <img class="img-responsive" src="<?=base_url('assets/images/room_5.jpg');?>" alt="Thumb-4">
-                    </a>
-                </li>
-                 <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_2.jpg');?>" >
-                    <a href="">
-                        <img class="img-responsive" src="<?=base_url('assets/images/room_2.jpg');?>" alt="Thumb-1">
-                    </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_3.jpg');?>" >
-                    <a href="">
-                        <img class="img-responsive" src="<?=base_url('assets/images/room_3.jpg');?>" alt="Thumb-2">
-                    </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_4.jpg');?>" >
-                    <a href="">
-                        <img class="img-responsive" src="<?=base_url('assets/images/room_4.jpg');?>" alt="Thumb-3">
-                    </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="" data-src="<?=base_url('assets/images/room_5.jpg');?>">
-                    <a href="">
-                        <img class="img-responsive" src="<?=base_url('assets/images/room_5.jpg');?>" alt="Thumb-4">
-                    </a>
-                </li>
+                </li> -->
+               
             </ul>
         </div>
                             <!-- gallery area ends -->
@@ -324,21 +291,50 @@
                                                 <!-- </a> -->
                                             </div>
                                             <div class="col-xs-8 col-sm-8 ">
-<<<<<<< HEAD
                                             <h3 class="dealer-name">
                                                 <a href="" style="color:rgb(255, 255, 255);">CONTACT OWNER</a>
-                                                <span>Kishore Mishra</span><br>
+                                                <span id="agent_name">Kishore Mishra</span>
+                                                <span class="dealer-social-media">
+                                                    <a class="twitter" target="_blank" href="" id="agent_twitter_link">
+                                                        <!-- <i class="fa fa-twitter-square fa-2x" id="agent_twitter"style="margin-right: 20px;"></i> -->
+                                                    </a>
+                                                    <a class="facebook" target="_blank" href="" id="agent_facebook_link">
+                                                        <!-- <i class="fa fa-facebook-official fa-2x" id="agent_facebook"></i> -->
+                                                    </a>
+                                                   <!--  <a class="gplus" target="_blank" href="">
+                                                        <i class="fa fa-google-plus"></i>
+                                                    </a>
+                                                    <a class="linkedin" target="_blank" href="">
+                                                        <i class="fa fa-linkedin"></i>
+                                                    </a>  -->
+                                                 <!--    <a class="instagram" target="_blank" href="">
+                                                        <i class="fa fa-instagram"></i>
+                                                    </a>     -->   
+
+                                                </span>
+                                                <!-- <span id="agent_username" style="font-size: 13px;">My Username</span>  -->
+                                                
                                                 <span>+98087...</span>
                                                 <span
                                                     style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);">show
                                                     number</span>
-
+                                                    
                                             </h3>
-
-
-
+                                            
                                         </div>
+                                        
                                     </div>
+
+                                    
+
+
+                                    <div class="clear">
+                                            
+                                            <p id="agent_bio"></p>
+                                        </div>
+                                        <ul class="dealer-contacts" style="margin-top:-35px; margin-bottom:-25px;">                                       
+                                                <li><i class="pe-7s-map-marker strong"> </i><span id="agent_address"> 9089 your adress her</span></li>
+                                             </ul>
 
                                     <div class="clear">
                                         <ul class="dealer-contacts">
@@ -360,49 +356,16 @@
                                                     <label>Email<small>(required)</small></label>
                                                     <input class="form-control">
 
-=======
-                                                <h3 class="dealer-name" style="padding-bottom:10px;">
-                                                    <a href="" id="agent_name" style="">my name</a>
-                                                    <div id="agent_username" style="font-size: 15px;">My Username</div>        
-                                                </h3>
-                                                <div class="dealer-social-media">
-                                                    <a class="twitter" target="_blank" href="" id="agent_twitter_link">
-                                                        <!-- <i class="fa fa-twitter-square fa-2x" id="agent_twitter"style="margin-right: 20px;"></i> -->
-                                                    </a>
-                                                    <a class="facebook" target="_blank" href="" id="agent_facebook_link">
-                                                        <!-- <i class="fa fa-facebook-official fa-2x" id="agent_facebook"></i> -->
-                                                    </a>
-                                                   <!--  <a class="gplus" target="_blank" href="">
-                                                        <i class="fa fa-google-plus"></i>
-                                                    </a>
-                                                    <a class="linkedin" target="_blank" href="">
-                                                        <i class="fa fa-linkedin"></i>
-                                                    </a>  -->
-                                                 <!--    <a class="instagram" target="_blank" href="">
-                                                        <i class="fa fa-instagram"></i>
-                                                    </a>     -->   
->>>>>>> eec662fe258826725bce068521cf59adae019bda
                                                 </div>
 
                                             </div>
                                     </div>
 
-<<<<<<< HEAD
                                     <div>
 
                                         </ul>
                                         <p><input type="checkbox"> I agree to be contacted my Shareshell and other
                                             agents via SMS,call,Email etc.</p>
-=======
-                                        <div class="clear">
-                                            <ul class="dealer-contacts">                                       
-                                                <li><i class="pe-7s-map-marker strong"> </i><span id="agent_address"> 9089 your adress her</span></li>
-                                                <!-- <li><i class="pe-7s-mail strong"> </i> <span id="agent_email">email@yourcompany.com</span></li> -->
-                                                <!-- <li><i class="pe-7s-call strong"> </i> <span id="agent_phone">+1 908 967 5906</span></li> -->
-                                            </ul>
-                                            <p id="agent_bio">Duis mollis  blandit tempus porttitor curabiturDuis mollis  blandit tempus porttitor curabitur , est non…</p>
-                                        </div>
->>>>>>> eec662fe258826725bce068521cf59adae019bda
 
                                     </div>
 
@@ -527,12 +490,13 @@
 <!-- end gallery js -->
 
  <script>
-    lightGallery(document.getElementById('lightgallery'));
+
     // window.history.replaceState(null, null, "https://localhost/git_shareshell/shareshell/propertys");
 
         var key="<?php echo $this->security->get_csrf_hash(); ?>";   
 
-        var property_by="";       
+        var property_by="";
+
 
     $.ajax({
         url:"<?=base_url('main_helper/get_property_data');?>",
@@ -554,9 +518,10 @@
                 property_by=data.data.listed_by;
 
                     //start
+                // thumb_img=data.data.main_image.split('.').slice(0, -1).join('.')+"_thumb."+data.data.main_image.substr(data.data.main_image.lastIndexOf('.') + 1);
 
                 $("#property_name").html(data.data.name);
-                $("#main_img_thumb").attr('data-thumb', '<?=base_url("utility/main_image/");?>'+data.data.main_image);
+                $("#main_img_thumb").attr('data-thumb', '<?=base_url("utility/main_image/");?>'+get_thumb_name(data.data.main_image));
                 $("#main_img_slider").attr('src',  '<?=base_url("utility/main_image/");?>'+data.data.main_image);
                 $("#property_city").html("Property In "+data.data.city);
                 $("#property_price").html("&#8377 "+data.data.price);
@@ -582,6 +547,13 @@
                 $("#property_type").html(data.data.type.toUpperCase());
                 $("#property_avail").html(data.data.avail.toUpperCase());
 
+                // $("#main_img_slide_thumb").attr('scr','<?=base_url('utility/main_image');?>/'+get_thumb_name(data.data.main_image));
+                
+                // $("#main_img_slide_thumb").src='<?=base_url("utility/main_image");?>/'+get_thumb_name(data.data.main_image);
+
+                // $("#main_img_slide").attr("data-src",'<?=base_url('utility/main_image');?>/'+data.data.main_image);
+
+                $("#lightgallery").append('<li class="col-xs-6 col-sm-4 col-md-3 col-4"  data-responsive="" id="main_img_slide" data-src="<?=base_url('utility/main_image');?>/'+data.data.main_image+'" ><a href=""><img src="<?=base_url('utility/main_image');?>/'+get_thumb_name(data.data.main_image)+'" class="img-responsive" id="main_img_slide_thumb" alt="Thumb-1"></a></li>');
 
 
 
@@ -606,17 +578,23 @@
             console.log(data);
 
             var image_insert="";
+            var lightgallery_data="";
             $.each(data.data,function(){
                 // console.log(this.image);
-                image_insert+='<li data-thumb="<?=base_url();?>utility/main_image/'+this.image+'" class="thumb_class">';
+                image_insert+='<li data-thumb="<?=base_url();?>utility/main_image/'+get_thumb_name(this.image)+'" class="thumb_class">';
                 image_insert+='<img src="<?=base_url();?>utility/main_image/'+this.image+'"  class="thumb_class_src"/>';
                 image_insert+='</li>';
+
+                lightgallery_data+='<li class="col-xs-6 col-sm-4 col-md-3 col-4"  data-responsive="" id="main_img_slide" data-src="<?=base_url('utility/main_image');?>/'+this.image+'" ><a href=""><img src="<?=base_url('utility/main_image');?>/'+get_thumb_name(this.image)+'" class="img-responsive" id="main_img_slide_thumb" alt="Thumb-1"></a></li>';
+
+
 
             });
             // while(data.data){
             //     console.log("h");
             // }
             $("#image-gallery").append(image_insert);
+            $("#lightgallery").append(lightgallery_data);
         },
         error:function(data){
             console.log(data);
@@ -643,16 +621,16 @@
             $("#agent_address").html(data.data.address);
             $("#agent_bio").html(data.data.user_bio);
             if(data.data.twitter!=""){
-                $("#agent_twitter_link").html('<i class="fa fa-twitter-square fa-2x" id="agent_twitter"style="margin-right: 20px;"></i>');
+                $("#agent_twitter_link").html('<i class="fa fa-twitter-square fa-1x" id="agent_twitter"style="margin-right: 0px;"></i>');
             }
             $("#agent_twitter_link").attr("href",data.data.twitter);
             if(data.data.facebook!=""){
-                $("#agent_facebook_link").html('<i class="fa fa-facebook-official fa-2x" id="agent_facebook"></i>');
+                $("#agent_facebook_link").html('<i class="fa fa-facebook-official fa-1x" id="agent_facebook"></i>');
             }
             $("#agent_facebook_link").attr("href",data.data.facebook);
 
             if(data.data.image!=""){
-                $("#user_img").attr("src","<?=base_url('utility/user_image/');?>"+data.data.image);
+                $("#user_img").attr("src","<?=base_url('utility/user_image/');?>"+get_thumb_name(data.data.image));
             }else{
                  $("#user_img").attr("src",'<?=base_url('assets/img/');?>'+user_image_male_female(data.data['gender']));
             }
@@ -667,7 +645,7 @@
 
         
 
-
+    lightGallery(document.getElementById('lightgallery'));
 $('#image-gallery').lightSlider({
     gallery: true,
     item: 1,
