@@ -12,10 +12,39 @@
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <body>
+    <!-- Messenger Chat Plugin Code -->
+<div id="fb-root"></div>
+
+<!-- Your Chat Plugin code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "106921368151575");
+  chatbox.setAttribute("attribution", "biz_inbox");
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v11.0'
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script> 
 <?php
     $this->load->view('website/link_import');
     $this->load->view('website/header');
-?>    
+?> 
+  
         <div class="slider-area">
             <div class="slider">
             <div id="bg-slider" class="owl-carousel owl-theme">
