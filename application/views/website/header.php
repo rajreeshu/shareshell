@@ -2,18 +2,18 @@
 <?php
 
     if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
-        $submit_property_button="<a class=\"navbar-btn nav-button wow fadeInRight\" href=\"".base_url('main/submit_property')."\" data-wow-delay=\"0.5s\" style=\"position:relative; top:10px;\"><B>PostProperty<span style=\"color: red; top:10px;\"> FREE</b></span></a>";
+        $submit_property_button="<a class=\"navbar-btn nav-button wow\" href=\"".base_url('main/submit_property')."\" data-wow-delay=\"0.5s\" style=\"position:relative; top:10px;\"><B>PostProperty<span style=\"color: red; top:10px;\"> FREE</b></span></a>";
 
-        $login_logout_button="<a class=\"navbar-btn nav-button wow bounceInRight login\" href=".base_url('account')." data-wow-delay=\"0.4s\" id=\"account_button_header\" style=\"position:relative; top:10px;\">Account</a>";
+        $login_logout_button="<a class=\"navbar-btn nav-button wow login\" href=".base_url('account')." data-wow-delay=\"0.4s\" id=\"account_button_header\" style=\"position:relative; top:10px;\">Account</a>";
 
         $logged_in=true; 
 
     }else{
 
-        $submit_property_button="<a class=\"navbar-btn nav-button wow fadeInRight\"href='".base_url('main/submit_property')."'\" data-wow-delay=\"0.5s\" style=\"position:relative; top:10px;\"><B>PostProperty<span style=\"color: red;\"> FREE</b></span></a>";
+        $submit_property_button="<a class=\"navbar-btn nav-button wow \"href='".base_url('main/submit_property')."'\" data-wow-delay=\"0.5s\" style=\"position:relative; top:10px;\"><B>PostProperty<span style=\"color: red;\"> FREE</b></span></a>";
         // $submit_property_button="<button class=\"navbar-btn nav-button wow fadeInRight\" onclick=\" window.open('".base_url('main/submit_property')."')\" data-wow-delay=\"0.5s\">submit</button>";
 
-        $login_logout_button="<a class=\"navbar-btn nav-button wow bounceInRight login \" href=\"".base_url('main/log_user')."\" data-wow-delay=\"0.5s\" id=\"login_button_header\" style=\"position:relative; top:10px;\">Login/Signup</a>";
+        $login_logout_button="<a class=\"navbar-btn nav-button wow login \" href=\"".base_url('main/log_user')."\" data-wow-delay=\"0.5s\" id=\"login_button_header\" style=\"position:relative; top:10px;\">Login/Signup</a>";
 
         $logged_in=false;
     }
@@ -83,7 +83,7 @@
                             
                         </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="<?=base_url('properties');?>">Properties</a></li>
+                        <li class="wow" data-wow-delay="0.1s"><a class="" href="<?=base_url('properties');?>">Properties</a></li>
                         
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Others<b class="caret"></b></a>
@@ -202,7 +202,7 @@
                         </ul>
                     </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="<?=base_url('contact');?>">Contact</a></li>
+                        <li class="wow" data-wow-delay="0.4s"><a href="<?=base_url('contact');?>">Contact</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

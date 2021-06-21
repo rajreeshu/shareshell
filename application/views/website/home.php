@@ -354,7 +354,7 @@
                                         <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
                                         <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
                                     </div>
-                                    <div class="client-face wow fadeInRight" data-wow-delay=".9s"> 
+                                    <div class="client-face wow swing" data-wow-delay=".9s"> 
                                         <img src="<?=base_url();?>assets/img/client-face1.png" alt="">
                                     </div>
                                 </div>
@@ -363,7 +363,7 @@
                                         <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
                                         <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
                                     </div>
-                                    <div class="client-face">
+                                    <div class="client-face wow swing" data-wow-delay=".9s">
                                         <img src="<?=base_url();?>assets/img/client-face2.png" alt="">
                                     </div>
                                 </div>
@@ -372,7 +372,7 @@
                                         <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
                                         <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
                                     </div>
-                                    <div class="client-face">
+                                    <div class="client-face wow swing" data-wow-delay=".9s">
                                         <img src="<?=base_url();?>assets/img/client-face1.png" alt="">
                                     </div>
                                 </div>
@@ -381,7 +381,7 @@
                                         <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
                                         <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
                                     </div>
-                                    <div class="client-face">
+                                    <div class="client-face wow swing" data-wow-delay=".9s">
                                         <img src="<?=base_url();?>assets/img/client-face2.png" alt="">
                                     </div>
                                 </div>
