@@ -304,6 +304,8 @@ public function submit_signup_data(){
 
 		$this->db->where('sn',$insertId)->update('user_detail',['otp'=>password_hash($otp_random,PASSWORD_BCRYPT),'otp_sent_time'=>date('Y-m-d H:i:s')]);
 
+		$this->_send_mail($input['email_field'],$otp_random);
+
 		$this->session->set_userdata('otp_verify_signup_shareshell',$insertId);
 		
 		$ext=pathinfo($input['image_field_check'], PATHINFO_EXTENSION);
@@ -329,7 +331,7 @@ public function submit_signup_data(){
 	// 	$data['upload_error']=$this->upload->display_errors();
 	// }
 	
-	$data['otp']=$otp_random;
+	// $data['otp']=$otp_random;
 	$data['data']=$insert_prop_data;
 	$data['user_id']=$insertId;
 	// $data['ext']=;
@@ -344,9 +346,10 @@ public function upload_test(){
 	
 	if($img_name){
 		
-		$this->load->model('upload_model');
-		$up_img=$this->upload_model->compressor_upload('utility/user_image',$img_name,$input);
+		// $this->load->model('upload_model');
+		// $up_img=$this->upload_model->compressor_upload('utility/user_image',$img_name,$input);
 		// $up_img=$this->upload_model->compressor_upload('utility/user_image','x.jpg',$input);
+		$up_img=move_uploaded_file($_FILES["file"]["tmp_name"], 'utility/user_image/'.$_FILES["file"]["name"]);
 			
 			
 			$config['image_library'] = 'gd2';
@@ -372,6 +375,8 @@ public function upload_test(){
 	
 	
 }
+
+
 
 public function upload_property_image(){
 	$input=$this->security->xss_clean($this->input->post());
@@ -595,6 +600,23 @@ private function property_detail($input){
 	return $this->db->order_by($input['filter_sort'],$input['filter_sort_by']);
 
 }
+
+
+
+//mailing function
+private function _send_mail($email,$random_val){
+	$headers = 'From: Multirater Surveys <contactus@shareshell.in>' . "\n";
+		
+			$headers .= 'MIME-Version: 1.0' . "\n";
+			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+			$returnpath = '-f contactus@shareshell.in';
+
+			$success=1;
+			
+			$success = mail($email, 'Otp Verification of ShareShell', "your Verification code is: ".$random_val);
+			return $success;
+}	
 
 
 

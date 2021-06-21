@@ -117,7 +117,7 @@
 
                         $("#otp_error").html("*Incorrect OTP");
                     }else{
-                        $("#profile-header").html('<div class="content-area error-page" style="background-color: #FCFCFC; padding-bottom: 35px;"><div class="container"><div class="row"><div class="col-md-10 col-sm-12 text-center page-title"><h2 >ACCOUNT CREATED</h2><h1 class="" style="padding-left: 50px;">SUCESSFULLY <span style="font-size:40px; color: rgb(229, 233, 22); ">&#10004;</span></h1></div></div><br><br><center><a href="<?=base_url('');?>" class="btn btn-default"><div >Go To Home</div></center></div></div>');
+                        $("#profile-header").html('<div class="content-area error-page" style="background-color: #FCFCFC; padding-bottom: 35px;"><div class="container"><div class="row"><div class="col-md-10 col-sm-12 text-center page-title"><h2 >ACCOUNT CREATED</h2><h1 class="" style="padding-left: 50px;">SUCESSFULLY <span style="font-size:40px; color: rgb(229, 233, 22); ">&#10004;</span></h1></div></div><br><br><center><a href="<?=base_url('main/log_user');?>" class="btn btn-default"><div >LOG IN</div></center></div></div>');
                     }
 
                     console.log(data);

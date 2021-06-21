@@ -81,8 +81,8 @@
                                     </div>
 <!--  -->
                                     <!-- <img src="" id="compressed_image" height="100" width="100" style="border:3px solid black;"> -->
-                                   <!--  <a id="compress">Compress</a>
-                                    <a id="upload">Upload</a> -->
+                                  <a id="compress">Compress</a>
+                                    <a id="upload">Upload</a> 
 <!--  -->
 
                                 </div>
@@ -290,8 +290,11 @@
             console.log(response); 
         }
         
+        // console.log(compressed_image.src);
         console.log("process start upload ...");
-        jic.upload(compressed_image, "<?=base_url('main_helper/upload_test');?>", "file", file_name,successCallback,errorCallback);
+        var x=jic.upload(compressed_image, "<?=base_url('main_helper/upload_test');?>", "file", new_name+"."+output_format,successCallback,errorCallback);
+
+        console.log(x);
     }
         
     // });
@@ -536,7 +539,7 @@ $("#form_field").submit(function(event) {
                     // return;
 
                 if(data.data==true){
-                    window.location.href = "<?=base_url('main/account_created');?>?otp="+data.otp; 
+                    window.location.href = "<?=base_url('main/account_created');?>"; 
                 }else{
                     alert("Something Went Wrong.");
                 }
