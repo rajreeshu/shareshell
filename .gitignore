@@ -21,7 +21,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 
 # Config File
 # /application/config/
-application/config/config.php
+/application/
 
 # IDE Files
 #-------------------------
