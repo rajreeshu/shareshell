@@ -42,7 +42,7 @@
                      
                 <div class="col-md-3 p0 padding-top-40">
                     <div class="blog-asside-right pr0">
-                        <div class="panel panel-default sidebar-menu wow fadeInRight animated" >
+                        <div class="panel panel-default sidebar-menu wow animated" >
                             <div class="panel-heading">
                                 <h3 class="panel-title">Smart search</h3>
                             </div>
@@ -190,7 +190,7 @@
                             </div>
                         </div>
 
-                        <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                        <div class="panel panel-default sidebar-menu wow animated">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Recommended</h3>
                             </div>

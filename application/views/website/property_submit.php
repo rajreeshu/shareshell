@@ -880,39 +880,23 @@ $("#form1").submit(function(e) {
 //   console.log(pair[0] + " - " + pair[1]);
 // }
 //         return;
+            $("#finish_btn").hide();
+            $("#loader").show();
 
-
-             $.ajax({
+            setTimeout(function() {
+                $.ajax({
                 type:"post",
                 url:"<?=base_url('main_helper/submit_property');?>",
                 async:false,
                 data:formData,
-                //{
-                //     "<?php echo $this->security->get_csrf_token_name();?>":key,
-                //     prop_name:prop_name,
-                //     prop_price:prop_price,
-                //     prop_address:prop_address,
-                //     prop_contact:prop_contact,
-                //     main_img:main_img,
-                //     prop_description:prop_description,
-                //     prop_avail:prop_avail,
-                //     prop_city:prop_city,
-                //     prop_status:prop_status,
-                //     prop_type:prop_type,
-                //     min_bed:min_bed,
-                //     addon:addon,
-                //     video:video,
-                //     // form_data:($('form')[0])
-                // },
                 dataType:"json",
                 processData: false,
                 contentType: false,
                 beforeSend:function(){
-                    $("#finish_btn").hide();
-                    $("#loader").show();
+                    // $("#finish_btn").hide();
+                    // $("#loader").show();
                 },
                 success:function(data){
-                        // console.log();
                     key=data.key;
                     
                     main_img_filee=main_img_event.target.files[0];
@@ -941,6 +925,9 @@ $("#form1").submit(function(e) {
                     console.log(data);
                }
             });
+            },1000);
+
+             
     }else{
         alert("Click the CheckBox to Continue..");
     } 

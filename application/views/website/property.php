@@ -380,7 +380,7 @@
 
 
 
-                            <div class="panel panel-default sidebar-menu similar-property-wdg wow fadeInRight animated">
+                            <div class="panel panel-default sidebar-menu similar-property-wdg wow animated">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Similar Properties</h3>
                                 </div>
@@ -446,7 +446,7 @@
 
 
 
-                            <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                            <div class="panel panel-default sidebar-menu wow animated">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Ads her  </h3>
                                 </div>
