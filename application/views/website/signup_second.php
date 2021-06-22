@@ -531,6 +531,7 @@ $("#form_field").submit(function(event) {
 
         $("#field_submit").hide();
         $("#loader").show();
+        // return;
 
         setTimeout(function(){
             $.ajax({
