@@ -85,6 +85,52 @@
 
                         <li class="wow" data-wow-delay="0.1s"><a class="" href="<?=base_url('properties');?>">Properties</a></li>
                         
+                        
+
+                    <!-- <li class="dropdown yamm-fw" data-wow-delay="0.1s"> -->
+                        
+                            <!-- <a href="<?=base_url('main/aboutus');?>" class="" data-toggle="dropdown" data-hover="dropdown"
+                            data-delay="200"><span id="aboutus_cover">About Us</span><b class="caret"></b></a> -->
+                        
+                        <!-- <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h5>PROFILE</h5>
+                                            <ul>
+                                                <li><a href="<?=base_url('main/aboutus#contact1');?>">Company Profile</a> </li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>TEAM</h5>
+                                            <ul>
+
+                                                <li><a href="<?=base_url('main/aboutus');?>">Team Members</a> </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>COMMUNITY</h5>
+                                            <ul>
+                                                <li><a href="service.html">Links</a> </li>
+
+                                            </ul>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                               
+                            </li>
+                        </ul> -->
+                    <!-- </li> -->
+                        <li class="wow" data-wow-delay="0.4s"><a href="<?=base_url('main/aboutus');?>">About Us</a></li>
+                        <li class="wow" data-wow-delay="0.4s"><a href="<?=base_url('contact');?>">Contact</a></li>
+
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Others<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -159,50 +205,6 @@
                                 </li>
                             </ul>
                         </li>
-
-                    <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                        
-                            <a href="<?=base_url('main/aboutus');?>" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-                            data-delay="200"><span id="aboutus_cover">About Us</span><b class="caret"></b></a>
-                        
-                        <ul class="dropdown-menu">
-                            <li>
-                                <div class="yamm-content">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h5>PROFILE</h5>
-                                            <ul>
-                                                <li><a href="<?=base_url('main/aboutus#contact1');?>">Company Profile</a> </li>
-
-                                            </ul>
-
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>TEAM</h5>
-                                            <ul>
-
-                                                <li><a href="<?=base_url('main/aboutus');?>">Team Members</a> </li>
-
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>COMMUNITY</h5>
-                                            <ul>
-                                                <li><a href="service.html">Links</a> </li>
-
-                                            </ul>
-
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!-- /.yamm-content -->
-                            </li>
-                        </ul>
-                    </li>
-
-                        <li class="wow" data-wow-delay="0.4s"><a href="<?=base_url('contact');?>">Contact</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

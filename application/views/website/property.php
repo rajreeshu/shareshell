@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SHARESHELL | Property  page</title>
+        <title>SHARESHELL | Property</title>
         <meta name="shareshell" content="Making rental easy">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
