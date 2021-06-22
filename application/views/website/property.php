@@ -12,6 +12,10 @@
         <link rel="stylesheet" href="assets/css/lightslider.min.css">
         <link href="<?=base_url('assets');?>/css/lightgallery.min.css" rel="stylesheet">
 
+<?php
+    $this->load->view('website/link_import');
+    $this->load->view('website/header');
+?> 
 <style type="text/css">
     .thumb_class{
         /*border: 3px solid blue;*/
@@ -21,6 +25,7 @@
         height:472px;
         width: 100%;
         object-fit: cover;
+        /* height:250px; */
         /*border: 3px solid red;*/
     }
 
@@ -73,20 +78,31 @@
                 opacity: 1;
             }
 
+    @media only screen and (max-width:992px){
+        .container{
+            padding-left:0px;
+            padding-right:0px;
+        }
+        .thumb_class_src{
+            height:250px;
+        }
+
+        .lSSlideOuter .lSPager.lSGallery{
+            display: none;
+        }
+        
+    }
+
 
             
 </style>
-<?php
-    $this->load->view('website/link_import');
-    $this->load->view('website/header');
-?> 
 </head>
 <body>
 	    <div class="page-head"> 
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title" id="property_name">Property Name</h1>               
+                        <h1 class="page-title" id="property_name" style="margin-left:15px;">Property Name</h1>               
                     </div>
                 </div>
             </div>
@@ -103,12 +119,12 @@
                             <div class="light-slide-item">            
                                 <div class="clearfix">
                                     <div class="favorite-and-print">
-                                        <a class="add-to-fav" href="#login-modal" data-toggle="modal">
+                                        <a class="add-to-fav" href="#login-modal" data-toggle="modal" style="box-shadow: 0px 0px 20px grey inset;">
                                             <i class="fa fa-star-o"></i>
                                         </a>
-                                        <a class="printer-icon " href="javascript:window.print()">
+                                        <!-- <a class="printer-icon " href="javascript:window.print()">
                                             <i class="fa fa-print"></i> 
-                                        </a>
+                                        </a> -->
                                     </div> 
 
                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
