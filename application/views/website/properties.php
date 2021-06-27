@@ -42,7 +42,7 @@
                      
                 <div class="col-md-3 p0 padding-top-40">
                     <div class="blog-asside-right pr0">
-                        <div class="panel panel-default sidebar-menu wow fadeInRight animated" >
+                        <div class="panel panel-default sidebar-menu wow animated" >
                             <div class="panel-heading">
                                 <h3 class="panel-title">Smart search</h3>
                             </div>
@@ -190,7 +190,7 @@
                             </div>
                         </div>
 
-                        <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                        <div class="panel panel-default sidebar-menu wow animated">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Recommended</h3>
                             </div>
@@ -297,47 +297,9 @@
 
                     <div class="col-md-12 clear"> 
                         <div id="list-type" class="proerty-th">
-                            <div class="col-sm-6 col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="assets/img/demo/property-3.jpg"></a>
-                                        </div>
+                            
 
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...ss</p>
-                                            <div class="property-icon">
-                                                <img src="assets/img/icon/bed.png">(5)|
-                                                <img src="assets/img/icon/shawer.png">(2)|
-                                                <img src="assets/img/icon/cars.png">(1)  
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> 
-
-                                <div class="col-sm-6 col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="assets/img/demo/property-2.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="assets/img/icon/bed.png">(5)|
-                                                <img src="assets/img/icon/shawer.png">(2)|
-                                                <img src="assets/img/icon/cars.png">(1)  
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div> 
+                                
 
                          
                         </div>
@@ -442,10 +404,15 @@ function load_page_content(page_no){
                         dot_after_name="";
                     }
 
+                    thumb_img=this.main_image.split('.').slice(0, -1).join('.')+"_thumb."+this.main_image.substr(this.main_image.lastIndexOf('.') + 1);
+
+
                     property_list+='<div class="col-sm-6 col-md-4 p0">';
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
-                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+this.main_image+'" style="height:225px;"></a>';
+                   
+                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px;"></a>';
+                   
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
                     property_list+='<h5><a href="<?=base_url('property?id=');?>'+this.sn+'"> '+this.name.slice(0,10)+''+dot_after_name+' </a></h5>';

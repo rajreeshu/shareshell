@@ -14,9 +14,9 @@ class Upload_model extends CI_Model{
 		return $main_img_upload =$this->upload->do_upload($file_key_name);
 	}
 
-	public function compressor_upload($dir,$file_name,$data){
+	public function compressor_upload($dir,$userid,$data){
 		$target_dir = $dir."/";
-		return move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir.$file_name);
+		return move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir.$_FILES["file"]["name"]);
 	}
 
 }

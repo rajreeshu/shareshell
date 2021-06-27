@@ -16,6 +16,15 @@ user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
 /vendor/
 
+# My Image Folders
+/utility/
+
+# Config File
+# /application/config/config.php
+# /application/config/database.php
+
+# /application/
+
 # IDE Files
 #-------------------------
 /nbproject/

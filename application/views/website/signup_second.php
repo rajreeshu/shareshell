@@ -33,10 +33,45 @@
         <link rel="stylesheet" href="assets/css/owl.transitions.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css"> -->
+        <style>
+        .lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid  rgb(229, 233, 22);
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+</style>
         <?php
     $this->load->view('website/link_import');
     $this->load->view('website/header');
 ?>
+
     </head>
     <body>
 
@@ -81,8 +116,7 @@
                                     </div>
 <!--  -->
                                     <!-- <img src="" id="compressed_image" height="100" width="100" style="border:3px solid black;"> -->
-                                    <a id="compress">Compress</a>
-                                    <a id="upload">Upload</a>
+                                  
 <!--  -->
 
                                 </div>
@@ -177,6 +211,7 @@
                             </div>
                             <div class="col-sm-5 col-sm-offset-1">
                                 <br>
+                                <div class="lds-ripple" style="display:none;" id="loader"><div></div><div></div></div>
                                 <input type='submit' class='btn btn-finish btn-primary' name='field_submit' value='Finish' id="field_submit" >
                             </div>
                             <br>
@@ -188,25 +223,6 @@
         </div>
     </div>
 
-
-
-<!--         <script src="assets/js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="assets/js//jquery-1.10.2.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/bootstrap-select.min.js"></script>
-        <script src="assets/js/bootstrap-hover-dropdown.js"></script>
-        <script src="assets/js/easypiechart.min.js"></script>
-        <script src="assets/js/jquery.easypiechart.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/wow.js"></script>
-        <script src="assets/js/icheck.min.js"></script>
-
-        <script src="assets/js/price-range.js"></script> 
-        <script src="assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
-        <script src="assets/js/jquery.validate.min.js"></script>
-        <script src="assets/js/wizard.js"></script>
-
-        <script src="assets/js/main.js"></script> -->
 <?php
     $this->load->view('website/footer');
 
@@ -226,6 +242,7 @@
 <!-- image compressor starts -->
 <script src="<?=base_url('assets/js');?>/JIC.js"></script>
 <script>
+    
     var output_format = null;
     var file_name = null;
     function readFile(evt) {
@@ -290,8 +307,11 @@
             console.log(response); 
         }
         
+        // console.log(compressed_image.src);
         console.log("process start upload ...");
-        jic.upload(compressed_image, "<?=base_url('main_helper/upload_test');?>", "file", file_name,successCallback,errorCallback);
+        var x=jic.upload(compressed_image, "<?=base_url('main_helper/upload_test');?>", "file", new_name+"."+output_format,successCallback,errorCallback);
+
+        console.log(x);
     }
         
     // });
@@ -408,16 +428,7 @@ function field_error_cssRemove(fieldName){
         console.log("chagne");
     });
 
-// ////////////////////////////////////////////////////
-    $("#compress").click(function(){
-        compress_image_jic();    
-    });
 
-    $("#upload").click(function(){
-        upload_image_jic();
-    });
-
-////////////////////////////////////////////////////////
 var formFieldData_check=1; 
 
 $("#form_field").submit(function(event) {
@@ -500,7 +511,7 @@ $("#form_field").submit(function(event) {
         field_error_css("#website_field");
         console.log("website 0");
     }
-    compress_image_jic(); 
+
 
     var formData = new FormData(this);
     formData.append("<?= $this->security->get_csrf_token_name();?>",key);
@@ -518,7 +529,12 @@ $("#form_field").submit(function(event) {
         console.log(formFieldData_check);
     }else{
 
-        $.ajax({
+        $("#field_submit").hide();
+        $("#loader").show();
+        // return;
+
+        setTimeout(function(){
+            $.ajax({
             type:"POST",
             url:"<?=base_url('main_helper/submit_signup_data');?>",
             async:false,
@@ -528,14 +544,15 @@ $("#form_field").submit(function(event) {
             contentType: false,
             success:function(data){
                 key=data.key;
-                 console.log(data);
-                    
-                    console.log(data.user_id);
+                if(image_field_check!=""){
+                    compress_image_jic(); 
                     upload_image_jic(data.user_id);
+                }
+                    
                     // return;
 
                 if(data.data==true){
-                    window.location.href = "<?=base_url('main/account_created');?>?otp="+data.otp; 
+                    window.location.href = "<?=base_url('main/account_created');?>"; 
                 }else{
                     alert("Something Went Wrong.");
                 }
@@ -549,6 +566,9 @@ $("#form_field").submit(function(event) {
                     // result=data;
             }
         });
+        },1000);
+
+        
     }
 
 

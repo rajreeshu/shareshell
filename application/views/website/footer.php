@@ -5,7 +5,7 @@
                 <div class="container">
                     <div class="row">
 
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                        <div class="col-md-3 col-sm-6 wow">
                             <div class="single-footer">
                                 <h4>About us </h4>
                                 <div class="footer-title-line"></div>
@@ -22,7 +22,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                        <div class="col-md-3 col-sm-6 wow ">
                             <div class="single-footer">
                                 <h4>Quick links </h4>
                                 <div class="footer-title-line"></div>
@@ -36,7 +36,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                        <div class="col-md-3 col-sm-6 wow ">
                             <div class="single-footer">
                                 <h4>Last Blogs</h4>
                                 <div class="footer-title-line"></div>
@@ -87,7 +87,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                        <div class="col-md-3 col-sm-6 wow ">
                             <div class="single-footer news-letter">
                                 <h4>Stay in touch</h4>
                                 <div class="footer-title-line"></div>

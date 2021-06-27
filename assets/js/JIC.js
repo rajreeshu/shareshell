@@ -82,7 +82,7 @@ var jic = {
             data = data.replace('data:' + type + ';base64,', '');
             
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', upload_url, true);
+            xhr.open('POST', upload_url, false);
             var boundary = 'someboundary';
 
             xhr.setRequestHeader('Content-Type', 'multipart/form-data; boundary=' + boundary);

@@ -24,18 +24,55 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="auto-complete.js"></script>
     
+    
+    <body>
+    <!-- Messenger Chat Plugin Code -->
+<div id="fb-root"></div>
+
+<!-- Your Chat Plugin code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "106921368151575");
+  chatbox.setAttribute("attribution", "biz_inbox");
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v11.0'
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script> 
 <?php
     $this->load->view('website/link_import');
     $this->load->view('website/header');
-?>    
+?> 
+  
         <div class="slider-area">
             <div class="slider">
             <div id="bg-slider" class="owl-carousel owl-theme">
  
+<<<<<<< HEAD
                 <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-1.jpg" alt="The Last of us"></div>
                 <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-2.jpg" alt="The Last of us"></div>
                 <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-3.jpg" alt="GTA V"></div>
                 
+=======
+                <!-- <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-0.jpg" alt="The Last of us"></div> -->
+                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-1.jpg" alt="Slider Image 1"></div>
+                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-2.jpg" alt="Slider Image 2"></div>
+                <div class="item"><img style="" src="assets/img/slide1/slider-image-3.jpg" alt="Slider Image 3"></div>
+                <!-- <div class="item"><img style="" src="assets/img/slide1/slider-image-4.jpg" alt="GTA V"></div> -->
+>>>>>>> 5614256e2f186164d6ef9317a9a87daf634f46ac
 
             </div>
             </div>
@@ -134,107 +171,6 @@
                 <div class="row">
                     <div class="proerty-th" id="list-type">
                         
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="property-1.html" ><img src="<?=base_url();?>assets/img/demo/property-1.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="property-1.html" >Super nice villa </a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="property-2.html" ><img src="<?=base_url();?>assets/img/demo/property-2.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="property-2.html" >Super nice villa </a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="property-3.html" ><img src="<?=base_url();?>assets/img/demo/property-3.jpg"></a>
-
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="property-3.html" >Super nice villa </a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="property-1.html" ><img src="<?=base_url();?>assets/img/demo/property-4.jpg"></a>
-
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="property-1.html" >Super nice villa </a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="property-3.html" ><img src="<?=base_url();?>assets/img/demo/property-2.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="property-3.html" >Super nice villa </a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="property-2.html" ><img src="<?=base_url();?>assets/img/demo/property-4.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="property-2.html" >Super nice villa </a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="property-1.html" ><img src="<?=base_url();?>assets/img/demo/property-3.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="property-1.html" >Super nice villa </a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
-                                </div>
-                            </div>
-                        </div>
                     <a href="<?=base_url('properties');?>" >
                         <div class="col-sm-6 col-md-3 p0">
                             <div class="box-tree more-proerty text-center">
@@ -343,7 +279,7 @@
                                         <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
                                         <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
                                     </div>
-                                    <div class="client-face wow fadeInRight" data-wow-delay=".9s"> 
+                                    <div class="client-face wow swing" data-wow-delay=".9s"> 
                                         <img src="<?=base_url();?>assets/img/client-face1.png" alt="">
                                     </div>
                                 </div>
@@ -352,7 +288,7 @@
                                         <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
                                         <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
                                     </div>
-                                    <div class="client-face">
+                                    <div class="client-face wow swing" data-wow-delay=".9s">
                                         <img src="<?=base_url();?>assets/img/client-face2.png" alt="">
                                     </div>
                                 </div>
@@ -361,7 +297,7 @@
                                         <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
                                         <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
                                     </div>
-                                    <div class="client-face">
+                                    <div class="client-face wow swing" data-wow-delay=".9s">
                                         <img src="<?=base_url();?>assets/img/client-face1.png" alt="">
                                     </div>
                                 </div>
@@ -370,7 +306,7 @@
                                         <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
                                         <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
                                     </div>
-                                    <div class="client-face">
+                                    <div class="client-face wow swing" data-wow-delay=".9s">
                                         <img src="<?=base_url();?>assets/img/client-face2.png" alt="">
                                     </div>
                                 </div>
@@ -560,10 +496,12 @@ function load_page_content(){
                         dot_after_name="";
                     }
 
+                    thumb_img=this.main_image.split('.').slice(0, -1).join('.')+"_thumb."+this.main_image.substr(this.main_image.lastIndexOf('.') + 1);
+
                     property_list+='<div class="col-sm-6 col-md-3 p0">';
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
-                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+this.main_image+'" style="height:225px;"></a>';
+                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px;"></a>';
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
                     property_list+='<h5><a href="property-1.html" >'+this.name.slice(0,10)+''+dot_after_name+'</a></h5>';

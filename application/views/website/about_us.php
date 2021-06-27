@@ -46,9 +46,7 @@
 ?> 
 
  
-    <!-- End of nav bar -->
-
-    <div class="page-head">
+<div class="page-head">
         <div class="container">
             <div class="row">
                 <div class="page-head-content">
@@ -59,12 +57,12 @@
     </div>
     <!-- End page header -->
 
-    <!-- property area -->
+    <!-- property area 
     <div class="testimonial-area recent-property" style="background-color: #FCFCFC; padding-bottom: 15px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
-                    <!-- /.feature title -->
+                    
                     <h2 id="content">Our Team</h2>
                 </div>
             </div>
@@ -123,142 +121,142 @@
             </div>
         </div>
     </div>
+    -->
 
     <div class="content-area recent-property padding-top-40" style="background-color: #FFF;">
-        
+        <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="" id="contact1">
                         <div class="row">
                             <div class="">
-                                <h3 id="company-profile">Company Profile</h3>
+                                <h3 id="company-profile" style="color: rgb(255, 196, 0);"><b>COMPANY PROFILE(QUICK
+                                        INTRO):</b></h3>
+                                <hr>
 
-                                <strong>A Tradition of Excellence, Integrity, Knowledge and Service for over 60
-                                    years.</strong>
+                                <strong style="font-size: large;">"Your assets are your employees. Invest more on those
+                                    performing well. Let
+
+                                    the non performers go"</strong>
+                                <br>
+                                <br>
                                 <p>
-                                    At Estey Real Estate, you are number one. Whether you are a property owner, tenant,
-                                    or buyer, we value your business and will provide you with the individual attention
-                                    and service you deserve. We believe in a strict Code of Ethics. We believe in
-                                    integrity, commitment to excellence, a professional attitude, and personalized care.
+
+                                    Launched in 2021, SHARESHELL COMPANY, basically a property portal, dealing with
+                                    every aspect of costumer's need in the real estate industry.
+
+                                    The company is inspired by the appreciation that properties get nowadays in the
+                                    global market and got interest in how price of properties is escalating rapidly
+                                    due to development and globalization.
+
                                 </p>
+                                <hr>
 
                             </div>
                             <div class="">
-                                <h3>Services</h3>
+                                <h3 style="color: rgb(255, 196, 0);"><b>SERVICE PROVIDED BY THE COMPANY:</b></h3>
+
+                                <hr>
+                                <strong style="font-size: large ;"><small>"Sucess and failure is all abouut just one
+                                        dicision,if made right, may turn your liabilities into assets nut chosen wrong,
+                                        your assets ruin into non-assets"</small></strong>
+                                <br>
 
 
-                                <br> Opinion of Valuation
-                                <br> Marketing for sale
-                                <br> Managing the Property while vacant
-                                <br> Lawn Maintenance
-                                <br> General Maintenance Services
-                                <br> General Contractor
-                                <br> Recommend Repairs
-                                <br> Managing Property while Occupied
-                                <br> Lease Enforcement
-                                <br> Maintaining Security Deposit
-                                <br> Collection of Rents
-                                <br> Eviction Service
-                                <br> Marketing the Property for Lease
-                                <br> Location & Hours of Business
 
-                                <strong> Estey is located at 216 First Street, at the corner of First Street and B
-                                    Street in old town Benicia. This location affords us a very visible corner. One of
-                                    the best in the City of Benicia.
+                                <p>
+                                    <span><strong>SHARESHELL</strong></span> will help you precisely take that one
+                                    decision right in your life. It is
+                                    basically an online forum where buyers, sellers and brokers/agents are free to
+                                    exchange information/queries about real estate properties quickly, effectively
+                                    inexpensively. One can advertise property, search property (searches can be
+                                    customized accordingly),browse through various properties etc.
 
-                                    Estey's regular hours of operation are: Monday through Friday from 9:30 a.m. to 5:00
-                                    p.m. Closed for lunch 12 to 1 except by appointment.
-
-                                    Property shown on weekends by appointment.
-
-                                    Check out our online features or call us today at 707.745.0924.</strong>
+                                    Whether one looking for office space, retail locations, land or preleased space, WE
+                                    ARE HERE TO HELP! Help you to find, sell or lease the RIGHT SPACE, in RIGHT PLACE at
+                                    RIGHT PRICE.
                                 </p>
-                                <div>
-
-                                </div>
+                                <hr>
                             </div>
+                            <div class="">
+                                <h3 id="company-profile" style="color: rgb(255, 196, 0);"><b>OUR MISSION:</b></h3>
+                                <hr>
+
+                               
+                                
+                                
+                                <p>
+                                    <b>To be the first choice for our consumers and partners in their journey of
+                                        discovering, renting, buying, selling and financing a home. We do that with data,
+                                        design, technology, and above all the passion of our people, while delivering value
+                                        to our shareholders.</b>
+
+
+                                </p>
+                                <hr>
+
+                            </div>
+                            <div class="">
+                                <h3 id="company-profile" style="color: rgb(255, 196, 0);"><b>OUR VISION:</b></h3>
+                                <hr>
+
+                               
+                                
+                                
+                                <p>
+                                    <b>Delivering trustworthy experiences that you cherish for a lifetime.</b>
+
+
+                                </p>
+                                <hr>
+
+                            </div>
+
+
 
 
 
                         </div>
 
-                        <!-- /.row -->
-                        <hr>
-
-
-                        <!--<h2>Contact form</h2>
-                            <form>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="firstname">Firstname</label>
-                                            <input type="text" class="form-control" id="firstname">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="lastname">Lastname</label>
-                                            <input type="text" class="form-control" id="lastname">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="text" class="form-control" id="email">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="subject">Subject</label>
-                                            <input type="text" class="form-control" id="subject">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="message">Message</label>
-                                            <textarea id="message" class="form-control"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send message</button>
-                                    </div>
-                                </div>-->
-                        <!-- /.row -->
                         </form>
+                        <div class="col-sm-4 col-sm-offset-1">
+                            <br>
+                            <a href="<?=base_url('contact');?>"><input type='button' class='btn btn-finish btn-primary'
+                                    name='Male us your problem (help)' value='Get in touch' /></a>
+
+
+
+                        </div>
+                        <div class="col-sm-4 col-sm-offset-2 float-right" style="">
+                            <br>
+                            <a href="mailto:contactus@shareshell.in"><input type='button' class='btn btn-finish btn-primary'
+                                    name='See your submitted property' value='Mail Us' /></a>
+                        </div>
+
+
+
+                        <br>
+
+
                     </div>
                 </div>
             </div>
 
-      
+        </div>
     </div>
-    <div id="map" style="height: 400px;"></div>
+    <div id="map" style="height: 200px;"></div>
 
 <?php
     $this->load->view('website/footer');
 
     $this->load->view('website/js_import');
 ?>
-<!--     <script src="assets/js/modernizr-2.6.2.min.js"></script>
 
-    <script src="assets/js/jquery-1.10.2.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bootstrap-select.min.js"></script>
-    <script src="assets/js/bootstrap-hover-dropdown.js"></script>
-
-    <script src="assets/js/easypiechart.min.js"></script>
-    <script src="assets/js/jquery.easypiechart.min.js"></script>
-
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/wow.js"></script>
-
-    <script src="assets/js/icheck.min.js"></script>
-    <script src="assets/js/price-range.js"></script> -->
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
     <script src="<?=base_url();?>assets/js/gmaps.js"></script>
     <script src="<?=base_url();?>assets/js/gmaps.init.js"></script>
 
-    <!-- <script src="assets/js/main.js"></script> -->
 
 </body>
 <script>

@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,97 +8,84 @@
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'> -->
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<!--         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-        <link rel="stylesheet" href="assets/css/normalize.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/fontello.css">
-        <link href="assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
-        <link href="assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
-        <link href="assets/css/animate.css" rel="stylesheet" media="screen">
-        <link rel="stylesheet" href="assets/css/bootstrap-select.min.css"> 
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/icheck.min_all.css">
-        <link rel="stylesheet" href="assets/css/price-range.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.css">  
-        <link rel="stylesheet" href="assets/css/owl.theme.css">
-        <link rel="stylesheet" href="assets/css/owl.transitions.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/responsive.css"> -->
     </head>
     <body>
 <?php
     $this->load->view('website/link_import');
     $this->load->view('website/header');
 ?> 
-
-      
         <!-- End of nav bar -->
 
         <div class="page-head"> 
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Hello : <span class="orange strong">YOUR NAME</span></h1>               
+                        <h1 class="page-title">RESET YOUR <span class="orange strong">PASSWORD</span></h1>               
                     </div>
                 </div>
             </div>
         </div>
         <!-- End page header --> 
-
-        <!-- property area -->
         <div class="content-area user-profiel" style="background-color: #FCFCFC;">&nbsp;
-            <div class="container">   
-                <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1 profiel-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 profiel-container">
 
-                        <form action="" method="">
+                    <form action="" method="">
 
-                            <div class="profiel-header">
-                                <h3>
-                                    <b>UPDATE</b> YOUR PASSWORD <br>
-                                    <small>All change will send to your e-mail.</small>
-                                </h3>
-                                <hr>
-                            </div>
+                        <div class="profiel-header">
+                            <h3>
+                                <strong>UPDATE</strong> YOUR PASSWORD <br>
+                                <small>All change will send to your e-mail.</small>
+                            </h3>
+                            <hr>
+                        </div>
 
-                            <div class="clear">
+                        <div class="clear">
 
-                                <div class="col-sm-10 col-sm-offset-1">
-                                    <div class="form-group">
-                                        <label>Enter email/ph no <small>(required)</small></label>
-                                        <input name="Password" type="password" class="form-control">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <div class="form-group">
+                                    <label>Enter Email <small>(required)</small></label> <small style="color:red; font-weight:bold;" id="reset_email_error"></small>
+                                    <input name="Email" type="text" class="form-control" id="reset_email">
+                                    <div class="col-sm-0 col-sm-offset-1 " style="margin-top:10px;">
+                                        <input id="btn1" type='button' class='btn btn-finish btn-primary pull-right'
+                                            name='Enter' value='Enter Email' />
                                     </div>
-                                    <div class="form-group" >
-                                        <label>Enter OTP sent to your mail/ph:<small>(required)</small></label>
-                                        <input type="password" class="form-control">
-                                        <div>
-                                            <li><a href="forget_password.html">Resend</a>  </li>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>New Password <small>(required)</small></label>
-                                        <input name="Password" type="password" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Confirm New password : <small>(required)</small></label>
-                                        <input type="password" class="form-control">
-                                    </div> 
                                 </div>
-                                <div class="col-sm-10 col-sm-offset-1">
-                                    <input type='button' class='btn btn-finish btn-primary pull-right' name='update' value='Update' />
+                                <div class="form-group" id="display1" style="display: none;" >
+                                    <label>Enter OTP sent to your Mail: <small>(required)</small>  
+                                        <a id="resend_otp_a" style="cursor: pointer;">Resend OTP</a> </label> <small style="color:red; font-weight:bold;" id="reset_otp_error"></small><br>
+                                    <input  type="password" id="reset_otp" name="otp" class="col-sm-6 form-control" max_length="4"><br>
+                                    <div class="col-sm-0 col-sm-offset-1" style="margin-top:30px;">
+                                        <input id="btn2" type='button' class='btn btn-finish btn-primary pull-right'
+                                            name='Enter  OTP' value='Enter OTP' />
+                                    </div>
+
+
+
                                 </div>
-                                
+                                <div id="display2" style="display: none;">
+                                    <div class="form-group">
+                                        <label>New Password <small>(required)</small></label> <small style="color:red; font-weight:bold;" id="reset_pass_error"></small>
+                                        <input name="Password" type="password" class="form-control" id="new_password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Confirm New password : <small>(required)</small></label> <small style="color:red; font-weight:bold;" id="reset_cnfrm_pass_error"></small>
+                                        <input type="password" class="form-control" id="confirm_new_password">
+                                    </div>
+                                    <div class="col-sm-0 col-sm-offset-1">
+                                        <input type='button' class='btn btn-finish btn-primary pull-right' name='update'
+                                            value='Update' id='btn3'/>
+                                    </div>
+                                </div>
                             </div>
- 
-                    
                             
-                            
+
+                        </div>
+
+
+
+
                     </form>
 
                 </div>
@@ -116,23 +100,215 @@
     $this->load->view('website/js_import');
 ?>
 
-<!--         <script src="assets/js/modernizr-2.6.2.min.js"></script>
-
-        <script src="assets/js/jquery-1.10.2.min.js"></script> 
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/bootstrap-select.min.js"></script>
-        <script src="assets/js/bootstrap-hover-dropdown.js"></script>
-
-        <script src="assets/js/easypiechart.min.js"></script>
-        <script src="assets/js/jquery.easypiechart.min.js"></script>
-
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/wow.js"></script>
-
-        <script src="assets/js/icheck.min.js"></script>
-        <script src="assets/js/price-range.js"></script>
-
-        <script src="assets/js/main.js"></script>
- -->
     </body>
+
+<script>
+var key="<?php echo $this->security->get_csrf_hash(); ?>";
+
+var user_id="";
+
+function showDivs(btn, toHide, toShow){
+            document.getElementById(toShow).style.display = "block";
+            document.getElementById(btn).style.display = "none";
+            if(toHide!=""){
+                document.getElementById(toHide).style.display = "none";
+            }
+    }
+
+function validate_data(datatype,userdata){
+    var result;
+    $.ajax({
+        url:"<?=base_url('main_helper/signup_validate_data');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            datatype:datatype,
+            data:userdata
+            
+                    
+            },
+            dataType:"json",
+            success:function(data){
+                key=data.key;
+                console.log(data);
+                result=data.data;
+            },
+            error:function(data){
+                console.log(data);
+                // result=data;
+            }
+    });
+    return result;  
+}
+
+function send_email_reset(){
+    $.ajax({
+        url:"<?=base_url('main_helper/reset_password_otp');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            email_field:$("#reset_email").val(),       
+            },
+            dataType:"json",
+            success:function(data){
+                key=data.key;
+                console.log(data);
+                // result=data.data;
+                user_id=data.user_id;
+            },
+            error:function(data){
+                console.log(data);
+                // result=data;
+            }
+    });
+}
+
+function verify_otp(){
+    result="";
+    $.ajax({
+        url:"<?=base_url('main_helper/verify_otp');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            user_id:user_id,      
+            otp:document.getElementById("reset_otp").value,
+            },
+            dataType:"json",
+            success:function(data){
+                key=data.key;
+                // console.log(data);
+                result=data.data;
+            },
+            error:function(data){
+                console.log(data);
+                // result=data;
+            }
+    });
+    return result;
+}
+
+function update_pass(){
+    reset_email=document.getElementById("reset_email").value;
+    pass=document.getElementById("new_password").value;
+    $.ajax({
+        url:"<?=base_url('main_helper/update_password');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            email:reset_email,
+            password:pass   
+            },
+        dataType:"json",
+        success:function(data){
+            key=data.key;
+            console.log(data);
+            if(data.data){
+                alert("Password Changed");
+                window.location.href="<?=base_url('main/log_user');?>";
+            }
+                // result=data.data;
+        },
+        error:function(data){
+            console.log(data);
+            // result=data;
+        }
+    });    
+}
+
+    //btn1
+    document.getElementById("btn1").addEventListener("click", function(){
+        reset_email=document.getElementById("reset_email");
+        v_email=isEmail(reset_email.value);
+        if(v_email){
+            if(validate_data('email',reset_email.value)){
+                showDivs('btn1','','display1');
+                
+                document.getElementById("reset_email_error").innerHTML="";
+                send_email_reset();
+                reset_email.setAttribute("disabled","disabled");
+            }else{
+                document.getElementById("reset_email_error").innerHTML="Email Not Registered";
+            }
+            
+        }else{
+            document.getElementById("reset_email_error").innerHTML="*Incorrect Email";
+        }
+    });
+
+
+    //btn2
+    document.getElementById("btn2").addEventListener("click",function(){
+        if(document.getElementById("reset_otp").value.length==4){
+            if(verify_otp()){
+                showDivs("btn2","display1","display2");
+                document.getElementById("reset_otp_error").innerHTML="";
+            }else{
+                document.getElementById("reset_otp_error").innerHTML="*Incorrect OTP";
+            }
+
+        }else{
+            document.getElementById("reset_otp_error").innerHTML="*Incorrect OTP";
+        }
+
+        
+    });
+
+    //btn 3
+    match_pass=0;
+    document.getElementById("new_password").addEventListener("keyup",function(){
+        pass=document.getElementById("new_password").value;
+        cnfrm_pass=document.getElementById("confirm_new_password").value;
+        if(pass.length<8){
+            document.getElementById("reset_pass_error").innerHTML="* Small Password";
+            match_pass=0;
+        }else{
+            document.getElementById("reset_pass_error").innerHTML="";
+        }
+        if(cnfrm_pass!=""){
+            onkeyfun();
+        }
+    });
+
+
+    document.getElementById("confirm_new_password").addEventListener("keyup",function(){
+       onkeyfun();
+    });
+
+    function onkeyfun(){
+        pass=document.getElementById("new_password").value;
+        cnfrm_pass=document.getElementById("confirm_new_password").value;
+        if(pass.length>=8){
+            if(pass!=cnfrm_pass){
+                document.getElementById("reset_cnfrm_pass_error").innerHTML="* Dosen't Match";
+                match_pass=0;
+            }else{
+                document.getElementById("reset_cnfrm_pass_error").innerHTML="";
+                match_pass=1;
+            }
+        }
+        
+    }
+
+    document.getElementById("btn3").addEventListener("click",function(){
+        reset_email=document.getElementById("reset_email").value;
+        pass=document.getElementById("new_password").value;
+        console.log(match_pass);
+        if(match_pass){
+           update_pass();
+        }
+    });
+
+
+    //resend otp
+    document.getElementById("resend_otp_a").addEventListener("click",function(){
+        send_email_reset();
+    });
+
+    
+</script>
+
 </html>
