@@ -278,7 +278,7 @@ public function submit_signup_data(){
 
 	$otp_random=rand(1000,9999);
 
-	$data['input']=$input;
+	// $data['input']=$input;
 
 	$db_array=array(
 					'first_name'=>$input['first_name_field'],
@@ -339,6 +339,8 @@ public function submit_signup_data(){
 	echo json_encode($data);
 }
 
+
+
 public function upload_test(){
 	$input=$this->security->xss_clean($this->input->post());
 	$insertId=$this->security->xss_clean($this->session->userdata('otp_verify_signup_shareshell'));
@@ -376,42 +378,22 @@ public function upload_test(){
 	
 }
 
-
-
-public function upload_property_image(){
+public function reset_password_otp(){
 	$input=$this->security->xss_clean($this->input->post());
-	$insertId=$this->security->xss_clean($this->session->userdata('user_id_shareshell'));
-	$img_name=$this->security->xss_clean($this->session->userdata('img_upload_temp_user'));
-	
-	if($img_name){
-		
-		$this->load->model('upload_model');
-		$up_img=$this->upload_model->compressor_upload('utility/user_image',$img_name,$input);
-		// $up_img=$this->upload_model->compressor_upload('utility/user_image','x.jpg',$input);
-			
-			
-			$config['image_library'] = 'gd2';
-			$config['source_image'] = 'utility/user_image/'.$img_name;
-			$config['create_thumb'] = TRUE;
-			$config['maintain_ratio'] = TRUE;
-			$config['width']         = 200;
-			// $config['height']       = 250;
 
-			$this->load->library('image_lib', $config);
-
-			$this->image_lib->resize();
-
-			echo $this->image_lib->display_errors();
-
-			
-
-			if($up_img){
-				$this->db->where('sn',$insertId)->update('user_detail',['image'=>$img_name]);
-			}
-
+	$otp_random=rand(1000,9999);
+	$this->db->where('email',$input['email_field'])->update('user_detail',['otp'=>password_hash($otp_random,PASSWORD_BCRYPT),'otp_sent_time'=>date('Y-m-d H:i:s')]);
+	$send_email=$this->_send_mail($input['email_field'],$otp_random);
+	if($send_email){
+		$data['data']=true;
 	}
-	
-	
+	$user_id=$this->db->select('sn')->where("email",$input['email_field'])->get("user_detail")->row();	
+
+	$data['user_id']=$user_id->sn;
+	// $data['otp']=$otp_random;
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+
 }
 
 public function verify_otp(){
@@ -426,11 +408,24 @@ public function verify_otp(){
 		$this->session->unset_userdata('otp_verify_signup_shareshell');
 		$this->db->where('sn',$input['user_id'])->update('user_detail',['status'=>1]);
 	}
-	// $data['input']=$input;
+	$data['input']=$input;
 	// $data['db']=$db_data;
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 
+}
+
+public function update_password(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	$this->load->model('password_model');
+	$hashed_pass=$this->password_model->create_hash($input['email'],$input['password']);
+
+	$updated=$this->db->update("user_detail",['password'=>$hashed_pass]);
+
+	$data['data']=$updated;
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
 }
 
 public function login_validate_data(){
@@ -474,6 +469,46 @@ public function logout_account(){
 	
 
 }
+
+
+
+public function upload_property_image(){
+	$input=$this->security->xss_clean($this->input->post());
+	$insertId=$this->security->xss_clean($this->session->userdata('user_id_shareshell'));
+	$img_name=$this->security->xss_clean($this->session->userdata('img_upload_temp_user'));
+	
+	if($img_name){
+		
+		$this->load->model('upload_model');
+		$up_img=$this->upload_model->compressor_upload('utility/user_image',$img_name,$input);
+		// $up_img=$this->upload_model->compressor_upload('utility/user_image','x.jpg',$input);
+			
+			
+			$config['image_library'] = 'gd2';
+			$config['source_image'] = 'utility/user_image/'.$img_name;
+			$config['create_thumb'] = TRUE;
+			$config['maintain_ratio'] = TRUE;
+			$config['width']         = 200;
+			// $config['height']       = 250;
+
+			$this->load->library('image_lib', $config);
+
+			$this->image_lib->resize();
+
+			echo $this->image_lib->display_errors();
+
+			
+
+			if($up_img){
+				$this->db->where('sn',$insertId)->update('user_detail',['image'=>$img_name]);
+			}
+
+	}
+	
+	
+}
+
+
 
 public function user_account_detail(){
 	$input=$this->security->xss_clean($this->input->post());

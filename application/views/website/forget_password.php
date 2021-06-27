@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,7 +35,7 @@
 
                         <div class="profiel-header">
                             <h3>
-                                <b>UPDATE</b> YOUR PASSWORD <br>
+                                <strong>UPDATE</strong> YOUR PASSWORD <br>
                                 <small>All change will send to your e-mail.</small>
                             </h3>
                             <hr>
@@ -45,20 +45,20 @@
 
                             <div class="col-sm-10 col-sm-offset-1">
                                 <div class="form-group">
-                                    <label>Enter email/ph no <small>(required)</small></label>
-                                    <input name="Password" type="password" class="form-control">
-                                    <div class="col-sm-0 col-sm-offset-1">
+                                    <label>Enter Email <small>(required)</small></label> <small style="color:red; font-weight:bold;" id="reset_email_error"></small>
+                                    <input name="Email" type="text" class="form-control" id="reset_email">
+                                    <div class="col-sm-0 col-sm-offset-1 " style="margin-top:10px;">
                                         <input id="btn1" type='button' class='btn btn-finish btn-primary pull-right'
-                                            name='Enter' value='Enter Email' onclick="showDivs('btn1','','display1')" />
+                                            name='Enter' value='Enter Email' />
                                     </div>
                                 </div>
                                 <div class="form-group" id="display1" style="display: none;" >
-                                    <label>Enter OTP sent to your mail/ph:<small>(required)</small> 
-                                        <a href="forget_password.html">Resend OTP</a> </label>
-                                    <input  type="password" class="  col-sm-6 form-control">
-                                    <div class="col-sm-0 col-sm-offset-1">
+                                    <label>Enter OTP sent to your Mail: <small>(required)</small>  
+                                        <a id="resend_otp_a" style="cursor: pointer;">Resend OTP</a> </label> <small style="color:red; font-weight:bold;" id="reset_otp_error"></small><br>
+                                    <input  type="password" id="reset_otp" name="otp" class="col-sm-6 form-control" max_length="4"><br>
+                                    <div class="col-sm-0 col-sm-offset-1" style="margin-top:30px;">
                                         <input id="btn2" type='button' class='btn btn-finish btn-primary pull-right'
-                                            name='Enter  OTP' value='Enter OTP'  onclick='showDivs("btn2","display1","display2")' />
+                                            name='Enter  OTP' value='Enter OTP' />
                                     </div>
 
 
@@ -66,16 +66,16 @@
                                 </div>
                                 <div id="display2" style="display: none;">
                                     <div class="form-group">
-                                        <label>New Password <small>(required)</small></label>
-                                        <input name="Password" type="password" class="form-control">
+                                        <label>New Password <small>(required)</small></label> <small style="color:red; font-weight:bold;" id="reset_pass_error"></small>
+                                        <input name="Password" type="password" class="form-control" id="new_password">
                                     </div>
                                     <div class="form-group">
-                                        <label>Confirm New password : <small>(required)</small></label>
-                                        <input type="password" class="form-control">
+                                        <label>Confirm New password : <small>(required)</small></label> <small style="color:red; font-weight:bold;" id="reset_cnfrm_pass_error"></small>
+                                        <input type="password" class="form-control" id="confirm_new_password">
                                     </div>
                                     <div class="col-sm-0 col-sm-offset-1">
                                         <input type='button' class='btn btn-finish btn-primary pull-right' name='update'
-                                            value='Update'/>
+                                            value='Update' id='btn3'/>
                                     </div>
                                 </div>
                             </div>
@@ -103,14 +103,212 @@
     </body>
 
 <script>
+var key="<?php echo $this->security->get_csrf_hash(); ?>";
 
-    function showDivs(btn, toHide, toShow){
+var user_id="";
+
+function showDivs(btn, toHide, toShow){
             document.getElementById(toShow).style.display = "block";
             document.getElementById(btn).style.display = "none";
             if(toHide!=""){
                 document.getElementById(toHide).style.display = "none";
             }
     }
+
+function validate_data(datatype,userdata){
+    var result;
+    $.ajax({
+        url:"<?=base_url('main_helper/signup_validate_data');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            datatype:datatype,
+            data:userdata
+            
+                    
+            },
+            dataType:"json",
+            success:function(data){
+                key=data.key;
+                console.log(data);
+                result=data.data;
+            },
+            error:function(data){
+                console.log(data);
+                // result=data;
+            }
+    });
+    return result;  
+}
+
+function send_email_reset(){
+    $.ajax({
+        url:"<?=base_url('main_helper/reset_password_otp');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            email_field:$("#reset_email").val(),       
+            },
+            dataType:"json",
+            success:function(data){
+                key=data.key;
+                console.log(data);
+                // result=data.data;
+                user_id=data.user_id;
+            },
+            error:function(data){
+                console.log(data);
+                // result=data;
+            }
+    });
+}
+
+function verify_otp(){
+    result="";
+    $.ajax({
+        url:"<?=base_url('main_helper/verify_otp');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            user_id:user_id,      
+            otp:document.getElementById("reset_otp").value,
+            },
+            dataType:"json",
+            success:function(data){
+                key=data.key;
+                // console.log(data);
+                result=data.data;
+            },
+            error:function(data){
+                console.log(data);
+                // result=data;
+            }
+    });
+    return result;
+}
+
+function update_pass(){
+    reset_email=document.getElementById("reset_email").value;
+    pass=document.getElementById("new_password").value;
+    $.ajax({
+        url:"<?=base_url('main_helper/update_password');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            email:reset_email,
+            password:pass   
+            },
+        dataType:"json",
+        success:function(data){
+            key=data.key;
+            console.log(data);
+            if(data.data){
+                alert("Password Changed");
+                window.location.href="<?=base_url('main/log_user');?>";
+            }
+                // result=data.data;
+        },
+        error:function(data){
+            console.log(data);
+            // result=data;
+        }
+    });    
+}
+
+    //btn1
+    document.getElementById("btn1").addEventListener("click", function(){
+        reset_email=document.getElementById("reset_email");
+        v_email=isEmail(reset_email.value);
+        if(v_email){
+            if(validate_data('email',reset_email.value)){
+                showDivs('btn1','','display1');
+                
+                document.getElementById("reset_email_error").innerHTML="";
+                send_email_reset();
+                reset_email.setAttribute("disabled","disabled");
+            }else{
+                document.getElementById("reset_email_error").innerHTML="Email Not Registered";
+            }
+            
+        }else{
+            document.getElementById("reset_email_error").innerHTML="*Incorrect Email";
+        }
+    });
+
+
+    //btn2
+    document.getElementById("btn2").addEventListener("click",function(){
+        if(document.getElementById("reset_otp").value.length==4){
+            if(verify_otp()){
+                showDivs("btn2","display1","display2");
+                document.getElementById("reset_otp_error").innerHTML="";
+            }else{
+                document.getElementById("reset_otp_error").innerHTML="*Incorrect OTP";
+            }
+
+        }else{
+            document.getElementById("reset_otp_error").innerHTML="*Incorrect OTP";
+        }
+
+        
+    });
+
+    //btn 3
+    match_pass=0;
+    document.getElementById("new_password").addEventListener("keyup",function(){
+        pass=document.getElementById("new_password").value;
+        cnfrm_pass=document.getElementById("confirm_new_password").value;
+        if(pass.length<8){
+            document.getElementById("reset_pass_error").innerHTML="* Small Password";
+            match_pass=0;
+        }else{
+            document.getElementById("reset_pass_error").innerHTML="";
+        }
+        if(cnfrm_pass!=""){
+            onkeyfun();
+        }
+    });
+
+
+    document.getElementById("confirm_new_password").addEventListener("keyup",function(){
+       onkeyfun();
+    });
+
+    function onkeyfun(){
+        pass=document.getElementById("new_password").value;
+        cnfrm_pass=document.getElementById("confirm_new_password").value;
+        if(pass.length>=8){
+            if(pass!=cnfrm_pass){
+                document.getElementById("reset_cnfrm_pass_error").innerHTML="* Dosen't Match";
+                match_pass=0;
+            }else{
+                document.getElementById("reset_cnfrm_pass_error").innerHTML="";
+                match_pass=1;
+            }
+        }
+        
+    }
+
+    document.getElementById("btn3").addEventListener("click",function(){
+        reset_email=document.getElementById("reset_email").value;
+        pass=document.getElementById("new_password").value;
+        console.log(match_pass);
+        if(match_pass){
+           update_pass();
+        }
+    });
+
+
+    //resend otp
+    document.getElementById("resend_otp_a").addEventListener("click",function(){
+        send_email_reset();
+    });
+
+    
 </script>
 
 </html>
