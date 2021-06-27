@@ -22,7 +22,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 # Config File
 # /application/config/config.php
 # /application/config/database.php
-/.htaccess
+.htaccess
 
 # /application/
 
