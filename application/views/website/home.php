@@ -22,12 +22,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="auto-complete.js"></script>
-    
-    
-    <body>
-    <!-- Messenger Chat Plugin Code -->
-<div id="fb-root"></div>
 
 <!-- Your Chat Plugin code -->
 <div id="fb-customer-chat" class="fb-customerchat">
@@ -61,18 +55,11 @@
             <div class="slider">
             <div id="bg-slider" class="owl-carousel owl-theme">
  
-<<<<<<< HEAD
-                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-1.jpg" alt="The Last of us"></div>
-                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-2.jpg" alt="The Last of us"></div>
-                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-3.jpg" alt="GTA V"></div>
-                
-=======
                 <!-- <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-0.jpg" alt="The Last of us"></div> -->
                 <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-1.jpg" alt="Slider Image 1"></div>
                 <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-2.jpg" alt="Slider Image 2"></div>
                 <div class="item"><img style="" src="assets/img/slide1/slider-image-3.jpg" alt="Slider Image 3"></div>
                 <!-- <div class="item"><img style="" src="assets/img/slide1/slider-image-4.jpg" alt="GTA V"></div> -->
->>>>>>> 5614256e2f186164d6ef9317a9a87daf634f46ac
 
             </div>
             </div>
