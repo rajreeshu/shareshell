@@ -12,7 +12,9 @@
 
                                 <!-- <img src="<?=base_url();?>assets/img/footer-logo." alt="ShareShell"> -->
                                <!-- <b>ShareShell</b> -->
+                               <a href="<?=base_url();?>">";
                                <img src="<?=base_url('assets/img/shareshell_mobile_logo.png');?>" alt="ShareShell">
+                                </a>
                                 <br>
                                 
                                 <ul class="footer-adress">
@@ -27,12 +29,12 @@
                                 <h4>Quick links </h4>
                                 <div class="footer-title-line"></div>
                                 <ul class="footer-menu">
-                                    <li><a href="properties.html">Properties</a>  </li> 
+                                    <li><a href="<?=base_url('properties')?>">Properties</a>  </li> 
                                     <li><a href="#">Services</a>  </li> 
-                                    <li><a href="submit-property.html">Submit property </a></li> 
-                                    <li><a href="contact.html">Contact us</a></li> 
-                                    <li><a href="faq.html">fqa</a>  </li> 
-                                    <li><a href="faq.html">Terms </a>  </li> 
+                                    <li><a href="<?=base_url('main/submit_property')?>">Submit property </a></li> 
+                                    <li><a href="<?=base_url('contact')?>">Contact us</a></li> 
+                                    <li><a href="<?=base_url('faq')?>">faq</a>  </li> 
+                                    <li><a href="<?=base_url('main/termsconditions')?>">Terms </a>  </li> 
                                 </ul>
                             </div>
                         </div>
@@ -109,10 +111,10 @@
 
                                 <div class="social pull-left"> 
                                     <ul>
-                                        <li><a class="wow fadeInUp animated" href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/shareshell10"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/shareshell10/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
                                         
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/share.shell" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
                                         
                                     </ul> 
                                 </div>
@@ -147,9 +149,9 @@
                         <div class="bottom-menu pull-right"> 
                             <ul> 
                                 <li><a class="wow fadeInUp animated" href="<?=base_url();?>" data-wow-delay="0.2s">Home</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
+                                <li><a class="wow fadeInUp animated" href="<?=base_url('properties')?>" data-wow-delay="0.3s">Property</a></li>
+                                <li><a class="wow fadeInUp animated" href="<?=base_url('faq')?>" data-wow-delay="0.4s">Faq</a></li>
+                                <li><a class="wow fadeInUp animated" href="<?=base_url('contact');?>" data-wow-delay="0.6s">Contact</a></li>
                             </ul> 
                         </div>
                     </div>

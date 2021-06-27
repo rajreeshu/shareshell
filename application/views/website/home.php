@@ -104,20 +104,27 @@
 <div><h3><b>Start Searching your Property......</b></h3></div>
 
 
+  <div class="row">
+      <div class="col col-md-10">
+        <input class="search" id="search_box_home" type="text" placeholder="Search property on your desired location,name,....." style="border: 1px solid grey;border-radius: 10px;height:3em;background-color: rgb(248, 245, 245);align-items: center;align-content: center;">
+      </div>
+      <div class="col"><center>
+         <button style="border-radius: 10px;border: 2px solid rgb(255, 255, 255);font-size: 15px;width:8em;" class='  btn-primary '>SEARCH</button>
+         </center>
+      </div>
+  </div>
+
+
     <div class="small" style="align-content: center;align-items: center;display:flex;">
     
 
 
 
-        <input class="search" id="search_box_home" type="text"
-            placeholder="Search property on your desired location,name,....."
-            style="border: 1px solid grey;border-radius: 10px;height:3em;background-color: rgb(248, 245, 245);align-items: center;align-content: center;">
+        
 
         <span>
 
-            <button
-                style="border-radius: 10px;border: 2px solid rgb(255, 255, 255);font-size: 15px;width:8em;"
-                class='  btn-primary '>SEARCH</button>
+            
 
         </span>
         
@@ -371,11 +378,11 @@
         -->
 
         <!-- boy-sale area -->
-        <div class="boy-sale-area">
+        <div class="boy-sale-area" style="background:white;">
             <div class="container">
                 <div class="row">
-
-                    <div class="col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0 col-xs-12">
+                <!-- <a href="<?php echo base_url('properties'); ?>"> -->
+                    <div class="col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0 col-xs-12" id="card_go_properties">
                         <div class="asks-first">
                             <div class="asks-first-circle">
                                 <span class="fa fa-search"></span>
@@ -385,21 +392,24 @@
                                 <p>Looking to buy property?Our team is there to help you find a perfect property,just check in,search and surf thousands of properties in no time.</p>                                        
                             </div>
                             <div class="asks-first-arrow">
-                                <a href="properties.html"><span class="fa fa-angle-right"></span></a>
+                            <span class="fa fa-angle-right"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-10 col-sm-offset-1 col-xs-12 col-md-offset-0">
+                    <!-- </a> -->
+                    <div class="col-md-6 col-sm-10 col-sm-offset-1 col-xs-12 col-md-offset-0" id="card_go_submit_properties">
                         <div  class="asks-first">
                             <div class="asks-first-circle">
                                 <span class="fa fa-usd"></span>
                             </div>
+                            <!-- <a href="<?=base_url('main/submit_property');?>"> -->
                             <div class="asks-first-info">
                                 <h2>DO YOU WANT TO SELL A Property?</h2>
                                 <p>Just check into this website,our team will go through all your conditions evaluate your asset and will bring amazing deals and some best brokers to you.</p>
                             </div>
+                            <!-- </a> -->
                             <div class="asks-first-arrow">
-                                <a href="submit-property copy.html"><span class="fa fa-angle-right"></span></a>
+                                <span class="fa fa-angle-right"></span>
                             </div>
                         </div>
                     </div>
@@ -424,6 +434,14 @@
     $(".box-tree").click(function(event) {
         event.preventDefault();
         // console.log("gg");
+    });
+
+    $("#card_go_properties").click(function(){
+        window.location.href = "<?=base_url('properties');?>";
+    });
+
+    $("#card_go_submit_properties").click(function(){
+        window.location.href = "<?=base_url('main/submit_property')?>";
     });
 
 
