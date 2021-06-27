@@ -14,10 +14,10 @@
                                <!-- <b>ShareShell</b> -->
                                <img src="<?=base_url('assets/img/shareshell_mobile_logo.png');?>" alt="ShareShell">
                                 <br>
-                                <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
+                                
                                 <ul class="footer-adress">
-                                    <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                    <li><i class="pe-7s-mail strong"> </i> ShareShell.net</li>
+                                    <li><i class="pe-7s-map-marker strong"> </i> flat no.3 behind DN Regalia,Bhubaneswar,Odisha,India.</li>
+                                    <li><i class="pe-7s-mail strong"> </i> contactus@shareshell.in</li>
                                     <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
                                 </ul>
                             </div>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="col-md-3 col-sm-6 wow fadeInRight animated">
                             <div class="single-footer">
-                                <h4>Last News</h4>
+                                <h4>Last Blogs</h4>
                                 <div class="footer-title-line"></div>
                                 <ul class="footer-blog">
                                     <li>
@@ -94,6 +94,7 @@
                                 <p>Toll Free 1800 41 99099</br>
                                 Monday - Saturday (9:00AM to 7:00PM IST)</br>
                                 Email: contactus@shareshell.in</p>
+                                <!-- /input-group 
 
                                 <form>
                                     <div class="input-group">
@@ -102,16 +103,17 @@
                                             <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
                                         </span>
                                     </div>
-                                    <!-- /input-group -->
-                                </form> 
+                                    
+                                </form>
+                                -->
 
-                                <div class="social pull-right"> 
+                                <div class="social pull-left"> 
                                     <ul>
                                         <li><a class="wow fadeInUp animated" href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
                                         <li><a class="wow fadeInUp animated" href="https://www.facebook.com" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
+                                        
                                         <li><a class="wow fadeInUp animated" href="https://instagram.com" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
+                                        
                                     </ul> 
                                 </div>
                             </div>

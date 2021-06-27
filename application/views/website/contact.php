@@ -18,6 +18,36 @@
 ?> 
 </head>
 <body>
+
+
+
+
+<!-- Messenger Chat Plugin Code -->
+<div id="fb-root"></div>
+
+<!-- Your Chat Plugin code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "106921368151575");
+  chatbox.setAttribute("attribution", "biz_inbox");
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v11.0'
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 	        <div class="page-head"> 
             <div class="container">
                 <div class="row">
@@ -38,11 +68,11 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <h3><i class="fa fa-map-marker"></i> Address</h3>
-                                    <p>13/25 shibuia
-                                        <br>Tokyo 
-                                        <br>45Y 73J 
+                                    <p>flat no.3 behind DN Regalia
+                                        <br>Bhubaneswar
+                                        <br>Odisha
                                         <br>
-                                        <strong>Japan</strong>
+                                        <strong>India</strong>
                                     </p>
                                 </div>
                                 <!-- /.col-sm-4 -->
@@ -66,6 +96,11 @@
                             </div>
                             <!-- /.row -->
                             <hr>
+                           
+
+
+
+                            
                             
                             <hr>
                             <h2>Contact form</h2>
@@ -122,5 +157,11 @@
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
         <script src="assets/js/gmaps.js"></script>        
         <script src="assets/js/gmaps.init.js"></script>
+
+
+        
 </body>
 </html>
+
+
+

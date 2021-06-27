@@ -6,12 +6,24 @@
 <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"3>
         <title>Shareshell | Home page</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="auto-complete.js"></script>
+    
 <?php
     $this->load->view('website/link_import');
     $this->load->view('website/header');
@@ -20,18 +32,17 @@
             <div class="slider">
             <div id="bg-slider" class="owl-carousel owl-theme">
  
-                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-0.jpg" alt="The Last of us"></div>
-                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-1.jpg" alt="The Last of us"></div>
-                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-2.jpg" alt="GTA V"></div>
-                <div class="item"><img style="" src="assets/img/slide1/slider-image-3.jpg" alt="The Last of us"></div>
-                <div class="item"><img style="" src="assets/img/slide1/slider-image-4.jpg" alt="GTA V"></div>
+                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-1.jpg" alt="The Last of us"></div>
+                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-2.jpg" alt="The Last of us"></div>
+                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-3.jpg" alt="GTA V"></div>
+                
 
             </div>
             </div>
             <div class="container slider-content">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-                        <h2 style="text-shadow:1px 1px white;">property Searching Just Got So Easy</h2>
+                        <h2 style="text-shadow:1px 1px white;font-family: 'Open Sans', sans-serif;font-weight:bold;">property Searching Just Got So Easy</h2>
                         <h5 style="color: rgb(252, 252, 252); text-shadow: 1px 1px 3px grey;">“Now, one thing I tell everyone is learn about real estate.
                         Repeat after me: real estate provides the highest returns, the greatest values and the least
                         risk. ”</h5>
@@ -54,7 +65,7 @@
 
 
 
-<div class="col-md-12" style="list-style: none;display: flex;padding: 10px;">
+<!--<div class="col-md-12" style="list-style: none;display: flex;padding: 10px;">
     <li
         style="margin-right: 28px;margin-left: 15px;cursor: pointer;border-bottom: 3px solid rgb(241, 240, 240);">
         <a>R E N T</a></li>
@@ -63,28 +74,35 @@
     <li style="margin-right: 28px;cursor: pointer;border-bottom: 3px solid rgb(241, 240, 240);">
         <a>P L O T</a></li>
 
-</div>
+</div>-->
 
-<div class="col-md-12 ">
+<div class="col-md-12">
+<div><h3><b>Start Searching your Property......</b></h3></div>
 
 
     <div class="small" style="align-content: center;align-items: center;display:flex;">
+    
 
 
 
         <input class="search" id="search_box_home" type="text"
-            placeholder="Search property on your desired location....."
-            style="border: 1px solid grey;border-radius: 40px;height:3em;background-color: rgb(248, 245, 245);align-items: center;align-content: center;">
+            placeholder="Search property on your desired location,name,....."
+            style="border: 1px solid grey;border-radius: 10px;height:3em;background-color: rgb(248, 245, 245);align-items: center;align-content: center;">
 
         <span>
 
             <button
-                style="border-radius: 40px;border: 2px solid rgb(255, 255, 255);font-size: 15px;width:8em;"
+                style="border-radius: 10px;border: 2px solid rgb(255, 255, 255);font-size: 15px;width:8em;"
                 class='  btn-primary '>SEARCH</button>
 
         </span>
+        
+              
+        </div>
+      </div>
 
     </div>
+    
 
 
 
@@ -109,7 +127,7 @@
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                         <!-- /.feature title -->
                         <h2>Top submitted property</h2>
-                        <p>Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies . </p>
+                        <p>Have a glance at some of our best properties.These represents our master work pattern and ideas,we give preference to.</p>
                     </div>
                 </div>
 
@@ -306,12 +324,12 @@
             </div>
         </div>
 
-        <!--TESTIMONIALS -->
+        <!--TESTIMONIALS 
         <div class="testimonial-area recent-property" style="background-color: #FCFCFC; padding-bottom: 15px;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
-                        <!-- /.feature title -->
+                        
                         <h2>Our Customers Said  </h2> 
                     </div>
                 </div>
@@ -363,13 +381,14 @@
                 </div>
             </div>
         </div>
+        -->
 
-        <!-- Count area -->
+        <!-- Count area 
         <div class="count-area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
-                        <!-- /.feature title -->
+                        
                         <h2>You can trust Us </h2> 
                     </div>
                 </div>
@@ -426,6 +445,7 @@
                 </div>
             </div>
         </div>
+        -->
 
         <!-- boy-sale area -->
         <div class="boy-sale-area">
@@ -439,7 +459,7 @@
                             </div>
                             <div class="asks-first-info">
                                 <h2>ARE YOU LOOKING FOR A Property?</h2>
-                                <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa</p>                                        
+                                <p>Looking to buy property?Our team is there to help you find a perfect property,just check in,search and surf thousands of properties in no time.</p>                                        
                             </div>
                             <div class="asks-first-arrow">
                                 <a href="properties.html"><span class="fa fa-angle-right"></span></a>
@@ -453,7 +473,7 @@
                             </div>
                             <div class="asks-first-info">
                                 <h2>DO YOU WANT TO SELL A Property?</h2>
-                                <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa</p>
+                                <p>Just check into this website,our team will go through all your conditions evaluate your asset and will bring amazing deals and some best brokers to you.</p>
                             </div>
                             <div class="asks-first-arrow">
                                 <a href="submit-property copy.html"><span class="fa fa-angle-right"></span></a>
@@ -472,7 +492,7 @@
     $this->load->view('website/js_import');
 ?>
 
-<script type="text/javascript">
+<script type="text/javascript" >
         
     var key="<?php echo $this->security->get_csrf_hash(); ?>";    
     // console.log("1st key:"+key);
@@ -609,6 +629,42 @@ load_page_content();
         window.location.href="<?=base_url('properties');?>?s="+$("#search_box_home").val();    
     });
 
+
+
+
+
+
+
+
+
+
+   
+</script>
+<!-- Messenger Chat Plugin Code -->
+<div id="fb-root"></div>
+
+<!-- Your Chat Plugin code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "106921368151575");
+  chatbox.setAttribute("attribution", "biz_inbox");
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v11.0'
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 </script>
 
 </body>
