@@ -413,7 +413,7 @@ function load_page_content(page_no){
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
                    
-                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px;"></a>';
+                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px; object-fit: cover;"></a>';
                    
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';

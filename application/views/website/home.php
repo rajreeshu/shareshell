@@ -24,8 +24,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+<!-- <a href="https://api.whatsapp.com/send?phone=919113776760" id="whatsapp_btn_chat">
+    <img src="<?=base_url('assets/img/whatsapp.png');?>" class="" style="width:70px; height:70px; position:fixed; bottom:20px; right:85px; z-index:20;">
+</a> -->
 <!-- Your Chat Plugin code -->
-<div id="fb-customer-chat" class="fb-customerchat">
+<div id="fb-customer-chat" class="fb-customerchat" id="fb_btn_chat">
 </div>
 
 <script>
@@ -432,6 +435,27 @@
     // console.log("1st key:"+key);
     var property_list="";
 
+
+//scroll check
+//     var position = $(window).scrollTop(); 
+
+// // should start at 0
+
+// $(window).scroll(function() {
+//     var scroll = $(window).scrollTop();
+//     console.log("Scroll :- "+scroll);
+//     if(scroll > position) {
+//         //scroll down
+//         $("#whatsapp_btn_chat").fadeOut(100);
+//         $("fb_btn_chat").fadeOut(100);
+//     } else {
+//         //scroll up
+//         $("#whatsapp_btn_chat").fadeIn(100);
+//         $("#fb_btn_chat").fadeIn(100);
+//     }
+//     position = scroll;
+// });
+
     $(".box-tree").click(function(event) {
         event.preventDefault();
         // console.log("gg");
@@ -507,7 +531,7 @@ function load_page_content(){
                     property_list+='<div class="col-sm-6 col-md-3 p0">';
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
-                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px;"></a>';
+                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px; object-fit:cover;"></a>';
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
                     property_list+='<h5><a href="property-1.html" >'+this.name.slice(0,10)+''+dot_after_name+'</a></h5>';
