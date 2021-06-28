@@ -113,6 +113,10 @@ class Main extends CI_Controller {
 	}
 
 
+	public function blog_admin_login(){
+		$this->load->view('website/blog_admin');
+	}
+
 
 
 	public function my404(){

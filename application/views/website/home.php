@@ -19,10 +19,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
 
 
-
+<!-- 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
 
 <!-- <a href="https://api.whatsapp.com/send?phone=919113776760" id="whatsapp_btn_chat">
     <img src="<?=base_url('assets/img/whatsapp.png');?>" class="" style="width:70px; height:70px; position:fixed; bottom:20px; right:85px; z-index:20;">
@@ -105,7 +105,7 @@
 </div>-->
 
 <div class="col-md-12">
-<div><h3><b>Start Searching your Property......</b></h3></div>
+<div><h3><b>Start Searching your Property on </b></h3></div>
 
 
   <div class="row">
@@ -203,7 +203,8 @@
                                 <div class="row">
                                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                                         <!-- /.feature title -->
-                                        <h2>SHARE SHELL</h2>
+                                        <h1>SHARESHELL</h1>
+                                        <!-- <h2>SHARESHELL</h2> -->
                                     </div>
                                 </div>
                             </div>
