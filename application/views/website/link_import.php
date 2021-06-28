@@ -2,9 +2,9 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 
         <!-- Place favicon.ico  the root directory -->
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+        <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="icon" href="<?=base_url('assets/img/logo-sm.png');?>" type="image/x-icon"> -->
         <link rel="stylesheet" href="<?=base_url();?>assets/css/normalize.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/css/fontello.css">

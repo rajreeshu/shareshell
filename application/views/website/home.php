@@ -5,12 +5,13 @@
 <!--[if gt IE 8]><!--> 
 <html class="no-js"> <!--<![endif]-->
     <head>
+        <link rel="icon" href="<?=base_url('assets/img/logo-sm.jpg');?>" type="image/x-icon">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"3>
-        <title>Shareshell | Home page</title>
-        <meta name="description" content="GARO is a real-estate template">
-        <meta name="author" content="Kimarotec">
-        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+        <title>Houses for rent | Shareshell</title>
+        <meta name="description" content="Eagerly searching for best houses for rent in your city? shareshell is the best platform to provide you the best place for residence.">
+        <meta name="author" content="ShareShell">
+        <meta name="keyword" content="Houses for rent, shareshell">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.googleapis.com">
