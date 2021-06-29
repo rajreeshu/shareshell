@@ -11,7 +11,7 @@ class Api extends CI_Controller {
 	}
 
 
-public function verifyToken(){
+public function verifyToken($token){
 
     $Key = <<<EOD
     -----BEGIN PUBLIC KEY-----
@@ -22,12 +22,47 @@ public function verifyToken(){
     -----END PUBLIC KEY-----
     EOD;
 
-    $jwt="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.IkVhdE1lU2hhcmVTaGVsbEFkbWluIg.PM7i2qoGfVX-G5CQe2ODy18hmgVMY8V881We5QCa-8wy7BYWwg74S4GQFEJOLHdvEittNVBdFGGxwNCXLRX_tiepKtpHc6a-xUS6AH8s1P6xZLEU6cZcnJT_iZ0gjYl9qV4S1jRPIk0dfxXChkr5XQitoYqC4WgKMbEShtR7KBw";
 
-    $decoded = JWT::decode($jwt, $Key, array('RS256'));
-
+    $decoded = JWT::decode($token, $Key, array('RS256'));
     $decoded_array = (array) $decoded;
-    echo "Decode:\n" . print_r($decoded_array, true) . "\n";       
+		if($decoded_array['0']=="true")
+		{
+			return true;
+		}
+		else
+		{
+			die("Not Authorised To Use.");
+		}
+         
+}
+
+public function login(){
+    if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST')
+        {       
+                
+            $this->verifytoken($this->input->post('token'));
+            $input=$this->security->xss_clean($this->input->post());
+            $this->load->model('account_model');
+		    $result=$this->account_model->login_validate($input);
+
+            $final_result['verified']=$result['data'];
+            if($result['data']){
+                $final_result['user_id']=$result['dbpass']->userid;
+                $final_result['first_name']=$result['dbpass']->first_name;
+                $final_result['last_name']=$result['dbpass']->last_name;
+                $final_result['image']=$result['dbpass']->image;
+                $final_result['otp_status']=$result['dbpass']->status;
+            }
+            
+            echo json_encode($final_result);
+            
+
+			
+		}
+        else
+		{
+		    echo json_encode("You Are Not Allowed");
+		}
 }
 
 }

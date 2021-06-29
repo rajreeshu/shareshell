@@ -8,9 +8,7 @@ class Main_helper extends CI_Controller {
 		$input=$this->security->xss_clean($this->input->post());
 
 		$data['input']=$input;
-		
 
-		// $data['data']=$input;
 
 		$addon=""; 
 
@@ -473,19 +471,22 @@ public function login_validate_data(){
 	$input=$this->security->xss_clean($this->input->post());
 
 	// $data['input']=$input;
-
-	$dbpass=$this->db->select('sn as userid,password,status')->where('email',$input['email'])->get('user_detail')->row();
-
-	$data['data']=password_verify($input['email']."//".$input['password'],$dbpass->password);
+	$this->load->model('account_model');
+	$result=$this->account_model->login_validate($input);
 
 
-	if($data['data']&&$dbpass->status==1){
+	if($result['data']&&$result['dbpass']->status==1){
 		$this->session->unset_userdata('user_id_shareshell');
-		$this->session->set_userdata('user_id_shareshell',$dbpass->userid);
+		$this->session->set_userdata('user_id_shareshell',$result['dbpass']->userid);
 
 	}
-
-	$data['account_status']=$dbpass->status;
+	$data['data']=$result['data'];
+	if(isset($result['dbpass']->status)){
+		$data['account_status']=$result['dbpass']->status;
+	}else{
+		$data['account_status']=0;
+	}
+	
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 

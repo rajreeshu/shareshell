@@ -441,6 +441,7 @@ $("#login_submit").click(function(e){
             },
             dataType:"json",
             success:function(data){
+                console.log(data);
                 key=data.key;
                 if(data.data==false){
                     $("#login_password").val("");

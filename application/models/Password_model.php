@@ -11,6 +11,10 @@ class Password_model extends CI_Model{
 		return $password_new_hash;
 	}
 
+	public function a($data){
+		return "https://google.com";
+	}
+
 }
 
 
