@@ -114,7 +114,19 @@ class Main extends CI_Controller {
 
 
 	public function blog_admin_login(){
-		$this->load->view('website/blog_admin');
+
+
+		if($user_id=$this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
+			$user_data=$this->db->select('first_name,last_name,type')->where('sn',$user_id)->get("user_detail")->row();
+			if($user_data->type=="blogger"){
+				$this->load->view('website/blog_admin',['name'=>$user_data->first_name.' '.$user_data->last_name,'writer_id'=>$user_id]);
+			}else{
+				echo "Your can't access this Page";
+			}
+			
+		}else{
+			echo "You are not authorized";
+		}
 	}
 
 

@@ -454,7 +454,7 @@ $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = FALSE;
-$config['csrf_exclude_uris'] = array('main_helper/upload_test','main_helper/upload_multi_prop_img','main_helper/upload_user_main_img');
+$config['csrf_exclude_uris'] = array('main_helper/upload_test','main_helper/upload_multi_prop_img','main_helper/upload_user_main_img','main_helper/upload_blog_image','api/verifyToken','api/encode');
 
 /*
 |--------------------------------------------------------------------------
