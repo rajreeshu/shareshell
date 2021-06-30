@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// require_once("csrf_exception.php");
+
+
 date_default_timezone_set('Asia/Kolkata');
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +27,12 @@ date_default_timezone_set('Asia/Kolkata');
 | a PHP script and you can easily do that on your own.
 |
 */
+<<<<<<< HEAD
 $config['base_url'] = 'https://localhost/git_shareshell/shareshell';
+=======
+
+$config['base_url'] ='https://localhost/git_shareshell/shareshell';
+>>>>>>> 3fa3819322c47b3673d8ede4aea92c2313a54f44
 
 /*
 |--------------------------------------------------------------------------
@@ -449,12 +457,20 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_regenerate' = Regenerate token on every submission
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
+
 $config['csrf_protection'] = TRUE;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = FALSE;
-$config['csrf_exclude_uris'] = array('main_helper/upload_test','main_helper/upload_multi_prop_img','main_helper/upload_user_main_img');
+$config['csrf_exclude_uris'] = array('main_helper/upload_test',
+                                    'main_helper/upload_multi_prop_img',
+                                    'main_helper/upload_user_main_img',
+                                    'main_helper/upload_blog_image',
+                                    'api/verifyToken',
+                                    'api/encode',
+                                    'api/login'
+                                );
 
 /*
 |--------------------------------------------------------------------------

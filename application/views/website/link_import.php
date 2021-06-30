@@ -2,9 +2,9 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 
         <!-- Place favicon.ico  the root directory -->
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+        <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="icon" href="<?=base_url('assets/img/logo-sm.png');?>" type="image/x-icon"> -->
         <link rel="stylesheet" href="<?=base_url();?>assets/css/normalize.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/css/fontello.css">
@@ -22,5 +22,5 @@
         <link rel="stylesheet" href="<?=base_url();?>assets/css/owl.carousel.css">  
         <link rel="stylesheet" href="<?=base_url();?>assets/css/owl.theme.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/css/owl.transitions.css">
-        <link rel="stylesheet" href="<?=base_url();?>assets/css/style.css">
-        <link rel="stylesheet" href="<?=base_url();?>assets/css/responsive.css">
+        <link rel="stylesheet" href="<?=base_url();?>assets/css/style.css?v=1.0">
+        <link rel="stylesheet" href="<?=base_url();?>assets/css/responsive.css?v=1.0">

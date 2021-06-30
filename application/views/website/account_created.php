@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> 
 <html class="no-js"> <!--<![endif]-->
     <head>
+    <link rel="icon" href="<?=base_url('assets/img/logo-sm.jpg');?>" type="image/x-icon">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Shareshell | Success</title>

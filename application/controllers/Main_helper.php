@@ -8,9 +8,7 @@ class Main_helper extends CI_Controller {
 		$input=$this->security->xss_clean($this->input->post());
 
 		$data['input']=$input;
-		
 
-		// $data['data']=$input;
 
 		$addon=""; 
 
@@ -378,6 +376,46 @@ public function upload_test(){
 	
 }
 
+public function upload_blog_image(){
+	$up_img=move_uploaded_file($_FILES["file"]["tmp_name"], 'utility/blog_image/'.$_FILES["file"]["name"]);
+	$file_name_full=$_FILES['file']['name'];
+			
+			$config['image_library'] = 'gd2';
+			$config['source_image'] = 'utility/blog_image/'.$file_name_full;
+			$config['create_thumb'] = TRUE;
+			$config['maintain_ratio'] = TRUE;
+			$config['width']         = 200;
+			// $config['height']       = 250;
+
+			$this->load->library('image_lib', $config);
+
+			$this->image_lib->resize();
+
+			echo $this->image_lib->display_errors();
+
+			$file_name_full=$_FILES['file']['name'];
+			$id = pathinfo($_FILES['file']['name'], PATHINFO_FILENAME);
+			if($up_img){
+				$this->db->where('blog_id',$id)->update('blog',['blog_image'=>$file_name_full]);
+			}
+
+}
+
+public function upload_blog(){
+	$input=$this->security->xss_clean($this->input->post());
+	$insert_data=array(
+		'writer_id'=>$input['writer_id'],
+		'blog_heading'=>$input['blog_heading'],
+		'blog_body'=> $input['blog_body'],
+		'blog_category'=> $input['blog_category'],
+		'blog_date'=>date('Y-m-d')
+	);
+	$this->db->insert('blog',$insert_data);
+	$data['blog_id']=$this->db->insert_id();
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
 public function reset_password_otp(){
 	$input=$this->security->xss_clean($this->input->post());
 
@@ -433,19 +471,22 @@ public function login_validate_data(){
 	$input=$this->security->xss_clean($this->input->post());
 
 	// $data['input']=$input;
-
-	$dbpass=$this->db->select('sn as userid,password,status')->where('email',$input['email'])->get('user_detail')->row();
-
-	$data['data']=password_verify($input['email']."//".$input['password'],$dbpass->password);
+	$this->load->model('account_model');
+	$result=$this->account_model->login_validate($input);
 
 
-	if($data['data']&&$dbpass->status==1){
+	if($result['data']&&$result['dbpass']->status==1){
 		$this->session->unset_userdata('user_id_shareshell');
-		$this->session->set_userdata('user_id_shareshell',$dbpass->userid);
+		$this->session->set_userdata('user_id_shareshell',$result['dbpass']->userid);
 
 	}
-
-	$data['account_status']=$dbpass->status;
+	$data['data']=$result['data'];
+	if(isset($result['dbpass']->status)){
+		$data['account_status']=$result['dbpass']->status;
+	}else{
+		$data['account_status']=0;
+	}
+	
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 

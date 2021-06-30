@@ -5,6 +5,8 @@
 <!--[if gt IE 8]><!--> 
 <html class="no-js"> <!--<![endif]-->
     <head>
+<link rel="icon" href="<?=base_url('assets/img/logo-sm.jpg');?>" type="image/x-icon">
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>SHARESHELL| Properties  page</title>
@@ -411,7 +413,7 @@ function load_page_content(page_no){
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
                    
-                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px;"></a>';
+                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px; object-fit: cover;"></a>';
                    
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';

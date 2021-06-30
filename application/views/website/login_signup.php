@@ -4,6 +4,8 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
+<link rel="icon" href="<?=base_url('assets/img/logo-sm.jpg');?>" type="image/x-icon">
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>SHARESHELL| Log_User</title>
@@ -439,6 +441,7 @@ $("#login_submit").click(function(e){
             },
             dataType:"json",
             success:function(data){
+                console.log(data);
                 key=data.key;
                 if(data.data==false){
                     $("#login_password").val("");

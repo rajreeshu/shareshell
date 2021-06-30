@@ -2309,6 +2309,21 @@ Welcom
     width: 170px;
     height: 160px;
 }
+
+.welcome_text .page-title h1 {
+    color: #9B9B9B;
+    text-transform: uppercase;
+    background-color: #FFF;
+    position: absolute;
+    top: 126px;
+    right: 26px;
+    /* font-weight: 500; */
+    /* font-size: 35px; */
+    border-radius: 5%;
+    padding: 35px 10px;
+    /* width: 170px; */
+    /* height: 160px; */
+}
 /*===================================================
 count-area
 ===================================================*/
