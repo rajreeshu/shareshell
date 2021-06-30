@@ -27,12 +27,7 @@ date_default_timezone_set('Asia/Kolkata');
 | a PHP script and you can easily do that on your own.
 |
 */
-<<<<<<< HEAD
 $config['base_url'] = 'https://localhost/git_shareshell/shareshell';
-=======
-
-$config['base_url'] ='https://localhost/git_shareshell/shareshell';
->>>>>>> 3fa3819322c47b3673d8ede4aea92c2313a54f44
 
 /*
 |--------------------------------------------------------------------------
