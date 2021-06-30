@@ -104,13 +104,8 @@
 
 </div>-->
 
-<<<<<<< HEAD
-<div class="col-md-12" >
-<div><h3><b>Start Searching your Property......</b></h3></div>
-=======
 <div class="col-md-12">
 <div><h3><b>Start Searching your Property on </b></h3></div>
->>>>>>> 3fa3819322c47b3673d8ede4aea92c2313a54f44
 
 
   <div class="row">
