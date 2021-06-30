@@ -100,7 +100,7 @@
 
 </div>-->
 
-<div class="col-md-12">
+<div class="col-md-12" >
 <div><h3><b>Start Searching your Property......</b></h3></div>
 
 
