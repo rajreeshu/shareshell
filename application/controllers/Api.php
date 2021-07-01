@@ -10,6 +10,10 @@ class Api extends CI_Controller {
 		
 	}
 
+//encode function with Private key in Api.php controller
+
+
+
 
 public function verifyToken($token){
 
