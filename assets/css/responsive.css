@@ -156,6 +156,7 @@
     }
     .search-form{
         padding: 15px;
+        margin-top: -6em
     }
     .search-form .form-inline .form-group {
         width: 100%; 
@@ -187,7 +188,8 @@
         padding-top: 65px;
     }
     #bg-slider .item img {
-        height: 440px;
+        object-fit: cover;
+        height: 328px;
     }
     .slider .owl-pagination {
         bottom: 165px;
