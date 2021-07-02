@@ -143,21 +143,23 @@ public function upload_multi_prop_img(){
 public function get_property_data(){
 	$input=$this->security->xss_clean($this->input->post());
 
-	$data['data']=$this->db->select('listed_by,name,price,address,contact,main_image,description,avail,city,status,type,min_bed,addon,add_image,add_video')->where('sn',$input['id'])->get('property_info')->row();
+	$this->load->model('account_model');
+	$data=$this->account_model->getpropertydata($input);
+	
 	$data['key']=$this->security->get_csrf_hash();
 
-	echo json_encode($data);
+	echo json_encode($data); 
 }
 
-public function get_property_images(){
-	$input=$this->security->xss_clean($this->input->post());
+// public function get_property_images(){
+// 	$input=$this->security->xss_clean($this->input->post());
 
-	$data['data']=$this->db->select('image_id,image')->where('property_id',$input['property_id'])->get('property_image')->result();
+// 	$data['data']=$this->db->select('image_id,image')->where('property_id',$input['property_id'])->get('property_image')->result();
 
-	$data['key']=$this->security->get_csrf_hash();
+// 	$data['key']=$this->security->get_csrf_hash();
 
-	echo json_encode($data);
-}
+// 	echo json_encode($data);
+// }
 
 public function get_all_property_list(){
 	$input=$this->security->xss_clean($this->input->post());
@@ -561,14 +563,14 @@ public function user_account_detail(){
 
 }
 
-public function user_detail_public(){
-	$input=$this->security->xss_clean($this->input->post());
+// public function user_detail_public(){
+// 	$input=$this->security->xss_clean($this->input->post());
 
-	$data['data']=$this->db->select('first_name,last_name,username,gender,image,address,user_bio,website,facebook,twitter')->where('sn',$input['user_id'])->get('user_detail')->row();
+// 	$data['data']=$this->db->select('first_name,last_name,username,gender,image,address,user_bio,website,facebook,twitter')->where('sn',$input['user_id'])->get('user_detail')->row();
 
-	$data['key']=$this->security->get_csrf_hash();
-	echo json_encode($data);
-}
+// 	$data['key']=$this->security->get_csrf_hash();
+// 	echo json_encode($data);
+// }
 
 public function change_password(){
 	$input=$this->security->xss_clean($this->input->post());

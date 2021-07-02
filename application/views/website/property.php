@@ -305,13 +305,13 @@
                                         <div class="clear">
                                             <div class="col-xs-4 col-sm-4 dealer-face">
                                                 <!-- <a href=""> -->
-                                                    <img src="<?=base_url();?>assets/img/client-face1.png" class="img-circle" id="user_img" style="height: 100px; width: 100px; object-fit: cover; margin: 0px;padding: 0px;">
+                                                    <img src="" class="img-circle" id="user_img" style="height: 100px; width: 100px; object-fit: cover; margin: 0px;padding: 0px;">
                                                 <!-- </a> -->
                                             </div>
                                             <div class="col-xs-8 col-sm-8 ">
                                             <h3 class="dealer-name">
                                                 <a href="" style="color:rgb(255, 255, 255);">CONTACT OWNERs</a>
-                                                <span id="agent_name">Kishore Mishra</span>
+                                                <span id="agent_name"></span>
                                                 <span class="dealer-social-media">
                                                     <a class="twitter" target="_blank" href="" id="agent_twitter_link">
                                                         <!-- <i class="fa fa-twitter-square fa-2x" id="agent_twitter"style="margin-right: 20px;"></i> -->
@@ -351,7 +351,7 @@
                                             <p id="agent_bio"></p>
                                         </div>
                                         <ul class="dealer-contacts" style="margin-top:-35px; margin-bottom:-25px;">                                       
-                                                <li><i class="pe-7s-map-marker strong"> </i><span id="agent_address"> 9089 your adress her</span></li>
+                                                <li><i class="pe-7s-map-marker strong"> </i><span id="agent_address"> </span></li>
                                              </ul>
 
                                     <div class="clear">
@@ -526,13 +526,10 @@
                     
             },
             dataType:"json",
-            // processData:false,
-            // contentType:false,
-
             success:function(data){
                 key=data.key;
 
-                console.log(data.data);
+                console.log(data);
                 property_by=data.data.listed_by;
 
                     //start
@@ -564,15 +561,41 @@
                 $("#property_bed").html(data.data.min_bed);
                 $("#property_type").html(data.data.type.toUpperCase());
                 $("#property_avail").html(data.data.avail.toUpperCase());
-
-                // $("#main_img_slide_thumb").attr('scr','<?=base_url('utility/main_image');?>/'+get_thumb_name(data.data.main_image));
-                
-                // $("#main_img_slide_thumb").src='<?=base_url("utility/main_image");?>/'+get_thumb_name(data.data.main_image);
-
-                // $("#main_img_slide").attr("data-src",'<?=base_url('utility/main_image');?>/'+data.data.main_image);
-
                 $("#lightgallery").append('<li class="col-xs-6 col-sm-4 col-md-3 col-4"  data-responsive="" id="main_img_slide" data-src="<?=base_url('utility/main_image');?>/'+data.data.main_image+'" ><a href=""><img src="<?=base_url('utility/main_image');?>/'+get_thumb_name(data.data.main_image)+'" class="img-responsive" id="main_img_slide_thumb" alt="Thumb-1"></a></li>');
 
+                var image_insert="";
+                var lightgallery_data="";
+                $.each(data.image,function(){
+                    // console.log(this.image);
+                    image_insert+='<li data-thumb="<?=base_url();?>utility/main_image/'+get_thumb_name(this.image)+'" class="thumb_class">';
+                    image_insert+='<img src="<?=base_url();?>utility/main_image/'+this.image+'"  class="thumb_class_src"/>';
+                    image_insert+='</li>';
+                    lightgallery_data+='<li class="col-xs-6 col-sm-4 col-md-3 col-4"  data-responsive="" id="main_img_slide" data-src="<?=base_url('utility/main_image');?>/'+this.image+'" ><a href=""><img src="<?=base_url('utility/main_image');?>/'+get_thumb_name(this.image)+'" class="img-responsive" id="main_img_slide_thumb" alt="Thumb-1"></a></li>';
+                });
+                $("#image-gallery").append(image_insert);
+                $("#lightgallery").append(lightgallery_data);
+
+                //listed by data
+
+
+                $("#agent_name").html(data.listed_by.first_name+' '+data.listed_by.last_name);
+                $("#agent_username").html(data.listed_by.username);
+                $("#agent_address").html(data.listed_by.address);
+                $("#agent_bio").html(data.listed_by.user_bio);
+                if(data.listed_by.twitter!=""){
+                    $("#agent_twitter_link").html('<i class="fa fa-twitter-square fa-1x" id="agent_twitter"style="margin-right: 0px;"></i>');
+                }
+                $("#agent_twitter_link").attr("href",data.listed_by.twitter);
+                if(data.listed_by.facebook!=""){
+                    $("#agent_facebook_link").html('<i class="fa fa-facebook-official fa-1x" id="agent_facebook"></i>');
+                }
+                $("#agent_facebook_link").attr("href",data.listed_by.facebook);
+
+                if(data.listed_by.image!=""){
+                    $("#user_img").attr("src","<?=base_url('utility/user_image/');?>"+get_thumb_name(data.listed_by.image));
+                }else{
+                    $("#user_img").attr("src",'<?=base_url('assets/img/');?>'+user_image_male_female(data.listed_by['gender']));
+                }
 
 
             },
@@ -581,85 +604,78 @@
             }
         });
 
-    $.ajax({
-        url:"<?=base_url('main_helper/get_property_images');?>",
-        type:"POST",
-        async:false,
-        data:{
-            "<?php echo $this->security->get_csrf_token_name();?>":key,
-            property_id:"<?= $property_no;?>"
+    // $.ajax({
+    //     url:"<?=base_url('main_helper/get_property_images');?>",
+    //     type:"POST",
+    //     async:false,
+    //     data:{
+    //         "<?php echo $this->security->get_csrf_token_name();?>":key,
+    //         property_id:"<?= $property_no;?>"
                     
-            },
-        dataType:"json",
-        success:function(data){
-            key=data.key;
-            console.log(data);
+    //         },
+    //     dataType:"json",
+    //     success:function(data){
+    //         key=data.key;
+    //         console.log(data);
 
-            var image_insert="";
-            var lightgallery_data="";
-            $.each(data.data,function(){
-                // console.log(this.image);
-                image_insert+='<li data-thumb="<?=base_url();?>utility/main_image/'+get_thumb_name(this.image)+'" class="thumb_class">';
-                image_insert+='<img src="<?=base_url();?>utility/main_image/'+this.image+'"  class="thumb_class_src"/>';
-                image_insert+='</li>';
+    //         var image_insert="";
+    //         var lightgallery_data="";
+    //         $.each(data.data,function(){
+    //             // console.log(this.image);
+    //             image_insert+='<li data-thumb="<?=base_url();?>utility/main_image/'+get_thumb_name(this.image)+'" class="thumb_class">';
+    //             image_insert+='<img src="<?=base_url();?>utility/main_image/'+this.image+'"  class="thumb_class_src"/>';
+    //             image_insert+='</li>';
+    //             lightgallery_data+='<li class="col-xs-6 col-sm-4 col-md-3 col-4"  data-responsive="" id="main_img_slide" data-src="<?=base_url('utility/main_image');?>/'+this.image+'" ><a href=""><img src="<?=base_url('utility/main_image');?>/'+get_thumb_name(this.image)+'" class="img-responsive" id="main_img_slide_thumb" alt="Thumb-1"></a></li>';
+    //         });
+    //         $("#image-gallery").append(image_insert);
+    //         $("#lightgallery").append(lightgallery_data);
+    //     },
+    //     error:function(data){
+    //         console.log(data);
+    //         alert("something went wrong");
+    //     }
+    // });
 
-                lightgallery_data+='<li class="col-xs-6 col-sm-4 col-md-3 col-4"  data-responsive="" id="main_img_slide" data-src="<?=base_url('utility/main_image');?>/'+this.image+'" ><a href=""><img src="<?=base_url('utility/main_image');?>/'+get_thumb_name(this.image)+'" class="img-responsive" id="main_img_slide_thumb" alt="Thumb-1"></a></li>';
-
-
-
-            });
-            // while(data.data){
-            //     console.log("h");
-            // }
-            $("#image-gallery").append(image_insert);
-            $("#lightgallery").append(lightgallery_data);
-        },
-        error:function(data){
-            console.log(data);
-            alert("something went wrong");
-        }
-    });
-
-    $.ajax({
-        url:"<?=base_url('main_helper/user_detail_public');?>",
-        type:"POST",
-        async:false,
-        data:{
-            "<?php echo $this->security->get_csrf_token_name();?>":key,
-            user_id:property_by
+    // $.ajax({
+    //     url:"<?=base_url('main_helper/user_detail_public');?>",
+    //     type:"POST",
+    //     async:false,
+    //     data:{
+    //         "<?php echo $this->security->get_csrf_token_name();?>":key,
+    //         user_id:property_by
                     
-            },
-        dataType:"json",
-        success:function(data){
-            key=data.key;
-            console.log(data);
+    //         },
+    //     dataType:"json",
+    //     success:function(data){
+    //         key=data.key;
+    //         console.log(data);
             
-            $("#agent_name").html(data.data.first_name+' '+data.data.last_name);
-            $("#agent_username").html(data.data.username);
-            $("#agent_address").html(data.data.address);
-            $("#agent_bio").html(data.data.user_bio);
-            if(data.data.twitter!=""){
-                $("#agent_twitter_link").html('<i class="fa fa-twitter-square fa-1x" id="agent_twitter"style="margin-right: 0px;"></i>');
-            }
-            $("#agent_twitter_link").attr("href",data.data.twitter);
-            if(data.data.facebook!=""){
-                $("#agent_facebook_link").html('<i class="fa fa-facebook-official fa-1x" id="agent_facebook"></i>');
-            }
-            $("#agent_facebook_link").attr("href",data.data.facebook);
+    //         $("#agent_name").html(data.data.first_name+' '+data.data.last_name);
+    //         $("#agent_username").html(data.data.username);
+    //         $("#agent_address").html(data.data.address);
+    //         $("#agent_bio").html(data.data.user_bio);
+    //         if(data.data.twitter!=""){
+    //             $("#agent_twitter_link").html('<i class="fa fa-twitter-square fa-1x" id="agent_twitter"style="margin-right: 0px;"></i>');
+    //         }
+    //         $("#agent_twitter_link").attr("href",data.data.twitter);
+    //         if(data.data.facebook!=""){
+    //             $("#agent_facebook_link").html('<i class="fa fa-facebook-official fa-1x" id="agent_facebook"></i>');
+    //         }
+    //         $("#agent_facebook_link").attr("href",data.data.facebook);
 
-            if(data.data.image!=""){
-                $("#user_img").attr("src","<?=base_url('utility/user_image/');?>"+get_thumb_name(data.data.image));
-            }else{
-                 $("#user_img").attr("src",'<?=base_url('assets/img/');?>'+user_image_male_female(data.data['gender']));
-            }
+    //         if(data.data.image!=""){
+    //             $("#user_img").attr("src","<?=base_url('utility/user_image/');?>"+get_thumb_name(data.data.image));
+    //         }else{
+    //              $("#user_img").attr("src",'<?=base_url('assets/img/');?>'+user_image_male_female(data.data['gender']));
+    //         }
 
 
-        },
-        error:function(data){
-            console.log(data);
-            alert("something went wrong");
-        }
-    });
+    //     },
+    //     error:function(data){
+    //         console.log(data);
+    //         alert("something went wrong");
+    //     }
+    // });
 
         
 

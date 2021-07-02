@@ -10,10 +10,6 @@ class Api extends CI_Controller {
 		
 	}
 
-//encode function with Private key in Api.php controller
-
-
-
 
 public function verifyToken($token){
 
@@ -65,6 +61,21 @@ public function login(){
 		}
         else
 		{
+		    echo json_encode("You Are Not Allowed");
+		}
+}
+
+public function get_property_data(){
+    if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){       
+                
+        $this->verifytoken($this->input->post('token'));
+        $input=$this->security->xss_clean($this->input->post());
+        $this->load->model('account_model');
+	    $data=$this->account_model->getpropertydata($input);
+        
+        echo json_encode($data);
+            	
+	}else{
 		    echo json_encode("You Are Not Allowed");
 		}
 }
