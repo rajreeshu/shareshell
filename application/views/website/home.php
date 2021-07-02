@@ -17,6 +17,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
+<a href="https://icons8.com/icon/16713/whatsapp"></a>
+
 
 
 <!-- 
@@ -25,31 +27,12 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
 
 <!-- <a href="https://api.whatsapp.com/send?phone=919113776760" id="whatsapp_btn_chat">
-    <img src="<?=base_url('assets/img/whatsapp.png');?>" class="" style="width:70px; height:70px; position:fixed; bottom:20px; right:85px; z-index:20;">
+    <img src="" class="" style="width:70px; height:70px; position:fixed; bottom:20px; right:85px; z-index:20;">
 </a> -->
 <!-- Your Chat Plugin code -->
-<div id="fb-customer-chat" class="fb-customerchat" id="fb_btn_chat">
-</div>
 
-<script>
-  var chatbox = document.getElementById('fb-customer-chat');
-  chatbox.setAttribute("page_id", "106921368151575");
-  chatbox.setAttribute("attribution", "biz_inbox");
-  window.fbAsyncInit = function() {
-    FB.init({
-      xfbml            : true,
-      version          : 'v11.0'
-    });
-  };
 
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script> 
+
 <?php
     $this->load->view('website/link_import');
     $this->load->view('website/header');
@@ -105,7 +88,7 @@
 </div>-->
 
 <div class="col-md-12">
-<div><h3><b>Start Searching your Property on </b></h3></div>
+<div><h3><b>Start Searching Property . . . </b></h3></div>
 
 
   <div class="row">
@@ -113,7 +96,7 @@
         <input class="search" id="search_box_home" type="text" placeholder="Search property on your desired location,name,....." style="border: 1px solid grey;border-radius: 10px;height:3em;background-color: rgb(248, 245, 245);align-items: center;align-content: center;">
       </div>
       <div class="col"><center>
-         <button style="border-radius: 10px;border: 2px solid rgb(255, 255, 255);font-size: 15px;width:8em;" class='  btn-primary '>SEARCH</button>
+         <button style="border-radius: 10px;border: 2px solid rgb(255, 255, 255);font-size: 15px;width:8em;" class='  btn-primary ' id="search">SEARCH</button>
          </center>
       </div>
   </div>
@@ -381,9 +364,13 @@
             </div>
         </div>
         -->
+        <div style="position:fixed;bottom:20px;right:10px;z-index:20;">
+        <a href="https://wa.me/917872390186?text=Welcome to Shareshell,how can we help you?"><img src="https://img.icons8.com/color/80/000000/whatsapp--v1.png"/></a>
+
+        </div>
 
         <!-- boy-sale area -->
-        <div class="boy-sale-area" style="background:white;">
+        <div class="boy-sale-area" style="background:white; z-index: -1;">
             <div class="container">
                 <div class="row">
                 <!-- <a href="<?php echo base_url('properties'); ?>"> -->
