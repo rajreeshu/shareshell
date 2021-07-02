@@ -80,6 +80,21 @@ public function get_property_data(){
 		}
 }
 
+public function get_all_property_list(){
+    if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){       
+                
+        $this->verifytoken($this->input->post('token'));
+	    $input=$this->security->xss_clean($this->input->post());
+
+        $this->load->model('account_model');
+        $data=$this->account_model->getallpropertylist($input);
+
+    	echo json_encode($data);
+    }else{
+        echo json_encode("You Are Not Allowed");
+    }
+}
+
 }
 
 ?>

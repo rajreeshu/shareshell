@@ -164,56 +164,8 @@ public function get_property_data(){
 public function get_all_property_list(){
 	$input=$this->security->xss_clean($this->input->post());
 
-	if(isset($input['filter_addon'])){
-		$addon_length=count($input['filter_addon']);
-		// $data['input']=$addon_length;
-		if($addon_length<4){
-			for($addon_length;$addon_length<=3;$addon_length++){
-				$input['filter_addon'][$addon_length]="";
-			}
-		}
-
-		
-	}else{
-		for($i=0;$i<=3;$i++){
-			$input['filter_addon'][$i]="";
-		}
-	}
-	$data['extra']=$input['filter_addon']; 
-
-	// $input['filter_addon'][5]="";
-	$data['input']=$input;
-
-
-	// $this->db->select('sn,listed_by,name,price,address,contact,main_image,description,avail,city,status,type,min_bed,addon,add_image,add_video');
-	// $this->db->like('avail',$input['filter_avail']);
-	// $this->db->like('city',$input['filter_city']);
-	// $this->db->like('status',$input['filter_status']);
-	// $this->db->like('addon',$input['filter_addon'][0]);
-	// $this->db->like(['avail'=>$input['filter_avail'],'city'=>$input['filter_city'],'status'=>$input['filter_status'],'addon'=>$input['filter_addon'][0]]);
-	// $this->db->like('addon',$input['filter_addon'][1]);
-	// $this->db->like('addon',$input['filter_addon'][2]);
-	// $this->db->like('addon',$input['filter_addon'][3]);
-	// $this->db->where('price >',(int)$property_price[0]-10);
-	// $this->db->where('price < ',(int)$property_price[1]+10);
-	// $data['row_count']=$this->db->get('property_info')->num_rows();
-	// $this->db;
-
-
-	
-	// ->like(['avail'=>$input['filter_avail'],'city'=>$input['filter_city'],'status'=>$input['filter_status'],'addon'=>$input['filter_addon'][0]])->like('addon',$input['filter_addon'][1])->like('addon',$input['filter_addon'][2])->like('addon',$input['filter_addon'][3])->where('price >',(int)$property_price[0]-10)->where('price < ',(int)$property_price[1]+10)
-	
-	
-	
-	// $data['row_count']=$raw_data->get('property_info')->num_rows();
-	
-	// $raw_data->limit($input['items_per_page'],($input['page_no']-1)*$input['items_per_page']);
-	// $raw_data->order_by($input['filter_sort'],$input['filter_sort_by']);
-	
-	// $data['data']=$raw_data->get('property_info')->result();
-
-	$data['data']=$this->property_detail($input)->limit($input['items_per_page'],($input['page_no']-1)*$input['items_per_page'])->get('property_info')->result();
-	$data['row_count']=$this->property_detail($input)->get('property_info')->num_rows();
+	$this->load->model('account_model');
+	$data=$this->account_model->getallpropertylist($input);
 
 	$data['key']=$this->security->get_csrf_hash();
 
@@ -637,47 +589,6 @@ public function delete_property_byid(){
 
 
 
-private function property_detail($input){
-
-	$this->db->select('sn,name,price,main_image,description,avail,city,status,type');
-	
-	if(isset($input['search_text'])&&$input['search_text']!=""){
-		$search_text=$input['search_text'];
-		$this->db->like('name',$search_text)->or_like('address',$search_text)->or_like('description',$search_text)->or_like('city',$search_text);
-	}
-
-	if($input['filter_avail']=="all"){
-		$input['filter_avail']="";
-	}
-	$this->db->like('avail',$input['filter_avail']);
-	if($input['filter_avail']=="boy"||$input['filter_avail']=="girl"){
-		$this->db->or_like('avail','combined');
-	}
-
-	if($input['filter_city']!=""){
-		$this->db->like('city',$input['filter_city']);
-	}
-
-	if($input['filter_status']!=""){
-		$this->db->like('status',$input['filter_status']);
-	}
-	if($input['filter_addon']!=""){
-		$this->db->like('addon',$input['filter_addon'][0]);
-		$this->db->like('addon',$input['filter_addon'][1]);
-		$this->db->like('addon',$input['filter_addon'][2]);
-		$this->db->like('addon',$input['filter_addon'][3]);
-	}
-	
-
-	if($input['filter_price']!=""){
-		$property_price = explode(',', $input['filter_price']);
-		$this->db->where('price >',(int)$property_price[0]-10);
-		$this->db->where('price < ',(int)$property_price[1]+10);
-	}
-
-	return $this->db->order_by($input['filter_sort'],$input['filter_sort_by']);
-
-}
 
 
 
