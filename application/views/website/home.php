@@ -600,7 +600,7 @@ load_page_content();
 <div id="fb-root"></div>
 
 <!-- Your Chat Plugin code -->
-<div id="fb-customer-chat" class="fb-customerchat">
+<!-- <div id="fb-customer-chat" class="fb-customerchat">
 </div>
 
 <script>
@@ -621,7 +621,7 @@ load_page_content();
     js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-</script>
+</script> -->
 
 </body>
 <!-- </html> -->
