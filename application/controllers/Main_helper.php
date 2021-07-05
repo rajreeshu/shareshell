@@ -594,17 +594,44 @@ public function delete_property_byid(){
 
 //mailing function
 private function _send_mail($email,$random_val){
-	$headers = 'From: Multirater Surveys <contactus@shareshell.in>' . "\n";
+
+	$body=$this->load->view('email_template/resetPassword',['otp'=>$random_val],true);
+	$this->load->library('email');
+	$this->email->set_header('MIME-Version', '1.0; charset=utf-8');
+	// $this->email->set_header('Content-type', 'text/html');
+
+		$fromName="Shareshell";
+        $subject='Otp Verification of ShareShell';
+        $message='Your Verification Code is :'.$random_val;
+        $from ="contactus@shareshell.in";
+		$this->email->set_newline("\r\n");  
+		$this->email->set_mailtype("html");
+        $this->email->from($from, $fromName);
+        $this->email->to($email);
+
+        $this->email->subject($subject);
+        $this->email->message($body);
+
+        if($this->email->send()){
+            return true;
+        }
+        else {
+			return  $this->email->print_debugger();
+        }
+    
+
+	// $headers = 'From: Multirater Surveys <contactus@shareshell.in>' . "\n";
 		
-			$headers .= 'MIME-Version: 1.0' . "\n";
-			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	// 		$headers .= 'MIME-Version: 1.0' . "\n";
+	// 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-			$returnpath = '-f contactus@shareshell.in';
+	// 		$returnpath = '-f contactus@shareshell.in';
 
-			$success=1;
+	// 		$success=1;
 			
-			$success = mail($email, 'Otp Verification of ShareShell', "your Verification code is: ".$random_val);
-			return $success;
+	// 		$success = mail($email, 'Otp Verification of ShareShell', "your Verification code is: ".$random_val);
+	// 		return $success;
+
 }	
 
 

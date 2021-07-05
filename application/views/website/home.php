@@ -19,7 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
 <a href="https://icons8.com/icon/16713/whatsapp"></a>
 
-
+<meta name="google-site-verification" content="s2F5QYnA-2Rek_UN-oqDnio-8psnvB5xLEjHezaVvaY" />
 
 <!-- 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

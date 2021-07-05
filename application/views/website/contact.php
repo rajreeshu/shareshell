@@ -25,13 +25,13 @@
 
 
 <!-- Messenger Chat Plugin Code -->
-<div id="fb-root"></div>
+<!-- <div id="fb-root"></div> -->
 
 <!-- Your Chat Plugin code -->
-<div id="fb-customer-chat" class="fb-customerchat">
-</div>
+<!-- <div id="fb-customer-chat" class="fb-customerchat">
+</div> -->
 
-<script>
+<!-- <script>
   var chatbox = document.getElementById('fb-customer-chat');
   chatbox.setAttribute("page_id", "106921368151575");
   chatbox.setAttribute("attribution", "biz_inbox");
@@ -49,7 +49,7 @@
     js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-</script>
+</script> -->
 	        <div class="page-head"> 
             <div class="container">
                 <div class="row">
@@ -156,9 +156,18 @@
 
     $this->load->view('website/js_import');
 ?>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-        <script src="assets/js/gmaps.js"></script>        
-        <script src="assets/js/gmaps.init.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoIazJ1jMajTPdU5gy1KphnjBmU9jvpNw&callback=initMap"></script>
+        <!-- <script src="assets/js/gmaps.js"></script>        
+        <script src="assets/js/gmaps.init.js"></script> -->
+        
+ <script>
+    function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+  });
+}
+</script>
 
 
         

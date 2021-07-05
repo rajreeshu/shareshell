@@ -37,7 +37,7 @@ public function verifyToken($token){
 }
 
 public function login(){
-    if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST')
+    if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') 
         {       
                 
             $this->verifytoken($this->input->post('token'));
