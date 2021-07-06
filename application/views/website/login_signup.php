@@ -445,7 +445,7 @@ $("#login_submit").click(function(e){
                 key=data.key;
                 if(data.data==false){
                     $("#login_password").val("");
-                    $("#login_email_error").html("*Incorrect Emain/Password");
+                    $("#login_email_error").html("*Incorrect Email/Password");
                 }else if(data.account_status==0){
                     window.location.href="<?=base_url('main/account_created');?>";
                 }else{

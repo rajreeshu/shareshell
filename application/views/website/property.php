@@ -561,7 +561,7 @@
                 $("#property_bed").html(data.data.min_bed);
                 $("#property_type").html(data.data.type.toUpperCase());
                 $("#property_avail").html(data.data.avail.toUpperCase());
-                $("#lightgallery").append('<li class="col-xs-6 col-sm-4 col-md-3 col-4"  data-responsive="" id="main_img_slide" data-src="<?=base_url('utility/main_image');?>/'+data.data.main_image+'" ><a href=""><img src="<?=base_url('utility/main_image');?>/'+get_thumb_name(data.data.main_image)+'" class="img-responsive" id="main_img_slide_thumb" alt="Thumb-1"></a></li>');
+                $("#lightgallery").append('<li class="col-xs-6 col-sm-4 col-md-3 col-4"  data-responsive="" id="main_img_slide" data-src="<?=base_url('utility/main_image');?>/'+data.data.main_image+'" ><a href=""><img src="<?=base_url('utility/main_image');?>/'+get_thumb_name(data.data.main_image)+'" class="img-responsive" id="main_img_slide_thumb" alt="Thumb-1" style="object-fit:cover;"></a></li>');
 
                 var image_insert="";
                 var lightgallery_data="";
@@ -570,7 +570,7 @@
                     image_insert+='<li data-thumb="<?=base_url();?>utility/main_image/'+get_thumb_name(this.image)+'" class="thumb_class">';
                     image_insert+='<img src="<?=base_url();?>utility/main_image/'+this.image+'"  class="thumb_class_src"/>';
                     image_insert+='</li>';
-                    lightgallery_data+='<li class="col-xs-6 col-sm-4 col-md-3 col-4"  data-responsive="" id="main_img_slide" data-src="<?=base_url('utility/main_image');?>/'+this.image+'" ><a href=""><img src="<?=base_url('utility/main_image');?>/'+get_thumb_name(this.image)+'" class="img-responsive" id="main_img_slide_thumb" alt="Thumb-1"></a></li>';
+                    lightgallery_data+='<li class="col-xs-6 col-sm-4 col-md-3 col-4"  data-responsive="" id="main_img_slide" data-src="<?=base_url('utility/main_image');?>/'+this.image+'" ><a href=""><img src="<?=base_url('utility/main_image');?>/'+get_thumb_name(this.image)+'" class="img-responsive" id="main_img_slide_thumb" alt="Thumb-1" style="object-fit:cover;"></a></li>';
                 });
                 $("#image-gallery").append(image_insert);
                 $("#lightgallery").append(lightgallery_data);

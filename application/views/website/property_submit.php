@@ -439,11 +439,10 @@
         output_format = file.name.split(".").pop();
         file_name = file.name;
         reader.readAsDataURL(file);
-        // $("#compress").show();
+
         return false;
     }
- // compress image
-    // $( "#compress" ).click(function() {
+
         function compress_image_jic(prev,ext){
         var source_image = document.getElementById(prev);
         console.log('Source Image: '+prev);
@@ -458,14 +457,8 @@
         console.log("process start compress ...");
         var compressed_image = document.getElementById(prev);
         compressed_image.src = jic.compress(source_image,quality,ext).src;
-        // $("#upload").show();
-        
-    // });
 }
 
-
-    // upload imange
-    // $( "#upload" ).click(function() {
     function upload_image_jic(prev,file_transfer) {
         var compressed_image = document.getElementById(prev);
         if (compressed_image.src == "") {
@@ -486,89 +479,7 @@
         console.log("process start upload ...");
         jic.upload(compressed_image, "<?=base_url('main_helper/upload_multi_prop_img');?>", "file", file_transfer,successCallback,errorCallback);
     }
-        
-    // });
-
-// document.getElementById("main_img").addEventListener("change", readFile, false);
-
-
-
-
-// $(".property-images").change(function(event){
-//     // readFile(event);
-//     events_arr.push(event);
-//     console.log(events_arr);
-// });
-
-
-// $(document).on('change',".property-images",function(){
-//     events_arr.push(event);
-//     console.log(events_arr);
-// });
-// $("#read").click(function(e){
-
-//     e.preventDefault();
-
-//     var i=1;
-//     while(i<property_image_no){
-//         readFile(events_arr[i-1],'prev_img'+i);
-//         i++;
-//     }
-
-// });
-
-// $("#compress").click(function(e){
-//     e.preventDefault();
-//     // compress_image_jic('prev_img1');
-
-//         var k=1;
-//     while(k<property_image_no){
-//         compress_image_jic('prev_img'+k);
-//         break;
-//         k++;
-//     }
-
-
-//     // document.getElementById("main_img").addEventListener("change", readFile, false);
-//     // readFile();
-    
-// });
-
-// function sleep(milliseconds) {
-//   const date = Date.now();
-//   let currentDate = null;
-//   do {
-//     currentDate = Date.now();
-//   } while (currentDate - date < milliseconds);
-// }
-
-// $("#upload").click(function(e){
-//     e.preventDefault();
- 
-//     var j=1;
-//     while(j<property_image_no){
-//         filee=events_arr[j-1].target.files[0];
-//         file_name_tra=filee.name;
-//         ext = filee.name.split(".").pop();
-//         compress_image_jic('prev_img'+j,ext); 
-//         upload_image_jic('prev_img'+j,file_name_tra); 
-//        // upload_image_jic('prev_img'+j);
-//         j++;
-//     } 
-
-// i=1;
-// (function myLoop(i) {
-//   setTimeout(function() {
-//     // console.log('hello'); //  your code here  
-//     file_name_tra=events_arr[i-1].target.files[0].name; 
-//     upload_image_jic('prev_img'+j,file_name_tra);  
-//     j++;           
-//     if (--i) myLoop(i);   //  decrement i and call myLoop again if i > 0
-//   }, 3000)
-// })(3); 
-
-// });
-</script>
+   </script>
 <!-- image compressor ends  -->
 
 
@@ -578,6 +489,9 @@
     
     $("#loader").hide();
 
+    window.onbeforeunload = function() {
+        return "All Data will be lost if you leave the page, are you sure?";
+    };
     // $("#policy_check").hide();
 
     // $("#finish_btn").css('opacity', '0.3');
@@ -678,29 +592,6 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
     });
 
 
-    // $("#form_main_img").submit(function(event) {
-    //     event.preventDefault();
-    //         $.ajax({
-    //             url:"<?=base_url('main_helper/insert_property_data');?>",
-    //             type:"POST",
-    //             async:false,
-    //             data:new FormData(this),
-    //             dataType:"json",
-    //             processData:false,
-    //             contentType:false,
-
-    //             success:function(data){
-    //                 key:data.key;
-    //                 console.log(data);
-    //             },
-    //             error:function(data){
-    //                 console.log(data);
-    //             }
-    //         });
-
-    //         console.log(new FormData(this));
-    // });
-
 
     //2nd page
     var prop_description;
@@ -726,10 +617,6 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
         prop_type=$("#property_type").val();
         min_bed=$("#property_rooms").val();
         
-        // fire_place=;
-        // emerg_exit=;
-        // laundry=;
-        // mess=;
         addon="";
         if($("#fire_place").is(":checked")){
             addon+="fire,";
@@ -791,24 +678,25 @@ var video;
 
 var property_image_no=1;
 
-var multiple_image_html='<input class="form-control property-images" type="file" id="property-images'+property_image_no+'" name="prs'+property_image_no+'" style="margin-top:10px; display:none;">';
+var arr_prop_img=[];
+
+var multiple_image_html='<input class="form-control property-images" type="file" accept="image/*" id="property-images'+property_image_no+'" name="prs'+property_image_no+'" style="margin-top:10px; display:none;">';
 
 multiple_image_html+='<input type="hidden" name="property_image_no" id="property_image_no">';
 
 $("#for_multiple_image").html(multiple_image_html);
 
-// $(".property-images").attr('id','property-images'+property_image_no);
-
-
-// $(".property-images").change(function(){
 var events_arr=[];
 
     $(document).on("change",".property-images",function(event){
     // console.log('hello triggered');
     if($(this).val()!=""&&property_image_no<16){
         events_arr.push(event);
-        console.log(events_arr);
-        $("#prev_multi_image").append('<img src="<?=base_url();?>assets/img/default-property.jpg" id="prev_img'+property_image_no+'" class="prev_img" >');
+        arr_prop_img.push(property_image_no);
+        // console.log(arr_prop_img);
+
+        // console.log(events_arr);
+        $("#prev_multi_image").append('<img src="<?=base_url();?>assets/img/default-property.jpg" id="prev_img'+property_image_no+'" class="prev_img" ><span class="remove_img_multi" id="remove_img_multi_'+property_image_no+'" data-remid="'+property_image_no+'" style="cursor: pointer;position:absolute; margin-left:-33px; margin-top:8px; height:25px; width:25px; padding-left:7px; padding-top:0px; color:#000; background:#fdc600; border-radius:3px; font-weight:bold; border:1px solid grey;"><span style=" position:absolute; margin-top:-2px;">X</span></span>');
 
         previewFile("#property-images"+property_image_no,"#prev_img"+property_image_no);
        // $("#prev_img"+property_image_no).css('opacity',0.5);
@@ -818,7 +706,7 @@ var events_arr=[];
 
 
 
-        $("#for_multiple_image").append('<input class="form-control property-images" type="file" id="property-images'+property_image_no+'" name="prs'+property_image_no+'" style="margin-top:10px; display:none;">');
+        $("#for_multiple_image").append('<input class="form-control property-images" type="file" accept="image/*" id="property-images'+property_image_no+'" name="prs'+property_image_no+'" style="margin-top:10px; display:none;">');
         $("#property_image_no").val(property_image_no);
         
     }
@@ -826,15 +714,20 @@ var events_arr=[];
 
 });
 
+    $(document).on("click",".remove_img_multi",function(){
+        var rem_id=$(this).data("remid");
+        $("#prev_img"+rem_id).remove();
+        $("#remove_img_multi_"+rem_id).remove();
+
+        arr_prop_img.splice(arr_prop_img.indexOf(rem_id),1);
+        console.log(arr_prop_img);
+
+    });
+
+
     $("#add_image_click").click(function(){
         $("#property-images"+property_image_no).click();
     });
-
-// for(i=1;i<=property_image_no;i++){
-//     console.log("hello");
-// }
-
-
 
 
 function get_all_value_3(){
@@ -854,34 +747,15 @@ function third_page_value_chk(){
 var policy_check;
 
 
-
-
-// $("#policy_check").on('change', function() {
-//     // $("#finish_btn").removeAttr('disabled');
-//     alert("ck");
-    
-// });
-
-// $("#finish_btn").attr('disabled', '');
-
-// $("body").on('change', 'input[type="checkbox"]', function(event) {
-//     alert("hellp");
-// });
-
-// $("#finish_btn").click(function(e) {
 $("#form1").submit(function(e) {
     e.preventDefault();
+    window.onbeforeunload = function () {}
     if($("#policy_check").is(":checked")){
         get_all_inp_value();
         get_all_inp_value_two();
         get_all_value_3();
 
         var formData=new FormData(this);
-        // console.log(formData);
-//         for (var pair of formData.entries()) {
-//   console.log(pair[0] + " - " + pair[1]);
-// }
-//         return;
             $("#finish_btn").hide();
             $("#loader").show();
 
@@ -909,13 +783,13 @@ $("#form1").submit(function(e) {
                     upload_image_jic('main_img_prev',data.property_id+"."+main_img_ext); 
 
 
-                    var j=1;
-                    while(j<property_image_no){
-                        filee=events_arr[j-1].target.files[0];
+                    var j=0;
+                    while(j<arr_prop_img.length){
+                        filee=events_arr[arr_prop_img[j]-1].target.files[0];
                         file_name_tra=filee.name;
                         ext = filee.name.split(".").pop();
-                        compress_image_jic('prev_img'+j,ext); 
-                        upload_image_jic('prev_img'+j,data.property_id+"_"+j+"."+ext); 
+                        compress_image_jic('prev_img'+arr_prop_img[j],ext); 
+                        upload_image_jic('prev_img'+arr_prop_img[j],data.property_id+"_"+arr_prop_img[j]+"."+ext); 
                        // upload_image_jic('prev_img'+j);
                         j++;
                     } 

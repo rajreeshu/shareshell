@@ -596,41 +596,49 @@ public function delete_property_byid(){
 private function _send_mail($email,$random_val){
 
 	$body=$this->load->view('email_template/resetPassword',['otp'=>$random_val],true);
-	$this->load->library('email');
-	$this->email->set_header('MIME-Version', '1.0; charset=utf-8');
-	// $this->email->set_header('Content-type', 'text/html');
+	// $this->load->library('email');
+	// // $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
+	// // $this->email->set_header('Content-type', 'text/html');
+	// $this->email->set_header('MIME-Version', 'text/html');
 
-		$fromName="Shareshell";
-        $subject='Otp Verification of ShareShell';
-        $message='Your Verification Code is :'.$random_val;
-        $from ="contactus@shareshell.in";
-		$this->email->set_newline("\r\n");  
-		$this->email->set_mailtype("html");
-        $this->email->from($from, $fromName);
-        $this->email->to($email);
+	// 	$fromName="Shareshell";
+    //     $subject='Otp Verification of ShareShell';
+    //     $message='Your Verification Code is :'.$random_val;
+    //     $from ="contactus@shareshell.in";
+	// 	$this->email->set_newline("\r\n");  
+	// 	$this->email->set_mailtype("html");
+    //     $this->email->from($from, $fromName);
+    //     $this->email->to($email);
 
-        $this->email->subject($subject);
-        $this->email->message($body);
+    //     $this->email->subject($subject);
+    //     $this->email->message($body);
 
-        if($this->email->send()){
-            return true;
-        }
-        else {
-			return  $this->email->print_debugger();
-        }
+    //     if($this->email->send()){
+    //         return true;
+    //     }
+    //     else {
+	// 		return  $this->email->print_debugger();
+    //     }
     
-
-	// $headers = 'From: Multirater Surveys <contactus@shareshell.in>' . "\n";
+//php mail function
+	// $headers = 'From: ShareShell <contactus@shareshell.in>' . "\n";
 		
-	// 		$headers .= 'MIME-Version: 1.0' . "\n";
-	// 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			// $headers .= 'MIME-Version: text/html' . "\n";
+			// $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-	// 		$returnpath = '-f contactus@shareshell.in';
+			// $returnpath = '-f contactus@shareshell.in';
+			$headers = "Organization: Shareshell inc\r\n";
+			$headers .= "MIME-Version: 1.0\r\n";
+			$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+			$headers .= "X-Priority: 3\r\n";
+			$headers .= "X-Mailer: PHP". phpversion() ."\r\n";
+			$headers .= 'From: ShareShell <server53.web-hosting.com>' . "\n";
+			$headers .='Reply-To: ShareShell <contactus@shareshell.in>';
 
-	// 		$success=1;
+			$success=1;
 			
-	// 		$success = mail($email, 'Otp Verification of ShareShell', "your Verification code is: ".$random_val);
-	// 		return $success;
+			$success = mail($email, 'Otp Verification of ShareShell', $body,$headers);
+			return $success;
 
 }	
 
