@@ -388,6 +388,25 @@ public function reset_password_otp(){
 
 }
 
+public function resend_otp_userid(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	$otp_random=rand(1000,9999);
+	$input['email_field']=$this->db->select('email')->where('sn',$input['user_id'])->get('user_detail')->row()->email;
+	$this->db->where('email',$input['email_field'])->update('user_detail',['otp'=>password_hash($otp_random,PASSWORD_BCRYPT),'otp_sent_time'=>date('Y-m-d H:i:s')]);
+	$send_email=$this->_send_mail($input['email_field'],$otp_random);
+	if($send_email){
+		$data['data']=true;
+	}
+	$user_id=$this->db->select('sn')->where("email",$input['email_field'])->get("user_detail")->row();	
+
+	$data['user_id']=$user_id->sn;
+	// $data['otp']=$otp_random;
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+
+}
+
 public function verify_otp(){
 
 	$input=$this->security->xss_clean($this->input->post());
@@ -633,7 +652,7 @@ private function _send_mail($email,$random_val){
 			$headers .= "X-Priority: 3\r\n";
 			$headers .= "X-Mailer: PHP". phpversion() ."\r\n";
 			$headers .= 'From: ShareShell <server53.web-hosting.com>' . "\n";
-			$headers .='Reply-To: ShareShell <contactus@shareshell.in>';
+			$headers .='Reply-To: ShareShell <contactus@shareshell.in>'; 
 
 			$success=1;
 			

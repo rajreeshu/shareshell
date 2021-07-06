@@ -548,7 +548,7 @@ $("#form_field").submit(function(event) {
                 key=data.key;
                 if(image_field_check!=""){
                     compress_image_jic(); 
-                    upload_image_jic(data.user_id);
+                    upload_image_jic(data.user_id); 
                 }
                     
                     // return;
@@ -575,6 +575,8 @@ $("#form_field").submit(function(event) {
 
 
 });
+
+
 
 </script>
 

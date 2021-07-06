@@ -43,7 +43,7 @@
                                     
                                     <div class="form-group">
                                         
-                                            <label>Enter OTP</label> &nbsp <b><span class="text-danger mr-1" id="otp_error" style="position: absolute; float:center;"></span></b>
+                                            <label>Enter OTP</label> &nbsp <b><a id="resend_otp_a" style="cursor: pointer;">Resend OTP</a> <span class="text-danger mr-1" id="otp_error" style="position: absolute; float:center;"></span></b>
                                         
                                         <input name="otp_field" type="number" class="form-control " placeholder="1234" id="otp_field" style="width:200px;">
                                     
@@ -133,6 +133,35 @@
         }
         
     });
+
+    
+function send_email_reset(){
+    $.ajax({
+        url:"<?=base_url('main_helper/resend_otp_userid');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            user_id:"<?=$this->security->xss_clean($this->session->userdata('otp_verify_signup_shareshell'));?>",       
+            },
+            dataType:"json",
+            success:function(data){
+                key=data.key;
+                console.log(data);
+                // result=data.data;
+                user_id=data.user_id;
+            },
+            error:function(data){
+                console.log(data);
+                // result=data;
+            }
+    });
+}
+
+$('#resend_otp_a').click(function(e){
+    e.preventDefault();
+    send_email_reset();
+});
     
 </script>
 
