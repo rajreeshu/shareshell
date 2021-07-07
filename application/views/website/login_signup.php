@@ -94,16 +94,14 @@
                                     <a href="<?=base_url('main/forgetpassword');?>" id="forget_password">Forgot password ?</a> </small>
                                 </div>
                                 
-                                <!-- <div class="col-xs-6"> -->
-                                                
-                                            <!-- </div>   -->
-
+                              
+                                <div class="checkbox" style="float:left; margin-left:-15px; margin-top:-10px;">
+                                    <label> <input type="checkbox" name="filter_addon" value="remember_me" id="remember_me"><span style="padding-left:10px;">Remember Me</span></label>
+                                </div>
                                 <div class="text-center">
                                 
                                     <input type="submit" class="btn btn-default" value="Log in" id="login_submit"> 
-                                    <div class="checkbox" style="float:left; margin-left:-15px;">
-                                    <label> <input type="checkbox" name="filter_addon" value="remember_me" id="remember_me"><span style="padding-left:10px;">Remember Me</span></label>
-                                </div>
+                                    
                                 </div>
 
                             </form>
