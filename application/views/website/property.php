@@ -95,6 +95,13 @@
         
     }
 
+    .single-footer{
+        padding-left: 15px;
+    }
+    .footer-copy{
+        padding-left:30px;
+    }
+
 
             
 </style>
@@ -310,7 +317,7 @@
                                             </div>
                                             <div class="col-xs-8 col-sm-8 ">
                                             <h3 class="dealer-name">
-                                                <a href="" style="color:rgb(255, 255, 255);">CONTACT OWNERs</a>
+                                                <a href="" style="color:rgb(255, 255, 255);">CONTACT OWNER</a>
                                                 <span id="agent_name"></span>
                                                 <span class="dealer-social-media">
                                                     <a class="twitter" target="_blank" href="" id="agent_twitter_link">
@@ -366,7 +373,7 @@
 
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>phone<small>(required)</small></label>
+                                                    <label>Phone<small>(required)</small></label>
                                                     <input class="form-control">
 
                                                 </div>
@@ -479,6 +486,7 @@
 
             </div>
         </div>
+
 <?php
     $this->load->view('website/footer');
 
@@ -490,6 +498,7 @@
         header("Location:".base_url('properties'));
     }
 ?>
+</div>
 <script type="text/javascript" src="<?=base_url();?>assets/js/lightslider.min.js"></script>
 
 <!-- gallery js -->

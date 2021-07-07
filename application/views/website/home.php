@@ -145,7 +145,7 @@
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                         <!-- /.feature title -->
                         <h2>Top submitted property</h2>
-                        <p>Have a glance at some of our best properties.These represents our master work pattern and ideas,we give preference to.</p>
+                        <p>Have a glance at some of our best properties.These represent our master work pattern and ideas,we give preference to.</p>
                     </div>
                 </div>
 

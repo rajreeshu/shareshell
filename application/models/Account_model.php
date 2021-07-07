@@ -20,7 +20,9 @@ class Account_model extends CI_Model{
         $data['image']=$this->db->select('image_id,image')->where('property_id',$input['id'])->get('property_image')->result();
     
         $data['listed_by']=$this->db->select('first_name,last_name,username,gender,image,address,user_bio,website,facebook,twitter')->where('sn',$data['data']->listed_by)->get('user_detail')->row();
-        
+		
+		// $data['input'] =$input;
+
         return $data;
     }
 
@@ -60,7 +62,7 @@ public function property_detail($input){
 		$this->db->like('addon',$input['filter_addon'][3]);
 	}
 
-	if($input['filter_type']!=''){
+	if(isset($input['filter_type'])){
 		$this->db->where('type',$input['filter_type']);
 	}
 	

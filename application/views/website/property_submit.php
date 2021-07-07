@@ -358,7 +358,7 @@
 
 
                                     <div class="tab-pane" id="step4">                                        
-                                        <h4 class="info-text"> Finished and submit </h4>
+                                        <h4 class="info-text"> Finish and Submit </h4>
                                         <div class="row">  
                                             <div class="col-sm-12">
                                                 <div class="">
@@ -368,12 +368,12 @@
                                                         posting your property advertisement with your personal 
                                                         information on our website you agree to the
                                                         collection, use and disclosure of your personal information 
-                                                        in the legal proper manner
+                                                        in the legal proper manner.
                                                     </p>
 
                                                     <div class="checkbox">
                                                         <label>
-                                                            <input type="checkbox" id="policy_check" /> <strong>Accept termes and conditions.</strong>
+                                                            <input type="checkbox" id="policy_check" /> <strong>Accept terms and conditions.</strong>
                                                         </label>
                                                     </div> 
 
