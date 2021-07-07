@@ -452,6 +452,16 @@ public function login_validate_data(){
 		$this->session->unset_userdata('user_id_shareshell');
 		$this->session->set_userdata('user_id_shareshell',$result['dbpass']->userid);
 
+		if($input['remember_me']==true){
+			$cookie = array(
+				'name'   => 'remember_me_shareshell',
+				'value'  => $this->encrypt->encode($result['dbpass']->userid),                            
+				'expire' => 3600 * 1000 * 24 * 365,                                                                                   
+				'secure' => TRUE
+				);
+			$this->input->set_cookie($cookie);
+		}
+
 	}
 	$data['data']=$result['data'];
 	if(isset($result['dbpass']->status)){
@@ -460,6 +470,7 @@ public function login_validate_data(){
 		$data['account_status']=0;
 	}
 	
+	// $data['input']=$input;
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 
@@ -471,7 +482,7 @@ public function logout_account(){
 
 	$input=$this->security->xss_clean($this->input->post());
 	$this->session->unset_userdata('user_id_shareshell');
-
+	delete_cookie('remember_me_shareshell');
 	if(!$this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
 		redirect("main/log_user");
 	}else{

@@ -328,7 +328,10 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgHLrO4/OcnQV0Dlu1cVqqZuHWyWI
+08+MEYWOSzv0DPcCpIvapJqaNygG2bQkDUdL23t512NZO8fYBW6jOjaQ9zhoh+fs
+eXMCfmijdmrkI6xp7Y2c85rdGdMfbdSqdIyPcjljQKHIr6gjI/Kj/5JAUJ8BabaW
+BMiDRnHXxWcE2Vy9AgMBAAE=';
 
 /*
 |--------------------------------------------------------------------------
@@ -407,7 +410,7 @@ $config['sess_regenerate_destroy'] = FALSE;
 $config['cookie_prefix']	= '';
 $config['cookie_domain']	= '';
 $config['cookie_path']		= '/';
-$config['cookie_secure']	= FALSE;
+$config['cookie_secure']	= TRUE;
 $config['cookie_httponly'] 	= FALSE;
 
 /*

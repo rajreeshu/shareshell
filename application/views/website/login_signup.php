@@ -28,7 +28,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Home New account / Sign in </h1>               
+                        <h1 class="page-title">New account / Sign in </h1>               
                     </div>
                 </div>
             </div>
@@ -93,10 +93,17 @@
 
                                     <a href="<?=base_url('main/forgetpassword');?>" id="forget_password">Forgot password ?</a> </small>
                                 </div>
+                                
+                                <!-- <div class="col-xs-6"> -->
+                                                
+                                            <!-- </div>   -->
 
                                 <div class="text-center">
-                                    
+                                
                                     <input type="submit" class="btn btn-default" value="Log in" id="login_submit"> 
+                                    <div class="checkbox" style="float:left; margin-left:-15px;">
+                                    <label> <input type="checkbox" name="filter_addon" value="remember_me" id="remember_me"><span style="padding-left:10px;">Remember Me</span></label>
+                                </div>
                                 </div>
 
                             </form>
@@ -437,11 +444,12 @@ $("#login_submit").click(function(e){
         data:{
             "<?php echo $this->security->get_csrf_token_name();?>":key,
             email:login_email_temp,
-            password:login_password_temp
+            password:login_password_temp,
+            remember_me:$("#remember_me").is(':checked')
             },
             dataType:"json",
             success:function(data){
-                console.log(data);
+                // console.log(data);
                 key=data.key;
                 if(data.data==false){
                     $("#login_password").val("");
@@ -452,7 +460,7 @@ $("#login_submit").click(function(e){
                     window.location.href="<?=base_url('account');?>";
                 }
 
-                console.log(data);
+                // console.log(data);
                 
             },
             error:function(data){
