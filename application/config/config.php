@@ -465,7 +465,8 @@ $config['csrf_exclude_uris'] = array('main_helper/upload_test',
                                     'api/verifyToken',
                                     'api/encode',
                                     'api/login',
-                                    'api/get_property_data'
+                                    'api/get_property_data',
+                                    'api/get_all_property_list'
                                 );
 
 /*

@@ -60,11 +60,11 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-xs-12">
+                                            <div class="col-xs-6">
 
                                                 
                                                
-                                                <div class="col-md-4 col-lg-12">
+                                                <!-- <div class="col-md-4 col-lg-12"> -->
                                                     <select data-live-search="true" data-live-search-style="begins" id="filter_avail" class="selectpicker show-tick form-control" title="-Available for-">
                                                         <option value="all">All</option>
                                                         <option value="girl">Girls</option>
@@ -72,7 +72,23 @@
                                                         <option value="combined">Girls/Boys(combined)</option> 
                                                     </select>
                 
-                                                </div>
+                                                <!-- </div> -->
+                                            </div>
+
+                                            <div class="col-xs-6">
+
+                                                
+                                               
+                                                <!-- <div class="col-md-4 col-lg-12"> -->
+                                                    <select data-live-search="true" data-live-search-style="begins" id="filter_type" class="selectpicker show-tick form-control" title="-Type -">
+                                                        <option value="hostel">Hostel</option>
+                                                        <option value="flat">Flat</option>
+                                                        <option value="house">House/Villa</option> 
+                                                        <option value="plot">Plot</option> 
+                                                        <option value="Others">Others</option> 
+                                                    </select>
+                
+                                                <!-- </div> -->
                                             </div>
                                         </div>
                                     </fieldset>
@@ -365,6 +381,7 @@ function load_page_content(page_no){
             items_per_page:$("#items_per_page").val(),
             page_no:page_no,
             filter_avail:$("#filter_avail").val(),
+            filter_type:$("#filter_type").val(),
             filter_city:$("#filter_city").val(),
             filter_status:$("#filter_status").val(),
             filter_price:$("#price-range").val(),

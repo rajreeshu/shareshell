@@ -59,6 +59,10 @@ public function property_detail($input){
 		$this->db->like('addon',$input['filter_addon'][2]);
 		$this->db->like('addon',$input['filter_addon'][3]);
 	}
+
+	if($input['filter_type']!=''){
+		$this->db->where('type',$input['filter_type']);
+	}
 	
 
 	if($input['filter_price']!=""){
@@ -72,7 +76,13 @@ public function property_detail($input){
 }
 
 public function getallpropertylist($input){
+
+	
+
     if(isset($input['filter_addon'])){
+		if(gettype($input['filter_addon'])=="string"){
+			$input['filter_addon']=explode(",",$input['filter_addon']);
+		}
 		$addon_length=count($input['filter_addon']);
 		if($addon_length<4){
 			for($addon_length;$addon_length<=3;$addon_length++){
@@ -84,7 +94,7 @@ public function getallpropertylist($input){
 			$input['filter_addon'][$i]="";
 		}
 	}
-	$data['input']=$input; 
+	// $data['input']=$input; 
 
 	$this->load->model('account_model');
 	$data['data']=$this->account_model->property_detail($input)->limit($input['items_per_page'],($input['page_no']-1)*$input['items_per_page'])->get('property_info')->result();
