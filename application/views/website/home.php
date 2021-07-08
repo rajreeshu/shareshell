@@ -21,6 +21,15 @@
 
 <meta name="google-site-verification" content="s2F5QYnA-2Rek_UN-oqDnio-8psnvB5xLEjHezaVvaY" />
 
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://shareshell.in">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ShareShell | Home">
+<meta property="og:description" content="Eagerly searching for best houses for rent in your city? shareshell is the best platform to provide you the best place for residence.">
+<meta property="fb:app_id" content="235531264523889">
+<meta property="og:image" content="<?=base_url('assets/img/logo-sm.jpg');?>">
+
+
 <!-- 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

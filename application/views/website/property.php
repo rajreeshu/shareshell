@@ -1,3 +1,8 @@
+<?php
+    $prop_det=$this->db->select('name,main_image')->where('sn',$_GET['id'])->get('property_info')->row();
+    // print_r($prop_det->name);
+?>
+
 <!DOCTYPE html>
 <html class="no-js"> 
     <head>
@@ -13,6 +18,14 @@
        
         <link rel="stylesheet" href="assets/css/lightslider.min.css">
         <link href="<?=base_url('assets');?>/css/lightgallery.min.css" rel="stylesheet">
+
+        <!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://shareshell.in/property?id=<?=$_GET['id'];?>">
+<meta property="og:type" content="website">
+<meta property="og:title" content="<?=$prop_det->name;?> | Shareshell" id="og_title">
+<meta property="og:description" content="Property Listed on ShareShell. Visit us @ shareshell.in to check more Properties.">
+<meta property="fb:app_id" content="235531264523889">
+<meta property="og:image" content="<?=base_url('utility/main_image/').$prop_det->main_image;?>" id="og_image">
 
 <?php
     $this->load->view('website/link_import');
@@ -553,6 +566,8 @@
                 $("#property_description").html(data.data.description);
                 $("#property_addon").html("<h3>"+data.data.addon.slice(0,-1).toUpperCase()+"</h3>");
 
+                // $("#og_title").attr('content',data.data.name);
+                // $("#og_image").attr('content','<?=base_url("utility/main_image/");?>'+data.data.main_image);
                 
                 if(data.data.add_video!=""){
                    var video_play_link="";
