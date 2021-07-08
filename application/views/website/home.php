@@ -88,7 +88,7 @@
 </div>-->
 
 <div class="col-md-12">
-<div><h3><b>Start Searching Property . . . </b></h3></div>
+<div><h3><b>Start Searching Property ..  </b></h3></div>
 
 
   <div class="row">

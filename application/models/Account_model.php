@@ -62,7 +62,7 @@ public function property_detail($input){
 		$this->db->like('addon',$input['filter_addon'][3]);
 	}
 
-	if(isset($input['filter_type'])){
+	if(isset($input['filter_type'])&&$input['filter_type']!=""){
 		$this->db->where('type',$input['filter_type']);
 	}
 	

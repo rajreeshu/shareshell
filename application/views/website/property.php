@@ -19,6 +19,7 @@
     $this->load->view('website/header');
 ?> 
 <style type="text/css">
+
     .thumb_class{
         /*border: 3px solid blue;*/
 
@@ -81,10 +82,10 @@
             }
 
     @media only screen and (max-width:992px){
-        .container{
+        /* .container{
             padding-left:0px;
             padding-right:0px;
-        }
+        } */
         .thumb_class_src{
             height:250px;
         }
@@ -95,12 +96,12 @@
         
     }
 
-    .single-footer{
+    /* .single-footer{
         padding-left: 15px;
     }
     .footer-copy{
         padding-left:30px;
-    }
+    } */
 
 
             

@@ -169,6 +169,8 @@ public function get_all_property_list(){
 
 	$data['key']=$this->security->get_csrf_hash();
 
+	$data['input']=$input;
+
 	echo json_encode($data);
 }
 
@@ -614,6 +616,16 @@ public function delete_property_byid(){
 	
 
 	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
+public function contact_us_email_send(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	$this->load->model('email_model');
+	$data['data']=$this->email_model->contactus_sendEmail($input);
+	$data['key'] =$this->security->get_csrf_hash();
+
 	echo json_encode($data);
 }
 

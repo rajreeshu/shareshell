@@ -81,6 +81,7 @@
                                                
                                                 <!-- <div class="col-md-4 col-lg-12"> -->
                                                     <select data-live-search="true" data-live-search-style="begins" id="filter_type" class="selectpicker show-tick form-control" title="-Type -">
+                                                        <option value="">All</option>
                                                         <option value="hostel">Hostel</option>
                                                         <option value="flat">Flat</option>
                                                         <option value="house">House/Villa</option> 
@@ -357,7 +358,7 @@
     var property_list="";
 
     var sort_by="sn";
-    var sort_by_val="DESC";
+    var sort_by_val="DESC"; 
     var i=1;
 
     $("#search_box").val("<?=$url_get;?>");

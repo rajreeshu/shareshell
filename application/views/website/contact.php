@@ -24,32 +24,7 @@
 
 
 
-<!-- Messenger Chat Plugin Code -->
-<!-- <div id="fb-root"></div> -->
 
-<!-- Your Chat Plugin code -->
-<!-- <div id="fb-customer-chat" class="fb-customerchat">
-</div> -->
-
-<!-- <script>
-  var chatbox = document.getElementById('fb-customer-chat');
-  chatbox.setAttribute("page_id", "106921368151575");
-  chatbox.setAttribute("attribution", "biz_inbox");
-  window.fbAsyncInit = function() {
-    FB.init({
-      xfbml            : true,
-      version          : 'v11.0'
-    });
-  };
-
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script> -->
 	        <div class="page-head"> 
             <div class="container">
                 <div class="row">
@@ -139,7 +114,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send message</button>
+                                        <button type="submit" class="btn btn-primary" id="submit_btn"><i class="fa fa-envelope-o"></i> Send message</button>
                                     </div>
                                 </div>
                                 <!-- /.row -->
@@ -167,6 +142,49 @@
     zoom: 8,
   });
 }
+
+var key="<?php echo $this->security->get_csrf_hash(); ?>";
+
+$("#submit_btn").click(function(e){
+    e.preventDefault();
+
+    
+    $.ajax({
+        url:"<?=base_url('main_helper/contact_us_email_send');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            firstname:$("#firstname").val(),
+            lastname:$("#lastname").val(),
+            email:$("#email").val(),
+            subject:$("#subject").val(),
+            message:$("#message").val()        
+            },
+            dataType:"json",
+            success:function(data){
+                key=data.key;
+                // console.log(data);
+                if(data.data){
+                    alert("mail is Sent..");
+                }else{
+                    alert("Something Went Wrong");
+                }
+                $("#firstname").val("");
+                $("#lastname").val("");
+                $("#email").val("");
+                $("#subject").val("");
+                $("#message").val("") ;  
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
+
+
+});
+
+
 </script>
 
 
