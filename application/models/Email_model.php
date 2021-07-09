@@ -23,6 +23,27 @@ class Email_model extends CI_Model{
 		return $success;
 	}
 
+	public function contact_owner_sendEmail($input){
+		$headers = "Organization: Shareshell inc\r\n";
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+		$headers .= "X-Priority: 3\r\n";
+		$headers .= "X-Mailer: PHP". phpversion() ."\r\n";
+		$headers .= 'From: '.$input["name"]. '| ShareShell <server53.web-hosting.com>' . "\n";
+		$headers .='Reply-To: '.$input["name"]. '<'.$input['email'].'>'; 
+		$success=1;
+		
+		$body='<b>name : '.$input['name']." <br> Phone no :  ".$input['phone']."<br> Email :- ".$input['email']."<br> Subject : Want to Contact you for Property Posted on Shareshell.in<br>";
+
+		$success = mail($input['email'], 'Want to Contact you for Property Posted on Shareshell.in',$body,$headers);
+
+		if(!$success){
+			return error_get_last();
+		}
+
+		return $success;
+	}
+
 }
 
 

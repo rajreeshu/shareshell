@@ -629,6 +629,16 @@ public function contact_us_email_send(){
 	echo json_encode($data);
 }
 
+public function contact_owner_email_send(){
+	$input=$this->security->xss_clean($this->input->post());
+	$data['input']=$input;
+	$this->load->model('email_model');
+	$data['data']=$this->email_model->contact_owner_sendEmail($input);
+
+	$data['key'] =$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
 
 
 

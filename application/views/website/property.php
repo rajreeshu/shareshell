@@ -126,10 +126,10 @@
         #contact-details {
             display: none;
         }
-        #contact-owner:hover{
+        /* #contact-owner:hover{
             background-color:green;
 
-        }
+        } */
     </style>
 </head>
 
@@ -360,16 +360,27 @@
                                     <div class="clear">
                                         <div class="col-xs-4 col-sm-4 dealer-face">
                                             <a href="">
-                                                <img src="assets/img/client-face1.png" class="img-circle">
+                                                <img src="" id="user_img" class="img-circle" style="height:100px; width:100px; max-width:100px;; object-fit: cover;">
                                             </a>
                                         </div>
                                         <div class="col-xs-8 col-sm-8 ">
                                             <h3 class="dealer-name">
-                                                <a href="" style="color:rgb(255, 255, 255);">ADITYA CHOWDHARY</a>
-                                                <span><button id="contact-owner" style="background-color:#FDC600;color: white;height: 30px;"
-                                                        onclick="myFunction()">Contact owner</button></span>
-                                            </h3>
+                                                <a id="agent_name" href="" style="color:rgb(255, 255, 255);"></a>
+                                                <br>
+                                                <span class="dealer-social-media">
+                                                    <a class="twitter" target="_blank" href="" id="agent_twitter_link"></a>
+                                                    <a class="facebook" target="_blank" href="" id="agent_facebook_link"></a>
+                                                   
 
+                                                </span>
+                                                
+                                                <!-- <span><button id="contact-owner" style="background-color:#FDC600;color: white;height: 30px;"
+                                                        onclick="myFunction()">Contact owner</button></span> -->
+                                                       <br> 
+                                            </h3>
+                                                
+                                            
+                                            <span id="contact-owner" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);"> Contact owner</span>
 
                                         </div>
 
@@ -382,8 +393,11 @@
 
                                     <div class="clear">
 
-                                        <p id="agent_bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id repudiandae, iusto animi consequuntur qui quos?</p>
+                                        <p id="agent_bio"></p>
                                     </div>
+                                    <ul class="dealer-contacts" style="margin-top:-35px; margin-bottom:0px; margin-left:-5px;">                                       
+                                                <li><i class="pe-7s-map-marker strong"> </i><span id="agent_address"> </span></li>
+                                             </ul>
                                    
 
 
@@ -396,17 +410,17 @@
                                             <div>
                                                 <div class="form-group">
                                                     <label>Name<small>(required)</small></label>
-                                                    <input class="form-control">
+                                                    <input class="form-control" id="owner_name" type="text">
 
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Phone<small>(required)</small></label>
-                                                    <input class="form-control">
+                                                    <input type="text" class="form-control" id="owner_phone">
 
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Email<small>(required)</small></label>
-                                                    <input class="form-control">
+                                                    <input type="text" id="owner_email" class="form-control">
 
                                                 </div>
 
@@ -416,12 +430,12 @@
                                     <div>
 
                                         </ul>
-                                        <p><input type="checkbox"> I agree to be contacted my Shareshell and other
+                                        <p><input type="checkbox" id="owner_checkbox">  I agree to be contacted my Shareshell and other
                                             agents via SMS,call,Email etc.</p>
 
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary text-center"><i
+                                    <button type="submit" class="btn btn-primary text-center" id="owner_submit_detail"><i
                                             class="fa fa-envelope-o"></i> Send Details</button>
                                     </div>
 
@@ -597,7 +611,7 @@
                 }
                 // console.log(typeof(video_play_link));
                 $("#property_video").attr('src', video_play_link);
-
+                
                 $("#property_status").html("For " + data.data.status.toUpperCase());
                 $("#property_bed").html(data.data.min_bed);
                 $("#property_type").html(data.data.type.toUpperCase());
@@ -620,6 +634,7 @@
 
 
                 $("#agent_name").html(data.listed_by.first_name + ' ' + data.listed_by.last_name);
+                // $("#agent_name").attr("href","<?=base_url();?>")
                 $("#agent_username").html(data.listed_by.username);
                 $("#agent_address").html(data.listed_by.address);
                 $("#agent_bio").html(data.listed_by.user_bio);
@@ -635,7 +650,7 @@
                 if (data.listed_by.image != "") {
                     $("#user_img").attr("src", "<?=base_url('utility/user_image/');?>" + get_thumb_name(data.listed_by.image));
                 } else {
-                    $("#user_img").attr("src", '<?=base_url('assets / img / ');?>' + user_image_male_female(data.listed_by['gender']));
+                    $("#user_img").attr("src", '<?=base_url('assets/img/');?>' + user_image_male_female(data.listed_by['gender']));
                 }
 
 
@@ -645,78 +660,48 @@
             }
         });
 
-        // $.ajax({
-        //     url:"<?=base_url('main_helper/get_property_images');?>",
-        //     type:"POST",
-        //     async:false,
-        //     data:{
-        //         "<?php echo $this->security->get_csrf_token_name();?>":key,
-        //         property_id:"<?= $property_no;?>"
 
-        //         },
-        //     dataType:"json",
-        //     success:function(data){
-        //         key=data.key;
-        //         console.log(data);
+$("#owner_submit_detail").click(function(){
+    if($("#owner_checkbox").is(":checked")){
+        if($("#owner_name").val()!=""&&$("#owner_phone").val()!=""&&$("#owner_email").val()!=""){
+            $.ajax({
+            url: "<?=base_url('main_helper/contact_owner_email_send');?>",
+            type: "POST",
+            async: false,
+            data: {
+                "<?php echo $this->security->get_csrf_token_name();?>": key,
+                name:$("#owner_name").val(),
+                phone:$("#owner_phone").val(),
+                email:$("#owner_email").val(),
+            },
+            dataType: "json",
+            success: function (data) {
+                key=data.key;
+                console.log(data);
+                if(data.data){
+                    $('#contact-owner').off('click');
+                    $("#contact-owner").html("Email is already sent.");
+                    $("#owner_name").val("");
+                    $("owner_phone").val("");
+                    $("#owner_email").val("");
+                    $("#contact-details").slideUp();
+                    // $('#myimage').off('click');
+                    alert("email is sent, owner will contact you shortly");
+                }
 
-        //         var image_insert="";
-        //         var lightgallery_data="";
-        //         $.each(data.data,function(){
-        //             // console.log(this.image);
-        //             image_insert+='<li data-thumb="<?=base_url();?>utility/main_image/'+get_thumb_name(this.image)+'" class="thumb_class">';
-        //             image_insert+='<img src="<?=base_url();?>utility/main_image/'+this.image+'"  class="thumb_class_src"/>';
-        //             image_insert+='</li>';
-        //             lightgallery_data+='<li class="col-xs-6 col-sm-4 col-md-3 col-4"  data-responsive="" id="main_img_slide" data-src="<?=base_url('utility/main_image');?>/'+this.image+'" ><a href=""><img src="<?=base_url('utility/main_image');?>/'+get_thumb_name(this.image)+'" class="img-responsive" id="main_img_slide_thumb" alt="Thumb-1"></a></li>';
-        //         });
-        //         $("#image-gallery").append(image_insert);
-        //         $("#lightgallery").append(lightgallery_data);
-        //     },
-        //     error:function(data){
-        //         console.log(data);
-        //         alert("something went wrong");
-        //     }
-        // });
-
-        // $.ajax({
-        //     url:"<?=base_url('main_helper/user_detail_public');?>",
-        //     type:"POST",
-        //     async:false,
-        //     data:{
-        //         "<?php echo $this->security->get_csrf_token_name();?>":key,
-        //         user_id:property_by
-
-        //         },
-        //     dataType:"json",
-        //     success:function(data){
-        //         key=data.key;
-        //         console.log(data);
-
-        //         $("#agent_name").html(data.data.first_name+' '+data.data.last_name);
-        //         $("#agent_username").html(data.data.username);
-        //         $("#agent_address").html(data.data.address);
-        //         $("#agent_bio").html(data.data.user_bio);
-        //         if(data.data.twitter!=""){
-        //             $("#agent_twitter_link").html('<i class="fa fa-twitter-square fa-1x" id="agent_twitter"style="margin-right: 0px;"></i>');
-        //         }
-        //         $("#agent_twitter_link").attr("href",data.data.twitter);
-        //         if(data.data.facebook!=""){
-        //             $("#agent_facebook_link").html('<i class="fa fa-facebook-official fa-1x" id="agent_facebook"></i>');
-        //         }
-        //         $("#agent_facebook_link").attr("href",data.data.facebook);
-
-        //         if(data.data.image!=""){
-        //             $("#user_img").attr("src","<?=base_url('utility/user_image/');?>"+get_thumb_name(data.data.image));
-        //         }else{
-        //              $("#user_img").attr("src",'<?=base_url('assets/img/');?>'+user_image_male_female(data.data['gender']));
-        //         }
-
-
-        //     },
-        //     error:function(data){
-        //         console.log(data);
-        //         alert("something went wrong");
-        //     }
-        // });
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+        }else{
+            alert("all data is not filled");
+        }
+    }else{
+        alert("Terms and conditions not Agreed");
+    }
+});
+        
 
 
 
@@ -733,12 +718,13 @@
                 $('#image-gallery').removeClass('cS-hidden');
             }
         });
-    </script>
 
-    <script>
-        function myFunction() {
-            document.getElementById("contact-details").style.display = "block";
-        }
+
+        $("#contact-owner").click(function(){
+            $("#contact-details").toggle(300);
+        });
+
+
     </script>
 </body>
 
