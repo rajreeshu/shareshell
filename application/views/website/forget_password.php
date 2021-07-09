@@ -51,7 +51,7 @@
                                     <input name="Email" type="text" class="form-control" id="reset_email">
                                     <div class="col-sm-0 col-sm-offset-1 " style="margin-top:10px;">
                                         <input id="btn1" type='button' class='btn btn-finish btn-primary pull-right'
-                                            name='Enter' value='Enter Email' />
+                                            name='Enter' value='NEXt' />
                                     </div>
                                 </div>
                                 <div class="form-group" id="display1" style="display: none;" >
@@ -60,7 +60,7 @@
                                     <input  type="password" id="reset_otp" name="otp" class="col-sm-6 form-control" max_length="4"><br>
                                     <div class="col-sm-0 col-sm-offset-1" style="margin-top:30px;">
                                         <input id="btn2" type='button' class='btn btn-finish btn-primary pull-right'
-                                            name='Enter  OTP' value='Enter OTP' />
+                                            name='Enter  OTP' value='NEXT' />
                                     </div>
 
 

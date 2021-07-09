@@ -380,7 +380,7 @@
                                             </h3>
                                                 
                                             
-                                            <span id="contact-owner" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);"> Contact owner</span>
+                                            <b><span id="contact-owner" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);"> Contact owner</span></b>
 
                                         </div>
 
@@ -430,7 +430,7 @@
                                     <div>
 
                                         </ul>
-                                        <p><input type="checkbox" id="owner_checkbox">  I agree to be contacted my Shareshell and other
+                                        <p><input type="checkbox" id="owner_checkbox">  I agree to be connect with Shareshell and other
                                             agents via SMS,call,Email etc.</p>
 
                                     </div>
@@ -711,7 +711,7 @@ $("#owner_submit_detail").click(function(){
             item: 1,
             thumbItem: 9,
             slideMargin: 0,
-            speed: 500,
+            speed: 1000,
             auto: true,
             loop: true,
             onSliderLoad: function () {

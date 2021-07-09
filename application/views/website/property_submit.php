@@ -94,6 +94,7 @@
                                             <div class="col-sm-4 col-sm-offset-1">
                                                 <div class="picture-container">
                                                     <div class="picture">
+                                                        <h4 style="text-align: center;">Upload Main Image</h4>
                                                         <img src="<?=base_url();?>assets/img/default-property.jpg" class="picture-src" id="main_img_prev" title="" style="cursor: pointer;"/>
                                                    
                                                     <!-- <form  enctype="multipart/form-data"  method="post" id="form_main_img" > -->
@@ -125,8 +126,8 @@
                                                     <input name="propertyaddress" type="text" class="form-control" placeholder="Plot:000, XyZ place" id="property_add">
                                                 </div> 
                                                 <div class="form-group">
-                                                    <label>Telephone <small id="contact_error">(empty if you wanna use default phone number)</small></label>
-                                                    <input name="propertycontact" type="number" class="form-control" placeholder="+1 473 843 7436" id="property_contact">
+                                                    <label>Phone no. <small id="contact_error"><a href="" id="use_default_no">(Click to use Your Default Contact Number)</a></small></label>
+                                                    <input name="propertycontact" type="number" class="form-control" placeholder="+91 473 843 7436" id="property_contact">
                                                 </div>
                                             </div>
                                         </div>
@@ -134,7 +135,7 @@
                                     <!--  End step 1 -->
 
                                     <div class="tab-pane" id="step2">
-                                        <h4 class="info-text"> How much your Property is Beautiful ? </h4>
+                                        <h4 class="info-text"> Your Property Details? </h4>
                                         <div class="row">
                                             <div class="col-sm-12"> 
                                                 <div class="col-sm-12"> 
@@ -163,6 +164,7 @@
                                                         <select id="property_city" name="property_city" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select your city">
                                                             <option value="" selected>-City-</option>
                                                             <option value="bhubaneswar">Bhubaneswar</option>
+                                                            <option value="cuttack">Cuttack</option>
                                                            <!--  <option>Paris</option>
                                                             <option>Casablanca</option>
                                                             <option>Tokyo</option>
@@ -201,7 +203,7 @@
                                             <div class="col-sm-12 padding-top-15">                                                   
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label for="property-geo">No. of Bed Rooms :</label>
+                                                        <label for="property-geo">No. of BedRooms :</label>
                                                         <!-- input type no -->
                                                         <input name="property_rooms" type="text" class="form-control" placeholder="2 BHK" id="property_rooms">
                                                         
@@ -313,7 +315,7 @@
                                     <!-- End step 2 -->
 
                                     <div class="tab-pane" id="step3">                                        
-                                        <h4 class="info-text">Give us somme images and videos ? </h4>
+                                        <h4 class="info-text">Give us some images and videos ? </h4>
                                         <div class="row">  
                                             <div class="col-sm-6">
                                                 <div class="form-group">
@@ -511,7 +513,16 @@
 
     var main_img;
 
-    
+    var default_phone_no="<?=$this->db->select('phone')->where('sn',131)->get('user_detail')->row()->phone;?>";
+    if(default_phone_no==""){
+        $("#use_default_no").html("");
+    }
+    $("#use_default_no").click(function(e) {
+        e.preventDefault();
+        $("#property_contact").val(default_phone_no);
+    });
+
+    // console.log(default_phone_no);
 $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
 
 

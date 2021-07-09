@@ -517,7 +517,7 @@ function load_page_content(){
                         type_change="M";
                     }
 
-                    if(this.name.length>9){
+                    if(this.name.length>19){
                         dot_after_name="...";
                     }else{
                         dot_after_name="";
@@ -531,7 +531,7 @@ function load_page_content(){
                     property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px; object-fit:cover;"></a>';
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
-                    property_list+='<h5><a href="property-1.html" >'+this.name.slice(0,10)+''+dot_after_name+'</a></h5>';
+                    property_list+='<h5><a href="property-1.html" >'+this.name.slice(0,20)+''+dot_after_name+'</a></h5>';
                     property_list+='<div class="dot-hr"></div>';
                     property_list+='<span class="pull-left"><b>'+capital_first(this.city)+' </b></span>';
                     property_list+='<span class="proerty-price pull-right">&#8377; '+this.price+'</span>';
