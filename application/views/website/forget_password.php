@@ -51,7 +51,7 @@
                                     <input name="Email" type="text" class="form-control" id="reset_email">
                                     <div class="col-sm-0 col-sm-offset-1 " style="margin-top:10px;">
                                         <input id="btn1" type='button' class='btn btn-finish btn-primary pull-right'
-                                            name='Enter' value='NEXt' />
+                                            name='Enter' value='NEXT' />
                                     </div>
                                 </div>
                                 <div class="form-group" id="display1" style="display: none;" >
