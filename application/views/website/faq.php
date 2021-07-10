@@ -51,18 +51,15 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                          <h4 class="panel-title fqa-title" data-toggle="collapse" data-target="#fqa11" >
-                                            Nostrud exercitation ullamco laboris 1 1
+                                            I AM TRYING TO LOG IN BUT NOT RECEIVING OTP. WHAT SHOULD I DO?
                                          </h4> 
                                     </div>
                                     <div id="fqa11" class="panel-collapse collapse fqa-body">
                                         <div class="panel-body">
-                                            <ol>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>                                           
-                                            </ol> 
+                                            <P>
+                                            For any such grievance, please try again by clicking on resend OTP. If not received, then drop an email on the costumer's care email id, undersigned by your name and user ID. 
+                                                                                           
+                                            <P> 
                                         </div> 
                                     </div>
                                 </div>
@@ -72,18 +69,14 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                          <h4 class="panel-title fqa-title" data-toggle="collapse" data-target="#fqa22" >
-                                            Nostrud exercitation ullamco laboris 2 2
+                                         WHAT ARE THE THINGS I CAN SEARCH ON SHARESHELL? 
                                          </h4> 
                                     </div>
                                     <div id="fqa22" class="panel-collapse collapse fqa-body">
                                         <div class="panel-body">
-                                            <ol>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>                                           
-                                            </ol> 
+                                            <p>
+                                            It is a Real State website,you can browse through various Properties,broker accounts etc.
+                                            </p>
                                         </div> 
                                     </div>
                                 </div>
@@ -93,18 +86,13 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                          <h4 class="panel-title fqa-title" data-toggle="collapse" data-target="#fqa33" >
-                                            Nostrud exercitation ullamco laboris 3 3
+                                         HOW MUCH BROKERAGE IS CHARGED BY SHARESHELL?
+
                                          </h4> 
                                     </div>
                                     <div id="fqa33" class="panel-collapse collapse fqa-body">
                                         <div class="panel-body">
-                                            <ol>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>                                           
-                                            </ol> 
+                                           <p>Our company charges zero brokerage to our clients.</p>
                                         </div> 
                                     </div>
                                 </div>
@@ -115,18 +103,12 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                          <h4 class="panel-title fqa-title" data-toggle="collapse" data-target="#fqa1" >
-                                            Nostrud exercitation ullamco laboris 1 
+                                         HOW CAN I REPORT INCORRECT DETAILS LISTED ON THE PAGE?
                                          </h4> 
                                     </div>
                                     <div id="fqa1" class="panel-collapse collapse fqa-body">
                                         <div class="panel-body">
-                                            <ol>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>                                           
-                                            </ol> 
+                                            <p>Just drop an email on the company email id about your findings  with subject "INCORRECT DETAILS".</p>
                                         </div> 
                                     </div>
                                 </div>
@@ -136,18 +118,12 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                          <h4 class="panel-title fqa-title" data-toggle="collapse" data-target="#fqa2" >
-                                            Nostrud exercitation ullamco laboris 2 
+                                            HOW TO CONTACT SHARESHELL TEAM OR CUSTOMER CARE?
                                          </h4> 
                                     </div>
                                     <div id="fqa2" class="panel-collapse collapse fqa-body">
                                         <div class="panel-body">
-                                            <ol>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>                                           
-                                            </ol> 
+                                           <P>You can contact us through our toll free number if calling from India otherwise we advice you to use our electronic support and drop an E-mail to our company's E-mail Id or you can directly fill out the company's contact form present in the contact page.</P>
                                         </div> 
                                     </div>
                                 </div>
@@ -157,18 +133,12 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                          <h4 class="panel-title fqa-title" data-toggle="collapse" data-target="#fqa3" >
-                                            Nostrud exercitation ullamco laboris 3
+                                            HOW CAN I EDIT MY PROFILE?
                                          </h4> 
                                     </div>
                                     <div id="fqa3" class="panel-collapse collapse fqa-body">
                                         <div class="panel-body">
-                                            <ol>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>
-                                                <li> Lorem ipsum dolor sit amet, consectetur adipisicing</li>                                           
-                                            </ol> 
+                                            <P>Comming soon</P>
                                         </div> 
                                     </div>
                                 </div>
