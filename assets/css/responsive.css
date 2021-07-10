@@ -221,9 +221,9 @@
         font-size: 12px;
     }
     .tab-content ul li {
-        height: 235px;
-        margin-bottom: 20px;
-        width: 219px;
+        height: 27px;
+        margin-bottom: 13px;
+        width: 100%;
     }
     .tab-content ul li a img {
         height: 100%;
@@ -698,9 +698,10 @@
         font-size: 12px;
     }
     .tab-content ul li {
-        height: 235px;
-        margin-bottom: 20px;
-        width: 219px;
+        height: 26px;
+        margin-bottom: 12px;
+        width: 100%;
+        
     }
     .tab-content ul li a img {
         height: 100%;
@@ -778,7 +779,7 @@
     }
     .tab-content ul li {
         height: 160px;
-        width: 145px;
+        width: 100%;
     }
     .tab-content ul li a img{
         width: 100%;
