@@ -101,6 +101,7 @@
                                                 <select id="filter_city" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select Your City">
                                                     <option value="">Select Your City</option>
                                                     <option value="bhubaneswar">Bhubaneshwar</option>
+                                                    <option value="cuttack">Cuttack</option>
                                                    
                                                 </select>
                                             </div>
