@@ -513,13 +513,15 @@
 
     var main_img;
 
-    var default_phone_no="<?=$this->db->select('phone')->where('sn',131)->get('user_detail')->row()->phone;?>";
+    var default_phone_no="<?=$this->db->select('phone')->where('sn',$this->security->xss_clean($this->session->userdata('user_id_shareshell')))->get('user_detail')->row()->phone;?>";
+    
     if(default_phone_no==""){
         $("#use_default_no").html("");
     }
     $("#use_default_no").click(function(e) {
         e.preventDefault();
         $("#property_contact").val(default_phone_no);
+        first_page_value_chk();
     });
 
     // console.log(default_phone_no);

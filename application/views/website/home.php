@@ -379,7 +379,7 @@
         </div>
 
         <!-- boy-sale area -->
-        <div class="boy-sale-area" style="background:white; z-index: -1;">
+        <div class="boy-sale-area" style="background:white;">
             <div class="container">
                 <div class="row">
                 <!-- <a href="<?php echo base_url('properties'); ?>"> -->
