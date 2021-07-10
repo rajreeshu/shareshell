@@ -124,6 +124,7 @@
 		this.formater = options.formater;
 
 		this.layout();
+		
 
 		if (this.touchCapable) {
 			// Touch: Bind touch events:
@@ -151,8 +152,11 @@
 
 		over: false,
 		inDrag: false,
+
+		
 		
 		showTooltip: function(){
+			
 			this.tooltip.addClass('in');
 			//var left = Math.round(this.percent*this.width);
 			//this.tooltip.css('left', left - this.tooltip.outerWidth()/2);
@@ -240,7 +244,9 @@
 		},
 
 		mousemove: function(ev) {
-			
+		// 	var ii;
+		// console.log("change"+ii);
+		// ii++;
 			// Touch: Get the original event:
 			if (this.touchCapable && ev.type === 'touchmove') {
 				ev = ev.originalEvent;
@@ -266,6 +272,8 @@
 				})
 				.data('value', val)
 				.prop('value', val);
+				// console.log(val);
+				$("#min_max_slide").html("[ "+val+" ]");
 			return false;
 		},
 
@@ -296,6 +304,8 @@
 				})
 				.data('value', val)
 				.prop('value', val);
+				$("#min_max_slide").html("[ "+val+" ]");
+				// console.log(val);
 			return false;
 		},
 

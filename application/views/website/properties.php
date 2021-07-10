@@ -23,6 +23,14 @@
         color:green;
         border:2px solid black;
     }
+    /* #min_max_slide{
+        display:none;
+    }
+    @media screen and (max-width:760px){
+        #min_max_slide{
+            display:block;
+        }
+    } */
 </style>
 </head>
 <body>
@@ -121,7 +129,7 @@
                                     <fieldset class="padding-5">
                                         <div class="row">
                                             <div class="col">
-                                                <label for="price-range">Price range (rs):</label>
+                                                <label for="price-range"><b>Price range (rs): <span id="min_max_slide">[min:max]</span></b></label>
                                                 <input type="text" class="span2" value="" data-slider-min="500" 
                                                        data-slider-max="100000" data-slider-step="100" 
                                                        data-slider-value="[5000,50000]" id="price-range" ><br />
@@ -172,7 +180,7 @@
 
                                             <div class="col-xs-6">
                                                 <div class="checkbox">
-                                                    <label> <input type="checkbox" name="filter_addon" value="mess">Mess(food)</label>
+                                                    <label> <input type="checkbox" name="filter_addon" value="mess"> Mess(food)</label>
                                                 </div>
                                             </div>                                            
                                         </div>
@@ -355,6 +363,7 @@
 <script type="text/javascript">
     
     var key="<?php echo $this->security->get_csrf_hash(); ?>";    
+    
     // console.log("1st key:"+key);
     var property_list="";
 
