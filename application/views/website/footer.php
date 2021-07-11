@@ -13,7 +13,7 @@
                                 <!-- <img src="<?=base_url();?>assets/img/footer-logo." alt="ShareShell"> -->
                                <!-- <b>ShareShell</b> -->
                                <a href="<?=base_url();?>">";
-                               <img src="<?=base_url('assets/img/shareshell_mobile_logo.png');?>" alt="ShareShell">
+                               <img src="<?=base_url('assets/img/shareshell_mobile_logo.png');?>" alt="ShareShell_logo">
                                 </a>
                                 <br>
                                 

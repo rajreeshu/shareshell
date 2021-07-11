@@ -52,9 +52,11 @@
             <div id="bg-slider" class="owl-carousel owl-theme">
  
                 <!-- <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-0.jpg" alt="The Last of us"></div> -->
-                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-1.jpg" alt="Slider Image 1"></div>
-                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-2.jpg" alt="Slider Image 2"></div>
-                <div class="item"><img style="" src="assets/img/slide1/slider-image-3.jpg" alt="Slider Image 3"></div>
+
+                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-1.jpg" alt="Shareshell_choice"></div>
+                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-2.jpg" alt="Shareshell_homepage"></div>
+                <div class="item"><img style="" src="assets/img/slide1/slider-image-3.jpg" alt="Shareshell_affordable_luxury_renting"></div>
+
                 <!-- <div class="item"><img style="" src="assets/img/slide1/slider-image-4.jpg" alt="GTA V"></div> -->
 
             </div>
@@ -389,8 +391,8 @@
                                 <span class="fa fa-search"></span>
                             </div>
                             <div class="asks-first-info">
-                                <h2>ARE YOU LOOKING FOR A Property?</h2>
-                                <p>Looking to buy property?Our team is there to help you find a perfect property,just check in,search and surf thousands of properties in no time.</p>                                        
+                                <h2>ARE YOU LOOKING FOR BEST PROPERTY FOR RENT?</h2>
+                                <p>Our team is there to help you find a perfect property,just check in,search and surf number of properties in no time.</p>                                        
                             </div>
                             <div class="asks-first-arrow">
                             <span class="fa fa-angle-right"></span>

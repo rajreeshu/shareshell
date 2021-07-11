@@ -43,7 +43,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="<?=base_url();?>"style="font-size: 35px;font-weight: bold;"><img
-                        style="max-height: 44px;" src="<?=base_url('assets/img/shareshell_logo.png');?>" alt=""></a>
+                        style="max-height: 44px;" src="<?=base_url('assets/img/shareshell_logo.png');?>" alt="Shareshell_logo"></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
