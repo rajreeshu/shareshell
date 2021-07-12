@@ -133,10 +133,10 @@
                             platform to advertise properties of Seller for a Customer/Buyer/User coming on its Website
                             and is not and cannot be a party to or privy to or control in any manner any transactions
                             between the Seller and the Customer/Buyer/User. All the offers and discounts on this Website
-                            have been extended by various Builder(s)/Developer(s) who have advertised their products.
+                            have been extended by various Builders/Developers who have advertised their products.
                             Shareshell is only communicating the offers and not selling or rendering any of those
-                            products or services. It neither warrants nor is it making any representations with respect
-                            to offer(s) made on the site.Shareshell Realty Services Limited shall neither be
+                            products or services. It neither warrants nor is it making any representations concerning for to offer(s)
+                            made on the site. Shareshell Realty Services Limited shall neither be
                             responsible nor liable to mediate or resolve any disputes or disagreements between the
                             Customer/Buyer/User and the Seller and both Seller and Customer/Buyer/User shall settle all
                             such disputes without involving Magicbricks Realty Services Limited in any manner.

@@ -156,7 +156,7 @@
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                         <!-- /.feature title -->
                         <h2>Top submitted property</h2>
-                        <p>Have a glance at some of our best properties.These represent our master work pattern and ideas,we give preference to.</p>
+                        <p>Have a glance at some of our best properties. These represent our Masterwork pattern and ideas, we give preferences.</p>
                     </div>
                 </div>
 
@@ -390,9 +390,9 @@
                             <div class="asks-first-circle">
                                 <span class="fa fa-search"></span>
                             </div>
-                            <div class="asks-first-info">
-                                <h2>ARE YOU LOOKING FOR BEST PROPERTY FOR RENT?</h2>
-                                <p>Our team is there to help you find a perfect property,just check in,search and surf number of properties in no time.</p>                                        
+                            <div class="asks-first-info" style="margin: 0px 65px 0px 85px;">
+                                <h2>ARE YOU LOOKING FOR BEST PROPERTY FOR RENT? </h2>
+                                <p>looking for best houses on rent? our team is here to help you find a perfect property.</p>                                        
                             </div>
                             <div class="asks-first-arrow">
                             <span class="fa fa-angle-right"></span>
@@ -406,9 +406,9 @@
                                 <span class="fa fa-usd"></span>
                             </div>
                             <!-- <a href="<?=base_url('main/submit_property');?>"> -->
-                            <div class="asks-first-info">
-                                <h2>DO YOU WANT TO SELL A Property?</h2>
-                                <p>Just check into this website,our team will go through all your conditions evaluate your asset and will bring amazing deals and some best brokers to you.</p>
+                            <div class="asks-first-info" style="margin: 0px 65px 0px 85px;">
+                                <h2>DO YOU WANT TO SELL A PROPERTY?</h2>
+                                <p>Just check into this website, our team will go through all your conditions evaluate your asset, and will bring amazing deals and some best brokers to you.</p>
                             </div>
                             <!-- </a> -->
                             <div class="asks-first-arrow">
@@ -417,7 +417,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12">
-                        <p  class="asks-call">QUESTIONS? CALL US  : <span class="strong"> + 3-123- 424-5700</span></p>
+                        <p  class="asks-call">QUESTIONS? CALL US  : <span class="strong"> +91 78723 90186</span></p>
                     </div>
                 </div>
             </div>
@@ -530,7 +530,7 @@ function load_page_content(){
                     property_list+='<div class="col-sm-6 col-md-3 p0">';
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
-                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px; object-fit:cover;"></a>';
+                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" alt="shreshell - '+this.name+'" style="height:225px; object-fit:cover;"></a>';
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
                     property_list+='<h5><a href="property-1.html" >'+this.name.slice(0,20)+''+dot_after_name+'</a></h5>';
@@ -550,7 +550,7 @@ function load_page_content(){
                 property_list+='<i class="fa fa-th"></i>';
                 property_list+='</div>';
                 property_list+='<div class="more-entry overflow">';
-                property_list+='<h5><a href="<?=base_url('properties');?>" >CAN\'T DECIDE ? </a></h5>';
+                property_list+='<h5><a href="<?=base_url('properties');?>" >CAN\'T DECIDE? </a></h5>';
                 property_list+='<h5 class="tree-sub-ttl">Show all properties</h5>';
                 property_list+='<button class="btn border-btn more-black" value="All properties"><a href="<?=base_url('properties');?>">properties</a></button>';
                 property_list+='</div>';
