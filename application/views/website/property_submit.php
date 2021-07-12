@@ -75,7 +75,7 @@
                                 <div class="wizard-header">
                                     <h3>
                                         <b>Submit</b> YOUR PROPERTY <br>
-                                        <small>Lorem ipsum dolor sit amet, consectetur adipisicing.</small>
+                                        <small>Let's start with the basic information (with validation)</small>
                                     </h3>
                                 </div>
 
@@ -90,7 +90,7 @@
 
                                     <div class="tab-pane" id="step1">
                                         <div class="row p-b-15  ">
-                                            <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
+                                            <!-- <h4 class="info-text"> Let's start with the basic information (with validation)</h4> -->
                                             <div class="col-sm-4 col-sm-offset-1">
                                                 <div class="picture-container">
                                                     <div class="picture">
@@ -203,7 +203,7 @@
                                             <div class="col-sm-12 padding-top-15">                                                   
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label for="property-geo">No. of BedRooms :</label>
+                                                        <label for="property-geo">No. of Bedrooms :</label>
                                                         <!-- input type no -->
                                                         <input name="property_rooms" type="text" class="form-control" placeholder="2 BHK" id="property_rooms">
                                                         
@@ -315,7 +315,7 @@
                                     <!-- End step 2 -->
 
                                     <div class="tab-pane" id="step3">                                        
-                                        <h4 class="info-text">Give us some images and videos ? </h4>
+                                        <h4 class="info-text">Give us some images and videos. </h4>
                                         <div class="row">  
                                             <div class="col-sm-6">
                                                 <div class="form-group">

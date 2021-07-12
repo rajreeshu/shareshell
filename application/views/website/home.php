@@ -41,11 +41,20 @@
 <!-- Your Chat Plugin code -->
 
 
-
 <?php
     $this->load->view('website/link_import');
     $this->load->view('website/header');
 ?> 
+
+<style>
+@media only screen and (max-width: 475px) {
+    .text_above_search{
+        font-size:20px;;
+    }
+}
+
+</style>
+
   
         <div class="slider-area">
             <div class="slider">
@@ -99,7 +108,7 @@
 </div>-->
 
 <div class="col-md-12">
-<div><h3><b>Start Searching Property ..  </b></h3></div>
+<div ><h3 class="text_above_search" style="font-weight:bold;">Start Searching Property ..  </h3></div>
 
 
   <div class="row">
@@ -156,7 +165,7 @@
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                         <!-- /.feature title -->
                         <h2>Top submitted property</h2>
-                        <p>Have a glance at some of our best properties. These represent our Masterwork pattern and ideas, we give preferences.</p>
+                        <p>Have a glance at some of our best properties. These represent our masterwork pattern and ideas, we give preference to.</p>
                     </div>
                 </div>
 
@@ -391,8 +400,8 @@
                                 <span class="fa fa-search"></span>
                             </div>
                             <div class="asks-first-info" style="margin: 0px 65px 0px 85px;">
-                                <h2>ARE YOU LOOKING FOR BEST PROPERTY FOR RENT? </h2>
-                                <p>looking for best houses on rent? our team is here to help you find a perfect property.</p>                                        
+                                <h2>ARE YOU LOOKING FOR THE BEST PROPERTY FOR RENT? </h2>
+                                <p>looking for the best houses on rent? our team is here to help you find a perfect property.</p>                                        
                             </div>
                             <div class="asks-first-arrow">
                             <span class="fa fa-angle-right"></span>
@@ -407,7 +416,7 @@
                             </div>
                             <!-- <a href="<?=base_url('main/submit_property');?>"> -->
                             <div class="asks-first-info" style="margin: 0px 65px 0px 85px;">
-                                <h2>DO YOU WANT TO SELL A PROPERTY?</h2>
+                                <h2>DO YOU WANT TO RENT YOUR PROPERTY?</h2>
                                 <p>Just check into this website, our team will go through all your conditions evaluate your asset, and will bring amazing deals and some best brokers to you.</p>
                             </div>
                             <!-- </a> -->

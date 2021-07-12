@@ -550,7 +550,7 @@
     <!-- gallery js -->
 
     <script src="<?=base_url('assets/js');?>/picturefill.min.js"></script>
-    <script src="<?=base_url('assets/js');?>/lightgallery.min.js"></script>
+    <script src="<?=base_url('assets/js');?>/lightgallery.min.js?v=1.3"></script>
     <script src="<?=base_url('assets/js');?>/lg-pager.min.js"></script>
     <script src="<?=base_url('assets/js');?>/lg-autoplay.min.js"></script>
     <script src="<?=base_url('assets/js');?>/lg-fullscreen.min.js"></script>
@@ -712,6 +712,7 @@ $("#owner_submit_detail").click(function(){
             thumbItem: 9,
             slideMargin: 0,
             speed: 1000,
+            pause:4000,
             auto: true,
             loop: true,
             onSliderLoad: function () {
