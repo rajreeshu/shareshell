@@ -40,6 +40,22 @@
     <link rel="stylesheet" href="assets/css/responsive.css"> -->
 </head>
 
+<style>
+    .form-group img{
+        height:20px;
+        margin-left:20px;
+        cursor: pointer;
+        opacity: 0.4;
+    }
+    .form-group label{
+      
+    }
+    .input{
+        display:none;
+    }
+    
+</style>
+
 <body>
 <?php
     $this->load->view('website/link_import');
@@ -91,7 +107,14 @@
                             <div class="col-sm-6 padding-top-25">
 
                                 <div class="form-group">
-                                    <label>Name: <span style="color:#999999;" id="user_name"></span></label>
+                                    <label id="labelname">Name: <span style="color:#999999;" id="user_name"></span></label>
+                                    
+                                    <img src="<?=base_url('assets/img/edit.png');?>" alt="edit" class="btn-name">
+                                    <div id="input-name" class="input"> 
+                                        <input type="text"  style="border: 2px solid rgb(252, 172, 0);width:15em " />
+                                        <b><span id="contact-owner" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);">Save Detailes</span></b>
+                                    </div>
+                                   
 
                                 </div>
                                 <!-- <div class="form-group">
@@ -100,18 +123,42 @@
                                 </div> -->
                                 <div class="form-group">
                                     <label>Email: <span style="color:#999999;" id="user_email"></span></label>
+                                    <img src="<?=base_url('assets/img/edit.png');?>" alt="edit" class="edit-email">
+                                    <div id="input-email" class="input"> 
+                                        <input type="text"  style="border: 2px solid rgb(252, 172, 0);width:15em " />
+                                        <b><span id="contact-owner" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);">Save Detailes</span></b>
+                                    </div>
+
 
                                 </div>
                                 <div class="form-group">
                                     <label>Phone: <span style="color:#999999;" id="user_phone"></span></label>
+                                    <img src="<?=base_url('assets/img/edit.png');?>" alt="edit" class="edit-detailes">
+                                    <div id="input-phone" class="input"> 
+                                        <input type="text"  style="border: 2px solid rgb(252, 172, 0);width:15em " />
+                                        <b><span id="contact-owner" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);">Save Detailes</span></b>
+                                    </div>
+
 
                                 </div>
                                 <div class="form-group">
                                     <label>Username: <span style="color:#999999;" id="user_username"></span></label>
+                                    <img src="<?=base_url('assets/img/edit.png');?>" alt="edit" class="edit-detailes">
+                                    <div id="input-username" class="input"> 
+                                        <input type="text"  style="border: 2px solid rgb(252, 172, 0);width:15em " />
+                                        <b><span id="contact-owner" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);">Save Detailes</span></b>
+                                    </div>
+
 
                                 </div>
                                 <div class="form-group">
                                     <label>Gender: <span style="color:#999999;" id="user_gender"></span></label>
+                                    <img src="<?=base_url('assets/img/edit.png');?>" alt="edit" class="edit-detailes">
+                                    <div id="input-gender" class="input"> 
+                                        <input type="text"  style="border: 2px solid rgb(252, 172, 0);width:15em " />
+                                        <b><span id="contact-owner" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);">Save Detailes</span></b>
+                                    </div>
+
 
                                 </div>
 
@@ -119,6 +166,12 @@
                             <label>Facebook: 
                                 <a href="" id="user_facebook_link" target="_blank">
                                     <span style="color:#999999;" id="user_facebook"></span></a></label>
+                                    <img src="<?=base_url('assets/img/edit.png');?>" alt="edit" class="edit-detailes">
+                                    <div id="input-facebook" class="input"> 
+                                        <input type="text"  style="border: 2px solid rgb(252, 172, 0);width:15em " />
+                                        <b><span id="contact-owner" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);">Save Detailes</span></b>
+                                    </div>
+
 
                             </div>
 
@@ -127,7 +180,14 @@
                                 <a href="" id="user_twitter_link" target="_blank">
                                     <span style="color:#999999;" id="user_twitter"></span>
                                 </a>
+
                             </label>
+                            <img src="<?=base_url('assets/img/edit.png');?>" alt="edit" class="edit-detailes">
+                            <div id="input-name" class="input"> 
+                                        <input type="text"  style="border: 2px solid rgb(252, 172, 0);width:15em " />
+                                        <b><span id="contact-owner" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);">Save Detailes</span></b>
+                                    </div>
+
 
                             </div>
                             </div>
@@ -271,6 +331,23 @@
             }
     });
 
+</script>
+<script>
+
+var edit = document.getElementsByClassName("btn-name")[0];
+
+edit.onclick = function() { 
+ // modal.style.display = "none";
+ var x = document.getElementById("input-name");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+
+  
+}
+   
 </script>
 
 </html>
