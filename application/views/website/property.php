@@ -447,7 +447,7 @@
 
 
 
-                        <div class="panel panel-default sidebar-menu similar-property-wdg wow animated">
+                        <!-- <div class="panel panel-default sidebar-menu similar-property-wdg wow animated">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Similar Properties</h3>
                             </div>
@@ -513,16 +513,17 @@
 
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
 
 
 
                         <div class="panel panel-default sidebar-menu wow animated">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Ads her </h3>
+                                <!-- <h3 class="panel-title">Ads her </h3> -->
                             </div>
                             <div class="panel-body recent-property-widget">
-                                <img src="<?=base_url();?>assets/img/ads.jpg">
+                                <!-- <img src="<?=base_url();?>assets/img/ads.jpg"> -->
+                                <div style="height:500px;"></div>
                             </div>
                         </div>
 
@@ -585,7 +586,7 @@
                 key = data.key;
 
                 console.log(data);
-                property_by = data.data.listed_by;
+                // property_by = data.data.listed_by;
 
                 //start
                 // thumb_img=data.data.main_image.split('.').slice(0, -1).join('.')+"_thumb."+data.data.main_image.substr(data.data.main_image.lastIndexOf('.') + 1);
@@ -652,6 +653,7 @@
                 } else {
                     $("#user_img").attr("src", '<?=base_url('assets/img/');?>' + user_image_male_female(data.listed_by['gender']));
                 }
+                property_by=data.listed_by.email;
 
 
             },
@@ -673,6 +675,7 @@ $("#owner_submit_detail").click(function(){
                 name:$("#owner_name").val(),
                 phone:$("#owner_phone").val(),
                 email:$("#owner_email").val(),
+                owner_email:property_by
             },
             dataType: "json",
             success: function (data) {

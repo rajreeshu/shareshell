@@ -218,7 +218,7 @@
                             </div>
                         </div>
 
-                        <div class="panel panel-default sidebar-menu wow animated">
+                        <!-- <div class="panel panel-default sidebar-menu wow animated">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Recommended</h3>
                             </div>
@@ -280,7 +280,7 @@
 
                                     </ul>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 

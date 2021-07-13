@@ -401,7 +401,7 @@
                             </div>
                             <div class="asks-first-info" style="margin: 0px 65px 0px 85px;">
                                 <h2>ARE YOU LOOKING FOR THE BEST PROPERTY FOR RENT? </h2>
-                                <p>looking for the best houses on rent? our team is here to help you find a perfect property.</p>                                        
+                                <p>Just check into this website, our team will help you to find a perfect property at an affordable price in your area.</p>                                        
                             </div>
                             <div class="asks-first-arrow">
                             <span class="fa fa-angle-right"></span>
@@ -417,7 +417,7 @@
                             <!-- <a href="<?=base_url('main/submit_property');?>"> -->
                             <div class="asks-first-info" style="margin: 0px 65px 0px 85px;">
                                 <h2>DO YOU WANT TO RENT YOUR PROPERTY?</h2>
-                                <p>Just check into this website, our team will go through all your conditions evaluate your asset, and will bring amazing deals and some best brokers to you.</p>
+                                <p>Just check into the website, Our team will help you to find a perfect renter for your house.</p>
                             </div>
                             <!-- </a> -->
                             <div class="asks-first-arrow">

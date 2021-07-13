@@ -223,7 +223,7 @@ public function password_create_hash(){
 	$this->load->model('password_model');
 	$data['data']=$this->password_model->create_hash($input['email'],$input['password']);
 
-	$data['key']=$this->security->get_csrf_hash();
+	$data['key']=$this->security->get_csrf_hash(); 
 	echo json_encode($data);
 }
 
@@ -563,9 +563,10 @@ public function change_password(){
 
 
 
-	$isSame=password_verify($user_detail->email."//".$input['old_password'],$user_detail->password);
+	// $isSame=password_verify($user_detail->email."//".$input['old_password'],$user_detail->password);
 
 	$this->load->model('password_model');
+	$isSame=$this->password_model->verify_hash($user_detail->email,$input['old_password'],$user_detail->password);
 	$new_password_hash=$this->password_model->create_hash($user_detail->email,$input['new_password']);
 	
 	$updated=false;

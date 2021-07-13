@@ -35,7 +35,7 @@ class Email_model extends CI_Model{
 		
 		$body='<b>name : '.$input['name']." <br> Phone no :  ".$input['phone']."<br> Email :- ".$input['email']."<br> Subject : Want to Contact you for Property Posted on Shareshell.in<br>";
 
-		$success = mail($input['email'], 'Want to Contact you for Property Posted on Shareshell.in',$body,$headers);
+		$success = mail($input['owner_email'], 'Want to Contact you for Property Posted on Shareshell.in',$body,$headers);
 
 		if(!$success){
 			return error_get_last();
