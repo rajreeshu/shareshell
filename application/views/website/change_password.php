@@ -13,6 +13,7 @@
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 
         <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'> -->
 
@@ -36,6 +37,14 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css"> -->
     </head>
+    <style>
+        .form-group i{
+            margin-left: -38px;
+            cursor: pointer;
+            font-size:2em
+            
+        }
+    </style>
     <body>
 
         <?php
@@ -77,7 +86,10 @@
                                     
                                     <div class="form-group">
                                         <label>Current Password <small>(required)</small></label> &nbsp <b><span class="text-danger mr-1" id="old_password_error"></span></b>
-                                        <input name="Password" type="password" class="form-control" placeholder="********" id="old_password">
+                                        <div style="display:flex;">
+                                        <input name="Password" type="password" class="form-control" placeholder="********" id="old_password"><i class="bi bi-eye-slash" id="togglePassword" style="size:30em;"></i>
+                                        </div>
+                                        
                                         <div>
                                              
                                         </div>
@@ -211,5 +223,17 @@
 
 
 
+</script>
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#old_password');
+
+togglePassword.addEventListener('click', function (e) {
+    
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    
+    this.classList.toggle('bi-eye');
+});
 </script>
 </html>
