@@ -24,7 +24,7 @@
 
         <script src="<?=base_url();?>assets/js/main.js"></script>
         
-        <script src="<?=base_url();?>assets/js/myjs.js"></script>
+        <script src="<?=base_url();?>assets/js/myjs.js?v=1.2"></script>
 <!-- <script type="text/javascript">
     
     $("#aboutus_cover").click(function(){

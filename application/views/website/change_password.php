@@ -56,7 +56,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Hello : <span class="orange strong">YOUR NAME</span></h1>               
+                        <h1 class="page-title">Hello : <span class="orange strong" id="show_name_head"></span></h1>               
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                                     <div class="form-group">
                                         <label>Current Password <small>(required)</small></label> &nbsp <b><span class="text-danger mr-1" id="old_password_error"></span></b>
                                         <div style="display:flex;">
-                                        <input name="Password" type="password" class="form-control" placeholder="********" id="old_password"><i class="bi bi-eye-slash" id="togglePassword" style="size:30em;"></i>
+                                        <input name="Password" type="password" class="form-control" placeholder="********" id="old_password"><i class="bi bi-eye-slash toggle_password" style="size:30em;"></i>
                                         </div>
                                         
                                         <div>
@@ -96,11 +96,15 @@
                                     </div>
                                     <div class="form-group">
                                         <label>New password : <small>(required)</small></label> &nbsp <b><span class="text-danger mr-1" id="new_password_error"></span></b>
-                                        <input type="password" class="form-control" placeholder="********" id="new_password">
+                                        <div style="display:flex;">
+                                        <input type="password" class="form-control" placeholder="********" id="new_password"><i class="bi bi-eye-slash toggle_password" style="size:30em;"></i>
+                                        </div>
                                     </div> 
                                     <div class="form-group">
                                         <label>Confirm New password : <small>(required)</small></label> &nbsp <b><span class="text-danger mr-1" id="confirm_new_password_error"></span></b>
-                                        <input type="password" class="form-control" placeholder="********" id="confirm_new_password">
+                                        <div style="display:flex;">
+                                        <input type="password" class="form-control" placeholder="********" id="confirm_new_password"><i class="bi bi-eye-slash toggle_password" style="size:30em;"></i>
+                                        </div>
                                     </div> 
                                 </div>
                                 <div class="col-sm-10 col-sm-offset-1">
@@ -222,18 +226,33 @@
     }); 
 
 
+    $.ajax({
+        url: "<?=base_url('main_helper/get_user_name');?>",
+        type: "POST",
+        async: false,
+        data: {
+            "<?php echo $this->security->get_csrf_token_name();?>": key,
+            user_id:"<?=$this->security->xss_clean($this->session->userdata('user_id_shareshell'));?>"
+        },
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            $("#show_name_head").html(data.data['first_name']+" "+data.data['last_name']);
+        },
+        error: function(data){
+            console.log(data);
+        }
+    });
+
+    $(".toggle_password").click(function(e){
+        e.preventDefault();
+        var thiss=$(this);
+        show_hide_password(thiss);
+    });
+
+
+
 
 </script>
-<script>
-    const togglePassword = document.querySelector('#togglePassword');
-const password = document.querySelector('#old_password');
 
-togglePassword.addEventListener('click', function (e) {
-    
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    
-    this.classList.toggle('bi-eye');
-});
-</script>
 </html>

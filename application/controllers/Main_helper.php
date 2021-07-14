@@ -516,6 +516,14 @@ public function update_user_data(){
 	echo json_encode($data);
 }
 
+public function get_user_name() {
+	$input=$this->security->xss_clean($this->input->post());
+
+	$data['data']=$this->db->select('first_name,last_name')->where('sn',$input['user_id'])->get("user_detail")->row();
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
 
 public function upload_property_image(){
 	$input=$this->security->xss_clean($this->input->post());

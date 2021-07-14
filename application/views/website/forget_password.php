@@ -10,12 +10,23 @@
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
     </head>
     <body>
 <?php
     $this->load->view('website/link_import');
     $this->load->view('website/header');
 ?> 
+
+<style>
+.form-group i{
+            margin-left: -38px;
+            cursor: pointer;
+            font-size:2em
+            
+        }
+
+</style>
         <!-- End of nav bar -->
 
         <div class="page-head"> 
@@ -48,7 +59,7 @@
                             <div class="col-sm-10 col-sm-offset-1">
                                 <div class="form-group">
                                     <label>Enter Email <small>(required)</small></label> <small style="color:red; font-weight:bold;" id="reset_email_error"></small>
-                                    <input name="Email" type="text" class="form-control" id="reset_email">
+                                    <input name="Email" type="text" class="form-control" id="reset_email" placeholder="abc@xyz.com">
                                     <div class="col-sm-0 col-sm-offset-1 " style="margin-top:10px;">
                                         <input id="btn1" type='button' class='btn btn-finish btn-primary pull-right'
                                             name='Enter' value='NEXT' />
@@ -57,7 +68,9 @@
                                 <div class="form-group" id="display1" style="display: none;" >
                                     <label>Enter OTP sent to your Mail: <small>(required)</small>  
                                         <a id="resend_otp_a" style="cursor: pointer;">Resend OTP</a> </label> <small style="color:red; font-weight:bold;" id="reset_otp_error"></small><br>
-                                    <input  type="password" id="reset_otp" name="otp" class="col-sm-6 form-control" max_length="4"><br>
+                                        
+                                        <input  type="password" id="reset_otp" name="otp" class="col-sm-6 form-control" max_length="4" placeholder="0000"><br>
+                                        
                                     <div class="col-sm-0 col-sm-offset-1" style="margin-top:30px;">
                                         <input id="btn2" type='button' class='btn btn-finish btn-primary pull-right'
                                             name='Enter  OTP' value='NEXT' />
@@ -68,12 +81,17 @@
                                 </div>
                                 <div id="display2" style="display: none;">
                                     <div class="form-group">
+                                        
                                         <label>New Password <small>(required)</small></label> <small style="color:red; font-weight:bold;" id="reset_pass_error"></small>
-                                        <input name="Password" type="password" class="form-control" id="new_password">
+                                        <div style="display:flex;">
+                                        <input name="Password" type="password" class="form-control" id="new_password" placeholder="********"><i class="bi bi-eye-slash toggle_password" style="font-size:25px;"></i>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Confirm New password : <small>(required)</small></label> <small style="color:red; font-weight:bold;" id="reset_cnfrm_pass_error"></small>
-                                        <input type="password" class="form-control" id="confirm_new_password">
+                                        <div style="display:flex;">
+                                        <input type="password" class="form-control" id="confirm_new_password" placeholder="********"><i class="bi bi-eye-slash toggle_password" style="font-size:25PX;"></i>
+                                        </div>
                                     </div>
                                     <div class="col-sm-0 col-sm-offset-1">
                                         <input type='button' class='btn btn-finish btn-primary pull-right' name='update'
@@ -308,6 +326,12 @@ function update_pass(){
     //resend otp
     document.getElementById("resend_otp_a").addEventListener("click",function(){
         send_email_reset();
+    });
+
+    $(".toggle_password").click(function(e){
+        e.preventDefault();
+        var thiss=$(this);
+        show_hide_password(thiss);
     });
 
     

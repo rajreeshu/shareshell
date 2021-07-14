@@ -144,12 +144,7 @@
                                 <br>
                                 <p>
 
-                                    Launched in 2021, SHARESHELL COMPANY, basically a property portal, dealing with
-                                    every aspect of costumer's need in the real estate industry.
-
-                                    The company is inspired by the appreciation that properties get nowadays in the
-                                    global market and got interest in how price of properties is escalating rapidly
-                                    due to development and globalization.
+                                SHARESHELL Company is launched in 2021, basically a property portal, dealing with every aspect of customers ' needs in the real estate industry. The company is inspired by the appreciation that properties get nowadays in the global market and interested rest in how the price of properties is escalating rapidly due to development and globalization.
 
                                 </p>
                                 <hr>
@@ -167,16 +162,7 @@
 
 
                                 <p>
-                                    <span><strong>SHARESHELL</strong></span> will help you precisely take that one
-                                    decision right in your life. It is
-                                    basically an online forum where buyers, sellers and brokers/agents are free to
-                                    exchange information/queries about real estate properties quickly, effectively
-                                    inexpensively. One can advertise property, search property (searches can be
-                                    customized accordingly),browse through various properties etc.
-
-                                    Whether one looking for office space, retail locations, land or preleased space, WE
-                                    ARE HERE TO HELP! Help you to find, sell or lease the RIGHT SPACE, in RIGHT PLACE at
-                                    RIGHT PRICE.
+                                    <span><strong>SHARESHELL</strong></span> will help you precisely take that one decision right in your life. It is an online forum where buyers, sellers, and brokers/agents are free to exchange information/queries about real estate properties quickly, effectively inexpensively. One can advertise the property, search property (searches can be customized accordingly), browse through various properties, etc. Whether one looking for office space, retail locations, land, or preleased space, WE ARE HERE TO HELP! Help you to find, sell or lease the RIGHT SPACE, in RIGHT PLACE at RIGHT PRICE.
                                 </p>
                                 <hr>
                             </div>
@@ -188,10 +174,8 @@
                                 
                                 
                                 <p>
-                                    <b>To be the first choice for our consumers and partners in their journey of
-                                        discovering, renting, buying, selling and financing a home. We do that with data,
-                                        design, technology, and above all the passion of our people, while delivering value
-                                        to our shareholders.</b>
+                                    <b>To be the first choice for our consumers and partners in their journey of finding the best home for their residence at an affordable price. We do that with data, design, technology, and above all the passion of our people while delivering value to our shareholders.
+We exist to accelerate our customer's progress, keeping them relevant in the digital economy and directly contributing to their success.</b>
 
 
                                 </p>
@@ -206,7 +190,8 @@
                                 
                                 
                                 <p>
-                                    <b>Delivering trustworthy experiences that you cherish for a lifetime.</b>
+                                    <b>Delivering trustworthy experiences that you cherish for a lifetime. we build strong relationships and alliances to achieve success for the long term.
+We also provide a platform for our interns, employees to enhance their knowledge and skills.</b>
 
 
                                 </p>

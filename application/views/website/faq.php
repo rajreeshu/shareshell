@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                         <!-- /.feature title -->
-                        <h2>Our terms </h2>
+                        <h2>Frequently Asked Questions </h2>
                         <br>
                     </div>
                 </div>

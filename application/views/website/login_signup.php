@@ -13,6 +13,7 @@
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 
     </head>
     <body>
@@ -20,7 +21,14 @@
     $this->load->view('website/link_import');
     $this->load->view('website/header');
 ?>  
-
+<style>
+.form-group i{
+            margin-left: -38px;
+            cursor: pointer;
+            font-size:2em
+            
+        }
+</style>
     
      
         <!-- End of nav bar -->
@@ -61,11 +69,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password *</label> &nbsp <b><span class="text-danger mr-1" id="signup_password_error"></span></b> 
-                                    <input type="password" class="form-control" id="signup_password" placeholder="********">
+                                    <div style="display:flex;">
+                                    <input type="password" class="form-control" id="signup_password" placeholder="********"><i class="bi bi-eye-slash toggle_password" style="size:30em;"></i>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Confirm Password *</label> &nbsp <b><span class="text-danger mr-1" id="signup_re_password_error"></span></b> 
-                                    <input type="password" class="form-control" id="signup_re_password" placeholder="********">
+                                    <div style="display:flex;">
+                                    <input type="password" class="form-control" id="signup_re_password" placeholder="********"><i class="bi bi-eye-slash toggle_password" style="size:30em;"></i>
+                                    </div>
                                 </div>
                                 <div class="text-center" style=" ">
                                     <button type="submit" class="btn btn-default align-content-center" style="width:100px;" id="signup_submit" value="Register">Register</button>
@@ -88,7 +100,9 @@
                                 <div class="form-group">
                                     <label for="password">Password</label> &nbsp <b><span class="text-danger mr-1" id="login_password_error"></span></b> 
 
-                                    <input type="password" class="form-control" placeholder="********" id="login_password">
+                                    <div style="display:flex;">
+                                    <input type="password" class="form-control" placeholder="********" id="login_password"><i class="bi bi-eye-slash toggle_password" style="size:30em;"></i>
+                                    </div>
                                     &nbsp <small>
 
                                     <a href="<?=base_url('main/forgetpassword');?>" id="forget_password">Forgot password ?</a> </small>
@@ -470,7 +484,11 @@ $("#login_submit").click(function(e){
 
 }); 
 
-
+$(".toggle_password").click(function(e){
+        e.preventDefault();
+        var thiss=$(this);
+        show_hide_password(thiss);
+    });
 
 
 

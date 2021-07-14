@@ -18,9 +18,9 @@
                                 <br>
                                 
                                 <ul class="footer-adress">
-                                    <li><i class="pe-7s-map-marker strong"> </i> flat no.3 behind DN Regalia,Bhubaneswar,Odisha,India.</li>
+                                    <li><i class="pe-7s-map-marker strong"> </i> flat no.3, Bhubaneswar, <br><span style="margin-left:23px;">Odisha, India.</span></li>
                                     <li><i class="pe-7s-mail strong"> </i> contactus@shareshell.in</li>
-                                    <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
+                                    <li><i class="pe-7s-call strong"> </i> +91 78723 90186</li>
                                 </ul>
                             </div>
                         </div>
@@ -30,11 +30,11 @@
                                 <div class="footer-title-line"></div>
                                 <ul class="footer-menu">
                                     <li><a href="<?=base_url('properties')?>">Properties</a>  </li> 
-                                    <li><a href="#">Services</a>  </li> 
+                                    <!-- <li><a href="#">Services</a>  </li>  -->
                                     <li><a href="<?=base_url('main/submit_property')?>">Submit property </a></li> 
                                     <li><a href="<?=base_url('contact')?>">Contact us</a></li> 
                                     <li><a href="<?=base_url('faq')?>">faq</a>  </li> 
-                                    <li><a href="<?=base_url('main/termsconditions')?>">Terms </a>  </li> 
+                                    <li><a href="<?=base_url('main/termsconditions')?>">Terms and Conditions </a>  </li> 
                                 </ul>
                             </div>
                         </div>

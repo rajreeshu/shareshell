@@ -29,7 +29,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Contact page</h1>               
+                        <h1 class="page-title">Contact Us</h1>               
                     </div>
                 </div>
             </div>
@@ -45,29 +45,27 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <h3><i class="fa fa-map-marker"></i> Address</h3>
-                                    <p>flat no.3 behind DN Regalia
-                                        <br>Bhubaneswar
-                                        <br>Odisha
+                                    <p>flat no.3,
+                                        Bhubaneswar
+                                        <br>Odisha, India
                                         <br>
-                                        <strong>India</strong>
+                                        <!-- <strong>India</strong> -->
                                     </p>
                                 </div>
                                 <!-- /.col-sm-4 -->
                                 <div class="col-sm-4">
                                     <h3><i class="fa fa-phone"></i> Call center</h3>
-                                    <p class="text-muted">This number is toll free if calling from
-                                        Great Britain otherwise we advise you to use the electronic
-                                        form of communication.</p>
-                                    <p><strong>+33 555 444 333</strong></p>
+                                    <p class="text-muted">please feel comfortable calling us at any time you want, we are available 23x7.</p>
+                                    <p><strong>+91 78723 90186</strong></p>
                                 </div>
                                 <!-- /.col-sm-4 -->
                                 <div class="col-sm-4">
                                     <h3><i class="fa fa-envelope"></i> Electronic support</h3>
-                                    <p class="text-muted">Please feel free to write an email to us or to use our electronic ticketing system.</p>
-                                    <ul>
+                                    <p class="text-muted">Please feel free to write an email whenever you feel any difficulty.</p>
+                                    <!-- <ul>
                                         <li><strong><a href="mailto:">info@company.com</a></strong>   </li>
                                         <li><strong><a href="#">Ticketio</a></strong> - our ticketing support platform</li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                                 <!-- /.col-sm-4 -->
                             </div>

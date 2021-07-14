@@ -18,3 +18,9 @@ function isEmail(email) {
 function get_thumb_name(name){
     return name.split('.').slice(0, -1).join('.')+"_thumb."+name.substr(name.lastIndexOf('.') + 1);
 }
+
+function show_hide_password(thiss){
+    var new_inp_type=thiss.siblings("input").attr("type")=="password"?"text":"password";
+    thiss.siblings("input").attr("type",new_inp_type);
+    thiss.toggleClass('bi-eye');    
+}

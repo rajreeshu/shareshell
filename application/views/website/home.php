@@ -215,12 +215,12 @@
                         <div class="col-md-5 col-sm-6 col-xs-12">
                             <div  class="welcome_services wow fadeInRight" data-wow-delay="0.3s" data-wow-offset="100">
                                 <div class="row">
-                                    <div class="col-xs-6 m-padding">
+                                    <div class="col-xs-6 m-padding" id="center_card_show_properties">
                                         <div class="welcome-estate">
                                             <div class="welcome-icon">
                                                 <i class="pe-7s-home pe-4x"></i>
                                             </div>
-                                            <h3>Any property</h3>
+                                            <h3>Listed Properties</h3>
                                         </div>
                                     </div>
                                     <div class="col-xs-6 m-padding">
@@ -228,7 +228,7 @@
                                             <div class="welcome-icon">
                                                 <i class="pe-7s-users pe-4x"></i>
                                             </div>
-                                            <h3>More Clients</h3>
+                                            <h3>Our Clients</h3>
                                         </div>
                                     </div>
 
@@ -242,10 +242,10 @@
                                             <div class="welcome-icon">
                                                 <i class="pe-7s-notebook pe-4x"></i>
                                             </div>
-                                            <h3>Easy to use</h3>
+                                            <h3>User Manual</h3>
                                         </div>
                                     </div>
-                                    <div class="col-xs-6 m-padding">
+                                    <div class="col-xs-6 m-padding" id="center_card_contact">
                                         <div class="welcome-estate">
                                             <div class="welcome-icon">
                                                 <i class="pe-7s-help2 pe-4x"></i>
@@ -444,25 +444,13 @@
     var property_list="";
 
 
-//scroll check
-//     var position = $(window).scrollTop(); 
+    $("#center_card_show_properties").click(function(){
+        window.location.href = "<?=base_url('properties')?>";
+    });
 
-// // should start at 0
-
-// $(window).scroll(function() {
-//     var scroll = $(window).scrollTop();
-//     console.log("Scroll :- "+scroll);
-//     if(scroll > position) {
-//         //scroll down
-//         $("#whatsapp_btn_chat").fadeOut(100);
-//         $("fb_btn_chat").fadeOut(100);
-//     } else {
-//         //scroll up
-//         $("#whatsapp_btn_chat").fadeIn(100);
-//         $("#fb_btn_chat").fadeIn(100);
-//     }
-//     position = scroll;
-// });
+    $("#center_card_contact").click(function(){
+        window.location.href = "<?=base_url('contact')?>";
+    });
 
     $(".box-tree").click(function(event) {
         event.preventDefault();
