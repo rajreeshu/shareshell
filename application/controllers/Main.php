@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller { 
 
+	public function __construct()
+        {
+                parent::__construct();
+                $this->check_logged_in();
+        }
 
 	public function index(){
 		
@@ -81,6 +86,7 @@ class Main extends CI_Controller {
 	}
 
 	public function account(){
+		// $this->check_logged_in();
 		if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
 			$this->load->view('website/useraccount');	
 		}else{
@@ -134,6 +140,18 @@ class Main extends CI_Controller {
 
 	public function my404(){
 		$this->load->view('website/404');
+	}
+
+
+
+	//private function
+	private function check_logged_in(){
+		if(!$this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
+			if($cookie_value=$this->encrypt->decode($this->input->cookie('remember_me_shareshell', TRUE))){ 
+				$this->session->unset_userdata('user_id_shareshell');
+				$this->session->set_userdata('user_id_shareshell',$cookie_value);
+			}
+		}
 	}
 
 }

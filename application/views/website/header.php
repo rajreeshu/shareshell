@@ -1,12 +1,7 @@
 
 <?php
 
-    if(!$this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
-        if($cookie_value=$this->encrypt->decode($this->input->cookie('remember_me_shareshell', TRUE))){ 
-            $this->session->unset_userdata('user_id_shareshell');
-		    $this->session->set_userdata('user_id_shareshell',$cookie_value);
-        }
-    }
+    
 
     if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
         $submit_property_button="<a class=\"navbar-btn nav-button\" href=\"".base_url('main/submit_property')."\" data-wow-delay=\"0.5s\" style=\"position:relative; top:10px;\"><B>PostProperty<span style=\"color: red; top:10px;\"> FREE</b></span></a>";

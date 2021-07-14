@@ -497,6 +497,24 @@ public function logout_account(){
 
 }
 
+public function update_user_data(){
+
+	$input=$this->security->xss_clean($this->input->post());
+	if($input['field']=='username'){
+		$username_chk=$this->db->select('username')->where('username',$input['value'])->get('user_detail')->row();
+		if($username_chk==null){
+			$data['data']=$this->db->where('sn',$input['user_id'])->update('user_detail',[$input['field']=>$input['value']]);
+		}else{
+			$data['data']='username already taken';
+		}
+	}else{
+		$data['data']=$this->db->where('sn',$input['user_id'])->update('user_detail',[$input['field']=>$input['value']]);
+	}
+	
+
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
 
 
 public function upload_property_image(){
