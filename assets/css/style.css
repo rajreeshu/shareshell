@@ -2385,7 +2385,7 @@ count-area
 }
 
 .asks-first{
-    background-color: rgb(225, 225, 225);
+    background-color: rgb(78, 78, 78);
     padding: 35px 0px 35px 30px;
     position: relative;
     cursor: pointer;
@@ -2400,7 +2400,7 @@ count-area
     float: left;
     width: 70px;
     height: 70px;
-    border: 2px solid #9C9C9C;
+    border: 2px solid #FDC600;
     border-radius: 100%;
     text-align: center;
     margin-right: 15px;
@@ -2431,7 +2431,7 @@ count-area
     width: 60px;
     height: 100%;
     float: right;
-    background: rgba(0, 0, 0, 0.07) none repeat scroll 0% 0%;
+    background: #FDC600 none repeat scroll 0% 0%;
     text-align: center;
 }
 .asks-first-arrow span {
