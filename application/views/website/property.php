@@ -138,7 +138,7 @@
         <div class="container">
             <div class="row">
                 <div class="page-head-content">
-                    <h1 class="page-title" id="property_name" style="margin-left:15px;">Property Name</h1>
+                    <h1 class="page-title" id="property_name" style="margin-left:15px;;">Property Name</h1>
                 </div>
             </div>
         </div>
@@ -244,6 +244,14 @@
                                     pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies
                                     commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl.
                                     Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies </p>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <h4 class="s-property-title">Address</h4>
+                            <div class="s-property-content" id="property_description">
+                                <p>Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse
+                                    ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec
+                                     </p>
                             </div>
                         </div>
                         <!-- End description area  -->
