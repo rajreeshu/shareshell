@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
-<html class="no-js"> <!--<![endif]-->
+
+<html class="no-js">
     <head>
         <link rel="icon" href="<?=base_url('assets/img/logo-sm.jpg');?>" type="image/x-icon">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"3>
         <title>Houses for rent | Shareshell</title>
-        <meta name="description" content="Eagerly searching for best houses for rent in your city? shareshell is the best platform to provide you the best place for residence.">
+        <meta name="Description" content="Eagerly searching for best houses for rent in your city? shareshell is the best platform to provide you the best place for residence.">
         <meta name="author" content="ShareShell">
         <meta name="keyword" content="Houses for rent, shareshell">
         <meta name="viewport" content="width=device-width, initial-scale=1">

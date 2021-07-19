@@ -359,15 +359,24 @@ public function upload_blog_image(){
 
 public function upload_blog(){
 	$input=$this->security->xss_clean($this->input->post());
+	$blog_body=$_POST['blog_body'];
 	$insert_data=array(
 		'writer_id'=>$input['writer_id'],
 		'blog_heading'=>$input['blog_heading'],
-		'blog_body'=> $input['blog_body'],
+		'blog_body'=> $blog_body,
 		'blog_category'=> $input['blog_category'],
 		'blog_date'=>date('Y-m-d')
 	);
 	$this->db->insert('blog',$insert_data);
 	$data['blog_id']=$this->db->insert_id();
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
+public function get_blog_data(){
+	$input=$this->security->xss_clean($this->input->post());
+	$data['blog']=$this->db->select('writer_id,blog_heading,blog_body,blog_image,blog_category,blog_date')->where('blog_id',$input['blog_id'])->get("blog")->row();
+	$data['writer']=$this->db->select('first_name,last_name')->where("sn",$data['blog']->writer_id)->get("user_detail")->row();
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 }

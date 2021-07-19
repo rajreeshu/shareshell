@@ -24,6 +24,7 @@ class Email_model extends CI_Model{
 	}
 
 	public function contact_owner_sendEmail($input){
+		$body=$this->load->view('email_template/contact_owner',['input'=>$input],true);
 		$headers = "Organization: Shareshell inc\r\n";
 		$headers .= "MIME-Version: 1.0\r\n";
 		$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
@@ -33,8 +34,8 @@ class Email_model extends CI_Model{
 		$headers .='Reply-To: '.$input["name"]. '<'.$input['email'].'>'; 
 		$success=1;
 		
-		$body='<b>name : '.$input['name']." <br> Phone no :  ".$input['phone']."<br> Email :- ".$input['email']."<br> Subject : Want to Contact you for Property Posted on Shareshell.in<br>";
-
+		// $body='<b>name : '.$input['name']." <br> Phone no :  ".$input['phone']."<br> Email :- ".$input['email']."<br> Property ID :".$input['property_id']." Subject : Want to Contact you for Property Posted on Shareshell.in<br>";
+		// $body .='<img src="'.$input['property_img'].'>"';
 		$success = mail($input['owner_email'], 'Want to Contact you for Property Posted on Shareshell.in',$body,$headers);
 
 		if(!$success){

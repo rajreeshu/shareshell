@@ -387,7 +387,7 @@ function load_page_content(page_no){
         type:"POST",
         async:false,
         data:{
-            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            "<?php echo $this->security->get_csrf_token_name();?>":key, 
             search_text:$("#search_box").val(),
             items_per_page:$("#items_per_page").val(),
             page_no:page_no,

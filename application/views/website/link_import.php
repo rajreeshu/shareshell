@@ -22,5 +22,5 @@
         <link rel="stylesheet" href="<?=base_url();?>assets/css/owl.carousel.css">  
         <link rel="stylesheet" href="<?=base_url();?>assets/css/owl.theme.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/css/owl.transitions.css">
-        <link rel="stylesheet" href="<?=base_url();?>assets/css/style.css?v=87687">
+        <link rel="stylesheet" href="<?=base_url();?>assets/css/style.css?v=1.1">
         <link rel="stylesheet" href="<?=base_url();?>assets/css/responsive.css?v=18768">

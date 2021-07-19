@@ -239,18 +239,13 @@
                         <div class="section">
                             <h4 class="s-property-title">Description</h4>
                             <div class="s-property-content" id="property_description">
-                                <p>Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse
-                                    ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec
-                                    pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies
-                                    commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl.
-                                    Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies </p>
+                                <p></p>
                             </div>
                         </div>
                         <div class="section">
                             <h4 class="s-property-title">Address</h4>
-                            <div class="s-property-content" id="property_description">
-                                <p>Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse
-                                    ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec
+                            <div class="s-property-content" id="property_address">
+                                <p>
                                      </p>
                             </div>
                         </div>
@@ -578,6 +573,7 @@
         var key = "<?php echo $this->security->get_csrf_hash(); ?>";
 
         var property_by = "";
+        var property_main_img="";
 
 
         $.ajax({
@@ -599,12 +595,15 @@
                 //start
                 // thumb_img=data.data.main_image.split('.').slice(0, -1).join('.')+"_thumb."+data.data.main_image.substr(data.data.main_image.lastIndexOf('.') + 1);
 
+                property_main_img=data.data.main_image;
+
                 $("#property_name").html(data.data.name);
                 $("#main_img_thumb").attr('data-thumb', '<?=base_url("utility/main_image/");?>' + get_thumb_name(data.data.main_image));
                 $("#main_img_slider").attr('src', '<?=base_url("utility/main_image/");?>' + data.data.main_image);
                 $("#property_city").html("Property In " + data.data.city);
                 $("#property_price").html("&#8377 " + data.data.price);
                 $("#property_description").html(data.data.description);
+                $("#property_address").html(data.data.address+",<br>"+data.data.city);
                 $("#property_addon").html("<h3>" + data.data.addon.slice(0, -1).toUpperCase() + "</h3>");
 
 
@@ -683,6 +682,8 @@ $("#owner_submit_detail").click(function(){
                 name:$("#owner_name").val(),
                 phone:$("#owner_phone").val(),
                 email:$("#owner_email").val(),
+                property_id:"<?= $property_no;?>",
+                property_img:'<?=base_url("utility/main_image/");?>' + property_main_img,
                 owner_email:property_by
             },
             dataType: "json",

@@ -168,48 +168,58 @@
 <table cellpadding="0" cellspacing="0" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" valign="top" width="100%">
 <tr style="vertical-align: top;" valign="top">
 <td align="center" style="word-break: break-word; vertical-align: top; padding-bottom: 0px; padding-left: 10px; padding-right: 10px; padding-top: 0px; text-align: center; width: 100%;" valign="top" width="100%">
-<h2 style="color:#191919;direction:ltr;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:30px;font-weight:normal;letter-spacing:normal;line-height:120%;text-align:center;margin-top:0;margin-bottom:0;"><strong>We’ve sent a bag of happiness your way!</strong></h2>
+<h2 style="color:#191919;direction:ltr;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:30px;font-weight:normal;letter-spacing:normal;line-height:120%;text-align:center;margin-top:0;margin-bottom:0;"><strong>Someone wants to Connet You.</strong></h2>
 </td>
 </tr>
 </table>
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#393d47;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:0px;padding-left:10px;">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; line-height: 1.2; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #393d47; mso-line-height-alt: 17px;">
-<p style="margin: 0; font-size: 18px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 22px; margin-top: 0; margin-bottom: 0;"><span style="font-size: 18px;">And this email also contains a piece of that happiness.</span></p>
+<p style="margin: 0; font-size: 18px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 22px; margin-top: 0; margin-bottom: 0;"><span style="font-size: 18px;">Regarding one of the Property Listed on Shareshell.in</span></p><br>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 <div align="center" class="img-container center autowidth" style="padding-right: 0px;padding-left: 0px;">
-<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Image of House" border="0" class="center autowidth" src="<?=base_url();?>assets/img/slide1/slider-image-3.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 600px; max-width: 100%; display: block;" title="Image of three burgers" width="600"/>
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Image of House" border="0" class="center autowidth" src="<?=$input['property_img'];?>" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: 250px; border: 2px solid yellow; width: 600px; width:auto; max-width: 100%; min-width:50%; display: block; object-fit:cover; border-radius:10px;" title="Image of three burgers" width="600"/>
 <!--[if mso]></td></tr></table><![endif]-->
 </div>
 <table cellpadding="0" cellspacing="0" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" valign="top" width="100%">
 <tr style="vertical-align: top;" valign="top">
 <td align="center" style="word-break: break-word; vertical-align: top; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px; text-align: center; width: 100%;" valign="top" width="100%">
-<h1 style="color:#ffffff;direction:ltr;font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:23px;font-weight:normal;letter-spacing:normal;line-height:120%;text-align:center;margin-top:0;margin-bottom:0;"><span style="background-color: #ffcc00;">  Order No: 123456  </span></h1>
+<a href="https://shareshell.in/property?id=<?=$input['property_id'];?>" style="text-decoration:none;">
+<h1 style="color:#ffffff;direction:ltr;font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:23px;font-weight:normal;letter-spacing:normal;line-height:120%;text-align:center;margin-top:0;margin-bottom:0;"><span style="background-color: #ffcc00;padding-bottom:5px; padding-top:3px; border-radius:5px; box-shadow:0px 3px 3px #d0d0d0;">  Property Id: <?=$input['property_id'];?>  </span></h1>
+</a>
 </td>
 </tr>
 </table>
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#393d47;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:1.2;padding-top:15px;padding-right:10px;padding-bottom:0px;padding-left:10px;">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; line-height: 1.2; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #393d47; mso-line-height-alt: 17px;">
-<p style="margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><strong><span style="font-size: 24px;">Your order is on its way to you, and now is the right moment for us to say Thank You!</span></strong></p>
+<p style="margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><strong><span style="font-size: 24px;">Contact to the Person. Details are Given Below.</span></strong></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#393d47;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; line-height: 1.2; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #393d47; mso-line-height-alt: 17px;">
-<p style="margin: 0; font-size: 16px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 19px; margin-top: 0; margin-bottom: 0;"><span style="font-size: 16px;">Use the number of this order to get <strong>5% off</strong> on the next one. You can do that simply by typing in the number on the Discount Code field when placing the order through the app or the website, or by showing this email to the waiter if you’re ordering at the restaurant.</span></p>
+<p style="margin: 0; font-size: 16px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 19px; margin-top: 0; margin-bottom: 0;"></p>
+<div style="padding-left:20px; font-size:15px; line-height:20px;">
+<strong>Name : </strong> <?=$input['name'];?><br>
+<strong>Email : </strong><?=$input['email'];?><br>
+<strong>Phone no : </strong><?=$input['phone'];?> <br>
+<!-- <strong>Name : </strong> Reeshu raj <br> -->
+<strong>Property link:</strong> <a href="https://shareshell.in/property?id=<?=$input['property_id'];?>">https://shareshell.in/property?id=<?=$input['property_id'];?></a><br>
+</div>
+
 <p style="margin: 0; font-size: 16px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 19px; margin-top: 0; margin-bottom: 0;"> </p>
-<p style="margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><span style="font-size: 14px;">Please note: A Discount code can only be used once.</span></p>
+<p style="margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><span style="font-size: 20px;">Have a nice Conversation.</span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 <table cellpadding="0" cellspacing="0" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" valign="top" width="100%">
 <tr style="vertical-align: top;" valign="top">
 <td align="center" style="word-break: break-word; vertical-align: top; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 15px; text-align: center; width: 100%;" valign="top" width="100%">
-<h1 style="color:#ffffff;direction:ltr;font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:24px;font-weight:normal;letter-spacing:normal;line-height:120%;text-align:center;margin-top:0;margin-bottom:0;"><strong><span style="color: #ffcc00;">Bon Appétit!</span></strong></h1>
+<h1 style="color:#ffffff;direction:ltr;font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:24px;font-weight:normal;letter-spacing:normal;line-height:120%;text-align:center;margin-top:0;margin-bottom:0;"><strong><span style="color: #ffcc00;">Thank You for using Shareshell &hearts; &hearts; &hearts;</span></strong></h1>
 </td>
 </tr>
 </table>
@@ -269,7 +279,7 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#C0C0C0;font-family:Helvetica Neue, Helvetica, Arial, sans-serif;line-height:1.2;size:12;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div class="txtTinyMce-wrapper" style="color: #C0C0C0; font-size: 12px; line-height: 1.2; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; size: 12; mso-line-height-alt: 14px;">
-<p style="margin: 0; font-size: 12px; line-height: 1.2; text-align: center; word-break: break-word; mso-line-height-alt: 14px; margin-top: 0; margin-bottom: 0;"><span style="color: #C0C0C0;">Copyright © 2021 Shareshell.in</span></p>
+<p style="margin: 0; font-size: 12px; line-height: 1.2; text-align: center; word-break: break-word; mso-line-height-alt: 14px; margin-top: 0; margin-bottom: 0;"><span style="color: #C0C0C0;">Copyright © 2021 | Shareshell.in</span></p>
 <!-- <p style="margin: 0; font-size: 12px; line-height: 1.2; text-align: center; word-break: break-word; mso-line-height-alt: 14px; margin-top: 0; margin-bottom: 0;"><span style="color: #C0C0C0;"><br/>Changed your mind?<br/>You can <a href="{{ unsubscribe_link }}" rel="noopener" style="color: #c0c0c0;" target="_blank">unsubscribe</a> at any time.</span></p> -->
 </div>
 </div>

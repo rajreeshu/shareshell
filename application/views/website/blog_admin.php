@@ -100,8 +100,6 @@
 
    </div>
 
-   <button onclick="compress_image_jic()">Compress</button>
-   <button onclick="upload_image_jic('new_file')">Upload</button>
 
 
 <?php
@@ -234,8 +232,9 @@ document.getElementById("blog_image").addEventListener("change", readFile, false
             $("#preview_heading").html(heading);
             $("#preview_category").html(category);
             $("#post-content").html(blog_body);
-
+            compress_image_jic();
             previewFile();
+
 
             $("#form_row").fadeOut(300);
             $("#preview_div").fadeIn(300);
@@ -261,6 +260,7 @@ document.getElementById("blog_image").addEventListener("change", readFile, false
         var category=$("#blog_category").val();
         var blog_body=$("#blog_body").val();
         e.preventDefault();
+        
         console.log("he");
         $.ajax({
             url: "<?=base_url('main_helper/upload_blog');?>",
@@ -276,10 +276,11 @@ document.getElementById("blog_image").addEventListener("change", readFile, false
             dataType:"json",
             success:function(data){
                 console.log(data);
-                compress_image_jic();
+                // compress_image_jic();
                 upload_image_jic(data.blog_id);
                 key=data.key;
                 alert("blog Submitted");
+                location.href="<?=base_url('main/blog?id=');?>"+data.blog_id;
             },
             error:function(data){
                 console.log(data);

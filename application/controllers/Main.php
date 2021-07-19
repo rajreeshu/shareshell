@@ -136,6 +136,13 @@ class Main extends CI_Controller {
 		}
 	}
 
+	public function blogs(){
+		$this->load->view("website/blogs");
+	}
+
+	public function blog(){
+		$this->load->view("website/blog_page");
+	}
 
 
 	public function my404(){
@@ -143,9 +150,17 @@ class Main extends CI_Controller {
 	}
 
 
-	public function test(){
-		$this->load->view('email_template/contact_owner');
-	}
+	// public function test(){
+	// 	$input=array(
+	// 		"name"=>"reeshu",
+	// 		"phone"=>"89798798",
+	// 		"email"=>"dsklfh@lkdfash.com",
+	// 		"property_id"=>"787",
+	// 		"property_img"=>"https://wallpapercave.com/wp/wp5326049.jpg",
+			
+	// 	);
+	// 	$this->load->view('email_template/contact_owner',["input"=>$input]);
+	// }
 
 
 	//private function

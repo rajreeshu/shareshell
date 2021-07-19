@@ -129,7 +129,10 @@
 
     $this->load->view('website/js_import');
 ?>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoIazJ1jMajTPdU5gy1KphnjBmU9jvpNw&callback=initMap"></script>
+        <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-QGB_cDyhjCYj9bg09hGlKusbALDfsJA&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
         <!-- <script src="assets/js/gmaps.js"></script>        
         <script src="assets/js/gmaps.init.js"></script> -->
         
