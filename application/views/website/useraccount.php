@@ -53,6 +53,9 @@
     /* .input{
         display:none;
     } */
+    .edit_btn{
+        display:none;
+    }
     
 </style>
 
@@ -84,7 +87,7 @@
                     
                         <div class="profiel-header">
                             <h3>
-                                <b> YOUR PROFILE</b><br>
+                                <b id="your_profile_heading"> YOUR PROFILE</b><br>
                                 <small>This information will let us know more about you.</small>
                             </h3>
                             <hr>
@@ -255,7 +258,7 @@
             
             <div class="col-sm-4 col-sm-offset-2 float-right" style="">
                 <br>
-                <a href="#"><input type='button' class='btn btn-finish btn-primary' name='See your submitted property' value='Edit Profile' /></a>
+                <a href="#" id="edit_profile_btn"><input type='button' class='btn btn-finish btn-primary' name='See your submitted property' value='Edit Profile' /></a>
             </div>
             
 
@@ -284,6 +287,22 @@
 
     $("#account_button_header").text("Logout");
     $("#account_button_header").attr("href","<?=base_url('main_helper/logout_account');?>");
+
+    $("#edit_profile_btn").click(function(e){
+        e.preventDefault();
+        $(".edit_btn").toggle();
+        this_val=$(this).children().val();
+        if(this_val=="Edit Profile"){
+            $(this).children().val("Save Changes");
+            $("#your_profile_heading").html("EDIT PROFILE");
+            
+        }else{
+            $(this).children().val("Edit Profile");
+            $("#your_profile_heading").html("YOUR PROFILE")
+        }
+
+        
+    });
 
     // $("#account_button_header").click(function(e){
     //     e.preventDefault();
@@ -367,7 +386,7 @@ load_content();
     });
 
     $(".edit-details-gender").click(function() {
-        // $(this).hide();
+        $(this).hide();
         $(this).parent().append(select_gender_update);
     });
 

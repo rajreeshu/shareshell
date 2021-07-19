@@ -143,6 +143,10 @@ class Main extends CI_Controller {
 	}
 
 
+	public function test(){
+		$this->load->view('email_template/contact_owner');
+	}
+
 
 	//private function
 	private function check_logged_in(){
