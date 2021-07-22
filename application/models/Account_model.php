@@ -31,7 +31,7 @@ class Account_model extends CI_Model{
     
 public function property_detail($input){
 
-	$this->db->select('sn,name,price,main_image,description,avail,city,status,type');
+	$this->db->select('sn,name,price,main_image,description,avail,city,status,type,address,min_bed');
 	
 	if(isset($input['search_text'])&&$input['search_text']!=""){
 		$search_text=$input['search_text'];
@@ -80,8 +80,6 @@ public function property_detail($input){
 }
 
 public function getallpropertylist($input){
-
-	
 
     if(isset($input['filter_addon'])){
 		if(gettype($input['filter_addon'])=="string"){

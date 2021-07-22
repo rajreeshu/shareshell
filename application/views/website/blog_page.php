@@ -38,10 +38,10 @@
 
                             <div class="post-header single">
                                 <div class="">
-                                    <h2 class="wow fadeInLeft animated" id="blog_title"></h2>
-                                    <div class="title-line wow fadeInRight animated"></div>
+                                    <h2 class="" id="blog_title"></h2>
+                                    <div class="title-line"></div>
                                 </div>
-                                <div class="row wow fadeInRight animated">
+                                <div class="row">
                                     <div class="col-sm-6">
                                         <p class="author-category">
                                             By <a href="#" id="blog_writer"></a>
@@ -63,7 +63,7 @@
                             <div id="post-content" class="post-body single">
 
                             </div>
-                            <div class="post-footer single wow fadeInBottum animated">
+                            <div class="post-footer single">
                                 <ul class="pager">
                                     <li class="previous"><a href="#"><i class=""></i>← Older </a></li>
                                     <li class="next disabled"><a href="#">Newer →<i class=""></i> </a></li>
@@ -76,8 +76,8 @@
 
                         </section>
 
-                        <section id="comments" class="comments wow fadeInRight animated"> 
-                            <h4 class="text-uppercase wow fadeInLeft animated">3 comments</h4>
+                        <section id="comments" class="comments"> 
+                            <h4 class="text-uppercase ">3 comments</h4>
 
 
                             <div class="row comment">
@@ -120,9 +120,9 @@
                         </section>
 
                         <section id="comment-form" class="add-comments">
-                            <h4 class="text-uppercase wow fadeInLeft animated">Leave comment</h4>
+                            <h4 class="text-uppercase">Leave comment</h4>
                             <form>
-                                <div class="row wow fadeInLeft animated">
+                                <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="name">Name <span class="required">*</span>
@@ -132,7 +132,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row wow fadeInLeft animated">
+                                <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="email">Email <span class="required">*</span>
@@ -142,7 +142,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row wow fadeInLeft animated">
+                                <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="comment">Comment <span class="required">*</span>
@@ -152,7 +152,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row wow fadeInLeft animated">
+                                <div class="row">
                                     <div class="col-sm-12 text-right">
                                         <button class="btn btn-primary"><i class="fa fa-comment-o"></i> Post comment</button>
                                     </div>
@@ -163,7 +163,7 @@
 
                     
                     <div class="blog-asside-right col-md-3">
-                        <div class="panel panel-default sidebar-menu wow fadeInRight animated" >
+                        <div class="panel panel-default sidebar-menu " >
                             <div class="panel-heading">
                                 <h3 class="panel-title">Text widget</h3>
                             </div>
@@ -173,7 +173,7 @@
                             </div>
                         </div>
 
-                        <div class="panel panel-default sidebar-menu wow  fadeInRight animated">
+                        <div class="panel panel-default sidebar-menu ">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Search</h3>
                             </div>
@@ -193,7 +193,7 @@
 
                         
                         
-                            <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                            <div class="panel panel-default sidebar-menu ">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Recommended</h3>
                                 </div>
@@ -258,7 +258,7 @@
                             </div>
                             
 
-                        <div class="panel sidebar-menu wow  fadeInRight animated">
+                        <div class="panel sidebar-menu">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Tags</h3>
                             </div>

@@ -205,7 +205,7 @@
                                                     <div class="form-group">
                                                         <label for="property-geo">No. of Bedrooms :</label>
                                                         <!-- input type no -->
-                                                        <input name="property_rooms" type="text" class="form-control" placeholder="2 BHK" id="property_rooms">
+                                                        <input name="property_rooms" type="number" class="form-control" placeholder="2 BHK" id="property_rooms">
                                                         
                                                     </div>
                                                 </div>

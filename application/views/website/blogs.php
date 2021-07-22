@@ -171,6 +171,7 @@
         #subheading {
             margin-top: 0px;
         }
+    
 
         .blog-images {
             margin: auto;
@@ -270,6 +271,8 @@
 
             color: white;
             right: 20px !important;
+            margin-top: 10px;
+            
         }
 
 
@@ -372,69 +375,20 @@
     <div class="container" style="">
 
         <div style="margin: auto;width: 72%;margin-top: -70px;font-weight: bold;color: rgb(43, 43, 43);">
-            <h3>TRENDING</h3>
+            <h3>NEWEST</h3>
         </div>
 
-        <div class="slideshow-container-2 " style="margin-top:35px;background-color: rgb(46, 45, 45);display: flex;">
-            <div>
-                <img src="<?=base_url('assets/images/blogs/');?>tierra-mallorca-rgJ1J8SDEAY-unsplash.jpg" alt="" style="width:600px;">
-            </div>
-
-            <div class="trending-page" style="margin-left: 20px;">
-
-                <h2><b>INVEST</b></h2>
-
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas modi fuga, impedit asperiores sunt
-                    placeat obcaecati explicabo vitae delectus facere Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Quae voluptatem consequuntur cupiditate distinctio unde nihil soluta perspiciatis ipsum
-                    deserunt
-                    eos, mollitia ex nemo animi suscipit possimus quam dicta delectus aliquam!</p>
-                <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s"
-                    style="margin-top: -2px;"><b>Read full story</b></button>
-
-                <div id="date">
-                    <p style="bottom: 0;position:absolute;">19 july 2021</p>
-                </div>
-
-            </div>
-        </div>
-        <div class="slideshow-container-2" style="margin-top:20px;background-color: rgb(46, 45, 45);display: flex;">
-            <div>
-                <img src="<?=base_url('assets/images/blogs/');?>spacejoy-sh6Aj176NAQ-unsplash.jpg" alt="" style="width:600px;">
-            </div>
-
-            <div class="trending-page" style="margin-left: 20px;">
-
-                <h2><b>FINANCIAL HELP</b></h2>
-
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas modi fuga, impedit asperiores sunt
-                    placeat obcaecati explicabo vitae delectus facere Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Quae voluptatem consequuntur cupiditate distinctio unde nihil soluta perspiciatis ipsum
-                    deserunt
-                    eos, mollitia ex nemo animi suscipit possimus quam dicta delectus aliquam!</p>
-                <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s"
-                    style="margin-top: -2px;"><b>Read full story</b></button>
-
-                <div id="dates">
-                    <p style="bottom: 0;position:absolute;">19 july 2021</p>
-                </div>
-
-            </div>
-
-
-        </div>
+        <div id="show_list_content">
+    </div>
+        
 
 
         <div class="col-md-12" style="position:relative;bottom: 20px;">
             <div class="pull-right">
                 <div class="pagination">
-                    <ul>
-                        <li><a href="#">Prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">Next</a></li>
+                    <ul id="pagination_blog">
+                        <!-- <li><a href="#">Prev</a></li> -->
+                        <!-- <li><a href="#">Next</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -453,10 +407,11 @@
 
 </body>
 <script>
+    var key ="<?php echo $this->security->get_csrf_hash(); ?>";
         var slideIndex = [1, 1];
         var slideId = ["mySlides1"]
         showSlides(1, 0);
-        showSlides(1, 1);
+        // showSlides(1, 1);
 
         function plusSlides(n, no) {
             showSlides(slideIndex[no] += n, no);
@@ -472,6 +427,68 @@
             }
             x[slideIndex[no] - 1].style.display = "block";
         }
+
+        var category="";
+        var page_no=1;
+
+        
+
+        function load_blog_content(){
+            $.ajax({
+        url:"<?=base_url('main_helper/get_blog_list_content');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key, 
+            page_no:page_no,
+            per_page:5,
+            category:category,
+            },
+            dataType:"json",
+            success:function(data){
+                console.log(data);
+                var total_page=data.page_count;
+                result_html="";
+                dot_after_name="";
+                
+                $.each(data.data, function(){
+                    if(this.blog_body.length>15){
+                        dot_after_name="...";
+                    }else{
+                        dot_after_name="";
+                    }
+                    result_html+='<div class="slideshow-container-2 " style="margin-top:35px;background-color: rgb(46, 45, 45);display: flex;">';
+                    result_html+='<div><img src="<?=base_url('utility/blog_image/');?>'+this.blog_image+'" alt="" style="width:600px;"></div>';
+                    result_html+='<div class="trending-page" style="margin-left: 20px;">';
+                    result_html+='<h2><b>'+this.blog_heading+'</b></h2>';
+                    result_html+='<p>'+this.blog_body.slice(0,600)+dot_after_name+'</p>';
+                    result_html+='<a href="<?=base_url('main/blog?id=');?>'+this.blog_id+'" class="navbar-btn nav-button login" style="margin-top: -2px;"><b>Read full story</b></a>';
+                    result_html+=' <div id="date"><p style="margin-bottom:-20px; margin-top:20px;">'+this.blog_date+'</p> </div> </div></div>';
+                });
+                $("#show_list_content").html(result_html);
+
+                total_page_html="";
+                for(page=1;page<=total_page;page++){
+                    total_page_html+='<li><a href="#" class="pagin">'+page+'</a></li>';
+                }
+                $("#pagination_blog").html(total_page_html);
+
+
+            }
+            ,
+            error:function(data){
+                console.log(data);
+            }
+        });
+        }
+        load_blog_content();
+
+        $(document).on('click',".pagin",function(e){
+            e.preventDefault();
+            page_no=$(this).html();
+            load_blog_content();
+            // console.log($(this).html());
+        });
     </script>
 
 </html>

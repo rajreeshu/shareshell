@@ -381,6 +381,22 @@ public function get_blog_data(){
 	echo json_encode($data);
 }
 
+public function get_blog_list_content(){
+	$input=$this->security->xss_clean($this->input->post());
+	$this->db->select("blog_heading,blog_id,blog_body,blog_image,blog_date");
+	if($input['category']!=""){
+		$this->db->where("blog_category",$input['category']);
+	}
+	$arr=$this->db->order_by("blog_id","DESC");
+	// $this->db->limit($input['per_page']*($input['page_no']-1)+1,$input['per_page']);
+	$this->db->limit($input['per_page'],$input['per_page']*($input['page_no']-1));
+	$data['data']=$this->db->get("blog")->result();
+
+	$data['page_count']=ceil($arr->get("blog")->num_rows()/$input['per_page']);
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
 public function reset_password_otp(){
 	$input=$this->security->xss_clean($this->input->post());
 
