@@ -105,7 +105,7 @@
                         </ul> -->
                     <!-- </li> -->
                         <li class="wow" data-wow-delay="0.4s"><a href="<?=base_url('main/aboutus');?>">About Us</a></li>
-                        <li class="wow" data-wow-delay="0.4s"><a href="<?=base_url('contact');?>">Contact</a></li>
+                        <li class="wow" data-wow-delay="0.4s"><a href="<?=base_url('blogs');?>">Blogs</a></li>
 
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Others<b class="caret"></b></a>
@@ -135,21 +135,16 @@
  -->                                        <div class="col-sm-3">
                                             <h5>More Links</h5>
                                             <ul>
+                                            <li class="wow" data-wow-delay="0.4s"><a href="<?=base_url('contact');?>">Contact</a></li>
+                                            </ul>
+                                            <ul>
                                                 <li><a href="<?=base_url('faq');?>">FAQ page</a> </li> 
                                             </ul>
                                             <ul>
                                                 <li><a href="<?=base_url('main/testimonial');?>">testimonials</a> </li>
 
                                             </ul>
-                                            <ul>
-                                                <li><a href="<?=base_url('main/privacypolicy');?>">Privacy and Policy</a> </li>
-
-                                            </ul>
-                                            <ul>
-                                                <li><a href="<?=base_url('main/termsconditions');?>">Terms and Condition</a> </li>
-
-                                            </ul>
-
+                                           
 
                                         </div>
 
@@ -162,17 +157,11 @@
                                                     <li><a href="submit-property.html">Submit - step 2</a> </li>
                                                     <li><a href="submit-property.html">Submit - step 3</a> </li> 
                                                 </ul> -->
-                                                <h5>User account</h5>
+                                                <h5>More Links</h5>
                                                 <ul>
-                                                    <?php if(!$logged_in){ ?>
-                                                    <li><a href="<?=base_url('main/log_user');?>">Register / login</a>   </li>
-                                                    <?php }else{ ?>
-
-                                                    <li><a href="<?=base_url('main/myproperties');?>">Your properties</a>  </li>
-                                                    <li><a href="<?=base_url('main/submit_property');?>">Submit property</a>  </li>
-                                                    <li><a href="<?=base_url('main/changePassword');?>">Change password</a> </li>
-                                                    <li><a href="<?=base_url('main/account');?>">Your profile</a>  </li>
-                                                <?php } ?>
+                                                <li><a href="<?=base_url('main/myproperties');?>">Your properties</a>  </li>
+                                                <li><a href="<?=base_url('main/privacypolicy');?>">Privacy and Policy</a> </li>
+                                                <li><a href="<?=base_url('main/termsconditions');?>">Terms and Condition</a> </li>
                                                 </ul>
                                             </div>
                                         </div>

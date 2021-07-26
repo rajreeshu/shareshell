@@ -3,10 +3,7 @@
 
         <script src="<?=base_url();?>assets/js/jquery-1.10.2.min.js"></script>
         
-        <!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
-
-        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
-        <script src="<?=base_url();?>assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?=base_url();?>assets/bootstrap/js/bootstrap.min.js"></script>
 
 
         <script src="<?=base_url();?>assets/js/bootstrap-select.min.js"></script>
@@ -25,10 +22,3 @@
         <script src="<?=base_url();?>assets/js/main.js"></script>
         
         <script src="<?=base_url();?>assets/js/myjs.js?v=1.2"></script>
-<!-- <script type="text/javascript">
-    
-    $("#aboutus_cover").click(function(){
-        window.location.href = "<?=base_url('main/aboutus');?>";
-    })
-
-</script> -->

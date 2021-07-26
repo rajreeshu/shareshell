@@ -1,10 +1,14 @@
 <?php
     $prop_det=$this->db->select('name,main_image')->where('sn',$_GET['id'])->get('property_info')->row();
+    // print_r($prop_det);
+    if(!$prop_det->name){
+        redirect('properties');
+    }
     // print_r($prop_det->name);
 ?>
 
 <!DOCTYPE html>
-<html class="no-js"> 
+<html class="no-js" lang = "en"> 
     <head>
 <link rel="icon" href="<?=base_url('assets/img/logo-sm.jpg');?>" type="image/x-icon">
 

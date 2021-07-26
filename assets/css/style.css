@@ -2384,20 +2384,23 @@ count-area
     color: #FFF;
 }
 .asks-first-arrow:hover{
-    background-color: #000;
+    background-color: rgb(56, 53, 53);
 }
 
 .asks-first{
-    background-color: rgb(78, 78, 78);
+    background-color: #8C8C8C;
     padding: 35px 0px 35px 30px;
     position: relative;
     cursor: pointer;
 }
-.asks-first:hover{
-    background-color: #8C8C8C; 
+.asks-first:hover .asks-first-arrow{
+    background-color: rgb(34, 33, 33);
+}
+.asks-first:hover {
+    background-color: rgb(56, 53, 53);
 }
 .asks-first:hover .asks-first-circle{
-    background-color: #8C8C8C; 
+    background-color: rgb(56, 53, 53); 
 }
 .asks-first-circle {
     float: left;
@@ -2434,7 +2437,7 @@ count-area
     width: 60px;
     height: 100%;
     float: right;
-    background: #303030 none repeat scroll 0% 0%;
+    background: #707070;
     text-align: center;
 }
 .asks-first-arrow span {

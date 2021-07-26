@@ -327,6 +327,7 @@ $.ajax({
                 $("#blog_category").html(data.blog.blog_category);
             },
             error: function (data){
+                location.href="<?=base_url('blogs');?>";
                 console.log(data);
             }
         });

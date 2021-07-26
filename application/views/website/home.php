@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 
-<html class="no-js">
+<html class="no-js" lang = "en">
     <head>
         <link rel="icon" href="<?=base_url('assets/img/logo-sm.jpg');?>" type="image/x-icon">
+        <link rel="apple-touch-icon" href="<?=base_url('assets/img/logo-sm.jpg');?>" />
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"3>
         <title>Houses for rent | Shareshell</title>
@@ -13,7 +14,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
 <a href="https://icons8.com/icon/16713/whatsapp"></a>
 
 <meta name="google-site-verification" content="s2F5QYnA-2Rek_UN-oqDnio-8psnvB5xLEjHezaVvaY" />
@@ -26,21 +26,31 @@
 <meta property="fb:app_id" content="235531264523889">
 <meta property="og:image" content="<?=base_url('assets/img/logo-sm.jpg');?>">
 
+<!-- css Link -->
 
-<!-- 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="<?=base_url();?>assets/css/normalize.css">
+<link rel="stylesheet" href="<?=base_url();?>assets/css/font-awesome.min.css">
+<link href="<?=base_url();?>assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+<link href="<?=base_url();?>assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
+<!-- <link href="<?=base_url();?>assets/css/animate.css" rel="stylesheet" media="screen"> -->
+<link rel="stylesheet" href="<?=base_url();?>assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?=base_url();?>assets/css/owl.carousel.css">  
+<link rel="stylesheet" href="<?=base_url();?>assets/css/owl.theme.css">
+<link rel="stylesheet" href="<?=base_url();?>assets/css/style.css?v=1.2">
+<link rel="stylesheet" href="<?=base_url();?>assets/css/responsive.css?v=18768">
 
-<!-- <a href="https://api.whatsapp.com/send?phone=919113776760" id="whatsapp_btn_chat">
-    <img src="" class="" style="width:70px; height:70px; position:fixed; bottom:20px; right:85px; z-index:20;">
-</a> -->
-<!-- Your Chat Plugin code -->
+
+<link rel="stylesheet" href="<?=base_url();?>assets/css/home_special.css?v=1">
+
+
+
+<!-- css link ends -->
 
 
 <?php
-    $this->load->view('website/link_import');
+
     $this->load->view('website/header');
+    
 ?> 
 
 <style>
@@ -48,6 +58,10 @@
     .text_above_search{
         font-size:20px;;
     }
+}
+
+.item{
+    object-fit:cover;
 }
 
 </style>
@@ -382,7 +396,7 @@
         </div>
         -->
         <div style="position:fixed;bottom:20px;right:10px;z-index:20;">
-        <a href="https://wa.me/917872390186?text=Welcome to Shareshell,how can we help you?"><img src="https://img.icons8.com/color/80/000000/whatsapp--v1.png"/></a>
+        <a href="https://wa.me/917872390186?text=Welcome to Shareshell,how can we help you?"><img src="https://img.icons8.com/color/80/000000/whatsapp--v1.png" alt="whatsapp_logo"/></a>
 
         </div>
 
@@ -431,8 +445,31 @@
 <?php
     $this->load->view('website/footer');
 
-    $this->load->view('website/js_import');
+    // $this->load->view('website/js_import');
 ?>
+        <!-- <script src="<?=base_url();?>assets/js/modernizr-2.6.2.min.js"></script> -->
+
+<script src="<?=base_url();?>assets/js/jquery-1.10.2.min.js"></script>
+
+<script src="<?=base_url();?>assets/bootstrap/js/bootstrap.min.js"></script>
+
+
+<!-- <script src="<?=base_url();?>assets/js/bootstrap-select.min.js"></script> -->
+<script src="<?=base_url();?>assets/js/bootstrap-hover-dropdown.js"></script>
+
+<!-- <script src="<?=base_url();?>assets/js/easypiechart.min.js"></script>
+<script src="<?=base_url();?>assets/js/jquery.easypiechart.min.js"></script> -->
+
+<script src="<?=base_url();?>assets/js/owl.carousel.min.js"></script>        
+
+<script src="<?=base_url();?>assets/js/wow.js"></script>
+
+<script src="<?=base_url();?>assets/js/icheck.min.js"></script>
+        <script src="<?=base_url();?>assets/js/price-range.js?v=1.0"></script>
+
+<script src="<?=base_url();?>assets/js/main.js"></script>
+
+<script src="<?=base_url();?>assets/js/myjs.js?v=1.2"></script>
 
 <script type="text/javascript" >
         
@@ -560,25 +597,6 @@ function load_page_content(){
 }
 load_page_content();
 
-    // $("#filter_avail").change(function() {
-    //     // load_page_content(); 
-    //     console.log($("#price-range").val());
-    //     // console.log($("#property-geo").val());
-    // });
-
-    // $("#filter_city").change(function() {
-    //     load_page_content();
-    // });
-
-    // $("#filter_status").change(function() {
-    //     load_page_content();
-    // });
-
-    // $("#price-range").mouseup(function() {
-    
-    //     console.log($("#price-range").val());
-    //     console.log($("#property-geo").val());
-    // });
 
     $("#btn-search-main").click(function(event) {
         event.preventDefault();
@@ -589,47 +607,10 @@ load_page_content();
         e.preventDefault();
         window.location.href="<?=base_url('properties');?>?s="+$("#search_box_home").val();    
     });
-
-
-
-
-
-
-
-
-
-
-   
-</script>
-<!-- Messenger Chat Plugin Code -->
-<div id="fb-root"></div>
-
-<!-- Your Chat Plugin code -->
-<!-- <div id="fb-customer-chat" class="fb-customerchat">
-</div>
-
-<script>
-  var chatbox = document.getElementById('fb-customer-chat');
-  chatbox.setAttribute("page_id", "106921368151575");
-  chatbox.setAttribute("attribution", "biz_inbox");
-  window.fbAsyncInit = function() {
-    FB.init({
-      xfbml            : true,
-      version          : 'v11.0'
-    });
-  };
-
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script> -->
+    </script>
 
 </body>
-<!-- </html> -->
+</html>
 
                         
                             

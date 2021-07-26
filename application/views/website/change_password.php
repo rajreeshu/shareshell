@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-
-    <head>
+<html lang = "en">
+<head>
 <link rel="icon" href="<?=base_url('assets/img/logo-sm.jpg');?>" type="image/x-icon">
 
         <meta charset="utf-8">

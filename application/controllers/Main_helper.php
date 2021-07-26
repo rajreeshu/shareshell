@@ -591,7 +591,8 @@ public function upload_property_image(){
 public function user_account_detail(){
 	$input=$this->security->xss_clean($this->input->post());
 
-	$data['data']=$this->db->select('first_name,last_name,username,email,phone,gender,image,user_bio,website,facebook,twitter')->where('sn',$input['user_id'])->get('user_detail')->row();
+	$this->load->model('account_model');
+	$data['data']=$this->account_model->get_user_data($input);
 
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
@@ -641,17 +642,8 @@ public function change_password(){
 public function my_property_data(){
 	$input=$this->security->xss_clean($this->input->post());
 
-	$this->db->select('sn,listed_by,name,price,address,contact,main_image,description,avail,city,status,type,min_bed,addon,add_image,add_video');
-	// $this->db->like(['avail'=>$input['filter_avail'],'city'=>$input['filter_city'],'status'=>$input['filter_status'],'addon'=>$input['filter_addon'][0]])
-	// $this->db->like('addon',$input['filter_addon'][1]);
-	// $this->db->like('addon',$input['filter_addon'][2]);
-	// $this->db->like('addon',$input['filter_addon'][3]);
-	// $this->db->where('price >',(int)$property_price[0]-10);
-	// $this->db->where('price < ',(int)$property_price[1]+10);
-	// $this->db->order_by($input['filter_sort'],$input['filter_sort_by']);
-	// $this->db->limit($input['items_per_page'],($input['page_no']-1)*$input['items_per_page']);
-	$this->db->where('listed_by',$input['user_id']);
-	$data['data']=$this->db->get('property_info')->result();
+	$this->load->model('account_model');
+	$data['data']=$this->account_model->my_propertydata($input);
 
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
@@ -662,7 +654,8 @@ public function delete_property_byid(){
 	$input=$this->security->xss_clean($this->input->post());
 
 	if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
-		$this->db->where('sn',$input['property_id'])->delete('property_info');
+		$this->load->model('account_model');
+		$this->account_model->delete_property_by_id($input);
 	}
 
 	

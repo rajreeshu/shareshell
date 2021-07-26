@@ -104,7 +104,23 @@ public function getallpropertylist($input){
 
     return $data;
 }
-    
+
+public function get_user_data($input){
+	return $this->db->select('first_name,last_name,username,email,phone,gender,image,user_bio,website,facebook,twitter')->where('sn',$input['user_id'])->get('user_detail')->row();
+}
+
+public function my_propertydata($input){
+	$this->db->select('sn,listed_by,name,price,address,contact,main_image,description,avail,city,status,type,min_bed,addon,add_image,add_video');
+	$this->db->where('listed_by',$input['user_id']);
+	return $this->db->get('property_info')->result();
+}
+
+public function delete_property_by_id($input){
+	return $this->db->where('sn',$input['property_id'])->delete('property_info');
+}
+
+public function 
+
 
 }
 

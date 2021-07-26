@@ -469,7 +469,10 @@ $config['csrf_exclude_uris'] = array('main_helper/upload_test',
                                     'api/encode',
                                     'api/login',
                                     'api/get_property_data',
-                                    'api/get_all_property_list'
+                                    'api/get_all_property_list',
+                                    'api/user_account_detail',
+                                    'api/my_property_data',
+                                    'api/delete_property_byid'
                                 );
 
 /*
