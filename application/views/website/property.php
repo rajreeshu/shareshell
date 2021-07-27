@@ -159,7 +159,7 @@
                         <div class="light-slide-item">
                             <div class="clearfix">
                                 <div class="favorite-and-print">
-                                    <a class="add-to-fav" href="#login-modal" data-toggle="modal"
+                                    <a class="add-to-fav" id="add-to-fav" href="#login-modal" data-toggle="modal"
                                         style="box-shadow: 0px 0px 20px grey inset;">
                                         <i class="fa fa-star-o"></i>
                                     </a>
@@ -577,6 +577,7 @@
         var key = "<?php echo $this->security->get_csrf_hash(); ?>";
 
         var property_by = "";
+        var listed_by_id="";
         var property_main_img="";
 
 
@@ -600,6 +601,7 @@
                 // thumb_img=data.data.main_image.split('.').slice(0, -1).join('.')+"_thumb."+data.data.main_image.substr(data.data.main_image.lastIndexOf('.') + 1);
 
                 property_main_img=data.data.main_image;
+                listed_by_id=data.data.listed_by;
 
                 $("#property_name").html(data.data.name);
                 $("#main_img_thumb").attr('data-thumb', '<?=base_url("utility/main_image/");?>' + get_thumb_name(data.data.main_image));
@@ -642,6 +644,15 @@
                 $("#image-gallery").append(image_insert);
                 $("#lightgallery").append(lightgallery_data);
 
+
+                // favourite property
+                if(data.favourite_status){
+                    $(".add-to-fav").css('color',"#FDC600");
+                $(".add-to-fav").css('border-color',"#FDC600");
+                $(".add-to-fav").css('box-shadow',"0px 0px 20px #FDC600 inset");
+                }
+                
+
                 //listed by data
 
 
@@ -672,6 +683,40 @@
                 console.log(data);
             }
         });
+
+    $("#add-to-fav").click(function(){
+        $.ajax({
+            url: "<?=base_url('main_helper/add_to_favorite');?>",
+            type: "POST",
+            async: false,
+            data: {
+                "<?php echo $this->security->get_csrf_token_name();?>": key,
+                user_id:listed_by_id,
+                property_id:<?= $property_no;?>
+            },
+            dataType: "json",
+            success: function (data) {
+                key=data.key;
+                
+                if(data.data){
+                    console.log(data.work);
+                    if(data.work=="added"){
+                        $(".add-to-fav").css('color',"#FDC600");
+                        $(".add-to-fav").css('border-color',"#FDC600");
+                        $(".add-to-fav").css('box-shadow',"0px 0px 20px #FDC600 inset");
+                    }else if(data.work=="removed"){
+                        console.log(data);
+                        $(".add-to-fav").css('color',"#FFF");
+                        $(".add-to-fav").css('border-color',"#FFF");
+                        $(".add-to-fav").css('box-shadow',"0px 0px 20px grey inset");
+                    }
+                }
+            },
+            error: function(data){
+                console.log(data);
+            }
+        });
+    });
 
 
 $("#owner_submit_detail").click(function(){
@@ -745,4 +790,4 @@ $("#owner_submit_detail").click(function(){
     </script>
 </body>
 
-</html>
+</html> 

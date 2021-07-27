@@ -65,8 +65,8 @@
                             </div>
                             <div class="post-footer single">
                                 <ul class="pager">
-                                    <li class="previous"><a href="#"><i class=""></i>← Older </a></li>
-                                    <li class="next disabled"><a href="#">Newer →<i class=""></i> </a></li>
+                                    <li class="previous" id="prev_blog_btn"><a><i class=""></i>← PREVIOUS </a></li>
+                                    <li class="next" id="next_blog_btn"><a>NEXT →<i class=""></i> </a></li>
                                 </ul> 
                             </div>    
 
@@ -75,89 +75,42 @@
                         <section class="about-autor">
 
                         </section>
+                        <h4 class="text-uppercase " id="comment_heading">comments</h4>
+                        <section id="show_comments" class="comments"> 
 
-                        <section id="comments" class="comments"> 
-                            <h4 class="text-uppercase ">3 comments</h4>
-
-
-                            <div class="row comment">
-                                <div class="col-sm-3 col-md-2 text-center-xs">
-                                    <p>
-                                        <img src="<?=base_url();?>/assets/img/avatar_boy.jpg" class="img-responsive img-circle" alt="">
-                                    </p>
-                                </div>
-                                <div class="col-sm-9 col-md-10">
-                                    <h5 class="text-uppercase">Julie Alma</h5>
-                                    <p class="posted"><i class="fa fa-clock-o"></i> September 23, 2011 at 12:00 am</p>
-                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
-                                        Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                                    
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- /.comment -->
-
-
-                            <div class="row comment last">
-
-                                <div class="col-sm-3 col-md-2 text-center-xs">
-                                    <p>
-                                        <img src="assets/img/client-face2.png" class="img-responsive img-circle" alt="">
-                                    </p>
-                                </div>
-
-                                <div class="col-sm-9 col-md-10">
-                                    <h5 class="text-uppercase">Louise Armero</h5>
-                                    <p class="posted"><i class="fa fa-clock-o"></i> September 23, 2012 at 12:00 am</p>
-                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
-                                        Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                                    
-                                    </p>
-                                </div>
-
-                            </div>
-                            <!-- /.comment -->
                         </section>
 
                         <section id="comment-form" class="add-comments">
                             <h4 class="text-uppercase">Leave comment</h4>
-                            <form>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="name">Name <span class="required">*</span>
-                                            </label>
-                                            <input class="form-control" id="name" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="email">Email <span class="required">*</span>
-                                            </label>
-                                            <input class="form-control" id="email" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
+                            <?php
+                                if($commentor_id=$this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
+                            ?>
+                                  <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="comment">Comment <span class="required">*</span>
                                             </label>
-                                            <textarea class="form-control" id="comment" rows="4"></textarea>
+                                            <textarea class="form-control" id="comment_text" rows="4"></textarea>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-sm-12 text-right">
-                                        <button class="btn btn-primary"><i class="fa fa-comment-o"></i> Post comment</button>
+                                        <button class="btn btn-primary" id="comment_btn"><i class="fa fa-comment-o"></i> Post comment</button>
+                                    </div>
+                                </div>  
+                            <?php     
+                                }else{
+                            ?>
+                            <div class="row">
+                                    <div class="col-sm-12 text-right">
+                                        <button class="btn btn-primary" onclick="location.href='<?=base_url('main/log_user');?>'" style="float: left;">Login to post your comment</button>
                                     </div>
                                 </div>
-                            </form>
+                            <?php 
+                                }
+                            ?>
                         </section>
                     </div>                    
 
@@ -168,12 +121,14 @@
                                 <h3 class="panel-title">Text widget</h3>
                             </div>
                             <div class="panel-body text-widget">
-                                <p>Improved own provided blessing may peculiar domestic. Sight house has sex never. No visited raising gravity outward subject my cottage mr be. Hold do at tore in park feet near my case.
+                                <p>
+                                    Hope You Liked this Blog. You can Read some more Recommended Blogs.
+                                   visit our website i.e <a href="https://shareshell.in">https://shareshell.in</a> to check out some amazing Listed Property on our Platform.
                                 </p>
                             </div>
                         </div>
 
-                        <div class="panel panel-default sidebar-menu ">
+                        <!-- <div class="panel panel-default sidebar-menu ">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Search</h3>
                             </div>
@@ -189,7 +144,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div> -->
 
                         
                         
@@ -198,8 +153,8 @@
                                     <h3 class="panel-title">Recommended</h3>
                                 </div>
                                 <div class="panel-body recent-property-widget">
-                                        <ul>
-                                        <li>
+                                        <ul id="recommended_blogs">
+                                        <!-- <li>
                                             <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
                                                 <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
                                                 <span class="property-seeker">
@@ -251,7 +206,7 @@
                                                 <h6> <a href="single.html">Super nice villa </a></h6>
                                                 <span class="property-price">3000000$</span>
                                             </div>
-                                        </li>
+                                        </li> -->
 
                                     </ul>
                                 </div>
@@ -300,12 +255,13 @@
     $blog_no=$this->input->get('id');
 
     if(empty($blog_no)){
-        header("Location:".base_url('blogs'));
+        redirect("blogs");
     }
+
 ?>
 <script>
 var key ="<?php echo $this->security->get_csrf_hash(); ?>";
-$.ajax({
+        $.ajax({
             url: "<?=base_url('main_helper/get_blog_data');?>",
             type: "POST",
             async: false,
@@ -319,18 +275,118 @@ $.ajax({
                 key = data.key;
                 console.log(data);
 
+
+                //blog data publish
                 $("#blog_title").html(data.blog.blog_heading);
                 $("#blog_writer").html(data.writer.first_name+" "+data.writer.last_name);
                 $("#blog_date").html(data.blog.blog_date);
                 $("#blog_main_img").attr("src","<?=base_url('utility/blog_image/');?>"+data.blog.blog_image);
                 $("#post-content").html(data.blog.blog_body);
                 $("#blog_category").html(data.blog.blog_category);
+
+
+                //next prev button code
+                if(data.prev_blog_id!=null){
+                    $("#prev_blog_btn").children().attr('href','<?=base_url();?>main/blog?id='+data.prev_blog_id.blog_id);
+                }else{
+                    $("#prev_blog_btn").hide();
+                }
+
+                if(data.next_blog_id!=null){
+                    $("#next_blog_btn").children().attr('href','<?=base_url();?>main/blog?id='+data.next_blog_id.blog_id);
+                }else{
+                    $("#next_blog_btn").hide();
+                }
+
+                //recommended
+                var recommended_blog="";
+                $.each(data.recommended_blogs,function(){
+                    recommended_blog+='<li><div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">';
+                    recommended_blog+='<a href="<?=base_url();?>/main/blog?id='+this.blog_id+'"><img src="<?=base_url();?>/utility/blog_image/'+get_thumb_name(this.blog_image)+'" style="object-fit:cover; height:60px; width:60px;"></a>';
+                    recommended_blog+='<span class="property-seeker"></span></div>';
+                    recommended_blog+='<div class="col-md-8 col-sm-8 col-xs-8 blg-entry" style="line-height:17px;">';
+                    recommended_blog+='<h6> <a href="<?=base_url();?>/main/blog?id='+this.blog_id+'">'+this.blog_heading+' </a></h6>';
+                    recommended_blog+='<span class="property-price" style="margin-top:-15px;">'+limit_words(30,this.blog_body)+'</span></div></li>';
+                });
+                $("#recommended_blogs").html(recommended_blog);
+                
+                
+                // console.log(data.prev_blog_id.blog_id);
             },
             error: function (data){
                 location.href="<?=base_url('blogs');?>";
                 console.log(data);
             }
         });
+
+    function fetch_comments(){
+        $.ajax({
+            url: "<?=base_url('main_helper/get_blog_comments');?>",
+            type: "POST",
+            async: false,
+            data: {
+                "<?php echo $this->security->get_csrf_token_name();?>": key,
+                blog_id: "<?= $blog_no;?>",
+                per_page:5,
+                page_no:1
+            },
+            dataType: "json",
+            success: function (data) {
+                // console.log(data);
+                var show_comments="";
+                var i=1;
+                $.each(data.data, function(){
+                    show_comments+='<div class="row comment">';
+                    show_comments+='<div class="col-sm-3 col-md-2 text-center-xs">';
+                    if(this.image){
+                        show_comments+='<p><img src="<?=base_url();?>/utility/user_image/'+this.image+'" class="img-responsive img-circle" alt=""></p>';
+                    }else{
+                        show_comments+='<p><img src="<?=base_url();?>assets/img/'+user_image_male_female(this.gender)+'" class="img-responsive img-circle" style="object-fit:cover;" alt=""></p>';
+                    }
+                    
+                    show_comments+='</div>';
+                    show_comments+='<div class="col-sm-9 col-md-10">';
+                    show_comments+='<h5 class="text-uppercase">'+this.first_name+' '+this.last_name+'</h5>';
+                    show_comments+='<p class="posted"><i class="fa fa-clock-o"></i> '+this.date_time+'</p>';
+                    show_comments+='<p>'+this.comment+'</p></p>';
+                    show_comments+='</div></div>';
+                });
+                $('#show_comments').html(show_comments);
+
+                if(show_comments==""){
+                    $("#comment_heading").html("");
+                }
+
+            },
+            error: function (data){
+                console.log(data);
+            }
+        });
+    }
+    fetch_comments();
+
+    $("#comment_btn").click(function(){
+        $.ajax({
+            url: "<?=base_url('main_helper/post_blog_comment');?>",
+            type: "POST",
+            async: false,
+            data: {
+                "<?php echo $this->security->get_csrf_token_name();?>": key,
+                blog_id: "<?= $blog_no;?>",
+                commentor_id: "<?=$commentor_id;?>",
+                comment:$("#comment_text").val(),
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                $("#comment_text").val("");
+                fetch_comments();
+            },
+            error: function (data){
+                console.log(data);
+            }
+    }); 
+});
 
 </script>
 

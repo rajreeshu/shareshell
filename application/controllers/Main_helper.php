@@ -174,7 +174,23 @@ public function get_all_property_list(){
 	echo json_encode($data);
 }
 
-// public function get_user_data
+public function add_to_favorite(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	$early=$this->db->where(['user_id'=>$input['user_id'],'property_id'=>$input['property_id']])->get('favourite_property')->num_rows();
+	if(!$early){
+		$data['work']="added";
+		$data['data']=$this->db->insert('favourite_property',['user_id'=>$input['user_id'],'property_id'=>$input['property_id'],'date_time'=>date('Y-m-d H:i:s')]);
+
+	}else{
+		$data['work'] ="removed";
+		$data['data']=$this->db->where(['user_id'=>$input['user_id'],'property_id'=>$input['property_id']])->delete('favourite_property');
+	}
+	
+
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
 
 
 public function signup_validate_data(){
@@ -377,6 +393,10 @@ public function get_blog_data(){
 	$input=$this->security->xss_clean($this->input->post());
 	$data['blog']=$this->db->select('writer_id,blog_heading,blog_body,blog_image,blog_category,blog_date')->where('blog_id',$input['blog_id'])->get("blog")->row();
 	$data['writer']=$this->db->select('first_name,last_name')->where("sn",$data['blog']->writer_id)->get("user_detail")->row();
+	$data['next_blog_id']=$this->db->select('blog_id')->where('blog_id >',$input['blog_id'])->get('blog')->row();
+	$data['prev_blog_id']=$this->db->select('blog_id')->order_by('blog_id','DESC')->where('blog_id <',$input['blog_id'])->get('blog')->row();
+
+	$data['recommended_blogs']=$this->db->select('blog_id,blog_heading,blog_body,blog_image')->order_by('blog_id','DESC')->limit(4)->get('blog')->result();
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 }
@@ -393,6 +413,26 @@ public function get_blog_list_content(){
 	$data['data']=$this->db->get("blog")->result();
 
 	$data['page_count']=ceil($arr->get("blog")->num_rows()/$input['per_page']);
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
+public function get_blog_comments(){
+	$input=$this->security->xss_clean($this->input->post());
+	$this->db->select('a.comment_id,a.commentor_id,a.comment,a.date_time,b.first_name,b.last_name,b.image,b.gender');
+	$this->db->from('blog_comments as a');
+	$this->db->where('blog_id',$input['blog_id']);
+	$this->db->join('user_detail as b','a.commentor_id=b.sn');
+	$this->db->order_by('comment_id','DESC');
+	$this->db->limit($input['per_page'],$input['per_page']*($input['page_no']-1));
+	$data['data']=$this->db->get()->result();
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
+public function post_blog_comment(){
+	$input=$this->security->xss_clean($this->input->post());
+	$data['data']=$this->db->insert('blog_comments',['blog_id'=>$input['blog_id'],'commentor_id'=>$input['commentor_id'],'comment'=>$input['comment'],'date_time'=>date('Y-m-d H:i:s')]);
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 }
@@ -459,7 +499,7 @@ public function update_password(){
 	$this->load->model('password_model');
 	$hashed_pass=$this->password_model->create_hash($input['email'],$input['password']);
 
-	$updated=$this->db->update("user_detail",['password'=>$hashed_pass]);
+	$updated=$this->db->where('email',$input['email'])->update("user_detail",['password'=>$hashed_pass]);
 
 	$data['data']=$updated;
 	$data['key']=$this->security->get_csrf_hash();

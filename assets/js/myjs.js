@@ -24,3 +24,11 @@ function show_hide_password(thiss){
     thiss.siblings("input").attr("type",new_inp_type);
     thiss.toggleClass('bi-eye');    
 }
+
+function limit_words(word_limit,sentence){
+    if(sentence.length>word_limit){
+       return sentence.slice(0,word_limit)+'...';
+    }
+    return sentence;
+}
+

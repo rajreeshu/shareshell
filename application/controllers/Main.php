@@ -86,7 +86,6 @@ class Main extends CI_Controller {
 	}
 
 	public function account(){
-		// $this->check_logged_in();
 		if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
 			$this->load->view('website/useraccount');	
 		}else{

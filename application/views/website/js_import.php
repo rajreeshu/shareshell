@@ -21,4 +21,4 @@
 
         <script src="<?=base_url();?>assets/js/main.js"></script>
         
-        <script src="<?=base_url();?>assets/js/myjs.js?v=1.2"></script>
+        <script src="<?=base_url();?>assets/js/myjs.js?v=1.3"></script>

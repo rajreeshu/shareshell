@@ -38,7 +38,7 @@
 
         cursor: pointer;
         height: 14em;
-
+        object-fit: cover;
         width: 100%;
 
 
@@ -164,10 +164,11 @@
         height: 300px;
         object-fit: cover;
     }
+    
 
 
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1200px) {
         #subheading {
             margin-top: 0px;
         }
@@ -458,7 +459,7 @@
                         dot_after_name="";
                     }
                     result_html+='<div class="slideshow-container-2 " style="margin-top:35px;background-color: rgb(46, 45, 45);display: flex;">';
-                    result_html+='<div><img src="<?=base_url('utility/blog_image/');?>'+this.blog_image+'" alt="" style="width:600px;"></div>';
+                    result_html+='<div><img src="<?=base_url('utility/blog_image/');?>'+get_thumb_name(this.blog_image)+'" alt="" style="width:400px;"></div>';
                     result_html+='<div class="trending-page" style="margin-left: 20px;">';
                     result_html+='<h2><b>'+this.blog_heading+'</b></h2>';
                     result_html+='<p>'+this.blog_body.slice(0,600)+dot_after_name+'</p>';
