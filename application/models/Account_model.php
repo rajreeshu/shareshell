@@ -20,7 +20,7 @@ class Account_model extends CI_Model{
     public function getpropertydata($input){
         $data['data']=$this->db->select('listed_by,name,price,address,contact,main_image,description,avail,city,status,type,min_bed,addon,add_image,add_video')->where('sn',$input['id'])->get('property_info')->row();
         $data['image']=$this->db->select('image_id,image')->where('property_id',$input['id'])->get('property_image')->result();
-		$data['favourite_status']=$this->db->where(['user_id'=>$data['data']->listed_by,'property_id'=>$input['id']])->get('favourite_property')->num_rows()?true:false;
+		$data['favourite_status']=$this->db->where(['user_id'=>$input['user_id'],'property_id'=>$input['id']])->get('favourite_property')->num_rows()?true:false;
         $data['listed_by']=$this->db->select('first_name,last_name,username,gender,image,address,user_bio,website,facebook,twitter,email')->where('sn',$data['data']->listed_by)->get('user_detail')->row();
 		
 		// $data['input'] =$input;
@@ -106,7 +106,21 @@ public function getallpropertylist($input){
 }
 
 public function get_user_data($input){
-	return $this->db->select('first_name,last_name,username,email,phone,gender,image,user_bio,website,facebook,twitter')->where('sn',$input['user_id'])->get('user_detail')->row();
+	return $this->db->select('first_name,last_name,username,email,phone,gender,image,address,user_bio,website,facebook,twitter')->where('sn',$input['user_id'])->get('user_detail')->row();
+}
+
+public function edit_userdata($input){
+	if($input['field']=='username'){
+		$username_chk=$this->db->select('username')->where('username',$input['value'])->get('user_detail')->row();
+		if($username_chk==null){
+			$data['data']=$this->db->where('sn',$input['user_id'])->update('user_detail',[$input['field']=>$input['value']]);
+		}else{
+			$data['data']='username already taken';
+		}
+	}else{
+		$data['data']=$this->db->where('sn',$input['user_id'])->update('user_detail',[$input['field']=>$input['value']]);
+	}
+	return $data['data'];
 }
 
 public function my_propertydata($input){

@@ -192,6 +192,20 @@ public function add_to_favorite(){
 	echo json_encode($data);
 }
 
+public function my_fav_properties(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	$this->db->select("a.id,a.property_id,b.name,b.price,b.address,b.avail,b.type,b.status,b.main_image,b.min_bed");
+	$this->db->from('favourite_property as a');
+	$this->db->where('a.user_id',$input['user_id']);
+	$this->db->join ('property_info as b','a.property_id=b.sn');
+	$data['data']=$this->db->get()->result();
+
+	$data['key']=$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
+
 
 public function signup_validate_data(){
 	$input=$this->security->xss_clean($this->input->post());
@@ -565,16 +579,9 @@ public function logout_account(){
 public function update_user_data(){
 
 	$input=$this->security->xss_clean($this->input->post());
-	if($input['field']=='username'){
-		$username_chk=$this->db->select('username')->where('username',$input['value'])->get('user_detail')->row();
-		if($username_chk==null){
-			$data['data']=$this->db->where('sn',$input['user_id'])->update('user_detail',[$input['field']=>$input['value']]);
-		}else{
-			$data['data']='username already taken';
-		}
-	}else{
-		$data['data']=$this->db->where('sn',$input['user_id'])->update('user_detail',[$input['field']=>$input['value']]);
-	}
+	$this->load->model('account_model');
+	$data['data']=$this->account_model->edit_userdata($input);
+
 	
 
 	$data['key']=$this->security->get_csrf_hash();
@@ -703,6 +710,10 @@ public function delete_property_byid(){
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 }
+
+
+
+
 
 public function contact_us_email_send(){
 	$input=$this->security->xss_clean($this->input->post());

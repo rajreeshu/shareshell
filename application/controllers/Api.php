@@ -110,6 +110,21 @@ public function user_account_detail(){
     }
 }
 
+public function edit_user_data(){
+    if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){        
+                
+        $this->verifytoken($this->input->post('token'));
+	    $input=$this->security->xss_clean($this->input->post());
+
+        $this->load->model('account_model');
+        $data=$this->account_model->edit_userdata($input);
+
+    	echo json_encode($data);
+    }else{
+        echo json_encode("You Are Not Allowed");
+    }
+}
+
 public function my_property_data(){
     if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){        
                 

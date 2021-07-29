@@ -575,6 +575,7 @@
         // window.history.replaceState(null, null, "https://localhost/git_shareshell/shareshell/propertys");
 
         var key = "<?php echo $this->security->get_csrf_hash(); ?>";
+        var user_id="<?=$this->security->xss_clean($this->session->userdata('user_id_shareshell'));?>";
 
         var property_by = "";
         var listed_by_id="";
@@ -587,7 +588,8 @@
             async: false,
             data: {
                 "<?php echo $this->security->get_csrf_token_name();?>": key,
-                id: "<?= $property_no;?>"
+                id: "<?= $property_no;?>",
+                user_id:user_id,
 
             },
             dataType: "json",
@@ -690,8 +692,8 @@
             type: "POST",
             async: false,
             data: {
-                "<?php echo $this->security->get_csrf_token_name();?>": key,
-                user_id:listed_by_id,
+                "<?php echo $this->security->get_csrf_token_name();?>": key, 
+                user_id:user_id,
                 property_id:<?= $property_no;?>
             },
             dataType: "json",

@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SHARESHELL | My Properties</title>
+    <title>My Choice</title>
     <meta name="shareshell" content="Making rental easy">
     <meta name="author" content="Kimarotec">
     <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -32,7 +32,7 @@
         <div class="container">
             <div class="row">
                 <div class="page-head-content">
-                    <h1 class="page-title">SUBMITTED PROPERTIES</h1>
+                    <h1 class="page-title">My choice</h1>
                 </div>
             </div>
         </div>
@@ -74,7 +74,88 @@
                     </div>
 
                     <div class="col-md-22 clear layout">
-                        <div id="list-type" class="proerty-th" ></div>
+                        <div id="list-type" class="proerty-th" >
+                            
+                            
+
+                            <div class="col-sm-6 col-md-4 p0">
+                                <div class="box-two proerty-item">
+                                    <div class="item-thumb">
+                                        <a href="property-1.html"><img src="assets/img/demo/property-3.jpg" id="height"></a>
+                                    </div>
+
+                                    <div class="item-entry overflow">
+                                        <h5><a href="property-1.html"> Super nice villa </a></h5>
+                                        <div class="dot-hr"></div>
+                                        <span class="pull-left"><b> Area :</b> 120m </span>
+                                        <span class="proerty-price pull-right"> $ 300,000</span>
+                                        <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis
+                                            dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
+                                        <div class="property-icon">
+                                            <img src="assets/img/icon/bed.png">(5)|
+                                            <img src="assets/img/icon/shawer.png">(2)|
+                                            <img src="assets/img/icon/cars.png">(1)
+                                        </div>
+                                        
+                                        <div>
+                                            <li><a><b style="color: rgb(228, 13, 13);">REMOVE PROPERTY</b></a>  </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-4 p0">
+                                <div class="box-two proerty-item">
+                                    <div class="item-thumb">
+                                        <a href="property-1.html"><img src="assets/img/demo/property-1.jpg" id="height"></a>
+                                    </div>
+
+                                    <div class="item-entry overflow">
+                                        <h5><a href="property-1.html"> Super nice villa </a></h5>
+                                        <div class="dot-hr"></div>
+                                        <span class="pull-left"><b> Area :</b> 120m </span>
+                                        <span class="proerty-price pull-right"> $ 300,000</span>
+                                        <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis
+                                            dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
+                                        <div class="property-icon">
+                                            <img src="assets/img/icon/bed.png">(5)|
+                                            <img src="assets/img/icon/shawer.png">(2)|
+                                            <img src="assets/img/icon/cars.png">(1)
+                                        </div>
+                                        <div>
+                                            <li><a><b style="color: rgb(228, 13, 13);">REMOVE PROPERTY</b></a>  </li>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-4 p0">
+                                <div class="box-two proerty-item">
+                                    <div class="item-thumb">
+                                        <a href="property-1.html"><img src="assets/img/demo/property-2.jpg" id="height"></a>
+                                    </div>
+
+                                    <div class="item-entry overflow">
+                                        <h5><a href="property-1.html"> Super nice villa </a></h5>
+                                        <div class="dot-hr"></div>
+                                        <span class="pull-left"><b> Area :</b> 120m </span>
+                                        <span class="proerty-price pull-right"> $ 300,000</span>
+                                        <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis
+                                            dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
+                                        <div class="property-icon">
+                                            <img src="assets/img/icon/bed.png">(5)|
+                                            <img src="assets/img/icon/shawer.png">(2)|
+                                            <img src="assets/img/icon/cars.png">(1)
+                                        </div>
+                                        <div>
+                                            <li><a><b style="color: rgb(228, 13, 13);">REMOVE PROPERTY</b></a>  </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -108,8 +189,8 @@
 <script type="text/javascript">
 
 var key="<?php echo $this->security->get_csrf_hash(); ?>"; 
-    
-    console.log(key);
+
+var user_id="<?=$this->security->xss_clean($this->session->userdata('user_id_shareshell'));?>";
 
 function load_page_content(page_no){
 
@@ -120,12 +201,12 @@ function load_page_content(page_no){
     });
 
     $.ajax({
-        url:"<?=base_url('main_helper/my_property_data');?>",
+        url:"<?=base_url('main_helper/my_fav_properties');?>",
         type:"POST",
         async:false,
         data:{
             "<?php echo $this->security->get_csrf_token_name();?>":key,
-            user_id:"<?=$this->security->xss_clean($this->session->userdata('user_id_shareshell'));?>"
+            user_id:user_id,
             },
             dataType:"json",
 
@@ -137,8 +218,8 @@ function load_page_content(page_no){
                 var no_of_page="";
                 var no_of_page_code="";
 
-                no_of_page=Math.ceil(data.row_count/$("#items_per_page").val());
-                console.log(no_of_page);
+                // no_of_page=Math.ceil(data.row_count/$("#items_per_page").val());
+                // console.log(no_of_page);
 
                 $.each(data.data,function() {
                     
@@ -154,7 +235,7 @@ function load_page_content(page_no){
                     property_list+='<div class="col-sm-6 col-md-4 p0">';
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
-                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+this.main_image+'" style="height:225px; object-fit: cover;"></a>';
+                    property_list+='<a href="<?=base_url('property?id=');?>'+this.property_id+'" ><img src="<?=base_url('utility/main_image');?>/'+get_thumb_name(this.main_image)+'" style="height:225px; object-fit: cover;"></a>';
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
                     property_list+='<h5><a href="property-1.html"> '+this.name.toUpperCase()+' </a></h5>';
@@ -166,7 +247,7 @@ function load_page_content(page_no){
                     property_list+='<span style="font-size:22px;"><b> &#9893;</b></span><span style="text-transform: capitalize;"> ( '+type_change+' ) |</span>';
                     property_list+='<span style="font-size:22px;"><b> &#9963;</b></span><span style="text-transform: capitalize;"> ( '+this.type+' ) |</span>';
                     property_list+='<span style="font-size:22px;"><b> &#9983;</b></span><span style="text-transform: capitalize;"> ( '+this.status+' ) </span>';
-                    property_list+= '<div style="margin-top:3px;"><a href="#" class="delete_property" data-propid='+this.sn+' onclick="remove_click('+this.sn+')"><b style="color: rgb(228, 13, 13);">REMOVE PROPERTY</b></a></div>';
+                    property_list+= '<div style="margin-top:3px;"><a href="#" class="delete_property" id="remove_click" data-propid='+this.sn+' data-prop_id="'+this.property_id+'"><b style="color: rgb(228, 13, 13);">REMOVE</b></a></div>';
                     property_list+='</div>';
                     property_list+='</div>';
                     property_list+='</div>';
@@ -177,8 +258,8 @@ function load_page_content(page_no){
 
                 var empty_property_list="";
                 empty_property_list+="<center><div>";
-                empty_property_list+="<h2>No Listed property Found</h2>";
-                empty_property_list+="<br><a href=\"<?=base_url('main/submit_property');?>\" class=\"btn btn-default\">Post a new Property</a>";
+                empty_property_list+="<h2>Nothing Found</h2>";
+                empty_property_list+="<br><a href=\"<?=base_url('properties');?>\" class=\"btn btn-default\">Check Properties</a>";
                 empty_property_list+="</div></center>";
 
                 property_list=(property_list=="") ? empty_property_list:property_list;
@@ -207,25 +288,33 @@ function load_page_content(page_no){
 load_page_content(1);
 // console.log(key);
 
-function remove_click(sn){
+$(document).on("click","#remove_click",function(e){
+    e.preventDefault();
+    remove_click($(this).data("prop_id"));
+});
 
+function remove_click(sn){
+    
     console.log(sn);
-     if(confirm("Delete this Property?")) {
+     if(confirm("Remove this Property?")) {
         
         $.ajax({
-            url:"<?=base_url('main_helper/delete_property_byid');?>",
+            url:"<?=base_url('main_helper/add_to_favorite');?>",
             type:"POST",
             async:false,
             data:{
                 "<?php echo $this->security->get_csrf_token_name();?>":key,
-                "property_id":sn
+                property_id:sn,
+                user_id:user_id,
+                // work:
+
                 },
                 dataType:"json",
                 success:function(data){
                     key=data.key;
 
                     load_page_content(1);
-                    // console.log(data);
+                    console.log(data);
                     // return;
 
 

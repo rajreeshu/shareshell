@@ -118,6 +118,14 @@ class Main extends CI_Controller {
 		}
 	}
 
+	public function favourites(){
+		if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
+			$this->load->view('website/fav_property');
+		}else{
+			redirect('main/log_user');
+		}
+	}
+
 
 	public function blog_admin_login(){
 
