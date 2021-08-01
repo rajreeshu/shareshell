@@ -7,6 +7,15 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"3>
         <title>Houses for rent | Shareshell</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7VQ4L5MXN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y7VQ4L5MXN');
+</script>
         <meta name="Description" content="Eagerly searching for best houses for rent in your city? shareshell is the best platform to provide you the best place for residence.">
         <meta name="author" content="ShareShell">
         <meta name="keyword" content="Houses for rent, shareshell">
@@ -445,20 +454,16 @@
 <?php
     $this->load->view('website/footer');
 
-    // $this->load->view('website/js_import');
+
 ?>
-        <!-- <script src="<?=base_url();?>assets/js/modernizr-2.6.2.min.js"></script> -->
+
 
 <script src="<?=base_url();?>assets/js/jquery-1.10.2.min.js"></script>
 
 <script src="<?=base_url();?>assets/bootstrap/js/bootstrap.min.js"></script>
 
-
-<!-- <script src="<?=base_url();?>assets/js/bootstrap-select.min.js"></script> -->
 <script src="<?=base_url();?>assets/js/bootstrap-hover-dropdown.js"></script>
 
-<!-- <script src="<?=base_url();?>assets/js/easypiechart.min.js"></script>
-<script src="<?=base_url();?>assets/js/jquery.easypiechart.min.js"></script> -->
 
 <script src="<?=base_url();?>assets/js/owl.carousel.min.js"></script>        
 

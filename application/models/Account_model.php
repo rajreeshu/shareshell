@@ -133,7 +133,17 @@ public function delete_property_by_id($input){
 	return $this->db->where('sn',$input['property_id'])->delete('property_info');
 }
 
-// public function 
+
+public function get_blog_list_data($input){
+	$this->db->select("blog_heading,blog_id,blog_body,blog_image,blog_date");
+	if($input['category']!=""){
+		$this->db->where("blog_category",$input['category']);
+	}
+	if($input['tags']!=""){
+		$this->db->like("blog_tags",$input['tags']);
+	}
+	return $this->db->order_by("blog_id","DESC");
+}
 
 
 }

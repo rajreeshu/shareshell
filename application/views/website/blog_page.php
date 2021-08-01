@@ -5,7 +5,10 @@
     <link rel="icon" href="<?=base_url('assets/img/logo-sm.jpg');?>" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs | Shareshell</title>
+    <meta name="Description" id="meta-description" content="">
+    <meta name="author" content="ShareShell">
+    <meta name="keyword" id="meta-keywords" content="">
+    <title id="meta-title"></title>
 
 </head>
 <?php
@@ -56,7 +59,7 @@
                                     </div>
                                 </div>
                                 <div class="image"> 
-                                    <img src="" id="blog_main_img" class="img-responsive" alt="Example blog post alt" style="height:400px; object-fit:contain;">
+                                    <img src="" id="blog_main_img" class="img-responsive" alt="" style="height:400px; object-fit:contain;">
                                 </div>
                             </div> 
 
@@ -64,9 +67,8 @@
 
                             </div>
                             <div class="post-footer single">
-                                <ul class="pager">
-                                    <li class="previous" id="prev_blog_btn"><a><i class=""></i>← PREVIOUS </a></li>
-                                    <li class="next" id="next_blog_btn"><a>NEXT →<i class=""></i> </a></li>
+                                <ul class="pager" id="pager_next_prev">
+                                
                                 </ul> 
                             </div>    
 
@@ -218,24 +220,7 @@
                                 <h3 class="panel-title">Tags</h3>
                             </div>
                             <div class="panel-body">
-                                <ul class="tag-cloud">
-                                    <li><a href="#"><i class="fa fa-tags"></i> html5</a> 
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-tags"></i> css3</a> 
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-tags"></i> jquery</a> 
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-tags"></i> ajax</a> 
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-tags"></i> php</a> 
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-tags"></i> responsive</a> 
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-tags"></i> visio</a> 
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-tags"></i> bootstrap</a> 
-                                    </li>
-                                </ul>
+                                <ul class="tag-cloud" id="tags_display"></ul>
                             </div>
                         </div>
                     </div>   
@@ -252,15 +237,19 @@
 
     $this->load->view('website/js_import'); 
 
-    $blog_no=$this->input->get('id');
-
+    $blog_no=$this->uri->segment(3);
+    $blog_slug=$this->uri->segment(4);
+        
     if(empty($blog_no)){
         redirect("blogs");
     }
 
+
 ?>
 <script>
 var key ="<?php echo $this->security->get_csrf_hash(); ?>";
+
+        var blog_slug="<?=$blog_slug;?>";
         $.ajax({
             url: "<?=base_url('main_helper/get_blog_data');?>",
             type: "POST",
@@ -281,32 +270,49 @@ var key ="<?php echo $this->security->get_csrf_hash(); ?>";
                 $("#blog_writer").html(data.writer.first_name+" "+data.writer.last_name);
                 $("#blog_date").html(data.blog.blog_date);
                 $("#blog_main_img").attr("src","<?=base_url('utility/blog_image/');?>"+data.blog.blog_image);
+                $("#blog_main_img").attr("alt",data.blog.blog_heading);
                 $("#post-content").html(data.blog.blog_body);
                 $("#blog_category").html(data.blog.blog_category);
+
+                var blog_slug_js=slug_js(data.blog.blog_heading);
+                if(blog_slug!=blog_slug_js){
+                    window.history.replaceState(null, null, "<?=base_url('main/blog/').$blog_no;?>/"+blog_slug_js);
+                }
+
+                var tags_display="";
+                if(data.blog.blog_tags!=""){
+                    $.each(data.blog.blog_tags.split(","), function(){
+                        tags_display+='<li><a href="<?=base_url('blogs?');?>tags='+this.trim()+'"><i class="fa fa-tags"></i>'+this+'</a></li>';                    
+                    });
+                    $("#tags_display").html(tags_display);
+                }
+                
+
+                $("#meta-keywords").attr("content",data.blog.blog_tags);
+                $("#meta-description").attr("content",limit_words(100,$("#post-content").text()));
+                $("#meta-title").text(data.blog.blog_heading+"Shareshell Blog");
 
 
                 //next prev button code
                 if(data.prev_blog_id!=null){
-                    $("#prev_blog_btn").children().attr('href','<?=base_url();?>main/blog?id='+data.prev_blog_id.blog_id);
-                }else{
-                    $("#prev_blog_btn").hide();
+                    // $("#prev_blog_btn").children().attr('href',');
+                    $("#pager_next_prev").append('<li class="previous" id="prev_blog_btn"><a href="<?=base_url();?>main/blog/'+data.prev_blog_id.blog_id+'/'+slug_js(data.prev_blog_id.blog_heading)+'"><i class=""></i>← PREVIOUS </a></li>');
+                    
                 }
-
                 if(data.next_blog_id!=null){
-                    $("#next_blog_btn").children().attr('href','<?=base_url();?>main/blog?id='+data.next_blog_id.blog_id);
-                }else{
-                    $("#next_blog_btn").hide();
+                    // $("#next_blog_btn").children().attr('href','<?=base_url();?>main/blog?id='+data.next_blog_id.blog_id);
+                    $("#pager_next_prev").append('<li class="next" id="next_blog_btn"><a href="<?=base_url();?>main/blog/'+data.next_blog_id.blog_id+'/'+slug_js(data.next_blog_id.blog_heading)+'">NEXT →<i class=""></i> </a></li>');
                 }
 
                 //recommended
                 var recommended_blog="";
                 $.each(data.recommended_blogs,function(){
                     recommended_blog+='<li><div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">';
-                    recommended_blog+='<a href="<?=base_url();?>/main/blog?id='+this.blog_id+'"><img src="<?=base_url();?>/utility/blog_image/'+get_thumb_name(this.blog_image)+'" style="object-fit:cover; height:60px; width:60px;"></a>';
+                    recommended_blog+='<a href="<?=base_url();?>/main/blog?id='+this.blog_id+'"><img src="<?=base_url();?>/utility/blog_image/'+get_thumb_name(this.blog_image)+'" alt="shareshell_'+this.blog_heading+'" style="object-fit:cover; height:60px; width:60px;"></a>';
                     recommended_blog+='<span class="property-seeker"></span></div>';
                     recommended_blog+='<div class="col-md-8 col-sm-8 col-xs-8 blg-entry" style="line-height:17px;">';
-                    recommended_blog+='<h6> <a href="<?=base_url();?>/main/blog?id='+this.blog_id+'">'+this.blog_heading+' </a></h6>';
-                    recommended_blog+='<span class="property-price" style="margin-top:-15px;">'+limit_words(30,this.blog_body)+'</span></div></li>';
+                    recommended_blog+='<h6> <a href="<?=base_url();?>/main/blog/'+this.blog_id+'">'+this.blog_heading+' </a></h6>';
+                    recommended_blog+='<span class="property-price" style="margin-top:-15px;">'+limit_words(30,this.blog_body.replace(/<[^>]+>/g, ''))+'</span></div></li>';
                 });
                 $("#recommended_blogs").html(recommended_blog);
                 
@@ -387,6 +393,11 @@ var key ="<?php echo $this->security->get_csrf_hash(); ?>";
             }
     }); 
 });
+
+// let htmlString = "<p>Hello</p><a href='http://w3c.org'>W3C</a>"
+// let plainText = htmlString.replace(/<[^>]+>/g, '');
+// console.log(plainText);
+
 
 </script>
 

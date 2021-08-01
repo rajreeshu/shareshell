@@ -134,6 +134,13 @@ public function upload_multi_prop_img(){
 	
 }
 
+public function upload_blog_image_addon(){
+	$input=$this->security->xss_clean($this->input->post());
+
+	$this->load->model('upload_model');
+	$up_img=$this->upload_model->compressor_upload('utility/blog_image/addon',"","");
+}
+
 
 
 
@@ -395,6 +402,7 @@ public function upload_blog(){
 		'blog_heading'=>$input['blog_heading'],
 		'blog_body'=> $blog_body,
 		'blog_category'=> $input['blog_category'],
+		'blog_tags'=>$input['blog_tags'],
 		'blog_date'=>date('Y-m-d')
 	);
 	$this->db->insert('blog',$insert_data);
@@ -405,10 +413,10 @@ public function upload_blog(){
 
 public function get_blog_data(){
 	$input=$this->security->xss_clean($this->input->post());
-	$data['blog']=$this->db->select('writer_id,blog_heading,blog_body,blog_image,blog_category,blog_date')->where('blog_id',$input['blog_id'])->get("blog")->row();
+	$data['blog']=$this->db->select('writer_id,blog_heading,blog_body,blog_image,blog_category,blog_tags,blog_date')->where('blog_id',$input['blog_id'])->get("blog")->row();
 	$data['writer']=$this->db->select('first_name,last_name')->where("sn",$data['blog']->writer_id)->get("user_detail")->row();
-	$data['next_blog_id']=$this->db->select('blog_id')->where('blog_id >',$input['blog_id'])->get('blog')->row();
-	$data['prev_blog_id']=$this->db->select('blog_id')->order_by('blog_id','DESC')->where('blog_id <',$input['blog_id'])->get('blog')->row();
+	$data['next_blog_id']=$this->db->select('blog_id,blog_heading')->where('blog_id >',$input['blog_id'])->get('blog')->row();
+	$data['prev_blog_id']=$this->db->select('blog_id,blog_heading')->order_by('blog_id','DESC')->where('blog_id <',$input['blog_id'])->get('blog')->row();
 
 	$data['recommended_blogs']=$this->db->select('blog_id,blog_heading,blog_body,blog_image')->order_by('blog_id','DESC')->limit(4)->get('blog')->result();
 	$data['key']=$this->security->get_csrf_hash();
@@ -417,16 +425,12 @@ public function get_blog_data(){
 
 public function get_blog_list_content(){
 	$input=$this->security->xss_clean($this->input->post());
-	$this->db->select("blog_heading,blog_id,blog_body,blog_image,blog_date");
-	if($input['category']!=""){
-		$this->db->where("blog_category",$input['category']);
-	}
-	$arr=$this->db->order_by("blog_id","DESC");
-	// $this->db->limit($input['per_page']*($input['page_no']-1)+1,$input['per_page']);
-	$this->db->limit($input['per_page'],$input['per_page']*($input['page_no']-1));
-	$data['data']=$this->db->get("blog")->result();
-
-	$data['page_count']=ceil($arr->get("blog")->num_rows()/$input['per_page']);
+	
+	$this->load->model('account_model');
+	
+	$data['data']=$this->account_model->get_blog_list_data($input)->limit($input['per_page'],$input['per_page']*($input['page_no']-1))->get("blog")->result();
+	$data['raw_page']=$this->account_model->get_blog_list_data($input)->get("blog")->num_rows();
+	$data['page_count']=ceil($this->account_model->get_blog_list_data($input)->get("blog")->num_rows()/$input['per_page']);
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 }

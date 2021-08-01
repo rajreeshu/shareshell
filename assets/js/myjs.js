@@ -32,3 +32,15 @@ function limit_words(word_limit,sentence){
     return sentence;
 }
 
+function text_from_html(data){
+    return data.replace(/<[^>]+>/g, '')
+}
+
+function slug_js(str) {
+    var $slug = '';
+    var trimmed = $.trim(str);
+    $slug = trimmed.replace(/[^a-z0-9-]/gi, '-').
+    replace(/-+/g, '-').
+    replace(/^-|-$/g, '');
+    return $slug.toLowerCase();
+}

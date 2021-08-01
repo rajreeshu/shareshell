@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SHARESHELL| Blogs Home</title>
+        <title>Blogs Home</title>
         <meta name="shareshell" content="Making rental easy">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -395,13 +395,17 @@
             </div>
         </div>
     </div>
+<span id="hidden_text" style="display: none;">
 
+</span>
 
 
 <?php
     $this->load->view('website/footer');
 
     $this->load->view('website/js_import'); 
+    $get_tags=isset($_GET['tags'])?$_GET['tags']:"";
+
 
 ?>
 
@@ -431,7 +435,7 @@
 
         var category="";
         var page_no=1;
-
+        tags="<?=$get_tags;?>";
         
 
         function load_blog_content(){
@@ -444,6 +448,7 @@
             page_no:page_no,
             per_page:5,
             category:category,
+            tags:tags,
             },
             dataType:"json",
             success:function(data){
@@ -458,12 +463,16 @@
                     }else{
                         dot_after_name="";
                     }
+
+                    $("#hidden_text").html(this.blog_body);
+                    hidden_text=$("#hidden_text").text();
+
                     result_html+='<div class="slideshow-container-2 " style="margin-top:35px;background-color: rgb(46, 45, 45);display: flex;">';
                     result_html+='<div><img src="<?=base_url('utility/blog_image/');?>'+get_thumb_name(this.blog_image)+'" alt="" style="width:400px;"></div>';
                     result_html+='<div class="trending-page" style="margin-left: 20px;">';
                     result_html+='<h2><b>'+this.blog_heading+'</b></h2>';
-                    result_html+='<p>'+this.blog_body.slice(0,600)+dot_after_name+'</p>';
-                    result_html+='<a href="<?=base_url('main/blog?id=');?>'+this.blog_id+'" class="navbar-btn nav-button login" style="margin-top: -2px;"><b>Read full story</b></a>';
+                    result_html+='<p>'+hidden_text.slice(0,600)+dot_after_name+'</p>';
+                    result_html+='<a href="<?=base_url('main/blog/');?>'+this.blog_id+'/'+slug_js(this.blog_heading)+'" class="navbar-btn nav-button login" style="margin-top: -2px;"><b>Read full story</b></a>';
                     result_html+=' <div id="date"><p style="margin-bottom:-20px; margin-top:20px;">'+this.blog_date+'</p> </div> </div></div>';
                 });
                 $("#show_list_content").html(result_html);
