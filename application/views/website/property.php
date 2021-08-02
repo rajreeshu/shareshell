@@ -84,6 +84,7 @@
             overflow: hidden;
             position: relative;
             float: left;
+            width:100%;
             height: 120px;
         }
 

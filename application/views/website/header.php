@@ -101,7 +101,7 @@
                 </div>
                 <ul class="main-nav nav navbar-nav navbar-right">
                 <li class="wow" data-wow-delay="0.1s"><a class="" href="<?=base_url('properties');?>">Properties</a></li>
-                <li data-wow-delay="0.4s"><a href=""> <img src="https://img.icons8.com/ios/16/000000/like--v1.png" style="margin-top:-3px;"> My choice</a></li>
+                <li data-wow-delay="0.4s"><a href="<?=base_url('main/favourites');?>"> <img src="https://img.icons8.com/ios/16/000000/like--v1.png" style="margin-top:-3px;"> My choice</a></li>
                 <li class="wow" data-wow-delay="0.4s"><a href="<?=base_url('blogs');?>">Blogs</a></li>
                 
                 <li class="dropdown yamm-fw" data-wow-delay="0.1s">

@@ -259,7 +259,7 @@ margin-bottom: 0px;
         #search{
             display: block !important;
         }
-        #search_form{
+        .search_submit{
             display: none !important;
         }
         .outer-searchbox{
@@ -438,7 +438,7 @@ margin-bottom: 0px;
             <div id="search-div" style="background-color: white;height: 50px;width: 100px;margin: 65px 30px;background-color: #00a79d;border-radius: 0 10px 10px 0;">
 
                 <img id="search" src="<?=base_url('assets/img/');?>search.png" alt="search" style="display: none;height: 28px;width: auto;">
-                <input type="submit" value="Search"
+                <input type="submit" value="Search" class="search_submit"
                     style="background-color: #00a79d;width: 125px;font-weight: bold;color: white;border-radius: 0 10px 10px 0;">
 
                     
