@@ -112,7 +112,7 @@
                                             </div>
                                             <div class="col-xs-6">
 
-                                                <select id="filter_status"data-live-search="true" data-live-search-style="begins" id="basic" class="selectpicker show-tick form-control" title="-status-">
+                                                <select id="filter_status"data-live-search="true" data-live-search-style="begins" class="selectpicker show-tick form-control" title="-status-">
                                                     <option value="">All</option>
                                                     <option value="pg">PG</option>
                                                     <option value="rent">Rent</option>
@@ -355,6 +355,9 @@
 
     $url_gets=$this->security->xss_clean($this->input->get('s'));
     $url_get=(isset($url_gets))?$url_gets:"";
+
+    $url_gets_category=$this->security->xss_clean($this->input->get('category'));
+    $url_get_category=(isset($url_gets_category))?$url_gets_category:"";
 ?>
 
 <script type="text/javascript">
@@ -369,6 +372,15 @@
     var i=1;
 
     $("#search_box").val("<?=$url_get;?>");
+
+    if("<?=$url_get_category;?>"=="PG"||"<?=$url_get_category;?>"=="Rent"){
+        $("#filter_status").removeAttr("title");
+        $("#filter_status").val("<?=$url_get_category;?>".toLocaleLowerCase());
+    }else if("<?=$url_get_category;?>"=="Hostel"||"<?=$url_get_category;?>"=="Plot"){
+        $("#filter_type").removeAttr("title");
+        $("#filter_type").val("<?=$url_get_category;?>".toLocaleLowerCase());
+    }
+
     // console.log("<?=$url_get;?>");
 
 function load_page_content(page_no){
@@ -438,11 +450,11 @@ function load_page_content(page_no){
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
                    
-                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px; object-fit: cover;"></a>';
+                    property_list+='<a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px; object-fit: cover;"></a>';
                    
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
-                    property_list+='<h5><a href="<?=base_url('property?id=');?>'+this.sn+'"> '+this.name.slice(0,14)+''+dot_after_name+' </a></h5>';
+                    property_list+='<h5><a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'"> '+this.name.slice(0,14)+''+dot_after_name+' </a></h5>';
                     property_list+='<div class="dot-hr"></div>';
                     property_list+='<span class="pull-left"><b>'+capital_first(this.city)+'  </b></span>';
                     property_list+='<span class="proerty-price pull-right"> &#8377 '+this.price+'</span>';

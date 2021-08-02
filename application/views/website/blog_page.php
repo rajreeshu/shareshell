@@ -290,7 +290,7 @@ var key ="<?php echo $this->security->get_csrf_hash(); ?>";
 
                 $("#meta-keywords").attr("content",data.blog.blog_tags);
                 $("#meta-description").attr("content",limit_words(100,$("#post-content").text()));
-                $("#meta-title").text(data.blog.blog_heading+"Shareshell Blog");
+                $("#meta-title").text(data.blog.blog_heading+" - Shareshell Blog");
 
 
                 //next prev button code
@@ -311,7 +311,7 @@ var key ="<?php echo $this->security->get_csrf_hash(); ?>";
                     recommended_blog+='<a href="<?=base_url();?>/main/blog?id='+this.blog_id+'"><img src="<?=base_url();?>/utility/blog_image/'+get_thumb_name(this.blog_image)+'" alt="shareshell_'+this.blog_heading+'" style="object-fit:cover; height:60px; width:60px;"></a>';
                     recommended_blog+='<span class="property-seeker"></span></div>';
                     recommended_blog+='<div class="col-md-8 col-sm-8 col-xs-8 blg-entry" style="line-height:17px;">';
-                    recommended_blog+='<h6> <a href="<?=base_url();?>/main/blog/'+this.blog_id+'">'+this.blog_heading+' </a></h6>';
+                    recommended_blog+='<h6> <a href="<?=base_url();?>main/blog/'+this.blog_id+"/"+slug_js(this.blog_heading)+'/">'+this.blog_heading+' </a></h6>';
                     recommended_blog+='<span class="property-price" style="margin-top:-15px;">'+limit_words(30,this.blog_body.replace(/<[^>]+>/g, ''))+'</span></div></li>';
                 });
                 $("#recommended_blogs").html(recommended_blog);

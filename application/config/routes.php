@@ -55,7 +55,8 @@ $route['translate_uri_dashes'] = FALSE;
  
 
 $route['properties'] = "main/properties";
-$route['property'] = "main/property";
+// $route['property'] = "main/property";
+$route['property/(:any)/(:any)'] = "main/property/$1/$2";
 $route['contact'] = "main/contact";
 $route['faq'] = "main/faq";
 $route['account']="main/account";

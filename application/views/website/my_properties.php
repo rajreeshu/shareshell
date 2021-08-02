@@ -154,10 +154,10 @@ function load_page_content(page_no){
                     property_list+='<div class="col-sm-6 col-md-4 p0">';
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
-                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+this.main_image+'" style="height:225px; object-fit: cover;"></a>';
+                    property_list+='<a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'" ><img src="<?=base_url('utility/main_image');?>/'+this.main_image+'" style="height:225px; object-fit: cover;"></a>';
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
-                    property_list+='<h5><a href="property-1.html"> '+this.name.toUpperCase()+' </a></h5>';
+                    property_list+='<h5><a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'"> '+this.name.toUpperCase()+' </a></h5>';
                     property_list+='<div class="dot-hr"></div>';
                     property_list+='<span class="pull-left"><b> '+this.min_bed+' </b></span>';
                     property_list+='<span class="proerty-price pull-right"> &#8377 '+this.price+'</span>';

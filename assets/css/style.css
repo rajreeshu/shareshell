@@ -127,6 +127,7 @@ input[type="reset"],
 input[type="submit"] {
     -webkit-appearance: button;
     cursor: pointer;
+
 }
 button[disabled],
 html input[disabled] {
@@ -694,7 +695,7 @@ label small{
 
 
 .navbar-default .navbar-nav > li > a{
-    color: #929292;
+    color: #1f1f1f;
     font-size: 16px;
     font-weight: 400;
     text-transform: capitalize;
@@ -702,7 +703,7 @@ label small{
 
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    color: #929292;
+    /* color: #929292; */
     background-color: transparent;
 }
 .navbar-nav > li > a {

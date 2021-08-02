@@ -1,5 +1,7 @@
 <?php
-    $prop_det=$this->db->select('name,main_image')->where('sn',$_GET['id'])->get('property_info')->row();
+    $property_no=$this->uri->segment(2);
+    $property_slug=$this->uri->segment(4);
+    $prop_det=$this->db->select('name,main_image')->where('sn',$property_no)->get('property_info')->row();
     // print_r($prop_det);
     if(!$prop_det->name){
         redirect('properties');
@@ -14,17 +16,18 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SHARESHELL | Property</title>
-        <meta name="shareshell" content="Making rental easy">
-        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+        <title id="meta-title"></title>
+        <meta name="author" content="Shareshell">
+        <meta name="keyword" id="meta-keyword" content="">
+        <meta name="Description" id="meta-description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
        
-        <link rel="stylesheet" href="assets/css/lightslider.min.css">
-        <link href="<?=base_url('assets');?>/css/lightgallery.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="<?=base_url();?>/assets/css/lightslider.min.css">
+        <link href="<?=base_url();?>/assets/css/lightgallery.min.css" rel="stylesheet">
 
         <!-- Facebook Meta Tags -->
-<meta property="og:url" content="https://shareshell.in/property?id=<?=$_GET['id'];?>">
+<meta property="og:url" content="https://shareshell.in/property?id=<?=$property_no;?>">
 <meta property="og:type" content="website">
 <meta property="og:title" content="<?=$prop_det->name;?> | Shareshell" id="og_title">
 <meta property="og:description" content="Property Listed on ShareShell. Visit us @ shareshell.in to check more Properties.">
@@ -339,7 +342,7 @@
                             <div class="roperty-social">
                                 <ul>
                                     <li><a title="Share this on dribbble " href="#"><img
-                                                src="assets/img/social_big/dribbble_grey.png"></a></li>
+                                                src="<?=base_url();?>/assets/img/social_big/dribbble_grey.png"></a></li>
                                     <li><a title="Share this on facebok " href="#"><img
                                                 src="assets/img/social_big/facebook_grey.png"></a></li>
                                     <li><a title="Share this on delicious " href="#"><img
@@ -546,14 +549,14 @@
 
     $this->load->view('website/js_import'); 
 
-    $property_no=$this->input->get('id');
+    // $property_no=$this->input->get('id');
 
-    if(empty($property_no)){
-        header("Location:".base_url('properties'));
-    }
+    // if(empty($property_no)){
+    //     header("Location:".base_url('properties'));
+    // }
 ?>
     </div>
-    <script type="text/javascript" src="<?=base_url();?>assets/js/lightslider.min.js"></script>
+    <script type="text/javascript" src="<?=base_url();?>/assets/js/lightslider.min.js"></script>
 
     <!-- gallery js -->
 
@@ -613,6 +616,16 @@
                 $("#property_description").html(data.data.description);
                 $("#property_address").html(data.data.address+",<br>"+data.data.city);
                 $("#property_addon").html("<h3>" + data.data.addon.slice(0, -1).toUpperCase() + "</h3>");
+
+                $("#meta-title").html(data.data.name+" - "+data.data.city);
+                $("#meta-keyword").attr("content",data.data.name+", "+data.data.city+", "+data.data.addon);
+                $("#meta-description").attr("content",limit_words(80,data.data.description)+" - "+data.data.address+" - "+data.data.city+" - ");
+
+                var property_slug="<?=$property_slug;?>"
+                var property_slug_js=slug_js(data.data.name);
+                if(property_slug!=property_slug_js){
+                    window.history.replaceState(null, null, "<?=base_url('property/').$property_no;?>/"+property_slug_js);
+                }
 
 
                 if (data.data.add_video != "") {

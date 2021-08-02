@@ -63,34 +63,337 @@
 ?> 
 
 <style>
-@media only screen and (max-width: 475px) {
-    .text_above_search{
-        font-size:20px;;
+    @media only screen and (max-width: 400px) {
+        .bt123 {
+            flex: none;
+            display: none;
+        }
+
     }
+
+
+
+
+    .slider-heading {
+        margin: auto;
+        width: 100%;
+        position: absolute;
+        margin-top: 250px;
+
+    }
+
+    .slider-heading h1 {
+        color: rgb(61, 61, 61);
+        font-weight: bold;
+        font-size: 40px;
+        margin: auto;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        position: absolute;
+        z-index: 3;
+
+    }
+
+    .slider-heading p {
+        color: rgb(61, 61, 61);
+        font-weight: 500;
+        font-size: 25px;
+        padding-top: 1.9em;
+        margin: auto;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        position: absolute;
+        z-index: 3;
+
+    }
+
+    .item #mobile-img {
+        display: none;
+    }
+    .outer-searchbox ul li{
+
+        margin-right: 30px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .outer-searchbox ul li:hover{
+        border-bottom: 2px solid white;
+    }
+    .list{
+        display: none;
+    }
+
+
+
+    .blog-images {
+
+width: 25%;
+padding: 10px;
+text-align: center;
+
+
 }
 
-.item{
-    object-fit:cover;
+.blog-images p {
+background-color: rgb(58, 58, 58);
+padding: 5px;
+color: white;
+border-radius: 0 0 7px 7px;
+
+}
+
+/* Style the images inside the grid */
+.blog-images img {
+
+cursor: pointer;
+height: 14em;
+border-radius: 7px 7px 0 0;
+object-fit: cover;
+
+width: 100%;
+
+
+
+
+}
+
+.blog-images img:hover {
+opacity: 0.6;
+
+z-index: 110;
+}
+
+
+
+
+.blog-heading {
+margin-left: auto;
+margin-right: auto;
+width: 88% !important;
+
+
+padding: 12px;
+display: flex;
+margin-bottom: 0px;
+
+}
+.ai-searching{
+    background-color: rgb(240, 240, 240) !important;
+    display: none;
+    
+    
+}
+#input:hover + .ai-searching{
+    display: block;
+
+    
+    
+}
+.ai-searching input{
+    background-color: rgb(240, 240, 240)!important;
+    
+
+}
+
+
+
+
+    
+
+
+
+     @media only screen and (max-width: 600px){
+
+        .ai-searching{
+    width: 200px !important;
+    margin-left: -45px !important;
+}
+
+
+        #computer-img {
+            display: none;
+        }
+
+
+        .owl-pagination {
+            display: none !important;
+        }
+
+        .slider-heading h1 {
+            color: rgb(61, 61, 61);
+            font-weight: bold;
+            font-size: 20px;
+            margin: auto;
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            position: absolute;
+            z-index: 3;
+
+        }
+
+        .slider-heading p {
+            color: rgb(61, 61, 61);
+            font-weight: 500;
+            font-size: 12px;
+            padding-top: 4em !important;
+            margin: auto;
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            position: absolute;
+            z-index: 3;
+
+        }
+
+        .slider-heading {
+            margin: auto;
+            width: 100%;
+            position: absolute;
+            margin-top: 75px !important;
+
+        }
+        #search{
+            display: block !important;
+        }
+        #search_form{
+            display: none !important;
+        }
+        .outer-searchbox{
+            position: relative !important;
+            margin: auto;
+            width: 95% !important;
+            top: -1em !important;
+            height: 113px !important;
+        }
+        .outer-searchbox ul {
+
+            margin-left: -22px !important;
+            top: 15px !important;
+        }
+        .outer-searchbox ul li{
+            font-size: 15px;
+        }
+        .inner-box{
+            position: absolute;
+            margin-top: -24px !important;
+            padding: 10px !important;
+            width: 108% !important;
+        }
+        #search-div{
+            width: 180px !important;
+        }
+        #search-div img{
+           margin: 9px 17px;
+        }
+        #pointer{
+            width: 160px !important;
+        }
+        .item img{
+            height: 272px !important;
+        }
+        #pointer{
+            height: 45px !important;
+        }
+        #input{
+            height: 35px !important;
+        }
+        #search-div{
+            height: 45px !important;
+        }
+        #pointer img{
+            height: 51px !important;
+        }
+        .list{
+            display: block;
+            background-color: rgb(233, 233, 233);
+            height: 10em;
+            margin: auto;
+            width: 88%;
+            margin-top: 1em;
+            border-radius: 9px;
+            
+        }
+        .list p {
+            width: 180px !important;
+            padding-top: 20px;
+            padding-left: 20px;
+            color: rgb(27, 27, 27);
+            
+        }
+        .list button{
+            font-size:11px;
+            background-color:#00a79d;
+            position: absolute;
+            margin: auto;
+            width: 40%;
+            margin-left: 130px;
+            margin-top: -25px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+
+        #subheading {
+            margin-top: 0px;
+        }
+
+        .blog-images {
+            margin: auto;
+            width: 100% !important;
+        }
+        .blog-heading {
+            flex-direction: row !important;
+            overflow-x: auto !important;
+            width: 88% !important;
+            
+        }
+        .blog-heading::-webkit-scrollbar{
+            width: 0px;
+        }
+        .blog-images p {
+            background-color: rgb(58, 58, 58);
+            padding: 5px;
+            color: white;
+            width: 15em;
+
+        }
+        h3{
+            font-size: 17px;
+        }
 }
 
 </style>
 
-  
-        <div class="slider-area">
+<div class="slider-heading">
+        <h1>Find your Dream Home in your favorite location</h1>
+        <p>Relaxedly end your search</p>
+
+    </div>
+        <div class="slider-area" style="z-index:-1;">
             <div class="slider">
-            <div id="bg-slider" class="owl-carousel owl-theme">
+            <div id="bg-slider" class="owl-carousel owl-theme" style="transition: none;">
  
-                <!-- <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-0.jpg" alt="The Last of us"></div> -->
-
-                <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-1.jpg" alt="Shareshell_choice"></div>
+                
+                <!-- <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-1.jpg" alt="Shareshell_choice"></div>
                 <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-2.jpg" alt="Shareshell_homepage"></div>
-                <div class="item"><img style="" src="assets/img/slide1/slider-image-3.jpg" alt="Shareshell_affordable_luxury_renting"></div>
+                <div class="item"><img src="assets/img/slide1/slider-image-3.jpg" alt="Shareshell_affordable_luxury_renting"></div> -->
+                
+                <div class="item" ><img style="height:600px;object-fit: cover;"
+                        src="<?=base_url();?>assets/images/ShareShell Home Page Image 1332x540Pix.svg" alt="The Last of us"></div>
 
-                <!-- <div class="item"><img style="" src="assets/img/slide1/slider-image-4.jpg" alt="GTA V"></div> -->
+                
+
+                <div class="item"><img style="height:600px;object-fit: cover;"
+                        src="<?=base_url();?>assets/images/ShareShell Home Page Image 1332x540Pix -White.svg" alt="The Last of us"></div>
 
             </div>
             </div>
-            <div class="container slider-content">
+            </div>
+            <!-- <div class="container slider-content">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
                         <h2 style="text-shadow:1px 1px white;font-family: 'Open Sans', sans-serif;font-weight:bold;">property Searching Just Got So Easy</h2>
@@ -100,22 +403,121 @@
 
                     </div>
                 </div>
+            </div> -->
+            <form id="search_form"> 
+            <div class="outer-searchbox" style=" z-index: 11111; position: absolute; margin: auto;
+    left: 0;
+    right: 0;
+    top: 35em;
+    width: 60%;
+    border-radius: 10px;
+    background-color: rgba(22, 22, 22, 0.7);
+    height: 170px;">
+
+    <ul style="position: absolute; display: flex;list-style: none;margin-left: 30px;top: 27px;" >
+        <li class="search_category">Rent</li>
+        <li class="search_category">PG</li>
+        <li class="search_category">Hostel</li>
+        <li class="search_category">Plot</li>
+    </ul>
+
+        <div class="inner-box" style="height: 100%;display: flex;width: 100%;margin: auto;justify-content: center;">
+            <div id="pointer" style="background-color: white;height: 50px;width: 125px;margin: 65px 0;border-radius: 10px 0 0 10px;">
+                <img src="<?=base_url();?>assets/img/pointer.svg" alt="" style="height: 60px;text-align: center;width: 100%;opacity: 0.7;">
+            </div>
+            <div id="input" style="background-color: white;height: 40px;width: 500px;margin: 65px 3px;">
+            <input type="search" placeholder="search for hpuse,plot,pg" style="border-radius: 0;" id="search_box_home">
+            </div>
+
+            <div class="ai-searching" style="background-color: rgb(190, 190, 190);border-radius: 0 0 7px 7px;width: 530px;position: absolute;margin-top: 115px;margin-left: -5px;padding: 10px;">
+                <input id="ai-search" type="text" placeholder="ai searching">
+                <input id="ai-search" type="text" placeholder="ai searching">
+                <input id="ai-search" type="text" placeholder="ai searching">
+                
+            </div>
+            <div id="search-div" style="background-color: white;height: 50px;width: 100px;margin: 65px 30px;background-color: #00a79d;border-radius: 0 10px 10px 0;">
+
+                <img id="search" src="<?=base_url('assets/img/');?>search.png" alt="search" style="display: none;height: 28px;width: auto;">
+                <input type="submit" value="Search"
+                    style="background-color: #00a79d;width: 125px;font-weight: bold;color: white;border-radius: 0 10px 10px 0;">
+
+                    
             </div>
         </div>
 
-        <div class="home-lager-shearch" style="background-color: rgb(252, 252, 252); padding-top: 25px; margin-top: -125px; opacity:1;">
+
+
+    </div>
+</form>
+
+    <div class="list" >
+        <div style="display: flex;">
+            <div><img src="<?=base_url('assets/img/');?>undraw_Note_list_re_r4u9.svg" alt="" style="height: 94px;margin-top: 25px;margin-left: 14px;"></div>
+        <div><p><strong>List with us,receive genuine verified leads.</strong></p></div>
+        </div>
+        <button>Post a property</button>
+       
+       
+       
+    </div>
+    
+    <div style="text-align: center;">
+
+<h3 style="color: rgb(20, 20, 20);"><b>Most valuable blogs on Real Estate</b></h3>
+<div class="blog-heading">
+    <div class="blog-images">
+        <img src="<?=base_url('assets/images/blogs/');?>home-buying.jpg" alt="home-buying.jpg" style="">
+
+        <p><b>HOME BUYING/INVESTING</b></p>
+
+
+    </div>
+
+    <div class="blog-images">
+        <img id="subheading" src="<?=base_url('assets/images/blogs/');?>decor.jfif" alt="Snow">
+
+        <p><b>HOME DECOR</b></p>
+
+
+
+    </div>
+    <div class="blog-images">
+        <img id="subheading" src="<?=base_url('assets/images/blogs/');?>home-maintenancee.jpg" alt="Mountains">
+
+        <p><b>HOME MAINTAINANCE</b></p>
+
+
+    </div>
+    <div class="blog-images">
+        <img id="subheading" src="<?=base_url('assets/images/blogs/');?>konstantin-evdokimov-UUYkTnQkn9c-unsplash.jpg" alt="Lights">
+
+        <p><b>HOME LONE</b></p>
+
+
+    </div>
+    <div class="blog-images">
+        <img id="subheading" src="<?=base_url('assets/images/blogs/');?>TREND.png" alt="Lights">
+
+        <p><b>TRENDING</b></p>
+
+
+    </div>
+</div>
+</div>
+
+        <!-- <div class="home-lager-shearch" style="background-color: rgb(252, 252, 252); padding-top: 25px; margin-top: -125px; opacity:1;">
             <div class="container">
                 <div class="col-md-12 large-search"> 
                     <div class="search-form wow pulse">
                         
 
-                        
+                         -->
                        
 
-                    <form action="" class=" form-inline" id="search_form">
+                    
 
 
-
+<!-- <form action="" class=" form-inline" id="search_form"> -->
 <!--<div class="col-md-12" style="list-style: none;display: flex;padding: 10px;">
     <li
         style="margin-right: 28px;margin-left: 15px;cursor: pointer;border-bottom: 3px solid rgb(241, 240, 240);">
@@ -127,6 +529,7 @@
 
 </div>-->
 
+<!-- 
 <div class="col-md-12">
 <div ><h3 class="text_above_search" style="font-weight:bold;">Start Searching Property ..  </h3></div>
 
@@ -140,39 +543,17 @@
          </center>
       </div>
   </div>
-
-
     <div class="small" style="align-content: center;align-items: center;display:flex;">
-    
-
-
-
-        
-
         <span>
-
-            
-
         </span>
-        
-              
         </div>
-      </div>
+      </div> -->
+      <!-- </form> -->
 
-    </div>
-    
-
-
-
+    <!-- </div>
 </div>
-
-
 </div>
-
-</form>
-                    
-
-                    </div>
+</div> -->
                 </div>
             </div>
         </div>
@@ -566,10 +947,10 @@ function load_page_content(){
                     property_list+='<div class="col-sm-6 col-md-3 p0">';
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
-                    property_list+='<a href="<?=base_url('property?id=');?>'+this.sn+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" alt="shreshell - '+this.name+'" style="height:225px; object-fit:cover;"></a>';
+                    property_list+='<a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" alt="shreshell - '+this.name+'" style="height:225px; object-fit:cover;"></a>';
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
-                    property_list+='<h5><a href="property-1.html" >'+this.name.slice(0,16)+''+dot_after_name+'</a></h5>';
+                    property_list+='<h5><a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'" >'+this.name.slice(0,16)+''+dot_after_name+'</a></h5>';
                     property_list+='<div class="dot-hr"></div>';
                     property_list+='<span class="pull-left"><b>'+capital_first(this.city)+' </b></span>';
                     property_list+='<span class="proerty-price pull-right">&#8377; '+this.price+'</span>';
@@ -603,14 +984,30 @@ function load_page_content(){
 load_page_content();
 
 
-    $("#btn-search-main").click(function(event) {
-        event.preventDefault();
-        load_page_content();
+    // $("#btn-search-main").click(function(event) {
+    //     event.preventDefault();
+    //     load_page_content();
+    // });
+    var search_category="";
+    $(".search_category").click(function(){
+        
+        
+        $(".search_category").each(function(){
+            $(this).css("border-bottom","");
+        });
+        if(search_category=="&&category="+$(this).html()){
+            $(this).css("border-bottom","");
+            search_category="";
+        }else{
+            $(this).css("border-bottom","2px solid white");
+            search_category="&&category="+$(this).html();
+        }
+        
     });
 
     $("#search_form").submit(function(e){
         e.preventDefault();
-        window.location.href="<?=base_url('properties');?>?s="+$("#search_box_home").val();    
+        window.location.href="<?=base_url('properties');?>?s="+$("#search_box_home").val()+search_category;    
     });
     </script>
 
