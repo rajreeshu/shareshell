@@ -1709,6 +1709,7 @@ proerty-th
 .proerty-th .proerty-item:hover  .item-thumb img{
     opacity: 0.7;
 }
+
 /* .proerty-th .proerty-item .item-thumb:hover .tm_mask {
     opacity: 0.7;
 } */
@@ -1724,6 +1725,9 @@ proerty-th
     opacity: 1;
     min-height: 225px;
     max-height: 265px;
+}
+.item-thumb:hover{
+    opacity: 0.7;
 }
 
 
@@ -1785,7 +1789,7 @@ proerty-th-list
     float: left;
 } 
 .proerty-th-list .col-md-4 .item-thumb img {
-    opacity: 0.7;
+    opacity: 1;
     height: 230px;
     vertical-align: middle;
     border: 0px none;

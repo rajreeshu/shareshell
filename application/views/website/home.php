@@ -186,12 +186,12 @@ margin-bottom: 0px;
     
     
 }
-#input:hover + .ai-searching{
+/* #input:hover + .ai-searching{
     display: block;
 
     
     
-}
+} */
 .ai-searching input{
     background-color: rgb(240, 240, 240)!important;
     
@@ -491,7 +491,7 @@ margin-bottom: 0px;
     <div class="blog-images">
         <img id="subheading" src="<?=base_url('assets/images/blogs/');?>konstantin-evdokimov-UUYkTnQkn9c-unsplash.jpg" alt="Lights">
 
-        <p><b>HOME LONE</b></p>
+        <p><b>HOME LOAN</b></p>
 
 
     </div>
@@ -862,6 +862,10 @@ margin-bottom: 0px;
     var key="<?php echo $this->security->get_csrf_hash(); ?>";    
     // console.log("1st key:"+key);
     var property_list="";
+
+    $(".blog-images").click(function(){
+        location.href="<?=base_url('blogs');?>";
+    });
 
 
     $("#center_card_show_properties").click(function(){

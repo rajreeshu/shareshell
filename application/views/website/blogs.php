@@ -367,7 +367,7 @@
             <div class="blog-images">
                 <img id="subheading" src="<?=base_url('assets/images/blogs/');?>konstantin-evdokimov-UUYkTnQkn9c-unsplash.jpg" alt="Lights">
 
-                <p><b>HOME LONE</b></p>
+                <p><b>HOME LOAN</b></p>
 
 
             </div>
