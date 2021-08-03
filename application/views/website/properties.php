@@ -6,10 +6,10 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SHARESHELL| Properties  page</title>
-        <meta name="shareshell" content="Making rental easy">
-        <meta name="author" content="Kimarotec">
-        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+        <title>Search Properties</title>
+        <meta name="description" content="find properties near yo to rent">
+        <meta name="author" content="Shareshell">
+        <meta name="keyword" content="house for rent, shareshell, property, buy property, rent property, hostels">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php
     $this->load->view('website/link_import');

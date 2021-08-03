@@ -34,7 +34,7 @@ public function property_detail($input){
 	$this->db->select('sn,name,price,main_image,description,avail,city,status,type,address,min_bed');
 	
 	if(isset($input['search_text'])&&$input['search_text']!=""){
-		$search_text=$input['search_text'];
+		$search_text=strtolower($input['search_text']);
         $this->db->group_start();
 		$this->db->like('name',$search_text)->or_like('address',$search_text)->or_like('description',$search_text)->or_like('city',$search_text);
         $this->db->group_end();

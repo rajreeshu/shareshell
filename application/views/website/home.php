@@ -198,6 +198,9 @@ margin-bottom: 0px;
 
 }
 
+.search_category{
+    z-index: 10;
+}
 
 
 
@@ -382,13 +385,8 @@ margin-bottom: 0px;
                 <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-2.jpg" alt="Shareshell_homepage"></div>
                 <div class="item"><img src="assets/img/slide1/slider-image-3.jpg" alt="Shareshell_affordable_luxury_renting"></div> -->
                 
-                <div class="item" ><img style="height:600px;object-fit: cover;"
-                        src="<?=base_url();?>assets/images/ShareShell Home Page Image 1332x540Pix.svg" alt="The Last of us"></div>
-
-                
-
-                <div class="item"><img style="height:600px;object-fit: cover;"
-                        src="<?=base_url();?>assets/images/ShareShell Home Page Image 1332x540Pix -White.svg" alt="The Last of us"></div>
+                <div class="item" ><img style="height:600px;object-fit: cover;" src="<?=base_url();?>assets/images/ShareShell Home Page Image 1332x540Pix.svg" alt="The Last of us"></div>
+                <div class="item"><img style="height:600px;object-fit: cover;" src="<?=base_url();?>assets/images/ShareShell Home Page Image 1332x540Pix -White.svg" alt="The Last of us"></div>
 
             </div>
             </div>
@@ -455,7 +453,7 @@ margin-bottom: 0px;
             <div><img src="<?=base_url('assets/img/');?>undraw_Note_list_re_r4u9.svg" alt="" style="height: 94px;margin-top: 25px;margin-left: 14px;"></div>
         <div><p><strong>List with us,receive genuine verified leads.</strong></p></div>
         </div>
-        <button>Post a property</button>
+        <button onclick="location.href ='<?=base_url('main/submit_property');?>'">Post a property</button>
        
        
        
@@ -464,9 +462,9 @@ margin-bottom: 0px;
     <div style="text-align: center;">
 
 <h3 style="color: rgb(20, 20, 20);"><b>Most valuable blogs on Real Estate</b></h3>
-<div class="blog-heading">
+<!-- <div class="blog-heading">
     <div class="blog-images">
-        <img src="<?=base_url('assets/images/blogs/');?>home-buying.jpg" alt="home-buying.jpg" style="">
+        <img src="<?=base_url('assets/images/blogs/');?>home-buying.jpg" alt="home-buying.jpg">
 
         <p><b>HOME BUYING/INVESTING</b></p>
 
@@ -502,7 +500,48 @@ margin-bottom: 0px;
 
 
     </div>
-</div>
+</div> -->
+<div class="blog-heading">
+            <div class="blog-images">
+                <img src="<?=base_url('assets/images/blogs/');?>home-buying.jpg" alt="home-buying.jpg" style="">
+
+                <p><b>HOME BUYING/INVESTING</b></p>
+
+
+            </div>
+
+            <div class="blog-images">
+                <img id="subheading" src="<?=base_url('assets/images/blogs/');?>decor.jfif" alt="Snow">
+
+                <p><b>HOME DECOR</b></p>
+
+
+
+            </div>
+            <div class="blog-images">
+                <img id="subheading" src="<?=base_url('assets/images/blogs/');?>home-maintenancee.jpg" alt="Mountains">
+
+                <p><b>HOME MAINTAINANCE</b></p>
+
+
+            </div>
+            <div class="blog-images">
+                <img id="subheading" src="<?=base_url('assets/images/blogs/');?>konstantin-evdokimov-UUYkTnQkn9c-unsplash.jpg" alt="Lights">
+
+                <p><b>HOME LOAN</b></p>
+
+
+            </div>
+            
+            <div class="blog-images">
+            <img id="subheading" src="<?=base_url('assets/images/blogs/');?>TREND.jpg" alt="Lights">
+
+            <p><b>TRENDING</b></p>
+
+
+        </div>
+
+        </div>
 </div>
 
         <!-- <div class="home-lager-shearch" style="background-color: rgb(252, 252, 252); padding-top: 25px; margin-top: -125px; opacity:1;">
@@ -999,20 +1038,29 @@ load_page_content();
         $(".search_category").each(function(){
             $(this).css("border-bottom","");
         });
-        if(search_category=="&&category="+$(this).html()){
-            $(this).css("border-bottom","");
-            search_category="";
-        }else{
+        if(search_category!="&&category="+$(this).html()){
             $(this).css("border-bottom","2px solid white");
             search_category="&&category="+$(this).html();
+        }else{
+            search_category="";
         }
         
     });
 
+    function search_properties(){
+        window.location.href="<?=base_url('properties');?>?s="+$("#search_box_home").val()+search_category; 
+    }
+
     $("#search_form").submit(function(e){
         e.preventDefault();
-        window.location.href="<?=base_url('properties');?>?s="+$("#search_box_home").val()+search_category;    
+        search_properties();    
     });
+
+    $("#search").click(function(e){
+        e.preventDefault();
+        search_properties(); 
+    });
+
     </script>
 
 </body>

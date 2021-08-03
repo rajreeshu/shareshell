@@ -3,7 +3,7 @@
     if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
         // $submit_property_button="<a class=\"navbar-btn nav-button\" href=\"".base_url('main/submit_property')."\" data-wow-delay=\"0.5s\" style=\"position:relative; top:10px;\"><B>PostProperty<span style=\"color: red; top:10px;\"> FREE</b></span></a>";
         // $login_logout_button="<a class=\"navbar-btn nav-button wow login\" href=".base_url('account')." data-wow-delay=\"0.4s\" id=\"account_button_header\" style=\"position:relative; top:10px;\">Account</a>";
-        $login_logout_button='<a  href="'.base_url('account').'\" class="navbar-btn nav-button" style="background-color: white;color: rgb(26, 25, 25);border: 2px solid rgb(255, 255, 255);"><b>Account</b></a>';
+        $login_logout_button='<a  href="'.base_url('account').'\" class="navbar-btn nav-button" id="account_button_header" style="background-color: white;color: rgb(26, 25, 25);border: 2px solid rgb(255, 255, 255);"><b>Account</b></a>';
         $logged_in=true; 
     }else{
         // $submit_property_button="<a class=\"navbar-btn nav-button \"href='".base_url('main/submit_property')."'\" data-wow-delay=\"0.5s\" style=\"position:relative; top:10px;\"><B>PostProperty<span style=\"color: red;\"> FREE</b></span></a>";
