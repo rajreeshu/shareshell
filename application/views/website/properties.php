@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Search Properties</title>
-        <meta name="description" content="find properties near yo to rent">
+        <meta name="description" content="find properties near you to rent">
         <meta name="author" content="Shareshell">
         <meta name="keyword" content="house for rent, shareshell, property, buy property, rent property, hostels">
         <meta name="viewport" content="width=device-width, initial-scale=1">

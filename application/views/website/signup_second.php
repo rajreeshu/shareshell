@@ -6,9 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
         <title>SHARESHELL| Home page</title>
-        <meta name="shareshell" content="Making rental easy">
-        <meta name="author" content="Kimarotec">
-        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+        
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!--        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>

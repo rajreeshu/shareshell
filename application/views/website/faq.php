@@ -6,9 +6,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>SHARESHELL| Home page</title>
-        <meta name="shareshell" content="Making rental easy">
-        <meta name="author" content="Kimarotec">
-        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+        <meta name="author" content="shareshell">
+        <meta name="keyword" content="shareshell, shareshell faq, faq, frequently asked questions">
+        <meta name="description" content="General Question you want to ask from shareshell">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php
     $this->load->view('website/link_import');

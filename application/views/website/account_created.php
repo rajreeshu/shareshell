@@ -5,9 +5,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Shareshell | Success</title>
-        <meta name="description" content="GARO is a real-estate template">
-        <meta name="author" content="Kimarotec">
-        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+        <meta name="description" content="Your account is successfully created">
+        <meta name="author" content="shareshell">
+        <meta name="keyword" content="shareshell account, account created">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <?php

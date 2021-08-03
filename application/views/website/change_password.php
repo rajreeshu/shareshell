@@ -6,9 +6,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>SHARESHELL| Change Password</title>
-        <meta name="shareshell" content="Making rental easy">
-        <meta name="author" content="Kimarotec">
-        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+        
+        <meta name="author" content="shareshell">
+        <meta name="keyword" content="shareshell">
+        <meta name="description" content="change your shareshell password">
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 
