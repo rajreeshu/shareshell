@@ -7,9 +7,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SHARESHELL | My Properties</title>
-    <meta name="shareshell" content="Making rental easy">
-    <meta name="author" content="Kimarotec">
-    <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+    <meta name="author" content="shareshell">
+    <meta name="keyword" content="shareshell, my properties">
+    <meta name="description" content="Your submitted properties on shareshell">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>

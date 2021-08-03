@@ -6,9 +6,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Blogs Home</title>
-        <meta name="shareshell" content="Making rental easy">
-        <meta name="author" content="Kimarotec">
-        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+        <meta name="description" content="Know about Everything related to Real Estate on shareshell blogs">
+        <meta name="author" content="shareshell">
+        <meta name="keyword" content="shareshell, blogs, blog, shareshell blog, real estate blog, real estate">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
     * {
