@@ -39,42 +39,26 @@
     $this->load->view('website/header');
 ?>
     <style type="text/css">
-        .thumb_class {
-            /*border: 3px solid blue;*/
-
-        }
 
         .thumb_class_src {
             height: 472px;
             width: 100%;
             object-fit: cover;
-            /* height:250px; */
-            /*border: 3px solid red;*/
+
         }
 
-        .lSPager {
-            /*padding: 10px;*/
-            /*border: 3px solid red;*/
-        }
 
         .lSSlideOuter .lSPager.lSGallery img {
-            /*border: 3px solid pink;*/
             height: 50px;
             width: 80px;
             object-fit: cover;
         }
 
-        .lSGallery img {
-            /*height: 100px;*/
-            /*border: 3px solid blue;*/
-        }
-
+ 
         .demo-gallery>ul>li {
             float: left;
             margin-bottom: 15px;
-            /* margin-right: 20px; */
-            /* width: 230px; */
-
+ 
         }
 
         .demo-gallery>ul>li a {
@@ -110,10 +94,6 @@
 
         @media only screen and (max-width:992px) {
 
-            /* .container{
-            padding-left:0px;
-            padding-right:0px;
-        } */
             .thumb_class_src {
                 height: 250px;
             }
@@ -124,20 +104,10 @@
 
         }
 
-        /* .single-footer{
-        padding-left: 15px;
-    }
-    .footer-copy{
-        padding-left:30px;
-    } */
-
+ 
         #contact-details {
             display: none;
         }
-        /* #contact-owner:hover{
-            background-color:green;
-
-        } */
     </style>
 </head>
 
@@ -640,7 +610,7 @@
                     $("#property_video").css("display", "none");
                 }
                 // console.log(typeof(video_play_link));
-                $("#property_video").attr('src', video_play_link);
+                $("#property_video").attr('src', video_play_link); 
                 
                 $("#property_status").html("For " + data.data.status.toUpperCase());
                 $("#property_bed").html(data.data.min_bed);

@@ -39,6 +39,16 @@ public function property_detail($input){
 		$this->db->like('name',$search_text)->or_like('address',$search_text)->or_like('description',$search_text)->or_like('city',$search_text);
         $this->db->group_end();
 	}
+	if(isset($input['filter_min_bed'])){
+	if($input['filter_min_bed']!=""){
+		if($input['filter_min_bed']>=5){
+			$this->db->where('min_bed >=',$input['filter_min_bed']);
+		}else{
+			$this->db->where('min_bed',$input['filter_min_bed']);
+		}
+		
+	}
+}
 
 	if($input['filter_avail']=="all"){
 		$input['filter_avail']="";
@@ -96,7 +106,7 @@ public function getallpropertylist($input){
 			$input['filter_addon'][$i]="";
 		}
 	}
-	// $data['input']=$input; 
+	$data['input']=$input; 
 
 	$this->load->model('account_model');
 	$data['data']=$this->account_model->property_detail($input)->limit($input['items_per_page'],($input['page_no']-1)*$input['items_per_page'])->get('property_info')->result();
@@ -118,7 +128,12 @@ public function edit_userdata($input){
 			$data['data']='username already taken';
 		}
 	}else{
-		$data['data']=$this->db->where('sn',$input['user_id'])->update('user_detail',[$input['field']=>$input['value']]);
+		if($input['field']!='email'){
+			$data['data']=$this->db->where('sn',$input['user_id'])->update('user_detail',[$input['field']=>$input['value']]);
+		}else{
+			$data['data']="email can't be changed";
+		}
+		
 	}
 	return $data['data'];
 }
@@ -144,6 +159,106 @@ public function get_blog_list_data($input){
 	}
 	return $this->db->order_by("blog_id","DESC");
 }
+
+public function show_fav_property($input){
+	$this->db->select("a.id,a.property_id,b.name,b.price,b.address,b.avail,b.type,b.status,b.main_image,b.min_bed");
+	$this->db->from('favourite_property as a');
+	$this->db->where('a.user_id',$input['user_id']);
+	$this->db->join ('property_info as b','a.property_id=b.sn');
+	return $this->db->get()->result();
+}
+
+public function add_to_fav($input){
+	$early=$this->db->where(['user_id'=>$input['user_id'],'property_id'=>$input['property_id']])->get('favourite_property')->num_rows();
+	if(!$early){
+		$data['work']="added";
+		$data['data']=$this->db->insert('favourite_property',['user_id'=>$input['user_id'],'property_id'=>$input['property_id'],'date_time'=>date('Y-m-d H:i:s')]);
+
+	}else{
+		$data['work'] ="removed";
+		$data['data']=$this->db->where(['user_id'=>$input['user_id'],'property_id'=>$input['property_id']])->delete('favourite_property');
+	}
+	return $data;
+}
+
+public function resetPassword_otp($input){
+	$otp_random=rand(1000,9999);
+	$this->db->where('email',$input['email_field'])->update('user_detail',['otp'=>password_hash($otp_random,PASSWORD_BCRYPT),'otp_sent_time'=>date('Y-m-d H:i:s')]);
+	$this->load->model('email_model');
+	$send_email=$this->email_model->send_mail_otp($input['email_field'],$otp_random);
+	
+	if($send_email){
+		$data['data']=true;
+	}else{
+		$data['data']=$send_email;
+	}
+	$data['send_mail']=$send_email;
+	$user_id=$this->db->select('sn')->where("email",$input['email_field'])->get("user_detail")->row();	
+
+	$data['user_id']=$user_id->sn;
+	return $data; 
+	
+}
+
+// public function resend_otp_user($input){
+//     $otp_random=rand(1000,9999);
+// 	$input['email_field']=$this->db->select('email')->where('sn',$input['user_id'])->get('user_detail')->row()->email;
+// 	$this->db->where('email',$input['email_field'])->update('user_detail',['otp'=>password_hash($otp_random,PASSWORD_BCRYPT),'otp_sent_time'=>date('Y-m-d H:i:s')]);
+// 	$this->load->model('email_model');
+// 	$send_email=$this->email_model->send_mail_otp($input['email_field'],$otp_random);
+// 	if($send_email){
+// 		$data['data']=true;
+// 	}
+// 	$user_id=$this->db->select('sn')->where("email",$input['email_field'])->get("user_detail")->row();	
+
+// 	$data['user_id']=$user_id->sn;
+// 	return $data;
+// }
+
+public function verify_otp_m($input){
+	$db_data=$this->db->select('otp,otp_sent_time')->where('sn',$input['user_id'])->get('user_detail')->row();
+
+	$data['data']=password_verify($input['otp'],$db_data->otp);
+
+	if($data['data']){
+		$this->session->unset_userdata('otp_verify_signup_shareshell');
+		$this->db->where('sn',$input['user_id'])->update('user_detail',['status'=>1]);
+	}
+	return $data;
+	
+}
+
+public function update_password_m($input){
+	$this->load->model('password_model');
+	$hashed_pass=$this->password_model->create_hash($input['email'],$input['password']);
+
+	return $this->db->where('email',$input['email'])->update("user_detail",['password'=>$hashed_pass]);
+
+}
+
+public function changePassword_m($input){
+	$user_detail=$this->db->select('email,password')->where('sn',$input['user_id'])->get('user_detail')->row();
+
+	$this->load->model('password_model');
+	$isSame=$this->password_model->verify_hash($user_detail->email,$input['old_password'],$user_detail->password);
+	$new_password_hash=$this->password_model->create_hash($user_detail->email,$input['new_password']);
+	
+	$data['updated']=false; 
+
+	if($isSame){
+		$data['isSamePassword']=true;
+		$data['updated']=$this->db->where('sn',$input['user_id'])->update("user_detail",['password'=>$new_password_hash]);
+	}else{
+		$data['isSamePassword']=false;
+	}
+	return $data;
+}
+
+public function signup_validate_data_m($input){
+	$data['data']=$this->db->where($input['datatype'],$input['data'])->get('user_detail')->num_rows();
+	return $data;
+}
+
 
 
 }

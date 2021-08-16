@@ -148,7 +148,10 @@ class Main extends CI_Controller {
 	}
 
 	public function blog(){
-		$this->load->view("website/blog_page");
+		$blog_no=$this->uri->segment(3);
+		$head_data=$this->db->select('blog_heading,blog_tags,blog_body,blog_category,blog_image,writer_id')->where('blog_id',$blog_no)->get("blog")->row();
+		$writer=$this->db->select('first_name,last_name')->where('sn',$head_data->writer_id)->get("user_detail")->row();
+		$this->load->view("website/blog_page",['blog_no'=>$blog_no,'head_heading'=>$head_data->blog_heading,'head_tags'=>$head_data->blog_tags,'head_body'=>$head_data->blog_body,'blog_image'=>$head_data->blog_image,'first_name'=>$writer->first_name,'last_name'=>$writer->last_name]);
 	}
 
 

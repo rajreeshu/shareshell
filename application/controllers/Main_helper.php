@@ -184,15 +184,8 @@ public function get_all_property_list(){
 public function add_to_favorite(){
 	$input=$this->security->xss_clean($this->input->post());
 
-	$early=$this->db->where(['user_id'=>$input['user_id'],'property_id'=>$input['property_id']])->get('favourite_property')->num_rows();
-	if(!$early){
-		$data['work']="added";
-		$data['data']=$this->db->insert('favourite_property',['user_id'=>$input['user_id'],'property_id'=>$input['property_id'],'date_time'=>date('Y-m-d H:i:s')]);
-
-	}else{
-		$data['work'] ="removed";
-		$data['data']=$this->db->where(['user_id'=>$input['user_id'],'property_id'=>$input['property_id']])->delete('favourite_property');
-	}
+	$this->load->model('account_model');
+	$data=$this->account_model->add_to_fav($input);
 	
 
 	$data['key']=$this->security->get_csrf_hash();
@@ -202,11 +195,8 @@ public function add_to_favorite(){
 public function my_fav_properties(){
 	$input=$this->security->xss_clean($this->input->post());
 
-	$this->db->select("a.id,a.property_id,b.name,b.price,b.address,b.avail,b.type,b.status,b.main_image,b.min_bed");
-	$this->db->from('favourite_property as a');
-	$this->db->where('a.user_id',$input['user_id']);
-	$this->db->join ('property_info as b','a.property_id=b.sn');
-	$data['data']=$this->db->get()->result();
+	$this->load->model('account_model');
+	$data['data']=$this->account_model->show_fav_property($input);
 
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
@@ -217,7 +207,8 @@ public function my_fav_properties(){
 public function signup_validate_data(){
 	$input=$this->security->xss_clean($this->input->post());
 
-	$data['data']=$this->db->where($input['datatype'],$input['data'])->get('user_detail')->num_rows();
+	$this->load->model('account_model');
+	$data=$this->account_model->signup_validate_data_m($input);
 
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
@@ -306,26 +297,10 @@ public function submit_signup_data(){
 			$this->session->unset_userdata('img_upload_temp_user');
 		}
 		
-		// $data['error']=$this->db->error();
-
 	}
-	
 
-	// if($input['image_field_check']!=""){
-	// 	$this->load->model('upload_model');
-	// 	$main_img_upload=$this->upload_model->upload_file($insertId,'jpg|png|jpeg','utility/user_image','image_field');
-		
-	// 	$upload_data = $this->upload->data();
-	// 	if($main_img_upload==true){
-	// 			$this->db->where('sn',$insertId)->update('user_detail',['image'=>$upload_data['file_name']]);
-	// 		}
-	// 	$data['upload_error']=$this->upload->display_errors();
-	// }
-	
-	// $data['otp']=$otp_random;
 	$data['data']=$insert_prop_data;
 	$data['user_id']=$insertId;
-	// $data['ext']=;
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 }
@@ -435,14 +410,17 @@ public function get_blog_list_content(){
 	echo json_encode($data);
 }
 
-public function get_blog_comments(){
+public function get_blog_comments(){ 
 	$input=$this->security->xss_clean($this->input->post());
 	$this->db->select('a.comment_id,a.commentor_id,a.comment,a.date_time,b.first_name,b.last_name,b.image,b.gender');
 	$this->db->from('blog_comments as a');
 	$this->db->where('blog_id',$input['blog_id']);
 	$this->db->join('user_detail as b','a.commentor_id=b.sn');
 	$this->db->order_by('comment_id','DESC');
-	$this->db->limit($input['per_page'],$input['per_page']*($input['page_no']-1));
+	if($input['per_page']!=(-1)){
+		$this->db->limit($input['per_page'],$input['per_page']*($input['page_no']-1));
+	} 
+	
 	$data['data']=$this->db->get()->result();
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
@@ -450,6 +428,8 @@ public function get_blog_comments(){
 
 public function post_blog_comment(){
 	$input=$this->security->xss_clean($this->input->post());
+	$this->db->query("SET character_set_connection=utf8mb4");
+$this->db->query("SET character_set_results=utf8mb4");
 	$data['data']=$this->db->insert('blog_comments',['blog_id'=>$input['blog_id'],'commentor_id'=>$input['commentor_id'],'comment'=>$input['comment'],'date_time'=>date('Y-m-d H:i:s')]);
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
@@ -457,17 +437,9 @@ public function post_blog_comment(){
 
 public function reset_password_otp(){
 	$input=$this->security->xss_clean($this->input->post());
+	$this->load->model('account_model');
+	$data=$this->account_model->resetPassword_otp($input);
 
-	$otp_random=rand(1000,9999);
-	$this->db->where('email',$input['email_field'])->update('user_detail',['otp'=>password_hash($otp_random,PASSWORD_BCRYPT),'otp_sent_time'=>date('Y-m-d H:i:s')]);
-	$send_email=$this->_send_mail($input['email_field'],$otp_random);
-	if($send_email){
-		$data['data']=true;
-	}
-	$user_id=$this->db->select('sn')->where("email",$input['email_field'])->get("user_detail")->row();	
-
-	$data['user_id']=$user_id->sn;
-	// $data['otp']=$otp_random;
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 
@@ -486,7 +458,6 @@ public function resend_otp_userid(){
 	$user_id=$this->db->select('sn')->where("email",$input['email_field'])->get("user_detail")->row();	
 
 	$data['user_id']=$user_id->sn;
-	// $data['otp']=$otp_random;
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 
@@ -496,16 +467,8 @@ public function verify_otp(){
 
 	$input=$this->security->xss_clean($this->input->post());
 
-	$db_data=$this->db->select('otp,otp_sent_time')->where('sn',$input['user_id'])->get('user_detail')->row();
-
-	$data['data']=password_verify($input['otp'],$db_data->otp);
-
-	if($data['data']){
-		$this->session->unset_userdata('otp_verify_signup_shareshell');
-		$this->db->where('sn',$input['user_id'])->update('user_detail',['status'=>1]);
-	}
-	$data['input']=$input;
-	// $data['db']=$db_data;
+	$this->load->model('account_model');
+	$data=$this->account_model->verify_otp_m($input);
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 
@@ -513,13 +476,11 @@ public function verify_otp(){
 
 public function update_password(){
 	$input=$this->security->xss_clean($this->input->post());
+	$this->load->model('account_model');
 
-	$this->load->model('password_model');
-	$hashed_pass=$this->password_model->create_hash($input['email'],$input['password']);
+	$data['data']=$this->account_model->update_password_m($input);
 
-	$updated=$this->db->where('email',$input['email'])->update("user_detail",['password'=>$hashed_pass]);
-
-	$data['data']=$updated;
+	
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
 }
@@ -662,27 +623,8 @@ public function user_account_detail(){
 public function change_password(){
 	$input=$this->security->xss_clean($this->input->post());
 
-	$user_detail=$this->db->select('email,password')->where('sn',$input['user_id'])->get('user_detail')->row();
-
-
-
-	// $isSame=password_verify($user_detail->email."//".$input['old_password'],$user_detail->password);
-
-	$this->load->model('password_model');
-	$isSame=$this->password_model->verify_hash($user_detail->email,$input['old_password'],$user_detail->password);
-	$new_password_hash=$this->password_model->create_hash($user_detail->email,$input['new_password']);
-	
-	$updated=false;
-
-	if($isSame){
-		$data['isSamePassword']=true;
-		$updated=$this->db->where('sn',$input['user_id'])->update("user_detail",['password'=>$new_password_hash]);
-	}else{
-		$data['isSamePassword']=false;
-	}
-
-	$data['updated']=$updated;
-
+	$this->load->model('account_model');
+	$data=$this->account_model->changePassword_m($input);
 
 	$data['key']=$this->security->get_csrf_hash();
 	echo json_encode($data);
@@ -745,54 +687,82 @@ public function contact_owner_email_send(){
 
 
 //mailing function
-private function _send_mail($email,$random_val){
+// private function _send_mail2($email,$random_val){
 
-	$body=$this->load->view('email_template/resetPassword',['otp'=>$random_val],true);
-	// $this->load->library('email');
-	// // $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
-	// // $this->email->set_header('Content-type', 'text/html');
-	// $this->email->set_header('MIME-Version', 'text/html');
+// 	$body=$this->load->view('email_template/resetPassword',['otp'=>$random_val],true);
+// 	// $this->load->library('email');
+// 	// // $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
+// 	// // $this->email->set_header('Content-type', 'text/html');
+// 	// $this->email->set_header('MIME-Version', 'text/html');
 
-	// 	$fromName="Shareshell";
-    //     $subject='Otp Verification of ShareShell';
-    //     $message='Your Verification Code is :'.$random_val;
-    //     $from ="contactus@shareshell.in";
-	// 	$this->email->set_newline("\r\n");  
-	// 	$this->email->set_mailtype("html");
-    //     $this->email->from($from, $fromName);
-    //     $this->email->to($email);
+// 	// 	$fromName="Shareshell";
+//     //     $subject='Otp Verification of ShareShell';
+//     //     $message='Your Verification Code is :'.$random_val;
+//     //     $from ="contactus@shareshell.in";
+// 	// 	$this->email->set_newline("\r\n");  
+// 	// 	$this->email->set_mailtype("html");
+//     //     $this->email->from($from, $fromName);
+//     //     $this->email->to($email);
 
-    //     $this->email->subject($subject);
-    //     $this->email->message($body);
+//     //     $this->email->subject($subject);
+//     //     $this->email->message($body);
 
-    //     if($this->email->send()){
-    //         return true;
-    //     }
-    //     else {
-	// 		return  $this->email->print_debugger();
-    //     }
+//     //     if($this->email->send()){
+//     //         return true;
+//     //     }
+//     //     else {
+// 	// 		return  $this->email->print_debugger();
+//     //     }
     
-//php mail function
-	// $headers = 'From: ShareShell <contactus@shareshell.in>' . "\n";
+// //php mail function
+// 	// $headers = 'From: ShareShell <contactus@shareshell.in>' . "\n";
 		
-			// $headers .= 'MIME-Version: text/html' . "\n";
-			// $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+// 			// $headers .= 'MIME-Version: text/html' . "\n";
+// 			// $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-			// $returnpath = '-f contactus@shareshell.in';
-			$headers = "Organization: Shareshell inc\r\n";
-			$headers .= "MIME-Version: 1.0\r\n";
-			$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
-			$headers .= "X-Priority: 3\r\n";
-			$headers .= "X-Mailer: PHP". phpversion() ."\r\n";
-			$headers .= 'From: ShareShell <server53.web-hosting.com>' . "\n";
-			$headers .='Reply-To: ShareShell <contactus@shareshell.in>'; 
+// 			// $returnpath = '-f contactus@shareshell.in';
+// 			$headers = "Organization: Shareshell inc\r\n";
+// 			$headers .= "MIME-Version: 1.0\r\n";
+// 			$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+// 			$headers .= "X-Priority: 3\r\n";
+// 			$headers .= "X-Mailer: PHP". phpversion() ."\r\n";
+// 			// $headers .= 'From: ShareShell <server53.web-hosting.com>' . "\n";
+// 			$headers .='Reply-To: ShareShell <contact_us@shareshell.in>'; 
 
-			$success=1;
+// 			$success=1;
 			
-			$success = mail($email, 'Otp Verification of ShareShell', $body,$headers);
-			return $success;
+// 			$success = mail($email, 'Otp Verification of ShareShell', $body,$headers);
+// 			// if (!$success) {
+// 			// 	return error_get_last()['message'];
+// 			// }
+// 			// mail("reeshu54raj@gmail.com","subject","this is the messaege");
+// 			return $success;
 
-}	
+// }
+
+private function _send_mail($email,$random_val){
+	$this->load->library('email');
+	$body=$this->load->view('email_template/resetPassword',['otp'=>$random_val],true);
+	$config = array();
+        $config['protocol'] = 'smtp';
+        $config['smtp_host'] = 'ssl://smtp.gmail.com';
+        $config['smtp_user'] = 'shareshell07@gmail.com';
+        $config['smtp_pass'] = 'Share@123india';
+        $config['smtp_port'] = 465;
+		$config['charset']    = 'utf-8';
+        $config['validation'] = TRUE; 
+
+		$this->email->initialize($config);
+		$this->email->set_newline("\r\n");  
+		$this->email->set_mailtype("html");
+		$this->email->from('shareshell07@gmail.com', 'Shareshell');
+        $this->email->to($email);
+		$this->email->subject("OTP Verification of Shareshell");
+		$this->email->message($body);
+		return $this->email->send();
+
+	// echo $this->email->print_debugger();
+}
 
 
 

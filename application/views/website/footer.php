@@ -19,7 +19,7 @@
                                 
                                 <ul class="footer-adress">
                                     <li><i class="pe-7s-map-marker strong"> </i> flat no.3, Bhubaneswar, <br><span style="margin-left:23px;">Odisha, India.</span></li>
-                                    <li><i class="pe-7s-mail strong"> </i> contactus@shareshell.in</li>
+                                    <li><i class="pe-7s-mail strong"> </i> contact_us@shareshell.in</li>
                                     <li><i class="pe-7s-call strong"> </i> +91 78723 90186</li>
                                 </ul>
                             </div>
@@ -95,7 +95,7 @@
                                 <div class="footer-title-line"></div>
                                 <p>Toll Free 1800 41 99099</br>
                                 Monday - Saturday (9:00AM to 7:00PM IST)</br>
-                                Email: contactus@shareshell.in</p>
+                                Email: contact_us@shareshell.in</p>
                                 <!-- /input-group 
 
                                 <form>

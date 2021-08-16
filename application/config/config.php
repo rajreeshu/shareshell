@@ -460,7 +460,7 @@ $config['csrf_protection'] = TRUE;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
-$config['csrf_regenerate'] = FALSE;
+$config['csrf_regenerate'] = FALSE; 
 $config['csrf_exclude_uris'] = array('main_helper/upload_test',
                                     'main_helper/upload_multi_prop_img',
                                     'main_helper/upload_user_main_img',
@@ -474,7 +474,16 @@ $config['csrf_exclude_uris'] = array('main_helper/upload_test',
                                     'api/user_account_detail',
                                     'api/my_property_data',
                                     'api/delete_property_byid',
-                                    'api/edit_user_data'
+                                    'api/edit_user_data',
+                                    'api/my_fav_properties',
+                                    'api/add_to_favorite',
+                                    'api/reset_password_otp',
+                                    'api/verify_otp',
+                                    'api/update_password',
+                                    'api/change_password',
+                                    'api/signup_validate_data',
+                                    'api/submit_signup_data'
+
                                 );
 
 /*

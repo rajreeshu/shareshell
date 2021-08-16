@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SHARESHELL| Profile</title>
-    <<meta name="author" content="shareshell">
+    <meta name="author" content="shareshell">
         <meta name="keyword" content="shareshell, your account, profile page">
         <meta name="description" content="check your shareshell account details and edit here">
     <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -176,7 +176,7 @@
                                                             <option value="" selected> -Status- </option>
                                                             <option value="rent">Rent </option>
                                                             <option value="pg">PG</option>
-                                                            <!-- <option>used</option>   -->
+                                                            <option value="buy">Sell</option>  
 
                                                         </select>
                                                     </div>

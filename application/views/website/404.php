@@ -4,7 +4,7 @@
     <link rel="icon" href="<?=base_url('assets/img/logo-sm.jpg');?>" type="image/x-icon">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SHARESHELL| Home page</title>
+        <title>404 Not Found</title>
         <meta name="description" content="This page of shareshell.in in not available">
         <meta name="author" content="shareshell">
         <meta name="keyword" content="shareshell, page not found, error 404, 404 not found">

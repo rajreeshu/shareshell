@@ -199,7 +199,7 @@ function verify_otp(){
             dataType:"json",
             success:function(data){
                 key=data.key;
-                // console.log(data);
+                console.log(data);
                 result=data.data;
             },
             error:function(data){

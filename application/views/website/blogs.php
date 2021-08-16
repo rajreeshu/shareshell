@@ -306,9 +306,7 @@
 
             <div class="slider-txt">
                 <h2>Investing in the right property within budget</h2>
-                <p style="width: 33em; ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ipsum dolor,
-                    pariatur, dolorem
-                    necessitatibus asperiores eaque nisi, doloremque distinctio at exercitationem fuga dolores est a!
+                <p style="width: 33em; ">We have ideas to invest at a better place within budget because investing is the best practice in today's era.
                 </p>
             </div>
         </div>
@@ -317,9 +315,7 @@
             <img src="<?=base_url('assets/images/blogs/');?>undraw_interior_design_9i70.svg" style="width:100%;height: 15em;margin-left:-330px;">
             <div class="slider-txt">
                 <h2>Affordable Eco-Friendly Home Decorating Ideas</h2>
-                <p style="width: 33em; ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ipsum dolor,
-                    pariatur, dolorem
-                    necessitatibus asperiores eaque nisi, doloremque distinctio at exercitationem fuga dolores est a!
+                <p style="width: 33em; ">We have decorating ideas in your budget and the product used in those decorations are eco-friendly.
                 </p>
             </div>
         </div>
@@ -328,10 +324,7 @@
             <img src="<?=base_url('assets/images/blogs/');?>undraw_clean_up_ucm0.svg" style="width:100%;height:15em;margin-left:-330px;">
             <div class="slider-txt">
                 <h2>Best Waste Management Practices for your Apartment</h2>
-                <p style="width: 33em; ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ipsum dolor,
-                    pariatur, dolorem
-                    necessitatibus asperiores eaque nisi, doloremque distinctio at exercitationem fuga dolores est a!
-                </p>
+                <p style="width: 33em; ">We have the best ways to manage the waste of your apartment to keep it hygienic</p>
             </div>
         </div>
 
