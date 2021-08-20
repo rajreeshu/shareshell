@@ -7,7 +7,7 @@ class Main_helper extends CI_Controller {
 	{
 		$input=$this->security->xss_clean($this->input->post());
 
-		$data['input']=$input;
+		$data['input']=$input; 
 
 
 		$addon=""; 
@@ -24,20 +24,74 @@ class Main_helper extends CI_Controller {
 		if(isset($input['mess'])){
 			$addon=$addon."mess,";
 		}
+		if(isset($input['club'])){
+			$addon=$addon."club,";
+		}
+		if(isset($input['gym'])){
+			$addon=$addon."gym,";
+		}
+		if(isset($input['garden'])){
+			$addon=$addon."garden,";
+		}
+		if(isset($input['parking'])){
+			$addon=$addon."parking,";
+		}
+		if(isset($input['pool'])){
+			$addon=$addon."pool,";
+		}
+		if(isset($input['wifi'])){
+			$addon=$addon."wifi,";
+		}
+		if(isset($input['staff'])){
+			$addon=$addon."staff,";
+		}
+		if(isset($input['ground'])){
+			$addon=$addon."ground,";
+		}
+		if(isset($input['electricity'])){
+			$addon=$addon."electricity,";
+		}
+		if(isset($input['attach_kitchen'])){
+			$addon=$addon."attach_kitchen,";
+		}
+		if(isset($input['attach_bathroom'])){
+			$addon=$addon."attach_bathroom,";
+		}
+
+		$price_negoitable=0;
+		if(isset($input['price_negoitable'])){
+			$price_negoitable=1;
+		}
 
 		$db_array = array('listed_by' => $this->security->xss_clean($this->session->userdata('user_id_shareshell')),
+							
+							'main_image'=>'',
 							'name'	   => $input['propertyname'],
 							'price'	   => $input['propertyprice'],
-							'address'  => $input['propertyaddress'],
+							// 'negoitable'=>$input['price_negoitable'],
+							'negoitable'=>$price_negoitable,
+							'status'   => $input['property_status'],
+							'type'     => $input['property_type'],
+							'lister_info'=>$input['owner_type'],
 							'contact'  =>$input['propertycontact'],
-							'main_image'=>'',
+							
 							'description'=>$input['description'],
 							'avail'	   => $input['property_avail'],
 							'city'	   => $input['property_city'],
-							'status'   => $input['property_status'],
-							'type'     => $input['property_type'],
+							'furnish'  => $input['property_furnish'],
+							'facing'   => $input['property_facing'],
 							'min_bed'  => $input['property_rooms'],
+							'min_bathroom'=>$input['property_bathrooms'],
+							'min_balcony'=>$input['property_balcony'],
+							'floor_no'=>$input['property_floor_no'],
+							'area'=>$input['property_area'],
+							'prefered'=>$input['property_prefered'],
+							'food'=>$input['property_veg'],
+							'address'  => $input['propertyaddress'],
+							'landmark'=>$input['property_landmark'],
+							'sharing_with'=> $input['property_sharing'],
 							'addon'	   =>$addon,
+							
 							'add_image'=> '',
 							'add_video'=> $input['property_video'],
 							'listed_date'=>date('Y-m-d H:i:s')
@@ -79,7 +133,7 @@ class Main_helper extends CI_Controller {
 		// 	$multiple_img_upload_no++;
 		// }
 
-		// $data['input']=$input;
+		$data['input']=$input;
 		$data['property_id']=$insertId;
 		$data['key']=$this->security->get_csrf_hash();
 		echo json_encode($data);

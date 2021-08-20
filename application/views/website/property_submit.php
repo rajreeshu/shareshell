@@ -108,19 +108,60 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label>Property name <small>(required)</small></label>
+                                                    <label>Property name </label>
                                                     <input name="propertyname" type="text" class="form-control" placeholder="Super villa ..." id="property_name" >
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label>Property price <small>(required)</small></label>
-                                                    <input name="propertyprice" type="number" class="form-control" placeholder="3330000" id="property_price" >
-                                                </div> 
+                                                 
 
-                                                <div class="form-group">
-                                                    <label>Property Address <small>(required)</small></label>
-                                                    <input name="propertyaddress" type="text" class="form-control" placeholder="Plot:000, XyZ place" id="property_add">
-                                                </div> 
+                                                
+                                                    
+
+                                                    <div class="form-group">
+                                                        <label>Status  :</label>
+                                                        <select id="property_status" name="property_status" class="selectpicker show-tick form-control" data-live-search-style="begins" title="Status">
+                                                            <option value="" selected> -Status- </option>
+                                                            <option value="rent">Rent </option>
+                                                            <option value="pg">PG</option>
+                                                            <option value="buy">Sell</option>  
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Property Type  :</label>
+                                                        <select id="property_type" name="property_type" class="selectpicker show-tick form-control">
+                                                            <option value="" selected> -Type- </option>
+                                                            <option value="hostel">Hostel </option>
+                                                            <option value="flat">Flat </option>
+                                                            <option value="house">House / Villa</option> 
+                                                            <option value="plot">Plot</option>  
+                                                            <option value="commercial">Commercial</option>  
+                                                            <option value="shop">Shop</option>  
+                                                            <option value="others">Others</option>  
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                    <label>Property price <small id="small_price">/Month</small></label>
+                                                    <input name="propertyprice" type="number" class="form-control" placeholder="3330000" id="property_price" >
+                                                    <input type="checkbox" id="price_negotiable" name="price_negotiable"> <label><small>Negoitable</small></label>
+                                                </div>
+
+                                                    <div class="form-group">
+                                                        <label>Your Detail  :</label>
+                                                        <select id="owner_type" name="owner_type" class="selectpicker show-tick form-control" data-live-search-style="begins" title="Status">
+                                                            <option value="" selected> -Your Detail- </option>
+                                                            <option value="owner">Owner </option>
+                                                            <option value="agent">Agent</option>
+                                                            <option value="builder">Builder</option>  
+
+                                                        </select>
+                                                    </div>
+                                                
+
+                                               
                                                 <div class="form-group">
                                                     <label>Phone no. <small id="contact_error"><a href="" id="use_default_no">(Click to use Your Default Contact Number)</a></small></label>
                                                     <input name="propertycontact" type="number" class="form-control" placeholder="+91 473 843 7436" id="property_contact">
@@ -130,7 +171,7 @@
                                     </div>
                                     <!--  End step 1 -->
 
-                                    <div class="tab-pane" id="step2">
+                                    <div class="tab-pane tab-pane-step-2" id="step2">
                                         <h4 class="info-text"> Your Property Details? </h4>
                                         <div class="row">
                                             <div class="col-sm-12"> 
@@ -143,10 +184,23 @@
                                             </div>
 
                                             <div class="col-sm-12">
-                                                <div class="col-sm-3">
+
+                                            <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <label>Property City :</label>
+                                                        <select id="property_city" name="property_city" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select your city">
+                                                            <option value="" selected>-City-</option>
+                                                            <option value="bhubaneswar">Bhubaneswar</option>
+                                                            <option value="cuttack">Cuttack</option>
+                                                           
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                        
+                                                <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label>Available for :</label>
-                                                        <select id="property_avail" name="property_avail" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Available for: ">
+                                                        <select id="property_avail" name="property_avail" class="selectpicker" data-live-search-style="begins" title="Available for: ">
                                                             <option value="" selected>-Available For-</option>
                                                             <option value="girl">Girls</option>
                                                             <option value="boy">Boys</option> 
@@ -154,125 +208,300 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label>Property City :</label>
-                                                        <select id="property_city" name="property_city" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select your city">
-                                                            <option value="" selected>-City-</option>
-                                                            <option value="bhubaneswar">Bhubaneswar</option>
-                                                            <option value="cuttack">Cuttack</option>
-                                                           <!--  <option>Paris</option>
-                                                            <option>Casablanca</option>
-                                                            <option>Tokyo</option>
-                                                            <option>Marraekch</option>
-                                                            <option>kyoto , shibua</option> -->
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label>Status  :</label>
-                                                        <select id="property_status" name="property_status" class="selectpicker show-tick form-control"  data-live-search="true" data-live-search-style="begins" title="Status">
-                                                            <option value="" selected> -Status- </option>
-                                                            <option value="rent">Rent </option>
-                                                            <option value="pg">PG</option>
-                                                            <option value="buy">Sell</option>  
+                                                
 
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label>Furnishing :</label>
+                                                        <select id="property_furnish" name="property_furnish" class="selectpicker" data-live-search-style="begins" title="Furnish type">
+                                                            <option value="" selected>-Select-</option>
+                                                            <option value="furnished">Furnished</option>
+                                                            <option value="semi furnished">Semi Furnished</option>
+                                                            <option value="unfurnished">Un-Furnished</option>
+                                                           
                                                         </select>
                                                     </div>
                                                 </div>
+
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label>Food(Veg/Non-Veg) :</label>
+                                                        <select id="property_veg" name="property_veg" class="selectpicker"  data-live-search-style="begins" title="Select your city">
+                                                            <option value="" selected>-Select-</option>
+                                                            <option value="veg">Veg Only</option>
+                                                            <option value="non-veg">Non-Veg Allowed</option>
+                                                            
+                                                           
+                                                        </select>
+                                                    </div>
+                                                </div>
+
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label>Property Type  :</label>
-                                                        <select id="property_type" name="property_type" class="selectpicker show-tick form-control">
-                                                            <option value="" selected> -Type- </option>
-                                                            <option value="hostel">Hostel </option>
-                                                            <option value="flat">Flat </option>
-                                                            <option value="house">House / Villa</option> 
-                                                            <option value="plot">Plot</option>  
-                                                            <option value="others">Others</option>  
-
+                                                        <label>Property Facing : <small>(Optional)</small></label>
+                                                        <select id="property_facing" name="property_facing" class="selectpicker" data-live-search-style="begins" title="Select your city">
+                                                            <option value="" selected>-Direction-</option>
+                                                            <option value="north">North</option>
+                                                            <option value="south">South</option>
+                                                            <option value="east">East</option>
+                                                            <option value="west">West</option>
+                                                            <option value="north-east">North-East</option>
+                                                            <option value="north-west">North-West</option>
+                                                            <option value="south-east">South-East</option>
+                                                            <option value="south-west">South-West</option>
                                                         </select>
                                                     </div>
                                                 </div>
+                                                
+                                               
                                             </div>
                                             <div class="col-sm-12 padding-top-15">                                                   
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-2">
                                                     <div class="form-group">
-                                                        <label for="property-geo">No. of Bedrooms :</label>
+                                                        <label for="property-geo">Bedrooms (BHK) : </label>
                                                         <!-- input type no -->
-                                                        <input name="property_rooms" type="number" class="form-control" placeholder="2 BHK" id="property_rooms">
+                                                        <input name="property_rooms" type="number" class="form-control" placeholder="2" id="property_rooms">
+                                                        
+                                                    </div>
+                                                </div>  
+                                                
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label for="property-geo">No. of Bathrooms :</label>
+                                                        <!-- input type no -->
+                                                        <input name="property_bathrooms" type="number" class="form-control" placeholder="2" id="property_bathroom">
                                                         
                                                     </div>
                                                 </div>
-                                                <!-- <div class="col-sm-4">
-
+                                                
+                                                <div class="col-sm-2">
                                                     <div class="form-group">
-                                                        <label for="price-range">Min baths :</label>
-                                                        <input type="text" class="span2" value="" data-slider-min="0" 
-                                                               data-slider-max="600" data-slider-step="5" 
-                                                               data-slider-value="[250,450]" id="min-baths" ><br />
-                                                        <b class="pull-left color">1</b> 
-                                                        <b class="pull-right color">120</b>
+                                                        <label for="property-geo">No. of Balconies :</label>                                       
+                                                        <input name="property_balcony" type="number" class="form-control" placeholder="2" id="property_balcony">
+                                                        
+                                                    </div>
+                                                </div> 
+
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label for="property-geo">Floor No. :</label>
+                                                        <!-- input type no -->
+                                                        <input name="property_floor_no" type="number" class="form-control" placeholder="2" id="property_floor_no">
+                                                        
+                                                    </div>
+                                                </div> 
+
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label for="property-geo">Area ( sq ft. ) : <small>(optional)</small> </label>
+                                                        <!-- input type no -->
+                                                        <input name="property_area" type="number" class="form-control" placeholder="960" id="property_area">
+                                                        
+                                                    </div>
+                                                </div> 
+
+                                                
+
+                                                <div class="col-sm-2 pg-special-tab">
+                                                    <div class="form-group">
+                                                        <label>Tenauts (Prefered) :</label>
+                                                        <select id="property_prefered" name="property_prefered" class="selectpicker"  data-live-search-style="begins" title="Select your city">
+                                                            <option value="" selected>-Select-</option>
+                                                            <option value="furnished">Professional</option>
+                                                            <option value="semi furnished">Students</option>
+                                                            <option value="">All</option>
+                                                           
+                                                        </select>
                                                     </div>
                                                 </div>
+                                                
                                                 <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Complete Address</label>
+                                                    <input name="propertyaddress" type="text" class="form-control" placeholder="Plot:000, XyZ place" id="property_address">
+                                                </div> 
+                                                </div>
 
+                                                <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Landmark <small>(Optional)</small> </label>
+                                                    <input name="property_landmark" type="text" class="form-control" placeholder="near ABC place" id="property_landmark">
+                                                </div> 
+                                                </div>
+
+                                                <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="property-geo">Property geo (m2) :</label>
-                                                        <input type="text" class="span2" value="" data-slider-min="0" 
-                                                               data-slider-max="600" data-slider-step="5" 
-                                                               data-slider-value="[50,450]" id="property-geo" ><br />
-                                                        <b class="pull-left color">40m</b> 
-                                                        <b class="pull-right color">12000m</b>
+                                                        <label for="property-geo">Occupacy (Sharing With) :</label>                                       
+                                                        <input name="property_sharing" type="number" class="form-control" placeholder="2" id="property_sharing">
+                                                        
                                                     </div>
-                                                </div>  -->  
+                                                </div> 
+                                               
+
                                             </div>
                                             <div class="col-sm-12 padding-top-15">
-                                                <div class="col-sm-3">
+                                        
+                                            <div class="col-sm-12">
+                                                    <div class="form-group" style="margin-top:-20px; margin-bottom:-15px;">                                                      
+                                                            <label>
+                                                            Aminities : 
+                                                         </label>
+                                                    </div>
+                                                </div> 
+
+                                                <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <div class="checkbox">
                                                             <label>
-                                                            <input type="checkbox" id="fire_place" name="fire_place"> Fire Place(3100)       
+                                                            <input type="checkbox" id="ame_fire_place" name="fire_place"> fire extinguisher   
                                                          </label>
                                                         </div>
                                                     </div>
                                                 </div> 
-                                                <div class="col-sm-3">
+                                                <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <div class="checkbox">
                                                             <label>
-                                                                <input type="checkbox" id="emergency_exit" name="emergency_exit"> Emergency Exit(200)
+                                                                <input type="checkbox" id="ame_emergency_exit" name="emergency_exit"> Emergency Exit
                                                             </label>
                                                         </div>
                                                     </div>
                                                 </div>                                                 
-                                                <div class="col-sm-3">
+                                                <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <div class="checkbox">
                                                             <label>
-                                                              <input type="checkbox" id="laundry" name="laundry"> Laundry(10073)
+                                                              <input type="checkbox" id="ame_laundry" name="laundry"> Laundry
 
                                                             </label>
                                                         </div>
                                                     </div>
                                                 </div>                                                 
-                                                <div class="col-sm-3">
+                                                <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <div class="checkbox">
                                                             <label>
-                                                                <input type="checkbox" id="mess" name="mess">Mess(food)
+                                                                <input type="checkbox" id="ame_mess" name="mess"> Mess (food)
                                                             </label>
                                                         </div>
                                                     </div>
                                                 </div> 
+
+                                                                                                
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" id="ame_club" name="club"> Club House
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                                                                 
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" id="ame_gym" name="gym"> Gym
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+
+                                                                                                
+                                                
+
+                                                                                              
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" id="ame_garden" name="garden"> Garden
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+
+                                                                                             
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" id="ame_parking" name="parking"> Parking
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+
+                                                                                                
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" id="ame_pool" name="pool"> Swimming Pool
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" id="ame_wifi" name="wifi"> Wifi
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" id="ame_staff" name="staff"> Maintainance Staff
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" id="ame_ground" name="ground"> Play Ground
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                                                               
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" id="ame_electricity" name="electricity"> 24 Hrs Power Supply
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+
                                             </div> 
-                                           <!--  <div class="col-sm-12 padding-bottom-15">
-                                                <div class="col-sm-3">
+
+                                            <!-- pg special tab -->
+                                           
+                                             <div class="col-sm-12 padding-bottom-15 pg-special-tab">
+                                             <div class="col-sm-12">
+                                                    <div class="form-group" style="margin-top:0px; margin-bottom:-15px;">                                                      
+                                                            <label>
+                                                           Others  :
+                                                         </label>
+                                                    </div>
+                                                </div>    
+
+                                                <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <div class="checkbox">
                                                             <label>
-                                                                <input type="checkbox"> Laundry Room
+                                                                <input type="checkbox" id="oth_attach_kitchen" name="attach_kitchen"> Attached Kitchen
                                                             </label>
                                                         </div>
                                                     </div>
@@ -281,30 +510,13 @@
                                                     <div class="form-group">
                                                         <div class="checkbox">
                                                             <label>
-                                                                <input type="checkbox"> Jog Path
+                                                                <input type="checkbox" id="oth_attach_bathroom" name="attach_bathroom"> Attached Bathroom
                                                             </label>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Ceilings
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Dual Sinks
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> -->
+                                                
+                                            </div>
                                             <br>
                                         </div>
                                     </div>
@@ -504,7 +716,9 @@
 //page 1
     var prop_name;
     var property_price;
-    var prop_address;
+    var prop_status;
+    var prop_type;
+    var owner_type;
     var property_contact;
 
     var main_img;
@@ -520,7 +734,6 @@
         first_page_value_chk();
     });
 
-    // console.log(default_phone_no);
 $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
 
 
@@ -528,9 +741,12 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
     function get_all_inp_value(){
         prop_name=$("#property_name").val();
         prop_price=$("#property_price").val();
-        prop_address=$("#property_add").val();
+        prop_status=$("#property_status").val();
+        prop_type=$("#property_type").val();
+        owner_type=$("#owner_type").val();
         prop_contact=$("#property_contact").val();
         main_img=$("#main_img").val();
+        
     }
 
 
@@ -538,7 +754,7 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
 
         get_all_inp_value();
         
-        if((onPage==1)&&prop_name==""||prop_price==""||prop_address==""||prop_contact==""||main_img==""){
+        if((onPage==1)&&(prop_name==""||prop_price==""||prop_status==""||prop_type==""||owner_type==""||prop_contact==""||main_img=="")){
             // $("#next_btn").css('opacity', '0.3').removeClass('btn-next');
             $("#next_btn").css('opacity', '0.3');
             
@@ -556,6 +772,7 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
 
 
         }
+        // console.log("onPage:"+onPage+" 1:"+prop_name+" 2:"+prop_price+" 3:"+prop_status+" 4:"+prop_type+" 5:"+owner_type+" 6:"+prop_contact+" 7:"+main_img);
     }
 
 
@@ -567,7 +784,27 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
     $("#property_price").keyup(function() {
         first_page_value_chk();
     });
-    $("#property_add").keyup(function() {
+    $("#property_status").on("change",function() {
+        if($(this).val()=="pg"){
+            $(".pg-special-tab").show();
+        }else{
+            $(".pg-special-tab").hide();
+        }
+
+        if($(this).val()=="buy"){
+            $("#small_price").html("");
+        }else{
+            $("#small_price").html("/Month")
+        }
+        
+
+        first_page_value_chk();  
+
+     });
+    $("#property_type").on("change",function() {
+        first_page_value_chk();    
+     });
+    $("#owner_type").change(function() {
         first_page_value_chk();
     });
     $("#property_contact").keyup(function() {
@@ -606,45 +843,106 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
     var prop_description;
     var prop_avail;
     var prop_city;
-    var prop_status;
-    var prop_type;
+    var prop_furnish;
+    var prop_facing;
     var min_bed;
-    // var min_bath;
-    // var property_area;
-    var fire_place;
-    var emerg_exit;
-    var laundry;
-    var mess;
+    var min_bath;
+    var min_balcony;
+    var floor_no;
+    var area_sq_ft;
+    var prop_prefered;
+    var prop_address;
+    var prop_landmark;
+    var prop_sharing;
+    var ame_fire_place;
+    var ame_emerg_exit;
+    var ame_laundry;
+    var ame_mess;
+    var ame_club;
+    var ame_gym;
+    var ame_garden;
+    var ame_parking;
+    var ame_pool;
+    var ame_wifi;
+    var ame_staff;
+    var ame_ground;
+    var ame_electricity;
+    var oth_attach_kitchen;
+    var oth_attach_bathroom;
     var addon;
+    
 
 
     function get_all_inp_value_two(){
         prop_description=$("#property_description").val();
         prop_avail=$("#property_avail").val();
         prop_city=$("#property_city").val();
-        prop_status=$("#property_status").val();
-        prop_type=$("#property_type").val();
+        prop_furnish=$("#property_furnish").val();
+        prop_facing=$("#property_facing").val();
         min_bed=$("#property_rooms").val();
-        
+        min_bath=$("#property_bathroom").val();
+        min_balcony=$("#property_balcony").val();
+        floor_no=$("#property_floor_no").val();
+        area_sq_ft=$("#property_area").val();
+        prop_prefered=$("#property_prefered").val();
+        prop_veg=$("#property_veg").val();
+        prop_address=$("#property_address").val();
+        prop_landmark=$("#property_landmark").val();
+        prop_sharing=$("#property_sharing").val();
+
         addon="";
-        if($("#fire_place").is(":checked")){
+
+        if($("#ame_fire_place").is(":checked")){
             addon+="fire,";
         }
-        if($("#emergency_exit").is(":checked")){
+        if($("#ame_emergency_exit").is(":checked")){
             addon+="exit,";
         }
-        if($("#laundry").is(":checked")){
+        if($("#ame_laundry").is(":checked")){
             addon+="laundry,";
         }
-        if($("#mess").is(":checked")){
+        if($("#ame_mess").is(":checked")){
             addon+="mess,";
+        }
+        if($("#ame_club").is(":checked")){
+            addon+="club,";
+        }
+        if($("#ame_gym").is(":checked")){
+            addon+="gym,";
+        }
+        if($("#ame_garden").is(":checked")){
+            addon+="garden,";
+        }
+        if($("#ame_parking").is(":checked")){
+            addon+="parking,";
+        }
+        if($("#ame_pool").is(":checked")){
+            addon+="pool,";
+        }
+        if($("#ame_wifi").is(":checked")){
+            addon+="wifi,";
+        }
+        if($("#ame_staff").is(":checked")){
+            addon+="staff,";
+        }
+        if($("#ame_ground").is(":checked")){
+            addon+="ground,";
+        }
+        if($("#ame_electricity").is(":checked")){
+            addon+="electricity,";
+        }
+        if($("#oth_attach_kitchen").is(":checked")){
+            addon+="attach_kitchen,";
+        }
+        if($("#oth_attach_bathroom").is(":checked")){
+            addon+="attach_bathroom,";
         }
        
     }
 
     function second_page_value_chk(){
         get_all_inp_value_two();
-        if((onPage==2) && (prop_description==""||prop_avail==""||prop_city==""||prop_status==""||prop_type=="")){
+        if((onPage==2) && (prop_description==""||prop_avail==""||prop_city==""||prop_furnish==""||min_bed==""||min_bath==""||min_balcony==""||floor_no==""||prop_veg==""||prop_address=="")){
             $("#next_btn").css('opacity', '0.3');
 ////////
             $("#next_btn").attr('disabled', '');
@@ -653,13 +951,9 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
                 backgroundColor: '',
                 color: '#215655'
             });
-            // console.log(addon);
         }else{
             $("#next_btn").css('opacity', '1');
             $("#next_btn").removeAttr('disabled');
-            // console.log("else");
-
-
         }
 
         // console.log(addon);
@@ -674,11 +968,26 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
  $("#property_city").on("change",function() {
     second_page_value_chk();    
  });
-$("#property_status").on("change",function() {
+ $("#property_furnish").on("change",function() {
     second_page_value_chk();    
  });
-$("#property_type").on("change",function() {
+ $("#property_veg").on("change",function() {
     second_page_value_chk();    
+ });
+ $("#property_rooms").keyup(function() {
+     second_page_value_chk();
+ });
+ $("#property_bathroom").keyup(function() {
+     second_page_value_chk();
+ });
+ $("#property_balcony").keyup(function() {
+     second_page_value_chk();
+ });
+ $("#property_floor_no").keyup(function() {
+     second_page_value_chk();
+ });
+ $("#property_address").keyup(function() {
+     second_page_value_chk();
  });
 
 
@@ -788,18 +1097,25 @@ $("#form1").submit(function(e) {
                     main_img_file_name_tra=main_img_filee.name;
                     main_img_ext=main_img_filee.name.split(".").pop();
 
-                    compress_image_jic('main_img_prev',main_img_ext); 
+                    
                     upload_image_jic('main_img_prev',data.property_id+"."+main_img_ext); 
-
 
                     var j=0;
                     while(j<arr_prop_img.length){
                         filee=events_arr[arr_prop_img[j]-1].target.files[0];
                         file_name_tra=filee.name;
                         ext = filee.name.split(".").pop();
-                        compress_image_jic('prev_img'+arr_prop_img[j],ext); 
-                        upload_image_jic('prev_img'+arr_prop_img[j],data.property_id+"_"+arr_prop_img[j]+"."+ext); 
-                       // upload_image_jic('prev_img'+j);
+                        // compress_image_jic('prev_img'+arr_prop_img[j],ext);
+                        var tick = function(j) {
+                            return function() {
+                                // console.log(j);
+                                upload_image_jic('prev_img'+arr_prop_img[j],data.property_id+"_"+arr_prop_img[j]+"."+ext); 
+                       
+                            }
+                        };
+                        setTimeout(tick(j), 1000 * j);
+                        console.log('prev_img'+arr_prop_img[j]);
+                        // upload_image_jic('prev_img'+j);
                         j++;
                     } 
                     window.location.href = 'property_submited';
@@ -810,31 +1126,42 @@ $("#form1").submit(function(e) {
                     console.log(data);
                }
             });
-            },1000);
-
-             
+            },1000);  
     }else{
         alert("Click the CheckBox to Continue..");
     } 
-
 });
-
-
-
-
-
 
 //general
 
     $("#next_btn").click(function() {
+        if(onPage==1){
+            main_img_filee=main_img_event.target.files[0];
+            main_img_file_name_tra=main_img_filee.name;
+            main_img_ext=main_img_filee.name.split(".").pop();
+            compress_image_jic('main_img_prev',main_img_ext); 
+        }
+        if(onPage==3){
+            var j=0;
+                    while(j<arr_prop_img.length){
+                        filee=events_arr[arr_prop_img[j]-1].target.files[0];
+                        file_name_tra=filee.name;
+                        ext = filee.name.split(".").pop();
+                        compress_image_jic('prev_img'+arr_prop_img[j],ext); 
+                        // upload_image_jic('prev_img'+arr_prop_img[j],data.property_id+"_"+arr_prop_img[j]+"."+ext); 
+                       // upload_image_jic('prev_img'+j);
+                        j++;
+                    } 
+                    console.log(arr_prop_img.length);
+        }
+
         if(onPage>=1&&onPage<4){
             onPage++;
         }
-        // console.log(onPage);
+        console.log(onPage);
+        
         second_page_value_chk();
-
         get_all_inp_value_two();
-
     });
 
     $("#prev_btn").click(function() {
@@ -842,8 +1169,6 @@ $("#form1").submit(function(e) {
             onPage--;
         }
         first_page_value_chk();
-
-        // console.log(onPage);
     });
 
 

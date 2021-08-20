@@ -768,7 +768,8 @@ label small{
 }
 .navbar{
     margin-bottom: 0px;
-    min-height: 126px;
+    min-height: 120px;
+    margin-top:-25px;
 }
 .navbar-default {
     background-image: none;
