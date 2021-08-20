@@ -36,6 +36,7 @@
                             <option value="Home">Home</option>
                             <option value="News">News</option>
                             <option value="Information">Information</option>
+                            <option value="Decor">Decor</option>
                         </select>
                         <h2 style="float:left;">Heading</h2>
                         </div>
@@ -112,7 +113,7 @@
                 </form>
                 <div id="show_tags" style="margin-top:10px;"></div>
             </div>
-            <button class="btn btn-default" id="submit_button_final" style="float:right; margin:30px; margin-top:-50px;">Submit Blog</button>
+            <button class="btn btn-default" id="submit_button_final" style="float:right; margin:30px; margin-top:0px;">Submit Blog</button>
                   
            
 

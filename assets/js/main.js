@@ -14,8 +14,9 @@ $(document).ready(function () {
 
 
     $('.layout-grid').on('click', function () {
-        $('.layout-grid').addClass('active');
+        $('.layout-grid').addClass('active'); 
         $('.layout-list').removeClass('active');
+        $(".property-btn").hide();
 
         $('#list-type').removeClass('proerty-th-list');
         $('#list-type').addClass('proerty-th');
@@ -25,6 +26,7 @@ $(document).ready(function () {
     $('.layout-list').on('click', function () {
         $('.layout-grid').removeClass('active');
         $('.layout-list').addClass('active');
+        $(".property-btn").show();
 
         $('#list-type').addClass('proerty-th-list');
         $('#list-type').removeClass('proerty-th');

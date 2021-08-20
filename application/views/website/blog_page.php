@@ -1,3 +1,7 @@
+<?php
+$blog_slug=$this->uri->segment(4);
+$img_explode=explode(".",$blog_image);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +9,20 @@
     <link rel="icon" href="<?=base_url('assets/img/logo-sm.jpg');?>" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" id="meta-description" content="">
+    <meta name="Description" content="<?=substr(strip_tags($head_body),0,150);?>">
     <meta name="author" content="ShareShell">
-    <meta name="keyword" id="meta-keywords" content="">
-    <title id="meta-title"></title>
+    <meta name="keyword" content="<?=$head_tags;?>">
+    <title><?=$head_heading;?> - Shareshell Blog</title>
+
+    <!-- Facebook Meta Tags -->
+<meta property="og:url" content="<?=base_url();?>main/blog/<?=$blog_no;?>/<?=$blog_slug;?>">
+<meta property="og:type" content="website">
+<meta property="og:title" content="<?=$head_heading;?> by <?=$first_name.' '.$last_name;?> - Shareshell Blog">
+<meta property="og:description" content="Read Most Amazing Blogs Related to Real Estate on Shareshell">
+<meta property="fb:app_id" content="235531264523889">
+<!-- <meta property="og:image" content="<?=base_url();?>utility/blog_image/<?=$img_explode[0].'_thumb.'.$img_explode[1];?>"> -->
+<meta property="og:image" content="<?=base_url();?>utility/blog_image/<?=$blog_image;?>">
+
 
 </head>
 <?php
@@ -17,10 +31,21 @@
 ?> 
 <style>
     @media only screen and (max-width: 600px){
-       #blog{
-           margin-left: 0px !important;
-       }
+       /* #blog{
+           margin-left: 20px !important;
+       } */
+       .double_image{
+        flex-direction: column !important;
+        
+        }
+        .double_image img{
+            width:100% !important;
+        }
+        ul{
+            padding-left: 20px !important;
+        }
     }
+    
 
 </style>
 <body>
@@ -36,12 +61,12 @@
 <div class="content-area blog-page padding-top-40" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">
                 <div class="row">
-                    <div class="blog-lst col-md-9 p0">
-                        <section id="id-100" class="post single">
+                    <div class="blog-lst col-md-9 p0" style="padding-left:15px; padding-right:15px;">
+                        <section id="id-100" class="post single" style="padding:0px;">
 
                             <div class="post-header single">
                                 <div class="">
-                                    <h2 class="" id="blog_title"></h2>
+                                    <h3 class="" id="blog_title"></h3>
                                     <div class="title-line"></div>
                                 </div>
                                 <div class="row">
@@ -58,12 +83,12 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="image"> 
-                                    <img src="" id="blog_main_img" class="img-responsive" alt="" style="height:400px; object-fit:contain;">
+                                <div class="image" > 
+                                    <img src="" id="blog_main_img" class="img-responsive" alt="" style="max-height:400px; object-fit:contain;">
                                 </div>
                             </div> 
 
-                            <div id="post-content" class="post-body single">
+                            <div id="post-content" class="post-body single" style="overflow:hidden; text-align:justify;">
 
                             </div>
                             <div class="post-footer single">
@@ -81,6 +106,8 @@
                         <section id="show_comments" class="comments"> 
 
                         </section>
+                        <a id="show_all_comments" href="#">Show all Comments</a>
+                        <a id="show_less_comments" style="display: none;" href="#">Show Less Comments</a>
 
                         <section id="comment-form" class="add-comments">
                             <h4 class="text-uppercase">Leave comment</h4>
@@ -156,61 +183,10 @@
                                 </div>
                                 <div class="panel-body recent-property-widget">
                                         <ul id="recommended_blogs">
-                                        <!-- <li>
-                                            <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
-                                                <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
-                                                <span class="property-seeker">
-                                                    <b class="b-1">A</b>
-                                                    <b class="b-2">S</b>
-                                                </span>
-                                            </div>
-                                            <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
-                                                <h6> <a href="single.html">Super nice villa </a></h6>
-                                                <span class="property-price">3000000$</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col-md-3 col-sm-3  col-xs-3 blg-thumb p0">
-                                                <a href="single.html"><img src="assets/img/demo/small-property-1.jpg"></a>
-                                                <span class="property-seeker">
-                                                    <b class="b-1">A</b>
-                                                    <b class="b-2">S</b>
-                                                </span>
-                                            </div>
-                                            <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
-                                                <h6> <a href="single.html">Super nice villa </a></h6>
-                                                <span class="property-price">3000000$</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
-                                                <a href="single.html"><img src="assets/img/demo/small-property-3.jpg"></a>
-                                                <span class="property-seeker">
-                                                    <b class="b-1">A</b>
-                                                    <b class="b-2">S</b>
-                                                </span>
-                                            </div>
-                                            <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
-                                                <h6> <a href="single.html">Super nice villa </a></h6>
-                                                <span class="property-price">3000000$</span>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
-                                                <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
-                                                <span class="property-seeker">
-                                                    <b class="b-1">A</b>
-                                                    <b class="b-2">S</b>
-                                                </span>
-                                            </div>
-                                            <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
-                                                <h6> <a href="single.html">Super nice villa </a></h6>
-                                                <span class="property-price">3000000$</span>
-                                            </div>
-                                        </li> -->
+                                       
 
                                     </ul>
+                                    
                                 </div>
                             </div>
                             
@@ -237,8 +213,8 @@
 
     $this->load->view('website/js_import'); 
 
-    $blog_no=$this->uri->segment(3);
-    $blog_slug=$this->uri->segment(4);
+    
+    
         
     if(empty($blog_no)){
         redirect("blogs");
@@ -288,9 +264,9 @@ var key ="<?php echo $this->security->get_csrf_hash(); ?>";
                 }
                 
 
-                $("#meta-keywords").attr("content",data.blog.blog_tags);
-                $("#meta-description").attr("content",limit_words(100,$("#post-content").text()));
-                $("#meta-title").text(data.blog.blog_heading+" - Shareshell Blog");
+                // $("#meta-keywords").attr("content",data.blog.blog_tags);
+                // $("#meta-description").attr("content",limit_words(100,$("#post-content").text()));
+                // $("#meta-title").text(data.blog.blog_heading+" - Shareshell Blog");
 
 
                 //next prev button code
@@ -325,7 +301,7 @@ var key ="<?php echo $this->security->get_csrf_hash(); ?>";
             }
         });
 
-    function fetch_comments(){
+    function fetch_comments(per_page_comment){
         $.ajax({
             url: "<?=base_url('main_helper/get_blog_comments');?>",
             type: "POST",
@@ -333,7 +309,7 @@ var key ="<?php echo $this->security->get_csrf_hash(); ?>";
             data: {
                 "<?php echo $this->security->get_csrf_token_name();?>": key,
                 blog_id: "<?= $blog_no;?>",
-                per_page:5,
+                per_page:per_page_comment,
                 page_no:1
             },
             dataType: "json",
@@ -342,12 +318,12 @@ var key ="<?php echo $this->security->get_csrf_hash(); ?>";
                 var show_comments="";
                 var i=1;
                 $.each(data.data, function(){
-                    show_comments+='<div class="row comment">';
+                    show_comments+='<div class="row comment">'; 
                     show_comments+='<div class="col-sm-3 col-md-2 text-center-xs">';
                     if(this.image){
-                        show_comments+='<p><img src="<?=base_url();?>/utility/user_image/'+this.image+'" class="img-responsive img-circle" alt=""></p>';
+                        show_comments+='<p><img src="<?=base_url();?>/utility/user_image/'+get_thumb_name(this.image)+'" class="img-responsive img-circle" alt="'+this.first_name+'" style="object-fit:cover;"></p>';
                     }else{
-                        show_comments+='<p><img src="<?=base_url();?>assets/img/'+user_image_male_female(this.gender)+'" class="img-responsive img-circle" style="object-fit:cover;" alt=""></p>';
+                        show_comments+='<p><img src="<?=base_url();?>assets/img/'+user_image_male_female(this.gender)+'" class="img-responsive img-circle" style="object-fit:cover;" alt="'+this.first_name+'" style="object-fit:cover;"></p>';
                     }
                     
                     show_comments+='</div>';
@@ -369,7 +345,22 @@ var key ="<?php echo $this->security->get_csrf_hash(); ?>";
             }
         });
     }
-    fetch_comments();
+    fetch_comments(5);
+
+    $("#show_all_comments").click(function(e){
+        e.preventDefault();
+        fetch_comments(-1);
+        $(this).hide();
+        $("#show_less_comments").show();
+    });
+
+    $("#show_less_comments").click(function(e){
+        e.preventDefault();
+        fetch_comments(5);
+        $(this).hide();
+        $("#show_all_comments").show();
+    });
+    
 
     $("#comment_btn").click(function(){
         $.ajax({
@@ -380,13 +371,13 @@ var key ="<?php echo $this->security->get_csrf_hash(); ?>";
                 "<?php echo $this->security->get_csrf_token_name();?>": key,
                 blog_id: "<?= $blog_no;?>",
                 commentor_id: "<?=$commentor_id;?>",
-                comment:$("#comment_text").val(),
+                comment:$("#comment_text").val(), 
             },
             dataType: "json",
             success: function (data) {
                 console.log(data);
                 $("#comment_text").val("");
-                fetch_comments();
+                fetch_comments(5);
             },
             error: function (data){
                 console.log(data);

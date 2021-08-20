@@ -87,7 +87,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="" href="<?=base_url();?>" style="font-size: 35px;font-weight: bold;margin-left:0px;"><img
-                        style="height:60px;" src="<?=base_url('assets/img/shareshell_new_logo.png');?>" alt=""></a>
+                        style="height:60px;" src="<?=base_url('assets/img/shareshell_new_logo.png');?>" alt="shareshell logo"></a>
             </div>
             <div class="collapse navbar-collapse yamm" id="navigation">
                 <div class="button navbar-right" style="margin-top:10px;">
@@ -101,7 +101,7 @@
                 </div>
                 <ul class="main-nav nav navbar-nav navbar-right">
                 <li class="wow" data-wow-delay="0.1s"><a class="" href="<?=base_url('properties');?>">Properties</a></li>
-                <li data-wow-delay="0.4s"><a href="<?=base_url('main/favourites');?>"> <img src="https://img.icons8.com/ios/16/000000/like--v1.png" style="margin-top:-3px;"> My choice</a></li>
+                <li data-wow-delay="0.4s"><a href="<?=base_url('main/favourites');?>"> <img src="https://img.icons8.com/ios/16/000000/like--v1.png" style="margin-top:-3px;" alt="small heart"> My choice</a></li>
                 <li class="wow" data-wow-delay="0.4s"><a href="<?=base_url('blogs');?>">Blogs</a></li>
                 
                 <li class="dropdown yamm-fw" data-wow-delay="0.1s">

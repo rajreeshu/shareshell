@@ -19,7 +19,7 @@
                                 
                                 <ul class="footer-adress">
                                     <li><i class="pe-7s-map-marker strong"> </i> flat no.3, Bhubaneswar, <br><span style="margin-left:23px;">Odisha, India.</span></li>
-                                    <li><i class="pe-7s-mail strong"> </i> contactus@shareshell.in</li>
+                                    <li><i class="pe-7s-mail strong"> </i> contact_us@shareshell.in</li>
                                     <li><i class="pe-7s-call strong"> </i> +91 78723 90186</li>
                                 </ul>
                             </div>
@@ -95,7 +95,7 @@
                                 <div class="footer-title-line"></div>
                                 <p>Toll Free 1800 41 99099</br>
                                 Monday - Saturday (9:00AM to 7:00PM IST)</br>
-                                Email: contactus@shareshell.in</p>
+                                Email: contact_us@shareshell.in</p>
                                 <!-- /input-group 
 
                                 <form>
@@ -128,7 +128,7 @@
             <div class="footer-copy text-center">
                 <div class="container">
                     <div class="row">
-                        <p class="" style="text-align:left;margin-bottom: -20px;">
+                        <p class="" style="text-align:left;margin-bottom: -10px; margin-top:0px;">
                             <b>Disclaimer:-</b><br>Shareshell Realty Services Limited is only an intermediary offering its platform to advertise properties of the renter for a Customer/Buyer/User coming on its Website and is not and cannot be a party to or privy to or control in any manner any transactions between the renter and the Customer/Buyer/User. All the offers and discounts on this Website have been extended by various Builders/Developers who have advertised their products. Shareshell is only communicating the offers and not renting or rendering any of those products or services. It neither warrants nor is it making any representations concerning to offer(s) made on the site. Shareshell Realty Services Limited shall neither be responsible nor liable to mediate or resolve any disputes or disagreements between the Customer/Buyer/User and the renter and both renter and Customer/Buyer/User shall settle all such disputes without involving Shareshell in any manner.
                         </p>
                         <hr>
