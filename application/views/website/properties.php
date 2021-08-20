@@ -448,6 +448,12 @@
         background-color: rgb(255, 220, 104, 0.8);
     }
 
+    .filter-div-active-buy{
+        background-color:rgba(255, 220, 104, 0.8) !important;
+        color: rgb(32, 32, 32);
+        font-weight: bold !important;
+    }
+
 
 
 
@@ -558,9 +564,9 @@
 
 <div class="cateogary" style="display: flex; position:relative; top:-35px; margin-bottom:-30px;">
 
-    <div class="cateogary-button"><input type="submit" value="Rent" style="border-radius: 5px 0 0 5px;"></div>
-    <div class="cateogary-button"><input type="submit" id="cateogary-buy" value="Buy"></div>
-    <div class="cateogary-button"><input type="submit" id="cateogary-pg" value="PG" style="border-radius: 0 5px 5px 0;"></div>
+    <div class="cateogary-button"><input class=" filter-status" data-filter_type="status" data-value="rent" type="submit" value="Rent" style="border-radius: 5px 0 0 5px;"></div>
+    <div class="cateogary-button"><input class=" filter-status" data-filter_type="status" data-value="buy" type="submit" id="cateogary-buy" value="Buy"></div>
+    <div class="cateogary-button"><input class=" filter-status" data-filter_type="status" data-value="pg" type="submit" id="cateogary-pg" value="PG" style="border-radius: 0 5px 5px 0;"></div>
 
 </div>
 
@@ -587,19 +593,19 @@
     <h5 style="padding-left:15px;"><b>Property type</b></h5>
 
     <div class="property-type">
-        <div class="item"><img src="<?=base_url('assets/img/');?>residential.png" alt="">
+        <div class="item filter-type" data-filter_type="type" data-value="flat"><img src="<?=base_url('assets/img/');?>residential.png" alt="">
             <p><b>Flat</b></p>
         </div>
-        <div class="item"><img src="<?=base_url('assets/img/');?>house.png" alt="">
+        <div class="item filter-type" data-filter_type="type" data-value="house"><img src="<?=base_url('assets/img/');?>house.png" alt="">
             <p><b>House/Villa</b></p>
         </div>
-        <div class="item"><img src="<?=base_url('assets/img/');?>bunk.png" alt="">
+        <div class="item filter-type" data-filter_type="type" data-value="hostel"><img src="<?=base_url('assets/img/');?>bunk.png" alt="">
             <p><b>Hostel</b></p>
         </div>
-        <div class="item"><img src="<?=base_url('assets/img/');?>workspace.png" alt="">
+        <div class="item filter-type" data-filter_type="type" data-value="commercial"><img src="<?=base_url('assets/img/');?>workspace.png" alt="">
             <p><b>Commercial</b></p>
         </div>
-        <div class="item"><img src="<?=base_url('assets/img/');?>shop.png" alt="">
+        <div class="item filter-type" data-filter_type="type" data-value="shop"><img src="<?=base_url('assets/img/');?>shop.png" alt="">
             <p><b>Shop</b></p>
         </div>
 
@@ -657,7 +663,7 @@
         <div class="item filter-popup filter-furnish" data-filter_type="furnish"  data-value="furnished"><img src="<?=base_url('assets/img/');?>interior-design.png" alt="">
             <p><b>Furnished</b></p>
         </div>
-        <div class="item filter-popup filter-furnish"  data-filter_type="furnish"  data-value="semi_furnished"><img src="<?=base_url('assets/img/');?>chest-of-drawers.png" alt="">
+        <div class="item filter-popup filter-furnish"  data-filter_type="furnish"  data-value="semi furnished"><img src="<?=base_url('assets/img/');?>chest-of-drawers.png" alt="">
             <p><b>Semi Furnished</b></p>
         </div>
         <div class="item filter-popup filter-furnish"  data-filter_type="furnish" data-value="unfurnished"><img src="<?=base_url('assets/img/');?>open-door.png" alt="">
@@ -872,7 +878,7 @@
 
 <div class="footer"
 style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0;justify-content: center;text-align: center;border-top: 2px solid rgb(216, 216, 216);">
-<button
+<button id="filter_submit_mobile"
     style="background-color: rgba(255, 208, 53, 0.8);font-weight: bold;color: rgb(63, 63, 63);height: 50px;width: 80%;margin-top: 5px;border: 1px solid gray;">
     Search Properties
 </button>
@@ -1100,7 +1106,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                     <div class="item filter-popup filter-furnish" data-filter_type="furnish" data-value="furnished"><img src="<?=base_url('assets/img/');?>interior-design.png" alt="">
                         <p><b>Furnished</b></p>
                     </div>
-                    <div class="item filter-popup filter-furnish" data-filter_type="furnish" data-value="semi_furnished"><img src="<?=base_url('assets/img/');?>chest-of-drawers.png" alt="">
+                    <div class="item filter-popup filter-furnish" data-filter_type="furnish" data-value="semi furnished"><img src="<?=base_url('assets/img/');?>chest-of-drawers.png" alt="">
                         <p><b>Semi Furnished</b></p>
                     </div>
                     <div class="item filter-popup filter-furnish" data-filter_type="furnish" data-value="unfurnished"><img src="<?=base_url('assets/img/');?>open-door.png" alt="">
@@ -1907,11 +1913,15 @@ window.onresize = function() {
             $(".navbar").hide();
         });
 
-        $("#close_mobile_search_x").click(function(e){
+        function close_mobile_search(){
             $(".mobile_filter_div").hide();
             $(".whole_page_without_mobile_filter").show();
             $(".footer-area").show();
             $(".navbar").show();
+        }
+
+        $("#close_mobile_search_x").click(function(e){
+            close_mobile_search();
         });
         
     var property_list="";
@@ -2027,6 +2037,8 @@ window.onresize = function() {
 
 
 
+
+
     
     
     function loop_select_color(filter_class){
@@ -2035,6 +2047,16 @@ window.onresize = function() {
                 $(this).addClass("filter-div-active");
             }else{
                 $(this).removeClass("filter-div-active");
+            }
+        });
+    }
+
+    function loop_select_color_buy(filter_class){
+        $(filter_class).each(function(){
+            if($(this).data("value")==filter_city_ajax){
+                $(this).addClass("filter-div-active-buy");
+            }else{
+                $(this).removeClass("filter-div-active-buy");
             }
         });
     }
@@ -2049,7 +2071,36 @@ window.onresize = function() {
     $("#filter_city").change(function(e){
         filter_city_ajax=$(this).val();
         loop_select_color(".filter-city");
+        load_page_content(1);
     });
+
+    $(".filter-type").click(function(e){
+        filter_city_ajax=$(this).data("value");
+        $("#filter_type").val(filter_city_ajax).change();
+        loop_select_color(".filter-type");
+        
+    });
+    $("#filter_type").change(function(e){
+        filter_city_ajax=$(this).val();
+        loop_select_color(".filter-type");
+        load_page_content(1);
+    });
+
+    $(".filter-status").click(function(e){
+        filter_city_ajax=$(this).data("value");
+        $("#filter_status").val(filter_city_ajax).change();
+        loop_select_color_buy(".filter-status");
+        
+    });
+    $("#filter_status").change(function(e){
+        filter_city_ajax=$(this).val();
+        loop_select_color_buy(".filter-status");
+        load_page_content(1);
+    });
+
+    
+
+
 
     // $("#filter_city").val("cuttak");
 
@@ -2058,6 +2109,14 @@ window.onresize = function() {
     $("#filter_pc_btn").click(function(e){  
         e.preventDefault();
         load_page_content(1);
+    });
+
+    $("#filter_submit_mobile").click(function(e){ 
+        e.preventDefault();
+        load_page_content(1);
+        $(window).scrollTop(0);
+        close_mobile_search();
+
     });
 
 function load_page_content(page_no){
@@ -2108,7 +2167,7 @@ function load_page_content(page_no){
             
             
             
-            // filter_addon:addon_array,
+            // filter_addon:addon_array, 
             
             filter_sort:sort_by,
             filter_sort_by:sort_by_val

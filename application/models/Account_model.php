@@ -60,11 +60,13 @@ public function property_detail($input){
 		if($input['filter_min_bed']!=""){
 			$this->db->group_start();
 			foreach(explode(',',$input['filter_min_bed']) as $value_loop){
+				if($value_loop!=""){
 				if($value_loop>=5){
 					$this->db->or_where('min_bed >=',$value_loop);
 				}else{
 					$this->db->or_where('min_bed',$value_loop);
 				}
+			}
 			}
 			$this->db->group_end();
 		}
@@ -72,22 +74,29 @@ public function property_detail($input){
 
 	if(isset($input['filter_furnish'])&&$input['filter_furnish']!=""){
 		$this->db->group_start();
+		
 		foreach(explode(',',$input['filter_furnish']) as $value_loop){
+			if($value_loop!=""){
 				$this->db->or_where('furnish',$value_loop);
+			}
 		}
 		$this->db->group_end();
 	}
 
 	if($input['filter_addon']!=""){
 		foreach(explode(',',$input['filter_addon']) as $value_loop){
-			$this->db->like('addon',$value_loop);
+			if($value_loop!=""){
+				$this->db->like('addon',$value_loop);
+			}
 		}
 	}
 
 	if($input['filter_bathroom']!=""){
-		$this->db->group_end();
+		$this->db->group_start();
 		foreach(explode(',',$input['filter_bathroom']) as $value_loop){
-			$this->db->or_where('min_bathroom',$value_loop);
+			if($value_loop!=""){
+				$this->db->or_where('min_bathroom',$value_loop);
+			}
 		}
 		$this->db->group_end();
 	}
@@ -115,7 +124,9 @@ public function property_detail($input){
 	if(isset($input['filter_avail'])&&$input['filter_avail']!=""){
 		$this->db->group_start();
 		foreach(explode(',',$input['filter_avail']) as $value_loop){
+			if($value_loop!=""){
 				$this->db->or_where('avail',$value_loop);
+			}
 		}
 		$this->db->group_end();
 	}
@@ -123,7 +134,9 @@ public function property_detail($input){
 	if($input['filter_meal']!=""){
 		$this->db->group_start();
 		foreach(explode(',',$input['filter_meal']) as $value_loop){
+			if($value_loop!=""){
 				$this->db->or_where('food',$value_loop);
+			}
 		}
 		$this->db->group_end();
 	}
@@ -138,15 +151,6 @@ public function property_detail($input){
 		$this->db->group_end();
 	}
 	
-
-	
-
-	
-
-	
-	
-
-
 	if($input['filter_price']!=""){
 		$property_price = explode(',', $input['filter_price']);
 		$this->db->where('price >',(int)$property_price[0]-10);
