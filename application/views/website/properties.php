@@ -298,7 +298,7 @@
        border: 2px solid rgb(32, 32, 32) !important;
 
     }
-    #done:hover{
+    .done:hover{
         background-color: rgb(255, 220, 104, 0.8);
         border: none !important;
     }
@@ -1387,9 +1387,9 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
 
             <div class="footer"
                 style="width: 100%; z-index: 10;;height: 2px;background-color:white ;position: sticky;bottom: 0;justify-content: center;text-align: center;border-top: 2px solid rgb(216, 216, 216);">
-                <button id="done"
+                <button class="done" id="filter_pc_btn"
                     style="border:2px solid grey;border: 1px solid gray;font-weight: bold;color: rgb(37, 37, 37);height: 50px;width: 30%;margin-top: 5px;">
-                    Done
+                    Filter
                 </button>
             </div>
 
@@ -1936,7 +1936,7 @@ window.onresize = function() {
         var filter_type_data=thiss.data("filter_type");
         var filter_value_data=thiss.data("value");
         var has_active_class=thiss.hasClass("filter-div-active");
-        console.log(filter_type_data);
+        // console.log(filter_type_data);
         
       
         
@@ -1952,17 +1952,17 @@ window.onresize = function() {
                 filter_ajax+=filter_value_data+",";
             // }
         }
-        console.log("total: "+filter_ajax);
-        console.log("array: "+typeof(filter_ajax.split(",")[0]));
-        console.log(filter_ajax.split(",").indexOf(""+thiss.data("value")));
-        console.log("data: "+typeof(thiss.data("value")));
+        // console.log("total: "+filter_ajax);
+        // console.log("array: "+typeof(filter_ajax.split(",")[0]));
+        // console.log(filter_ajax.split(",").indexOf(""+thiss.data("value")));
+        // console.log("data: "+typeof(thiss.data("value")));
 
 
         var filter_ajax_split=filter_ajax.split(",");
 
         $(filter_class).each(function(){
             indexofdata=filter_ajax_split.indexOf(""+$(this).data("value"))+1;
-            console.log("indexof:"+indexofdata);
+            // console.log("indexof:"+indexofdata);
             if(indexofdata){
                 $(this).addClass("filter-div-active");
             }else{
@@ -2055,6 +2055,11 @@ window.onresize = function() {
 
     // console.log("<?=$url_get;?>");
 
+    $("#filter_pc_btn").click(function(e){  
+        e.preventDefault();
+        load_page_content(1);
+    });
+
 function load_page_content(page_no){
     var addon_array = [];
     
@@ -2080,19 +2085,31 @@ function load_page_content(page_no){
         async:false,
         data:{
             "<?php echo $this->security->get_csrf_token_name();?>":key, 
-            search_text:$("#search_box").val(),
             items_per_page:12,
             page_no:page_no,
-            filter_furnish:filter_furnish_ajax,
-            // filter_avail:$("#filter_avail").val(),
-            filter_type:$("#filter_type").val(),
-            // filter_city:$("#filter_city").val(),
-            filter_status:$("#filter_status").val(),
+
+            search_text:$("#search_box").val(),
             filter_price:$("#price-range").val(),
-            filter_avail:"",
+            filter_status:$("#filter_status").val(),
+            filter_type:$("#filter_type").val(),
             filter_city:$("#filter_city").val(),
-            filter_min_bed:"",
-            filter_addon:addon_array,
+            filter_min_bed:filter_bhk_ajax,
+            filter_furnish:filter_furnish_ajax,
+            filter_addon:filter_ameneties_ajax,
+            filter_bathroom:filter_bathroom_ajax,
+            filter_facing:filter_facing_ajax,
+            filter_sharing:filter_sharing_ajax,
+            filter_avail:filter_genders_ajax,
+            filter_meal:filter_meal_ajax,
+            filter_prefered:filter_prefered_ajax,
+
+            
+            
+            
+            
+            
+            // filter_addon:addon_array,
+            
             filter_sort:sort_by,
             filter_sort_by:sort_by_val
             },
@@ -2244,7 +2261,7 @@ load_page_content(1);
     }
 
     $(".btn-search-main").click(function(event) {
-        event.preventDefault();
+        event.preventDefault(); 
         search_output();
     });
     $("#main_search_form").submit(function(e){
