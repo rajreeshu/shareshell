@@ -39,79 +39,507 @@
     $this->load->view('website/header');
 ?>
     <style type="text/css">
+    #contact-details {
+        display: none;
+    }
 
-        .thumb_class_src {
-            height: 472px;
-            width: 100%;
-            object-fit: cover;
+    #contact-owner:hover {
+        background-color: teal;
+    }
+
+    .item {
+        border: 0.6px solid rgb(228, 228, 228);
+        width: 116px !important;
+        height: 96px;
+        text-align: center;
+        margin-right: 10px;
+        border-radius: 4px;
+        flex: 0 0 auto;
+        cursor: pointer;
+
+
+    }
+
+    .item img {
+        opacity: 0.8;
+        height: 35px;
+        margin-top: 20px;
+        width: auto;
+        text-align: center;
+        z-index: 1;
+    }
+
+    .item p {
+        font-size: 10px;
+        margin-top: 8px;
+    }
+
+    .amenities-icon {
+        display: flex;
+        padding-top: 8px;
+    }
+
+    .add-d-entry {
+        font-weight: 500;
+    }
+    #save button:hover{
+
+        background-color: #fdd543 !important;
+
+    }
+    .contact-btn{
+        display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .amenities-icon {
+            flex-direction: column !important;
+            padding-top: 8px !important;
 
         }
-
-
-        .lSSlideOuter .lSPager.lSGallery img {
-            height: 50px;
-            width: 80px;
-            object-fit: cover;
-        }
-
- 
-        .demo-gallery>ul>li {
-            float: left;
-            margin-bottom: 15px;
- 
-        }
-
-        .demo-gallery>ul>li a {
-            border: 1px solid #FDC600;
-            border-radius: 3px;
+        .contact-btn{
             display: block;
-            overflow: hidden;
-            position: relative;
-            float: left;
-            width:100%;
-            height: 120px;
-        }
-
-        .demo-gallery>ul>li a>img {
-            -webkit-transition: -webkit-transform 0.15s ease 0s;
-            -moz-transition: -moz-transform 0.15s ease 0s;
-            -o-transition: -o-transform 0.15s ease 0s;
-            transition: transform 0.15s ease 0s;
-            -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-            height: 100%;
+            margin: auto;
             width: 100%;
-        }
-
-        .demo-gallery>ul>li a:hover>img {
-            -webkit-transform: scale3d(1.1, 1.1, 1.1);
-            transform: scale3d(1.1, 1.1, 1.1);
-        }
-
-        .demo-gallery>ul>li a:hover .demo-gallery-poster>img {
-            opacity: 1;
-        }
-
-        @media only screen and (max-width:992px) {
-
-            .thumb_class_src {
-                height: 250px;
-            }
-
-            .lSSlideOuter .lSPager.lSGallery {
-                display: none;
-            }
+            text-align: center;
+            justify-content: center;
 
         }
-
- 
-        #contact-details {
-            display: none;
+        .contact-btn img{
+            height: 15em;
         }
+        .pull-right {
+    float:left!important;
+}
+        
+    }
+
+    @media (min-width: 992px){
+.col-md-4 {
+    width: 30.333333%;
+}
+.col-md-8 {
+    width: 67.96666667%;
+}
+
+
+}
     </style>
 </head>
 
 <body>
+
+<div class="content-area single-property" style="background-color: #FCFCFC;">&nbsp;
+        <div class="container">
+
+            <div class="clearfix padding-top-40">
+
+                <div class="col-md-8 single-property-content prp-style-1 ">
+                    <div class="row">
+                        <div class="light-slide-item">
+                            <div class="clearfix">
+                                <div class="favorite-and-print">
+                                    <a class="add-to-fav" href="#login-modal" data-toggle="modal">
+                                        <i class="fa fa-star-o"></i>
+                                    </a>
+                                    <a class="printer-icon " href="javascript:window.print()">
+                                        <i class="fa fa-print"></i>
+                                    </a>
+                                </div>
+
+                                <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                                    <li data-thumb="assets/img/property-1/property1.jpg">
+                                        <img src="assets/img/property-1/property1.jpg" />
+                                    </li>
+                                    <li data-thumb="assets/img/property-1/property2.jpg">
+                                        <img src="assets/img/property-1/property3.jpg" />
+                                    </li>
+                                    <li data-thumb="assets/img/property-1/property3.jpg">
+                                        <img src="assets/img/property-1/property3.jpg" />
+                                    </li>
+                                    <li data-thumb="assets/img/property-1/property4.jpg">
+                                        <img src="assets/img/property-1/property4.jpg" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="single-property-wrapper">
+                        <div class="single-property-header">
+                            <h1 class="property-title pull-left" style="font-weight: 500;">Super Nice Villa</h1>
+                            <span class=" pull-right" style="font-weight: 600;
+                            color: #FDC600;
+                            font-size: 25px;">$825,000</span>
+
+                            <span class="pull-left" style="font-weight: 200;font-size: 22px;"><b>2 BHK Apartment</b> for
+                                Rent in Kalinga Vihar,Bhubaneswar</span>
+                        </div>
+
+
+                        <hr>
+
+                        <div class="section" style="margin-top: -20px;">
+                            <h4 class="s-property-title"><strong>Complete Address:</strong></h4>
+                            <div class="s-property-content">
+                                <p>Dn regalia flat 323,near kaling vihar bus stop,tammando,bhubaneswar,odisha,india.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <h4 class="s-property-title"><strong>About the Property:</strong></h4>
+
+                            <div class="s-property-content">
+                                <p>Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse
+                                    ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec
+                                    pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies
+                                    commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl.
+                                    Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies </p>
+                            </div>
+                        </div>
+                        <!-- End description area  -->
+
+                        <div class="contact-btn">
+                            <img src="166.-Team-Chat.svg" alt="">
+
+                            <div id="save">
+                                <button style="background-color: #ffffff;height: 40px;width:70%;border-radius: 5px;color:#1f1f1f;font-weight: bold;border: 1px solid #8d8d8d;margin:auto;margin-top:-8px;">
+                                    contact Owner
+                                </button>
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="section additional-details">
+
+                            <h4 class="s-property-title"><strong>Overview:</strong></h4>
+
+
+                            <ul class="additional-details-list clearfix">
+                               
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Locality</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">Kalinga Vihar</span>
+                                </li>
+
+
+
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Build-Up Area</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">1100 sq/ft</span>
+                                </li>
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Carpet Area</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">1100 sq/ft</span>
+                                </li>
+
+
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Furnishing</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">Semi-Furnished</span>
+                                </li>
+                                
+
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Bedrooms(BHK)</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">2</span>
+                                </li>
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Bathrooms</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">2</span>
+                                </li>
+                                
+                                
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Posted By</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">Owner</span>
+                                </li>
+                                
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Available From</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">2nd aug 2021</span>
+                                </li>
+                                
+                                
+                            </ul>
+                        </div>
+
+
+                        <div class="section additional-details">
+
+                            <h4 class="s-property-title"><strong>Additional Detailes:</strong></h4>
+
+
+                            <ul class="additional-details-list clearfix">
+                               
+                                
+
+
+
+                               
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Parking</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">No</span>
+                                </li>
+
+                                
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Balconies</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">3</span>
+                                </li>
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Facing</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">North-East</span>
+                                </li>
+                                
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Floor</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">2</span>
+                                </li>
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Pet Allowed</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">Yes</span>
+                                </li>
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Tenants Preffered</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">Proffesional and Bachelor</span>
+                                </li>
+                                <li>
+                                    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Non-Veg Allowed</span>
+                                    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">Yes</span>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <!-- End additional-details area  -->
+
+                        <div class="section property-features" style="width: 100%;">
+
+                            <h4 class="s-property-title"><strong>Society Aminities</strong></h4>
+
+                            <div style="display: flex;">
+
+                                <div class="amenities-icon">
+                                    <div class="item"><img src="employees.png" alt="">
+                                        <p><b>Maintainance Staff</b></p>
+                                    </div>
+                                    <div class="item"><img src="gardening.png" alt="">
+                                        <p><b>Garden</b></p>
+                                    </div>
+                                    <div class="item"><img src="parking.png" alt="">
+                                        <p><b>Parking</b></p>
+                                    </div>
+                                   
+                                </div>
+
+                                <div class="amenities-icon">
+                                    
+                                    <div class="item"><img src="slider.png" alt="">
+                                        <p><b>Play Area</b></p>
+                                    </div>
+                                    <div class="item"><img src="pool.png" alt="">
+                                        <p><b>Swimming Pool</b></p>
+                                    </div>
+                                    <div class="item"><img src="dumbbell (1).png" alt="">
+                                        <p><b>Gym</b></p>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                            </div>
+                            <div style="display: flex;">
+                                <div class="amenities-icon">
+                                    
+                                    <div class="item"><img src="carrom.png" alt="">
+                                        <p><b>Indoor Games</b></p>
+                                    </div>
+                                    <div class="item"><img src="atm.png" alt="">
+                                        <p><b>Bank/ATM</b></p>
+                                    </div>
+                                    <div class="item"><img src="wifi-signal.png" alt="">
+                                        <p><b>Wifi</b></p>
+                                    </div>
+                                </div>
+                                <div class="amenities-icon">
+                                    <div class="item"><img src="hospital.png" alt="">
+                                        <p><b>Health Facilities</b></p>
+                                    </div>
+                                    <div class="item"><img src="cafeteria.png" alt="">
+                                        <p><b>Cafeteria</b></p>
+                                    </div>
+                                    <div class="item"><img src="book.png" alt="">
+                                        <p><b>Library</b></p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div style="display: flex;">
+                                
+
+                                <div class="amenities-icon">
+                                    <div class="item"><img src="temple.png" alt="">
+                                        <p><b>Temple</b></p>
+                                    </div>
+                                   
+                                    
+                                </div>
+
+                                <div class="amenities-icon">
+                                    
+                                    <div class="item"><img src="wifi-router.png" alt="">
+                                        <p><b>Broad Band</b></p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                           
+                        </div>
+                        <!-- End features area  -->
+
+                        <div class="section property-video">
+                            <h4 class="s-property-title"><strong>Property Video</strong></h4>
+
+                            <div class="video-thumb">
+                                <a class="video-popup" href="yout" title="Virtual Tour">
+                                    <img src="assets/img/property-video.jpg" class="img-responsive wp-post-image"
+                                        alt="Exterior">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End video area  -->
+
+
+
+                        <div class="section property-share">
+                            <h4 class="s-property-title"><strong>Share</strong></h4>
+
+                            <div class="roperty-social">
+                                <ul>
+                                    <li><a title="Share this on dribbble " href="#"><img
+                                                src="assets/img/social_big/dribbble_grey.png"></a></li>
+                                    <li><a title="Share this on facebok " href="#"><img
+                                                src="assets/img/social_big/facebook_grey.png"></a></li>
+                                    <li><a title="Share this on delicious " href="#"><img
+                                                src="assets/img/social_big/delicious_grey.png"></a></li>
+                                    <li><a title="Share this on tumblr " href="#"><img
+                                                src="assets/img/social_big/tumblr_grey.png"></a></li>
+                                    <li><a title="Share this on digg " href="#"><img
+                                                src="assets/img/social_big/digg_grey.png"></a></li>
+                                    <li><a title="Share this on twitter " href="#"><img
+                                                src="assets/img/social_big/twitter_grey.png"></a></li>
+                                    <li><a title="Share this on linkedin " href="#"><img
+                                                src="assets/img/social_big/linkedin_grey.png"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End video area  -->
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 p0">
+                    <aside class="sidebar sidebar-property blog-asside-right">
+                        <div class="dealer-widget">
+                            <div class="dealer-content">
+                                <div class="inner-wrapper">
+
+                                    <div class="clear">
+                                        <div class="col-xs-4 col-sm-4 dealer-face">
+                                            <a href="">
+                                                <img src="assets/img/client-face1.png" class="img-circle">
+                                            </a>
+                                        </div>
+                                        <div class="col-xs-8 col-sm-8 ">
+                                            <h3 class="dealer-name">
+                                                <a href="" style="color:rgb(255, 255, 255);">ADITYA CHOWDHARY</a>
+                                                <div>
+                                                    <button onclick="myFunction()" style="background-color: #fdd543;height: 30px;font-size:12px;width:70%;border-radius: 2px;color:#272727;font-weight: bold;margin:auto;margin-top: 15px;">
+                                                        Contact Owner
+                                                    </button>
+                                                </div>
+                                            </h3>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="clear" id="contact-details">
+                                        <ul class="dealer-contacts">
+                                            <li><b>Please share your contact</b></li>
+                                            <br>
+                                            <div>
+                                                <div class="form-group">
+                                                    <label>Name<small>(required)</small></label>
+                                                    <input class="form-control">
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>phone<small>(required)</small></label>
+                                                    <input class="form-control">
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Email<small>(required)</small></label>
+                                                    <input class="form-control">
+
+                                                </div>
+
+                                            </div>
+                                            <p><input type="checkbox"> I agree to be contacted my Shareshell and other
+                                                agents via SMS,call,Email etc.</p>
+                                            <button type="submit" class="btn btn-primary text-center"><i
+                                                    class="fa fa-envelope-o"></i> Send Details</button>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                           <!-- <div class="panel-heading">
+                                <h3 class="panel-title">Ads her </h3>
+                            </div>-->
+                            <div class="panel-body recent-property-widget" >
+                                <img src="171.-Saving-File.svg" style="height: 180px;margin: 0px 55px;">
+
+                                <div id="save">
+                                    <button style="background-color: #ffffff;height: 40px;width:70%;border-radius: 5px;color:#1f1f1f;font-weight: bold;border: 1px solid #8d8d8d;margin:auto;margin-left: 40px;margin-top: 15px;">
+                                        Save Property
+                                    </button>
+                                </div>
+                               
+                               
+
+                               
+                            </div>
+
+                            
+                        </div>
+
+
+                    </aside>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+<!-- old ui starts -->
     <div class="page-head">
         <div class="container">
             <div class="row">

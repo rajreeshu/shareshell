@@ -273,7 +273,9 @@
 				.data('value', val)
 				.prop('value', val);
 				// console.log(val);
-				$("#min_max_slide").html("[ "+val+" ]");
+				$(".min_max_slide").html("[ "+val+" ]");
+				$(".min_max_slide").attr('data-value', val);
+				// console.log(val);
 			return false;
 		},
 
@@ -304,7 +306,8 @@
 				})
 				.data('value', val)
 				.prop('value', val);
-				$("#min_max_slide").html("[ "+val+" ]");
+				$(".min_max_slide").html("[ "+val+" ]");
+				$(".min_max_slide").data('value', val);
 				// console.log(val);
 			return false;
 		},

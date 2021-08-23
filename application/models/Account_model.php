@@ -31,7 +31,7 @@ class Account_model extends CI_Model{
     
 public function property_detail($input){
 
-	$this->db->select('sn,name,price,main_image,description,avail,city,status,type,address,min_bed');
+	$this->db->select('sn,name,price,main_image,description,avail,city,status,type,address,min_bed,furnish');
 	
 	if(isset($input['search_text'])&&$input['search_text']!=""){
 		$search_text=strtolower($input['search_text']);
@@ -61,8 +61,8 @@ public function property_detail($input){
 			$this->db->group_start();
 			foreach(explode(',',$input['filter_min_bed']) as $value_loop){
 				if($value_loop!=""){
-				if($value_loop>=5){
-					$this->db->or_where('min_bed >=',$value_loop);
+				if($value_loop>=40){
+					$this->db->or_where('min_bed >=',5);
 				}else{
 					$this->db->or_where('min_bed',$value_loop);
 				}
@@ -95,7 +95,11 @@ public function property_detail($input){
 		$this->db->group_start();
 		foreach(explode(',',$input['filter_bathroom']) as $value_loop){
 			if($value_loop!=""){
-				$this->db->or_where('min_bathroom',$value_loop);
+				if($value_loop>=40){
+					$this->db->or_where('min_bathroom >=',5);
+				}else{
+					$this->db->or_where('min_bathroom',$value_loop);
+				}
 			}
 		}
 		$this->db->group_end();
@@ -115,7 +119,11 @@ public function property_detail($input){
 		$this->db->group_start();
 		foreach(explode(',',$input['filter_sharing']) as $value_loop){
 			if($value_loop!=""){
-				$this->db->or_where('sharing_with',$value_loop);
+				if($value_loop>=40){
+					$this->db->or_where('sharing_with >=',5);
+				}else{
+					$this->db->or_where('sharing_with',$value_loop);
+				}
 			}
 		}
 		$this->db->group_end();
