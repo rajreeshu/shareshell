@@ -27,5 +27,5 @@
         <link rel="stylesheet" href="<?=base_url();?>assets/css/owl.carousel.css">  
         <link rel="stylesheet" href="<?=base_url();?>assets/css/owl.theme.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/css/owl.transitions.css?v=3.3">
-        <link rel="stylesheet" href="<?=base_url();?>assets/css/style.css?v=3.3" id="link_import_style">
+        <link rel="stylesheet" href="<?=base_url();?>assets/css/style.css?v=3.4" id="link_import_style">
         <link rel="stylesheet" href="<?=base_url();?>assets/css/responsive.css?v=3.3">

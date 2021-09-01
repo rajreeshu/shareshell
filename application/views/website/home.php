@@ -950,7 +950,13 @@ function load_page_content(){
             filter_city:"",
             filter_status:"",
             filter_price:"",
-            filter_addon:[''],
+            filter_addon:'',
+            filter_bathroom:"",
+            filter_facing:"",
+            filter_sharing:"",
+            filter_avail:"",
+            filter_meal:"",
+            filter_prefered:"",
             filter_sort:'sn',
             filter_sort_by:'DESC'
 

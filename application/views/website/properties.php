@@ -676,7 +676,7 @@
 
 
     <div class="property-type">
-    <div class="item filter-ameneties" data-filter_type="ameneties" data-value="fire"><img src="<?=base_url('assets/img/');?>fire-extinguisher.png" alt="">
+                        <div class="item filter-ameneties" data-filter_type="ameneties" data-value="fire"><img src="<?=base_url('assets/img/');?>fire-extinguisher.png" alt="">
                             <p><b>fire extinguisher</b></p>
                         </div>
                         <div class="item filter-ameneties" data-filter_type="ameneties" data-value="exit"><img src="<?=base_url('assets/img/');?>exit.png" alt="">
