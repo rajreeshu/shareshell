@@ -298,7 +298,7 @@
        border: 2px solid rgb(32, 32, 32) !important;
 
     }
-    #done:hover{
+    .done:hover{
         background-color: rgb(255, 220, 104, 0.8);
         border: none !important;
     }
@@ -448,6 +448,12 @@
         background-color: rgb(255, 220, 104, 0.8);
     }
 
+    .filter-div-active-buy{
+        background-color:rgba(255, 220, 104, 0.8) !important;
+        color: rgb(32, 32, 32);
+        font-weight: bold !important;
+    }
+
 
 
 
@@ -558,9 +564,9 @@
 
 <div class="cateogary" style="display: flex; position:relative; top:-35px; margin-bottom:-30px;">
 
-    <div class="cateogary-button"><input type="submit" value="Rent" style="border-radius: 5px 0 0 5px;"></div>
-    <div class="cateogary-button"><input type="submit" id="cateogary-buy" value="Buy"></div>
-    <div class="cateogary-button"><input type="submit" id="cateogary-pg" value="PG" style="border-radius: 0 5px 5px 0;"></div>
+    <div class="cateogary-button"><input class=" filter-status" data-filter_type="status" data-value="rent" type="submit" value="Rent" style="border-radius: 5px 0 0 5px;"></div>
+    <div class="cateogary-button"><input class=" filter-status" data-filter_type="status" data-value="buy" type="submit" id="cateogary-buy" value="Buy"></div>
+    <div class="cateogary-button"><input class=" filter-status" data-filter_type="status" data-value="pg" type="submit" id="cateogary-pg" value="PG" style="border-radius: 0 5px 5px 0;"></div>
 
 </div>
 
@@ -571,7 +577,7 @@
 <fieldset class="padding-5">            
     <div class="row">
         <div class="col-xs-12">
-            <label for="price-range">Price range (rs): <span id="min_max_slide">[min:max]</span></b></label>
+            <label for="price-range">Price range (rs): <span class="min_max_slide" data-value="">[min:max]</span></b></label>
             <input type="text" class="span2 price-range-mobile-filter" value="" data-slider-min="500"
                 data-slider-max="100000" data-slider-step="100"
                 data-slider-value="[5000,50000]" id="price-range"><br />
@@ -587,19 +593,19 @@
     <h5 style="padding-left:15px;"><b>Property type</b></h5>
 
     <div class="property-type">
-        <div class="item"><img src="<?=base_url('assets/img/');?>residential.png" alt="">
+        <div class="item filter-type" data-filter_type="type" data-value="flat"><img src="<?=base_url('assets/img/');?>residential.png" alt="">
             <p><b>Flat</b></p>
         </div>
-        <div class="item"><img src="<?=base_url('assets/img/');?>house.png" alt="">
+        <div class="item filter-type" data-filter_type="type" data-value="house"><img src="<?=base_url('assets/img/');?>house.png" alt="">
             <p><b>House/Villa</b></p>
         </div>
-        <div class="item"><img src="<?=base_url('assets/img/');?>bunk.png" alt="">
+        <div class="item filter-type" data-filter_type="type" data-value="hostel"><img src="<?=base_url('assets/img/');?>bunk.png" alt="">
             <p><b>Hostel</b></p>
         </div>
-        <div class="item"><img src="<?=base_url('assets/img/');?>workspace.png" alt="">
+        <div class="item filter-type" data-filter_type="type" data-value="commercial"><img src="<?=base_url('assets/img/');?>workspace.png" alt="">
             <p><b>Commercial</b></p>
         </div>
-        <div class="item"><img src="<?=base_url('assets/img/');?>shop.png" alt="">
+        <div class="item filter-type" data-filter_type="type" data-value="shop"><img src="<?=base_url('assets/img/');?>shop.png" alt="">
             <p><b>Shop</b></p>
         </div>
 
@@ -644,7 +650,7 @@
         <div class="item2 filter-bhk" data-filter_type="bhk" data-value="4">
             <p><b>4 BHK</b></p>
         </div>
-        <div class="item2 filter-bhk" data-filter_type="bhk" data-value="4+">
+        <div class="item2 filter-bhk" data-filter_type="bhk" data-value="5">
             <p><b>4+ BHK</b></p>
         </div>
 
@@ -657,7 +663,7 @@
         <div class="item filter-popup filter-furnish" data-filter_type="furnish"  data-value="furnished"><img src="<?=base_url('assets/img/');?>interior-design.png" alt="">
             <p><b>Furnished</b></p>
         </div>
-        <div class="item filter-popup filter-furnish"  data-filter_type="furnish"  data-value="semi_furnished"><img src="<?=base_url('assets/img/');?>chest-of-drawers.png" alt="">
+        <div class="item filter-popup filter-furnish"  data-filter_type="furnish"  data-value="semi furnished"><img src="<?=base_url('assets/img/');?>chest-of-drawers.png" alt="">
             <p><b>Semi Furnished</b></p>
         </div>
         <div class="item filter-popup filter-furnish"  data-filter_type="furnish" data-value="unfurnished"><img src="<?=base_url('assets/img/');?>open-door.png" alt="">
@@ -670,7 +676,7 @@
 
 
     <div class="property-type">
-    <div class="item filter-ameneties" data-filter_type="ameneties" data-value="fire"><img src="<?=base_url('assets/img/');?>fire-extinguisher.png" alt="">
+                        <div class="item filter-ameneties" data-filter_type="ameneties" data-value="fire"><img src="<?=base_url('assets/img/');?>fire-extinguisher.png" alt="">
                             <p><b>fire extinguisher</b></p>
                         </div>
                         <div class="item filter-ameneties" data-filter_type="ameneties" data-value="exit"><img src="<?=base_url('assets/img/');?>exit.png" alt="">
@@ -729,7 +735,7 @@
         <div class="item2 filter-bathroom" data-filter_type="bathroom" data-value="4">
             <p><b>4</b></p>
         </div>
-        <div class="item2 filter-bathroom" data-filter_type="bathroom" data-value="4+">
+        <div class="item2 filter-bathroom" data-filter_type="bathroom" data-value="40">
             <p><b>4+</b></p>
         </div>
 
@@ -794,7 +800,7 @@
         <div class="item2 filter-sharing" data-filter_type="sharing" data-value="4">
             <p><b>4 Person</b></p>
         </div>
-        <div class="item2 filter-sharing" data-filter_type="sharing" data-value="4+">
+        <div class="item2 filter-sharing" data-filter_type="sharing" data-value="40">
             <p><b>4+ Person</b></p>
         </div>
 
@@ -872,7 +878,7 @@
 
 <div class="footer"
 style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0;justify-content: center;text-align: center;border-top: 2px solid rgb(216, 216, 216);">
-<button
+<button id="filter_submit_mobile"
     style="background-color: rgba(255, 208, 53, 0.8);font-weight: bold;color: rgb(63, 63, 63);height: 50px;width: 80%;margin-top: 5px;border: 1px solid gray;">
     Search Properties
 </button>
@@ -907,20 +913,21 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
 
 
 
-
+                                
                                 <div class="mobile-filter-box">
 
                                     <div class="mobile-search" style="display: flex;margin: auto;">
-
+                                        
                                         <div>
                                             <input type="search" id="search_box" class="mobile-input" placeholder="Search Properties"
                                                 style="border: 2px solid rgb(221, 221, 221) ; height: 26px;width:200px;background-color: #fff;margin-right: 20px;">
                                         </div>
 
-                                        <div class="search_btn_img_div">
+                                        <button class="search_btn_img_div" id="search_btn_img_div">
                                             <img src="<?=base_url('assets/img/');?>loupe.png" alt="" class="btn-search-main"
-                                                style="height: 25px;width: auto;margin-left: 12px;margin-top: 6px; cursor: pointer;">
-                                        </div>
+                                                style="height: 25px;width: auto; cursor: pointer;">
+                                        </button>
+                                        
                                     </div>
                                 </div>
 
@@ -932,9 +939,8 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                                             <div class="col-md-4 col-lg-12">
                                                 <select data-live-search-style="begins"
                                                     id="filter_status" class="selectpicker show-tick form-control"
-                                                    title="-Status-"
                                                     style="outline: none;border:2px solid teal;background-color: white !important;">
-                                                    <option value="">All</option> 
+                                                    <option value="">Status (All)</option> 
                                                     <option value="rent">Rent</option>
                                                     <option value="buy">Buy</option>
                                                     <option value="pg">PG</option>
@@ -953,9 +959,9 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                                             <div class="col-md-4 col-lg-12">
                                                 <select data-live-search="true" data-live-search-style="begins"
                                                     id="filter_type" class="selectpicker show-tick form-control"
-                                                    title="-Type-"
+                                                   
                                                     style="outline: none;border:2px solid teal;background-color: white !important;">
-                                                            <option value="">All</option> 
+                                                            <option value="">Type (All)</option> 
                                                             <option value="hostel">Hostel </option>
                                                             <option value="flat">Flat </option>
                                                             <option value="house">House / Villa</option> 
@@ -1010,10 +1016,10 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
 
                                     <div style="display: flex;margin: -7px 20px;cursor: pointer;">
                                         <div class="" style=" justify-content: center;text-align: center;">
-                                            <div class="btn-search-main more-filter"
+                                            <!-- <div class="btn-search-main more-filter"
                                                 style="border:2px solid #535353;background-color: rgba(255, 255, 255, 0.8);width: 210px;font-weight: bold;color: #1b1b1b;height: 43px;margin-top: 5px;border-radius: 5px;">
                                                 <p style="margin-top: 7px;"><b>SEARCH</b></p>
-                                            </div>
+                                            </div> -->
                                         </div>
                                 </fieldset>
                 
@@ -1084,7 +1090,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                 <div class="item2 filter-bhk" data-filter_type="bhk" data-value="4">
                     <p><b>4 BHK</b></p>
                 </div>
-                <div class="item2 filter-bhk" data-filter_type="bhk" data-value="4+">
+                <div class="item2 filter-bhk" data-filter_type="bhk" data-value="40">
                     <p><b>4+ BHK</b></p>
                 </div>
 
@@ -1100,7 +1106,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                     <div class="item filter-popup filter-furnish" data-filter_type="furnish" data-value="furnished"><img src="<?=base_url('assets/img/');?>interior-design.png" alt="">
                         <p><b>Furnished</b></p>
                     </div>
-                    <div class="item filter-popup filter-furnish" data-filter_type="furnish" data-value="semi_furnished"><img src="<?=base_url('assets/img/');?>chest-of-drawers.png" alt="">
+                    <div class="item filter-popup filter-furnish" data-filter_type="furnish" data-value="semi furnished"><img src="<?=base_url('assets/img/');?>chest-of-drawers.png" alt="">
                         <p><b>Semi Furnished</b></p>
                     </div>
                     <div class="item filter-popup filter-furnish" data-filter_type="furnish" data-value="unfurnished"><img src="<?=base_url('assets/img/');?>open-door.png" alt="">
@@ -1205,7 +1211,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                 <div class="item2 filter-bathroom" data-filter_type="bathroom" data-value="4">
                     <p><b>4</b></p>
                 </div>
-                <div class="item2 filter-bathroom" data-filter_type="bathroom" data-value="4+">
+                <div class="item2 filter-bathroom" data-filter_type="bathroom" data-value="40">
                     <p><b>4+</b></p>
                 </div>
 
@@ -1268,7 +1274,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                 <div class="item2 filter-sharing" data-filter_type="sharing" data-value="4">
                     <p><b>4 Person</b></p>
                 </div>
-                <div class="item2 filter-sharing" data-filter_type="sharing" data-value="4+">
+                <div class="item2 filter-sharing" data-filter_type="sharing" data-value="40">
                     <p><b>4+ Person</b></p>
                 </div>
 
@@ -1387,9 +1393,9 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
 
             <div class="footer"
                 style="width: 100%; z-index: 10;;height: 2px;background-color:white ;position: sticky;bottom: 0;justify-content: center;text-align: center;border-top: 2px solid rgb(216, 216, 216);">
-                <button id="done"
+                <button class="done" id="filter_pc_btn"
                     style="border:2px solid grey;border: 1px solid gray;font-weight: bold;color: rgb(37, 37, 37);height: 50px;width: 30%;margin-top: 5px;">
-                    Done
+                    Filter
                 </button>
             </div>
 
@@ -1641,7 +1647,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                                     <fieldset class="padding-5 price-slider-outside">
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <label for="price-range">Price range (rs): <span id="min_max_slide">[min:max]</span></b></label>
+                                                <label for="price-range">Price range (rs): <span class="min_max_slide" data-value="">[min:max]</span></b></label>
                                                 <input type="text" class="span2 price-range-pc-filter" value="" data-slider-min="500"
                                                     data-slider-max="100000" data-slider-step="100"
                                                     data-slider-value="[5000,50000]" id="price-range"><br />
@@ -1841,15 +1847,43 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
     $this->load->view('website/js_import');
 
     $url_gets=$this->security->xss_clean($this->input->get('s'));
-    $url_get=(isset($url_gets))?$url_gets:"";
+    $url_get=(isset($url_gets)&&$url_gets!="")?$url_gets:"";
+
+    $url_gets_pn=$this->security->xss_clean($this->input->get('pn'));//page no
+    $url_get_pn=(isset($url_gets_pn)&&$url_gets_pn!="")?$url_gets_pn:1;
 
     $url_gets_category=$this->security->xss_clean($this->input->get('category'));
     $url_get_category=(isset($url_gets_category))?$url_gets_category:"";
+
+    function get_url_get($param){
+        return isset($_GET[$param])?$_GET[$param]:"";
+    }
+
+    $url_get_price=get_url_get("price");
+    $url_get_status=get_url_get("status");
+    $url_get_type=get_url_get("type");
+    $url_get_city=get_url_get("city");
+    $url_get_bhk=get_url_get("bhk");
+    $url_get_furnish=get_url_get("furnish");
+    $url_get_gender=get_url_get("gender");
+    $url_get_bathroom=get_url_get("bathroom");
+    $url_get_facing=get_url_get("facing");
+    $url_get_sharing=get_url_get("sharing");
+    $url_get_meal=get_url_get("meal");
+    $url_get_preferd=get_url_get("prefered");
+    $url_get_ameneties=get_url_get("ameneties");
+    $url_get_price=get_url_get("price");
+
+
 ?>
 
 <script type="text/javascript">
     
     var key="<?php echo $this->security->get_csrf_hash(); ?>";    
+
+    var current_url=window.location.href;
+
+    
 
    
 function on_resize(){
@@ -1886,13 +1920,13 @@ window.onresize = function() {
 
         $(document).mouseup(function (e) {
             if ($(e.target).closest(".startmenu").length === 0) {
-                startmenu.style.top = "-176em";
+                startmenu.style.top = "-186px";
             }
             
         });
         $("#more-filter").click(function(e){
             if($(".startmenu").css("top")=="230px"){
-                $(".startmenu").css("top","-196em");
+                $(".startmenu").css("top","-186px");
             }else{
                 $(".startmenu").css("top","230px");
                 $(".startmenu").css("z-index","9");
@@ -1907,11 +1941,15 @@ window.onresize = function() {
             $(".navbar").hide();
         });
 
-        $("#close_mobile_search_x").click(function(e){
+        function close_mobile_search(){
             $(".mobile_filter_div").hide();
             $(".whole_page_without_mobile_filter").show();
             $(".footer-area").show();
             $(".navbar").show();
+        }
+
+        $("#close_mobile_search_x").click(function(e){
+            close_mobile_search();
         });
         
     var property_list="";
@@ -1920,15 +1958,7 @@ window.onresize = function() {
     var sort_by_val="DESC"; 
     var i=1;
 
-    $("#search_box").val("<?=$url_get;?>");
 
-    if("<?=$url_get_category;?>"=="PG"||"<?=$url_get_category;?>"=="Rent"){
-        $("#filter_status").removeAttr("title");
-        $("#filter_status").val("<?=$url_get_category;?>".toLocaleLowerCase());
-    }else if("<?=$url_get_category;?>"=="Hostel"||"<?=$url_get_category;?>"=="Plot"){
-        $("#filter_type").removeAttr("title");
-        $("#filter_type").val("<?=$url_get_category;?>".toLocaleLowerCase());
-    }
 
     
 
@@ -1936,33 +1966,17 @@ window.onresize = function() {
         var filter_type_data=thiss.data("filter_type");
         var filter_value_data=thiss.data("value");
         var has_active_class=thiss.hasClass("filter-div-active");
-        console.log(filter_type_data);
-        
-      
-        
 
         if(filter_ajax.split(",").indexOf(""+thiss.data("value"))+1){
-           
-            // if(filter_type_data==filter_types){
                 filter_ajax=filter_ajax.replace(filter_value_data+",","") ;
-            // }
         }else{
-
-            // if(filter_type_data==filter_types){
                 filter_ajax+=filter_value_data+",";
-            // }
         }
-        console.log("total: "+filter_ajax);
-        console.log("array: "+typeof(filter_ajax.split(",")[0]));
-        console.log(filter_ajax.split(",").indexOf(""+thiss.data("value")));
-        console.log("data: "+typeof(thiss.data("value")));
-
 
         var filter_ajax_split=filter_ajax.split(",");
 
         $(filter_class).each(function(){
             indexofdata=filter_ajax_split.indexOf(""+$(this).data("value"))+1;
-            console.log("indexof:"+indexofdata);
             if(indexofdata){
                 $(this).addClass("filter-div-active");
             }else{
@@ -1973,53 +1987,80 @@ window.onresize = function() {
         return filter_ajax;
     }
 
-    var filter_furnish_ajax="";
-    var filter_genders_ajax="";
-    var filter_bathroom_ajax="";
-    var filter_facing_ajax="";
-    var filter_sharing_ajax="";
-    var filter_bhk_ajax="";
-    var filter_city_ajax="";
-    var filter_meal_ajax="";
-    var filter_prefered_ajax="";
-    var filter_ameneties_ajax="";
+    function filter_divs_select(filter_class,filter_ajax){
+        var filter_ajax_split=filter_ajax.split(",");
+        $(filter_class).each(function(){
+            indexofdata=filter_ajax_split.indexOf(""+$(this).data("value"))+1;
+            if(indexofdata){
+                $(this).addClass("filter-div-active");
+            }else{
+                $(this).removeClass("filter-div-active");
+            }
+             
+        });
+    }
 
+    var price_range="<?=$url_get_price;?>";
+
+    var filter_type_ajax="<?=$url_get_type;?>";
+    var filter_status_ajax="<?=$url_get_status;?>";
+
+    var filter_bhk_ajax="<?=$url_get_bhk;?>";
+    var filter_furnish_ajax="<?=$url_get_furnish;?>";
+    var filter_genders_ajax="<?=$url_get_gender;?>";
+    var filter_bathroom_ajax="<?=$url_get_bathroom;?>";
+    var filter_facing_ajax="<?=$url_get_facing;?>";
+    var filter_sharing_ajax="<?=$url_get_sharing;?>";
+    var filter_city_ajax="<?=$url_get_city;?>";
+    var filter_meal_ajax="<?=$url_get_meal;?>";
+    var filter_prefered_ajax="<?=$url_get_preferd;?>";
+    var filter_ameneties_ajax="<?=$url_get_ameneties;?>";
+
+    filter_divs_select(".filter-bhk",filter_bhk_ajax);
+    $(".filter-bhk").click(function(e){
+        filter_bhk_ajax=filter_mob_pc_fun($(this),".filter-bhk",filter_bhk_ajax);
+    });
+
+    filter_divs_select(".filter-furnish",filter_furnish_ajax);
     $(".filter-furnish").click(function(e){
         filter_furnish_ajax=filter_mob_pc_fun($(this),".filter-furnish",filter_furnish_ajax);
 
     });
 
+    filter_divs_select(".filter-gender",filter_genders_ajax);
     $(".filter-gender").click(function(e){
         filter_genders_ajax=filter_mob_pc_fun($(this),".filter-gender",filter_genders_ajax);
     });
 
+    filter_divs_select(".filter-bathroom",filter_bathroom_ajax);
     $(".filter-bathroom").click(function(e){
         // console.log("bathroom");
         filter_bathroom_ajax=filter_mob_pc_fun($(this),".filter-bathroom",filter_bathroom_ajax);
     });
 
+    filter_divs_select(".filter-facing",filter_facing_ajax);
     $(".filter-facing").click(function(e){
         // console.log("face");
         filter_facing_ajax=filter_mob_pc_fun($(this),".filter-facing",filter_facing_ajax);
 
     });
 
+    filter_divs_select(".filter-sharing",filter_sharing_ajax);
     $(".filter-sharing").click(function(e){
         filter_sharing_ajax=filter_mob_pc_fun($(this),".filter-sharing",filter_sharing_ajax);
     });
-
-    $(".filter-bhk").click(function(e){
-        filter_bhk_ajax=filter_mob_pc_fun($(this),".filter-bhk",filter_bhk_ajax);
-    });
     
+    filter_divs_select(".filter-meal",filter_meal_ajax);
     $(".filter-meal").click(function(e){
         filter_meal_ajax=filter_mob_pc_fun($(this),".filter-meal",filter_meal_ajax);
     });
 
+    filter_divs_select(".filter-prefered",filter_prefered_ajax);
     $(".filter-prefered").click(function(e){
         filter_prefered_ajax=filter_mob_pc_fun($(this),".filter-prefered",filter_prefered_ajax);
     });
 
+    filter_divs_select(".filter-ameneties",filter_ameneties_ajax);
     $(".filter-ameneties").click(function(e){
         filter_ameneties_ajax=filter_mob_pc_fun($(this),".filter-ameneties",filter_ameneties_ajax);
     });
@@ -2027,35 +2068,134 @@ window.onresize = function() {
 
 
 
+
+
     
     
-    function loop_select_color(filter_class){
+    function loop_select_color(filter_class,filter_ajax_a){
         $(filter_class).each(function(){
-            if($(this).data("value")==filter_city_ajax){
+            if($(this).data("value")==filter_ajax_a){
                 $(this).addClass("filter-div-active");
             }else{
                 $(this).removeClass("filter-div-active");
             }
         });
     }
+
+    function loop_select_color_buy(filter_class,filter_ajax_a){
+        $(filter_class).each(function(){
+            if($(this).data("value")==filter_ajax_a){
+                $(this).addClass("filter-div-active-buy");
+            }else{
+                $(this).removeClass("filter-div-active-buy");
+            }
+        });
+    }
     
-    
+    loop_select_color(".filter-city",filter_city_ajax);
     $(".filter-city").click(function(e){
-        filter_city_ajax=$(this).data("value");
+        if(filter_city_ajax==$(this).data("value")){
+            filter_city_ajax="";
+        }else{
+            filter_city_ajax=$(this).data("value");
+        }
         $("#filter_city").val(filter_city_ajax).change();
-        loop_select_color(".filter-city");
+        loop_select_color(".filter-city",filter_city_ajax);
         
     });
     $("#filter_city").change(function(e){
         filter_city_ajax=$(this).val();
-        loop_select_color(".filter-city");
+        loop_select_color(".filter-city",filter_city_ajax);
+        load_page_content(1);
     });
+
+    loop_select_color(".filter-type",filter_type_ajax);
+    $(".filter-type").click(function(e){
+        if(filter_type_ajax==$(this).data("value")){
+            filter_type_ajax="";
+        }else{
+            filter_type_ajax=$(this).data("value");
+        }
+        
+        $("#filter_type").val(filter_type_ajax).change();
+        loop_select_color(".filter-type",filter_type_ajax);
+        
+    });
+    $("#filter_type").change(function(e){
+        filter_type_ajax=$(this).val();
+        loop_select_color(".filter-type",filter_type_ajax);
+        load_page_content(1);
+        // console.log()
+    });
+
+    loop_select_color_buy(".filter-status",filter_status_ajax);
+    $(".filter-status").click(function(e){
+        if(filter_status_ajax==$(this).data("value")){
+            filter_status_ajax="";
+        }else{
+            filter_status_ajax=$(this).data("value");
+        }
+        
+        $("#filter_status").val(filter_status_ajax).change();
+        loop_select_color_buy(".filter-status",filter_status_ajax);
+        
+    });
+    $("#filter_status").change(function(e){
+        filter_city_ajax=$(this).val();
+        loop_select_color_buy(".filter-status",filter_status_ajax);
+        load_page_content(1);
+    });
+
+    
+
+
 
     // $("#filter_city").val("cuttak");
 
     // console.log("<?=$url_get;?>");
 
+    $("#filter_pc_btn").click(function(e){  
+        e.preventDefault();
+        load_page_content(1);
+        startmenu.style.top = "-186px";
+    });
+
+    $("#filter_submit_mobile").click(function(e){ 
+        e.preventDefault();
+        load_page_content(1);
+        $(window).scrollTop(0);
+        close_mobile_search();
+
+    });
+
+//url changing
+
+
+if("<?=$url_get_category;?>"=="PG"||"<?=$url_get_category;?>"=="Rent"){
+    $("#filter_status").val("<?=$url_get_category;?>".toLocaleLowerCase());
+}else if("<?=$url_get_category;?>"=="Hostel"||"<?=$url_get_category;?>"=="Plot"){
+    $("#filter_type").val("<?=$url_get_category;?>".toLocaleLowerCase());
+}else{
+    $("#filter_status").val("<?=$url_get_status;?>");
+$("#filter_type").val("<?=$url_get_type;?>");
+}
+
+$("#search_box").val("<?=$url_get;?>");
+$("#filter_city").val("<?=$url_get_city;?>");
+
+
+
+
+
 function load_page_content(page_no){
+    if($("#price-range").val()!=""){
+        price_range=$("#price-range").val();
+    }
+
+    window.history.replaceState(null, null, "<?=base_url("properties");?>?pn="+page_no+"&&s="+$("#search_box").val()+"&&status="+$("#filter_status").val()+"&&type="+$("#filter_type").val()+"&&city="+$("#filter_city").val()+"&&bhk="+filter_bhk_ajax+"&&furnish="+filter_furnish_ajax+"&&gender="+filter_genders_ajax+"&&bathroom="+filter_bathroom_ajax+"&&facing="+filter_facing_ajax+"&&sharing="+filter_sharing_ajax+"&&meal="+filter_meal_ajax+"&&prefered="+filter_prefered_ajax+"&&ameneties="+filter_ameneties_ajax+"&&price="+price_range);
+
+    console.log(window.location.href.indexOf("?"));
+
     var addon_array = [];
     
     $("input:checkbox[name=filter_addon]:checked").each(function() {
@@ -2080,19 +2220,31 @@ function load_page_content(page_no){
         async:false,
         data:{
             "<?php echo $this->security->get_csrf_token_name();?>":key, 
-            search_text:$("#search_box").val(),
             items_per_page:12,
             page_no:page_no,
-            filter_furnish:filter_furnish_ajax,
-            // filter_avail:$("#filter_avail").val(),
-            filter_type:$("#filter_type").val(),
-            // filter_city:$("#filter_city").val(),
+
+            search_text:$("#search_box").val(),
+            filter_price:price_range,
             filter_status:$("#filter_status").val(),
-            filter_price:$("#price-range").val(),
-            filter_avail:"",
+            filter_type:$("#filter_type").val(),
             filter_city:$("#filter_city").val(),
-            filter_min_bed:"",
-            filter_addon:addon_array,
+            filter_min_bed:filter_bhk_ajax,
+            filter_furnish:filter_furnish_ajax,
+            filter_addon:filter_ameneties_ajax,
+            filter_bathroom:filter_bathroom_ajax,
+            filter_facing:filter_facing_ajax,
+            filter_sharing:filter_sharing_ajax,
+            filter_avail:filter_genders_ajax,
+            filter_meal:filter_meal_ajax,
+            filter_prefered:filter_prefered_ajax,
+
+            
+            
+            
+            
+            
+            // filter_addon:addon_array, 
+            
             filter_sort:sort_by,
             filter_sort_by:sort_by_val
             },
@@ -2130,35 +2282,12 @@ function load_page_content(page_no){
                         dot_after_name="";
                     }
 
+                    var per_month="/Month";
+                    if(this.status=="buy"){
+                        per_month="";
+                    }
+
                     thumb_img=this.main_image.split('.').slice(0, -1).join('.')+"_thumb."+this.main_image.substr(this.main_image.lastIndexOf('.') + 1);
-
-
-                    // property_list+='<div class="col-sm-6 col-md-4 p0">';
-                    // property_list+='<div class="box-two proerty-item">';
-                    // property_list+='<div class="item-thumb">';
-                   
-                    // property_list+='<a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'" ><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:225px; object-fit: cover;"></a>';
-                   
-                    // property_list+='</div>';
-                    // property_list+='<div class="item-entry overflow">';
-                    // property_list+='<h5><a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'"> '+this.name.slice(0,14)+''+dot_after_name+' </a></h5>';
-                    // property_list+='<div class="dot-hr"></div>';
-                    // property_list+= ' <div style="flex-direction: column;"></div>';
-                    // property_list+='<span class="pull-left" style="margin-top: -7px;">'+capital_first(this.city)+' </span>';
-                    // // property_list+='<span class="proerty-price pull-left" style="margin-top: -7px;"> Rs 300,000</span>';
-                    // property_list+='<span class="proerty-price pull-right"> &#8377 '+this.price+'</span>';
-                    // // property_list+='<span class="pull-left" style="font-weight: 400;"><b>2 BHK Apartment</b> for Rent in Kalinga Vihar,Bhubaneswar</span>';
-                    // property_list+='<p style="display: none; overflow: hidden; text-overflow: ellipsis;max-height: 72px;-webkit-line-clamp: 2;">'+this.description+'</p>';
-                    // property_list+='<div class="property-icon">';
-                    // property_list+='<span style="font-size:22px;"><b> &#9893;</b></span><span style="text-transform: capitalize;"> ( '+type_change+' ) |</span>';
-                    // property_list+='<span style="font-size:22px;"><b> &#9963;</b></span><span style="text-transform: capitalize;"> ( '+this.type+' ) |</span>';
-                    // property_list+='<span style="font-size:22px;"><b> &#9983;</b></span><span style="text-transform: capitalize;"> ( '+this.status+' ) </span>';
-                    // property_list+='</div>';
-                    // property_list+='</div>';
-                    // property_list+='</div>';
-                    // property_list+='</div>';
-
-                    //asdfghjkljhgfdsdfghjklkjdfghjk
 
                     property_list+='<div class="col-sm-6 col-md-4 p0">';
                     property_list+='<div class="box-two proerty-item">';
@@ -2169,11 +2298,13 @@ function load_page_content(page_no){
                     property_list+='<h5><a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'">  '+this.name.slice(0,14)+''+dot_after_name+' </a></h5>';
                     property_list+='<div class="dot-hr"></div>';
                     property_list+='<div style="flex-direction: column;"></div>';
-                    property_list+='<span class="proerty-price pull-left" style="margin-top: -7px;"> Rs '+this.price+'</span><br>';
+                    property_list+='<span class="proerty-price pull-left" style="margin-top: -7px;"> Rs '+this.price +per_month+ '</span><br>';
+                    property_list+= '<span class="pull-left" style="font-weight: 400;">City : <b>'+this.city+'</b></span><br>';
+                    
+                    property_list+='<span class="pull-left" style="font-weight: 400;">Furnishing : <b>';
+                    property_list+=capital_first(this.furnish)+'</b><br></span><br>';
                     property_list+='<span class="pull-left" style="font-weight: 400;"><b>'+this.min_bed+' BHK '+this.type+'</b> for ';
-                    property_list+=this.status+' in '+this.city+'</span><br>';
-                    property_list+='<span class="pull-left" style="font-weight: 400;"><b>Furnishing : </b>';
-                    property_list+='Unfurnished <br></span>';
+                    property_list+='<b>'+this.status+'</b></span><br>';
                     property_list+='<p style="display: none;">'+limit_words(100,this.description)+' <a';
                     property_list+=' href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'">View Detailes</a> </p><br>';
                     property_list+='<div style="display: flex;margin-top: 10px;" id="property-btn" class="property-btn">';
@@ -2220,7 +2351,7 @@ function load_page_content(page_no){
             }
         });
 }
-load_page_content(1);
+load_page_content(<?=$url_get_pn;?>);
 
     $("#sort_data").change(function() {
         load_page_content(1);
@@ -2229,9 +2360,9 @@ load_page_content(1);
 
 
 
-    $("#price-range").focus(function(){
-        console.log("chagne");
-    });
+    // $("#price-range").keyup(function(){
+    //     console.log("chagne");
+    // });
 
     function search_output(){
         search_box_url=$("#search_box").val();
@@ -2244,14 +2375,22 @@ load_page_content(1);
     }
 
     $(".btn-search-main").click(function(event) {
-        event.preventDefault();
+        event.preventDefault(); 
         search_output();
     });
     $("#main_search_form").submit(function(e){
         e.preventDefault();
         search_output();
     });
+    
+    $('#search_box').keypress(function(event){
+        if(event.keyCode == 13){
+            $('#btn-search-main').click();
+        }
+    });
 
+
+   
 
 </script>
 </body>

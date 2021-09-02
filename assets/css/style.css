@@ -170,7 +170,7 @@ input[type="search"]::-webkit-search-decoration {
     border-width: 2px;
     background-color: rgba(0,0,0,.0);
     font-weight: 400;
-    opacity: 0.8;
+    /* opacity: 0.8; */
     padding: 8px 16px;
 }
 .btn-round{
@@ -2017,14 +2017,14 @@ single property page
     margin-top: -35px;
 }
 .single-property-header {
-    padding-bottom: 25px;
+    
     position: relative;
     clear: both;
     overflow: hidden;
 }
 .single-property-header .property-title {
     margin: 10px 0px;
-    font-size: 28px;
+    font-size: 21px;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -2105,7 +2105,7 @@ single property page
     padding: 15px 25px 25px;
 }
 .dealer-widget {
-    background-color: #838383;
+    background-color: #333333;
     padding: 15px;
     color:#FFF;
     padding-bottom: 20px;

@@ -307,9 +307,9 @@
                                                         <label>Tenauts (Prefered) :</label>
                                                         <select id="property_prefered" name="property_prefered" class="selectpicker"  data-live-search-style="begins" title="Select your city">
                                                             <option value="" selected>-Select-</option>
-                                                            <option value="furnished">Professional</option>
-                                                            <option value="semi furnished">Students</option>
-                                                            <option value="">All</option>
+                                                            <option value="professional">Professional</option>
+                                                            <option value="students">Students</option>
+                                                            <option value="Everyone">All</option>
                                                            
                                                         </select>
                                                     </div>

@@ -21,7 +21,10 @@ class Main extends CI_Controller {
 
 	public function property(){
 
-		$this->load->view('website/property');
+		$user_id=$this->security->xss_clean($this->session->userdata('user_id_shareshell'));
+		
+
+		$this->load->view('website/property',['user_id'=>$user_id]);
 	}
 
 	public function contact(){

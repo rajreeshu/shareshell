@@ -40,7 +40,7 @@ class Main_helper extends CI_Controller {
 			$addon=$addon."pool,";
 		}
 		if(isset($input['wifi'])){
-			$addon=$addon."wifi,";
+			$addon=$addon."wifi,"; 
 		}
 		if(isset($input['staff'])){
 			$addon=$addon."staff,";
@@ -59,7 +59,7 @@ class Main_helper extends CI_Controller {
 		}
 
 		$price_negoitable=0;
-		if(isset($input['price_negoitable'])){
+		if(isset($input['price_negotiable'])){
 			$price_negoitable=1;
 		}
 
@@ -68,7 +68,7 @@ class Main_helper extends CI_Controller {
 							'main_image'=>'',
 							'name'	   => $input['propertyname'],
 							'price'	   => $input['propertyprice'],
-							// 'negoitable'=>$input['price_negoitable'],
+							// 'negoitable'=>$price_negoitable,
 							'negoitable'=>$price_negoitable,
 							'status'   => $input['property_status'],
 							'type'     => $input['property_type'],

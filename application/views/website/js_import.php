@@ -17,7 +17,7 @@
         <script src="<?=base_url();?>assets/js/wow.js"></script>
 
         <script src="<?=base_url();?>assets/js/icheck.min.js"></script>
-        <script src="<?=base_url();?>assets/js/price-range.js"></script>
+        <script src="<?=base_url();?>assets/js/price-range.js?v=1.1"></script>
 
         <script src="<?=base_url();?>assets/js/main.js?v=1.1"></script>
         

@@ -18,7 +18,7 @@ class Account_model extends CI_Model{
     }
 
     public function getpropertydata($input){
-        $data['data']=$this->db->select('listed_by,name,price,address,contact,main_image,description,avail,city,status,type,min_bed,addon,add_image,add_video')->where('sn',$input['id'])->get('property_info')->row();
+        $data['data']=$this->db->select('listed_by,lister_info,name,price,address,landmark,contact,main_image,description,avail,city,status,type,min_bed,addon,add_image,add_video,negoitable,furnish,facing,min_bathroom,min_balcony,floor_no,area,prefered,food,sharing_with')->where('sn',$input['id'])->get('property_info')->row();
         $data['image']=$this->db->select('image_id,image')->where('property_id',$input['id'])->get('property_image')->result();
 		$data['favourite_status']=$this->db->where(['user_id'=>$input['user_id'],'property_id'=>$input['id']])->get('favourite_property')->num_rows()?true:false;
         $data['listed_by']=$this->db->select('first_name,last_name,username,gender,image,address,user_bio,website,facebook,twitter,email')->where('sn',$data['data']->listed_by)->get('user_detail')->row();
@@ -31,7 +31,7 @@ class Account_model extends CI_Model{
     
 public function property_detail($input){
 
-	$this->db->select('sn,name,price,main_image,description,avail,city,status,type,address,min_bed');
+	$this->db->select('sn,name,price,main_image,description,avail,city,status,type,address,min_bed,furnish');
 	
 	if(isset($input['search_text'])&&$input['search_text']!=""){
 		$search_text=strtolower($input['search_text']);
@@ -39,46 +39,126 @@ public function property_detail($input){
 		$this->db->like('name',$search_text)->or_like('address',$search_text)->or_like('description',$search_text)->or_like('city',$search_text);
         $this->db->group_end();
 	}
-	if(isset($input['filter_min_bed'])){
-	if($input['filter_min_bed']!=""){
-		if($input['filter_min_bed']>=5){
-			$this->db->where('min_bed >=',$input['filter_min_bed']);
-		}else{
-			$this->db->where('min_bed',$input['filter_min_bed']);
-		}
-		
-	}
-}
-
-	if($input['filter_avail']=="all"){
-		$input['filter_avail']="";
-	}
-    $this->db->group_start();
-	$this->db->like('avail',$input['filter_avail']);
-	if($input['filter_avail']=="boy"||$input['filter_avail']=="girl"){
-		$this->db->or_like('avail','combined');
-	}
-    $this->db->group_end();
-
-	if($input['filter_city']!=""){
-		$this->db->like('city',$input['filter_city']);
-	}
 
 	if($input['filter_status']!=""){
 		$this->db->like('status',$input['filter_status']);
 	}
-	if($input['filter_addon']!=""){
-		$this->db->like('addon',$input['filter_addon'][0]);
-		$this->db->like('addon',$input['filter_addon'][1]);
-		$this->db->like('addon',$input['filter_addon'][2]);
-		$this->db->like('addon',$input['filter_addon'][3]);
-	}
 
 	if(isset($input['filter_type'])&&$input['filter_type']!=""){
-		$this->db->where('type',$input['filter_type']);
+		$this->db->group_start();
+			foreach(explode(',',$input['filter_type']) as $value_loop){
+					$this->db->or_where('type',$value_loop);
+			}
+		$this->db->group_end();
+	}
+
+	if($input['filter_city']!=""){
+		$this->db->like('city',$input['filter_city']);
 	}
 	
+	if(isset($input['filter_min_bed'])){
+		if($input['filter_min_bed']!=""){
+			$this->db->group_start();
+			foreach(explode(',',$input['filter_min_bed']) as $value_loop){
+				if($value_loop!=""){
+				if($value_loop>=40){
+					$this->db->or_where('min_bed >=',5);
+				}else{
+					$this->db->or_where('min_bed',$value_loop);
+				}
+			}
+			}
+			$this->db->group_end();
+		}
+	}
 
+	if(isset($input['filter_furnish'])&&$input['filter_furnish']!=""){
+		$this->db->group_start();
+		
+		foreach(explode(',',$input['filter_furnish']) as $value_loop){
+			if($value_loop!=""){
+				$this->db->or_where('furnish',$value_loop);
+			}
+		}
+		$this->db->group_end();
+	}
+
+	if($input['filter_addon']!=""){
+		foreach(explode(',',$input['filter_addon']) as $value_loop){
+			if($value_loop!=""){
+				$this->db->like('addon',$value_loop);
+			}
+		}
+	}
+
+	if($input['filter_bathroom']!=""){
+		$this->db->group_start();
+		foreach(explode(',',$input['filter_bathroom']) as $value_loop){
+			if($value_loop!=""){
+				if($value_loop>=40){
+					$this->db->or_where('min_bathroom >=',5);
+				}else{
+					$this->db->or_where('min_bathroom',$value_loop);
+				}
+			}
+		}
+		$this->db->group_end();
+	}
+
+	if($input['filter_facing']!=""){
+		$this->db->group_start();
+		foreach(explode(',',$input['filter_facing']) as $value_loop){
+			if($value_loop!=""){
+				$this->db->or_where('facing',$value_loop);
+			}
+		}
+		$this->db->group_end();
+	}
+
+	if($input['filter_sharing']!=""){
+		$this->db->group_start();
+		foreach(explode(',',$input['filter_sharing']) as $value_loop){
+			if($value_loop!=""){
+				if($value_loop>=40){
+					$this->db->or_where('sharing_with >=',5);
+				}else{
+					$this->db->or_where('sharing_with',$value_loop);
+				}
+			}
+		}
+		$this->db->group_end();
+	}
+
+	if(isset($input['filter_avail'])&&$input['filter_avail']!=""){
+		$this->db->group_start();
+		foreach(explode(',',$input['filter_avail']) as $value_loop){
+			if($value_loop!=""){
+				$this->db->or_where('avail',$value_loop);
+			}
+		}
+		$this->db->group_end();
+	}
+
+	if($input['filter_meal']!=""){
+		$this->db->group_start();
+		foreach(explode(',',$input['filter_meal']) as $value_loop){
+			if($value_loop!=""){
+				$this->db->or_where('food',$value_loop);
+			}
+		}
+		$this->db->group_end();
+	}
+
+	if($input['filter_prefered']!=""){
+		$this->db->group_start();
+		foreach(explode(',',$input['filter_prefered']) as $value_loop){
+			if($value_loop!=""){
+				$this->db->or_where('prefered',$value_loop);
+			}
+		}
+		$this->db->group_end();
+	}
+	
 	if($input['filter_price']!=""){
 		$property_price = explode(',', $input['filter_price']);
 		$this->db->where('price >',(int)$property_price[0]-10);
@@ -91,21 +171,6 @@ public function property_detail($input){
 
 public function getallpropertylist($input){
 
-    if(isset($input['filter_addon'])){
-		if(gettype($input['filter_addon'])=="string"){
-			$input['filter_addon']=explode(",",$input['filter_addon']);
-		}
-		$addon_length=count($input['filter_addon']);
-		if($addon_length<4){
-			for($addon_length;$addon_length<=3;$addon_length++){
-				$input['filter_addon'][$addon_length]="";
-			}
-		}
-	}else{
-		for($i=0;$i<=3;$i++){
-			$input['filter_addon'][$i]="";
-		}
-	}
 	$data['input']=$input; 
 
 	$this->load->model('account_model');
