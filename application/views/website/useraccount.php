@@ -184,7 +184,7 @@
         
     }
     .save-change{
-        display: none;
+        /* display: none; */
     }
     .heading-feature{
         display: none;
@@ -417,50 +417,60 @@
 
                 <div style="margin-top: 50px;">
                     <div class="contents" id="overview">
-                        
-                        <p><strong>First Name : </strong><span id="user_first_name"></span>  <span><button class="edit-btn">Edit</button></span>
+                        <div>
+                        <p><strong>First Name : </strong><span id="user_first_name"></span>  <span class="edit_span"><button class="edit-btn edit_btn" data-field="first_name">Edit</button></span>
                         </p>
-                        <div style="flex-direction: row;" class="save-change">
+                        <!-- <div style="flex-direction: row;" class="save-change">
                             <input type="text" class="input-edit">
                             <button class="save-btn">Save Changes</button>
+                        </div> -->
                         </div>
 
-                        <p><strong>Last Name : </strong><span id="user_last_name"></span>  <span><button class="edit-btn">Edit</button></span>
+                        <div>
+                        <p><strong>Last Name : </strong><span id="user_last_name"></span>  <span class="edit_span"><button class="edit-btn edit_btn" data-field="last_name">Edit</button></span>
                         </p>
-                        <div style="flex-direction: row;" class="save-change">
+                        <!-- <div style="flex-direction: row;" class="save-change">
                             <input type="text" class="input-edit">
                             <button class="save-btn">Save Changes</button>
+                        </div> -->
                         </div>
 
-                        <p><strong>Email : </strong><span id="user_email"></span><span><button class="edit-btn">Edit</button></span> </p>
-                        <div style="flex-direction: row;" class="save-change">
-                            <input type="text" class="input-edit">
-                            <button class="save-btn">Save Changes</button>
-                        </div>
 
-                        <p><strong>Phone : </strong><span id="user_phone"></span> <span><button class="edit-btn">Edit</button></span> </p>
-                        <div style="flex-direction: row;" class="save-change">
+                    <div>
+                        <p><strong>Email : </strong><span id="user_email"></span><span class="edit_span"><button class="edit-btn edit_btn" data-field="email">Edit</button></span> </p>
+                        <!-- <div style="flex-direction: row;" class="save-change">
                             <input type="text" class="input-edit">
                             <button class="save-btn">Save Changes</button>
-                        </div>
+                        </div> -->
+                    </div>
 
-                        <p><strong>Gender : </strong><span id="user_gender"></span> <span><button class="edit-btn">Edit</button></span> </p>
-                        <div style="flex-direction: row;" class="save-change">
+                    <div>
+                        <p><strong>Phone : </strong><span id="user_phone"></span> <span class="edit_span"><button class="edit-btn edit_btn" data-field="phone">Edit</button></span> </p>
+                        <!-- <div style="flex-direction: row;" class="save-change">
                             <input type="text" class="input-edit">
                             <button class="save-btn">Save Changes</button>
-                        </div>
-
-                        <p><strong>Username : </strong><span id="user_username"></span> <span><button class="edit-btn">Edit</button></span> </p>
-                        <div style="flex-direction: row;" class="save-change">
+                        </div> -->
+                    </div>
+                    <div>
+                        <p><strong>Gender : </strong><span id="user_gender"></span> <span class="edit_span"><button class="edit-btn edit_btn edit-details-gender" data-field="gender">Edit</button></span> </p>
+                        <!-- <div style="flex-direction: row;" class="save-change">
                             <input type="text" class="input-edit">
                             <button class="save-btn">Save Changes</button>
+                        </div> -->
+                    </div>
+                        <div>
+                        <p><strong>Username : </strong><span id="user_username"></span> <span class="edit_span"><button class="edit-btn edit_btn" data-field="username">Edit</button></span> </p>
+                        <!-- <div style="flex-direction: row;" class="save-change">
+                            <input type="text" class="input-edit">
+                            <button class="save-btn">Save Changes</button>
+                        </div> -->
                         </div>
 
                         <div class="clear" style="padding: 20px;">
 
 
                             <div class="col-sm-11 col-sm-offset-1">
-                                <input type='button' class='btn btn-finish btn-primary edit-profile' name='update' style=""
+                                <input type='button' id="edit_profile_btn" class='btn btn-finish btn-primary edit-profile' name='update' style=""
                                     value='Edit Profile' />
                             </div>
 
@@ -675,7 +685,7 @@
                         <div class="clear">
 
 
-                            <div class="col-sm-11 col-sm-offset-1">
+                            <div class="col-sm-11 col-sm-offset-1" >
                                 <input type='button' class='btn btn-finish btn-primary pull-right' name='update'
                                     value='Get Contact Detailes' />
                             </div>
@@ -767,17 +777,19 @@
     $("#edit_profile_btn").click(function(e){
         e.preventDefault();
         $(".edit_btn").toggle();
-        this_val=$(this).children().val();
+        this_val=$(this).val();
+        console.log(this_val);
         if(this_val=="Edit Profile"){
-            $(this).children().val("Save Changes");
-            $("#your_profile_heading").html("EDIT PROFILE");
+            $(this).val("Save Changes");
+            
+            // $("#your_profile_heading").html("EDIT PROFILE");
             
         }else{
-            $(this).children().val("Edit Profile");
-            $("#your_profile_heading").html("YOUR PROFILE")
+            $(this).val("Edit Profile");
+            $(".save-change").hide();
+            $(".edit_btn").hide();
+            // $("#your_profile_heading").html("YOUR PROFILE")
         }
-
-        
     });
 
     // $("#account_button_header").click(function(e){
@@ -852,11 +864,16 @@ function load_content(){
 }
 load_content();
 
-    $(".edit_btn_img").click(function(){
+    $(".edit_btn").click(function(){
         $(this).hide();
 
-       $(this).parent().append('<div class="input"> <input type="text" class="update_field" value="'+$(this).siblings(".label_p").children('.prev_data').html()+'"  style="border: 2px solid rgb(252, 172, 0);width:15em " /><b><span class="save_change" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);"> Save Details</span></b></div>'); 
-        // $(".update_field").focus();
+    //    $(this).parent().parent().append('<div class="input"> <input type="text" class="update_field" value="'+$(this).siblings(".label_p").children('.prev_data').html()+'"  style="border: 2px solid rgb(252, 172, 0);width:15em " /><b><span class="save_change" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);"> Save Details</span></b></div>'); 
+       if(!$(this).hasClass("edit-details-gender")){
+        $(this).parent().parent().append('<div style="flex-direction: row;" class="save-change"><input type="text" class="input-edit"><button class="save-btn">Save Changes</button></div> '); 
+       }
+
+       
+       // $(".update_field").focus();
         // $(".update_field").val($(".update_field").val());
 
         // $(".update_field").val($(".update_field").val());
@@ -864,17 +881,20 @@ load_content();
 
     $(".edit-details-gender").click(function() {
         $(this).hide();
-        $(this).parent().append(select_gender_update);
+        $(this).parent().parent().append(select_gender_update);
     });
 
-    $(document).on('click','.save_change',function(){
-        // alert("hello");
-        // $(this).parent().parent().siblings(".edit_btn").css('background','red');
-        var tar=$(this).parent().parent().siblings('.edit_btn').data('field');
+    $(document).on('click','.save-btn',function(){
+      
+        var tar=$(this).parent().siblings('.edit_span').children(".edit_btn").data('field');
         
-        var valu=$(this).parent().siblings('input').val();
+        var valu=$(this).siblings('input').val();
         if(valu==undefined){
-            valu=$(this).parent().siblings('select').val();
+            valu=$(this).siblings('select').val();
+        }
+        if(valu==""){
+            alert("Empty Field");
+            return;
         }
         console.log(tar+" : "+valu);
         var clickon=$(this);
@@ -896,8 +916,9 @@ load_content();
                     alert(data.data);
                 }
                     // var x=clickon.parent().parent().siblings(".btn_edit").css('display','block');
-                    clickon.parent().parent().siblings(".edit_btn").css('display','inline');
-                    clickon.parent().parent().css('display','none');
+                    console.log(clickon.siblings(".edit_span").children(".edit_btn"));
+                    clickon.parent().siblings(".edit_span").children(".edit_btn").css('display','inline');
+                    clickon.parent().css('display','none');
                 // }
                 load_content();
             },
@@ -907,16 +928,21 @@ load_content();
     });
 });
 
-var gen_val_old=$(".edit-details-gender").siblings(".label_p").children(".prev_data").html();
+var gen_val_old=$(".edit-details-gender").parent().siblings("#user_gender").html();
 console.log(gen_val_old);
 
-var select_gender_update="<div class='input'>";
-select_gender_update+="<select value='"+gen_val_old+"' style='border: 2px solid rgb(252, 172, 0);width:15em; height:40px;'>";
+// var select_gender_update="<div class='input'>";
+var select_gender_update='<div style="flex-direction: row;" class="save-change">';
+select_gender_update+="<select style='border: 2px solid rgb(252, 172, 0);width:15em; height:40px;'>";
+
+select_gender_update+="<option value=''>-Select-</option>";
 select_gender_update+="<option value='male'>male</option>";
+
 select_gender_update+="<option value='female'>female</option>";
 select_gender_update+="<option value='other'>other</option>";
 select_gender_update+="</select>"
-select_gender_update+='<b><span class="save_change" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);"> Save Details</span></b>';
+// select_gender_update+='<b><span class="save_change" style="font-size: 14px;cursor: pointer;color: rgb(252, 172, 0);"> Save Details</span></b>';
+select_gender_update+='<button class="save-btn">Save Changes</button>';
 select_gender_update+="</div>";
 
 //my properties start
@@ -1060,15 +1086,15 @@ $("#post_property_btn").click(function(e){
 });
 
 
-$(".edit-profile").on("click",function(){
-    $(".edit-btn").toggle();
-});
-$(".edit-btn").on("click",function(){
+// $(".edit-profile").on("click",function(){
+//     $(".edit-btn").toggle();
+// });
+// $(".edit-btn").on("click",function(){
 
-$(".save-change").toggle();
-$(".edit-btn").toggle();
+// $(".save-change").toggle();
+// $(".edit-btn").toggle();
 
-})
+// })
 
 $(".one").click(function(){
   $("h4").html("Overview");
