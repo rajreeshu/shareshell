@@ -30,6 +30,24 @@ $img_explode=explode(".",$blog_image);
     $this->load->view('website/header');
 ?> 
 <style>
+    h3 {
+            font-weight:bold;
+        }
+        h4{
+            font-weight:600;
+        }
+        #post-content{
+            font-weight:500;
+            font-size:17px;
+        }
+        p{
+            font-weight:500;
+
+        }
+        h5{
+            font-weight:bold;
+
+        }
     @media only screen and (max-width: 600px){
        /* #blog{
            margin-left: 20px !important;
@@ -44,20 +62,18 @@ $img_explode=explode(".",$blog_image);
         ul{
             padding-left: 20px !important;
         }
+        .blog-lst .comment img {
+    width: 73px;
+    height: 73px;
+    padding-bottom: 0px;
+}
+        
     }
     
 
 </style>
 <body>
-<div class="page-head"> 
-            <div class="container">
-                <div class="row">
-                    <div class="page-head-content">
-                        <h1 class="page-title">READ THE MOST AMAZING ARTICLES ON REAL ESTATE</h1>               
-                    </div>
-                </div>
-            </div>
-        </div>
+
 <div class="content-area blog-page padding-top-40" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">
                 <div class="row">
@@ -84,7 +100,9 @@ $img_explode=explode(".",$blog_image);
                                     </div>
                                 </div>
                                 <div class="image" > 
-                                    <img src="" id="blog_main_img" class="img-responsive" alt="" style="max-height:400px; object-fit:contain;">
+                                   <div style="float:left">
+                                   <img src="" id="blog_main_img" class="img-responsive " alt="" style="max-height:400px; object-fit:contain;width:100%;">
+                                   </div>
                                 </div>
                             </div> 
 

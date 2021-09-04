@@ -1,3 +1,50 @@
+          <style>
+              .single-footer {
+    margin-top: 35px;
+    font-weight: 600;
+}
+
+
+.footer ul li a {
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+.footer p {
+    line-height: 25px;
+    font-weight: 600;
+
+    font-size: 13px;
+    padding-bottom: 20px;
+}
+.footer h4{
+    font-weight:bold;
+    color: #ffffff;
+
+
+}
+.footer {
+    padding: 0px 0px 60px;
+    background: rgb(34 34 34) none repeat scroll 0% 0%;
+}
+.footer-area {
+    border-top: 0.5px solid #ffffff;
+    background-color: rgb(39, 39, 39);
+    color: #ffffff;
+}
+.footer img {
+    height: 135px;
+}
+.footer img {
+    margin-bottom: -23px;
+}
+@media only screen and (max-width: 600px){
+    .footer-adress li img{
+        width:20px !important;
+    }
+}
+          </style>
           <!-- Footer area-->
         <div class="footer-area">
 
@@ -18,9 +65,8 @@
                                 <br>
                                 
                                 <ul class="footer-adress">
-                                    <li><i class="pe-7s-map-marker strong"> </i> flat no.3, Bhubaneswar, <br><span style="margin-left:23px;">Odisha, India.</span></li>
-                                    <li><i class="pe-7s-mail strong"> </i> contact_us@shareshell.in</li>
-                                    <li><i class="pe-7s-call strong"> </i> +91 78723 90186</li>
+                                    <li> <img style="height:21px;margin-bottom:5px;" src="<?=base_url('assets/img/location.png');?>" alt=""> flat no.3, Bhubaneswar, <br><span style="margin-left:23px;">Odisha, India.</span></li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -93,7 +139,7 @@
                             <div class="single-footer news-letter">
                                 <h4>Stay in touch</h4>
                                 <div class="footer-title-line"></div>
-                                <p>Toll Free 1800 41 99099</br>
+                                <p>7872390186</br>
                                 Monday - Saturday (9:00AM to 7:00PM IST)</br>
                                 Email: contact_us@shareshell.in</p>
                                 <!-- /input-group 
