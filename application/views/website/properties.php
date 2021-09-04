@@ -843,12 +843,12 @@
 
 
     <div class="property-type">
-    <div class="item filter-ameneties" data-filter_type="ameneties" data-value="attach_kitchen"><img src="<?=base_url('assets/img/');?>kitchen.png" alt="">
-                    <p><b>Attach Kitchen</b></p>
-                </div>
-                <div class="item filter-ameneties" data-filter_type="ameneties" data-value="attach_bathroom"><img src="<?=base_url('assets/img/');?>toilet.png" alt="">
-                    <p><b>Attached Washroom</b></p>
-                </div>
+        <div class="item filter-ameneties" data-filter_type="ameneties" data-value="attach_kitchen"><img src="<?=base_url('assets/img/');?>kitchen.png" alt="">
+            <p><b>Attach Kitchen</b></p>
+        </div>
+        <div class="item filter-ameneties" data-filter_type="ameneties" data-value="attach_bathroom"><img src="<?=base_url('assets/img/');?>toilet.png" alt="">
+            <p><b>Attached Washroom</b></p>
+        </div>
 
 
     </div>
@@ -1688,7 +1688,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                             </div>
                         </div>
 
-                        <div class="panel panel-default sidebar-menu " id="recommended">
+                        <!-- <div class="panel panel-default sidebar-menu " id="recommended">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Recommended</h3>
                             </div>
@@ -1750,7 +1750,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
 
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
