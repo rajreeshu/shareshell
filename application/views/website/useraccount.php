@@ -341,7 +341,7 @@
             </button>
         </div>
         <div>
-            <img src="<?=base_url('assets/images/');?>joanna-kosinska-1_CMoFsPfso-unsplash (1).jpg" alt=""
+            <img src="https://source.unsplash.com/random/200*800/?realestate" alt=""
                 style="width: 100%;height: 20em;object-fit: cover;z-index: -1;">
         </div>
 
