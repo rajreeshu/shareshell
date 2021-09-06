@@ -171,7 +171,7 @@
                 </div>
             </div>
 
-            <div class="footer-copy text-center">
+            <!-- <div class="footer-copy text-center">
                 <div class="container">
                     <div class="row">
                         <p class="" style="text-align:left;margin-bottom: -10px; margin-top:0px;">
@@ -194,7 +194,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 

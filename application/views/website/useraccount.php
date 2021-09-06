@@ -437,7 +437,7 @@
 
 
                     <div>
-                        <p><strong>Email : </strong><span id="user_email"></span><span class="edit_span"><button class="edit-btn edit_btn" data-field="email">Edit</button></span> </p>
+                        <p><strong>Email : </strong><span id="user_email"></span> </p>
                         <!-- <div style="flex-direction: row;" class="save-change">
                             <input type="text" class="input-edit">
                             <button class="save-btn">Save Changes</button>

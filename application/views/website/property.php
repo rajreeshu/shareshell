@@ -1,4 +1,4 @@
-<?php phpinfo(); ?>
+
 <?php
     $property_no=$this->uri->segment(2);
     $property_slug=$this->uri->segment(4);
