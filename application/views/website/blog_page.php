@@ -101,7 +101,7 @@ $img_explode=explode(".",$blog_image);
                                 </div>
                                 <div class="image" > 
                                    <div style="float:left">
-                                   <img src="" id="blog_main_img" class="img-responsive " alt="" style="max-height:400px; object-fit:contain;width:100%;">
+                                   <img style="max-height: auto;object-fit: inherit;width: 100%;" src="" id="blog_main_img" class="img-responsive " alt="" style="max-height:400px; object-fit:contain;width:100%;">
                                    </div>
                                 </div>
                             </div> 
