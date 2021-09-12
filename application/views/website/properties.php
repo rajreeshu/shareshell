@@ -897,7 +897,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
             </div>
         </div> -->
         <!-- End page header -->
-        <div class="page-head" style="z-index: 20;">
+        <div class="page-head" style="z-index: 10;">
         <div class="container">
             <div class="row">
                 <div class="page-head-content">
