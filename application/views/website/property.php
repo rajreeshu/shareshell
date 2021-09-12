@@ -910,6 +910,9 @@
                     $(".add-to-fav").css('color',"#FDC600");
                 $(".add-to-fav").css('border-color',"#FDC600");
                 $(".add-to-fav").css('box-shadow',"0px 0px 20px #FDC600 inset");
+
+                $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+                $("#heart").addClass("liked");
                 }
 
                 if(!user_id){
@@ -962,6 +965,7 @@
             },
             dataType: "json",
             success: function (data) {
+                console.log(data);
                 key=data.key;
                 
                 if(data.data){
@@ -972,13 +976,22 @@
                         $(".add-to-fav").css('box-shadow',"0px 0px 20px #FDC600 inset");
 
                         $("#save_property_btn").children().html("Remove Choice");
+
+
+                        $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+                        $("#heart").addClass("liked");
+                        
                     }else if(data.work=="removed"){
                         // console.log(data);
                         $(".add-to-fav").css('color',"#FFF");
                         $(".add-to-fav").css('border-color',"#FFF");
                         $(".add-to-fav").css('box-shadow',"0px 0px 20px grey inset");
-
                         $("#save_property_btn").children().html("Save Property");
+
+                        $("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+                        $("#heart").removeClass("liked");
+
+                        
                     }
                 }
             },
@@ -988,7 +1001,8 @@
         });
     }
 
-    $("#add-to-fav").click(function(){
+    $("#heart").click(function(){
+        console.log("hj");
         if(!user_id){
             location.href="<?=base_url('main/log_user');?>";
             return;
