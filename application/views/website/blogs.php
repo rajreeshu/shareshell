@@ -169,6 +169,12 @@
 
 
     @media only screen and (max-width: 1200px) {
+        .blog-images p {
+    background-color: rgb(58, 58, 58);
+    padding: 5px;
+    color: white;
+    width: 15em;
+}
         #subheading {
             margin-top: 0px;
         }
@@ -217,8 +223,9 @@
         }
 
         .blog-heading {
-            flex-direction: column;
-            width: 100%;
+            flex-direction:row !important;
+            width:88% !important;
+            overflow-x:auto !important;
         }
 
         .mySlides1 {

@@ -585,6 +585,8 @@
                                         <div class="col-xs-8 col-sm-8 ">
                                             <h3 class="dealer-name">
                                                 <a href="" id="agent_name" style="color:rgb(255, 255, 255);"></a>
+                                                <h5 style="color:#d8bf65;"><strong>918617897584</strong></h5>
+
                                                 <span class="dealer-social-media">
                                                     <a class="twitter" target="_blank" href="" id="agent_twitter_link"></a>
                                                     <a class="facebook" target="_blank" href="" id="agent_facebook_link"></a>

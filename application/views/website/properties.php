@@ -20,6 +20,14 @@
 body{
     color: #908c8c;
 }
+.cateogary-button input {
+    margin: auto;
+    height: 40px;
+    width: 80px;
+    border: none !important;
+    border-radius: 0px;
+    background-color: white;
+}
 .fa-heart-o {
   color: #e80000;
   cursor: pointer;
@@ -624,8 +632,9 @@ body{
 <div style="height:180vh;" >
 
 <div class="head">
-    <h2>Make your searching easy with <br> smart search</h2>
-    <span id="close_mobile_search_x" style="float:right; position: relative; top:-50px; right:30px; font-weight: bold; font-size:30px; cursor: pointer;">X</span>
+    <h1 style="font-size:20px;margin-left:20px;">Make your searching easy with <br> smart search</h1>
+    <h2 style="color:red;">clear all filter</h2>
+    <span id="close_mobile_search_x" style="float:right; position: relative; top:-100px; right:20px; font-weight: bold; font-size:30px; cursor: pointer;"><img src="<?=base_url('assets/img/');?>close.png" alt=""></span>
 </div>
 
 <div class="cateogary" style="display: flex; position:relative; top:-35px; margin-bottom:-30px;">
@@ -1074,6 +1083,13 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                                             <div class="more-filter" id="more-filter"
                                                 style="border:2px solid #535353;background-color: rgba(255, 255, 255, 0.8);width: 210px;font-weight: bold;color: #1b1b1b;height: 43px;margin-top: 5px;border-radius: 5px;">
                                                 <p style="margin-top: 7px;"><b>MORE FILTER</b></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="" style=" justify-content: center;text-align: center;">
+                                            <div class="more-filter" id="more-filter"
+                                                style="border:2px solid #535353;background-color: rgba(255, 255, 255, 0.8);width: 210px;font-weight: bold;color: #1b1b1b;height: 43px;margin-top: 5px;border-radius: 5px;margin-left:3px;">
+                                                <p style="margin-top: 7px;"><b>CLEAR ALL FILTER</b></p>
                                             </div>
                                         </div>
                                 </fieldset>
