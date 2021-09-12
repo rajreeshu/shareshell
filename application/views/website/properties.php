@@ -17,6 +17,70 @@
 ?>  
 <link rel="stylesheet" href="<?=base_url();?>assets/css/style-properties.css?v=3.3">
 <style type="text/css">
+body{
+    color: #908c8c;
+}
+.fa-heart-o {
+  color: #e80000;
+  cursor: pointer;
+  font-size:30px;
+}
+
+.fa-heart {
+  color: #e80000;
+  cursor: pointer;
+  font-size:30px;
+
+}
+.proerty-th-list .col-md-4 .item-entry {
+    width: 60%;
+    float: left;
+    padding-right: 15px;
+    padding-top: 17px;
+}
+.proerty-th .proerty-item .item-thumb img {
+    transition: all 0.2s linear 0s;
+    display: block;
+    position: relative;
+    width: 100%;
+    opacity: 1;
+    min-height: 225px;
+    max-height: 265px;
+    border-radius: 25px;
+    padding: 4px;
+}
+
+.proerty-th-list .proerty-price {
+    font-weight: 600;
+    color:#4D4B4B;
+    font-size: 30px;
+    padding-top:10px;
+}
+.properties-page .proerty-th .proerty-price {
+    font-weight: 600;
+    color:#4D4B4B;
+    font-size: 30px;
+    margin-top:-10px;
+
+
+}
+.properties-page .box-two {
+    overflow: hidden !important;
+    padding: 8px;
+}
+.proerty-th-list .col-md-4 .item-thumb img {
+    height: 260px;
+    border: 0px none;
+    object-fit: cover;
+    width: 100%;
+    padding-right: 12px;
+    padding: 14px;
+    border-radius: 38px !important;
+}
+.box-two{
+    border-radius: 30px !important;
+
+}
     .pagination_box{
         color:green;
         border:2px solid black;
@@ -309,6 +373,8 @@
     
 
     @media only screen and (max-width: 700px) {
+
+        
         .property-btn{
             display: none !important; 
         }
@@ -2292,24 +2358,28 @@ function load_page_content(page_no){
                     property_list+='<div class="col-sm-6 col-md-4 p0">';
                     property_list+='<div class="box-two proerty-item">';
                     property_list+='<div class="item-thumb">';
-                    property_list+='<a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'"><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:255px;  max-width:100%; object-fit: cover;"></a>';
+                    property_list+='<a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'"><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:255px;max-width:100%; object-fit: cover;"></a>';
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
-                    property_list+='<h5><a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'">  '+this.name.slice(0,14)+''+dot_after_name+' </a></h5>';
-                    property_list+='<div class="dot-hr"></div>';
-                    property_list+='<div style="flex-direction: column;"></div>';
-                    property_list+='<span class="proerty-price pull-left" style="margin-top: -7px;"> Rs '+this.price +per_month+ '</span><br>';
-                    property_list+= '<span class="pull-left" style="font-weight: 400;">City : <b>'+this.city+'</b></span><br>';
-                    
-                    property_list+='<span class="pull-left" style="font-weight: 400;">Furnishing : <b>';
-                    property_list+=capital_first(this.furnish)+'</b><br></span><br>';
-                    property_list+='<span class="pull-left" style="font-weight: 400;"><b>'+this.min_bed+' BHK '+this.type+'</b> for ';
+                    property_list+='<h5 style="font-size:25px;"><a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'">  '+this.name.slice(0,14)+''+dot_after_name+'  </a></h5>';
+                   // property_list+='<div class="dot-hr"></div>';
+                   property_list+='<span class="pull-left" style="font-weight: 400;"><b>'+this.min_bed+' BHK '+this.type+'</b> for ';
                     property_list+='<b>'+this.status+'</b></span><br>';
+                    property_list+='<div style="flex-direction: column;"></div>';
+                    property_list+= '<span class="pull-left" style="font-weight: 400;">kaling vihar,<b>'+this.city+'</b></span><br>';
+                    
+                    property_list+='<span class="pull-left" style="font-weight: 400;"><b>';
+                    property_list+=capital_first(this.furnish)+'</b><br></span><br>';
+                    
+
                     property_list+='<p style="display: none;">'+limit_words(100,this.description)+' <a';
                     property_list+=' href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'">View Detailes</a> </p><br>';
+                    property_list+='<span class="proerty-price pull-left" style=""> ₹ '+this.price + '</span>';
+                    property_list+='<span id = heart class="pull-right" ><i class="fa fa-heart-o" aria-hidden="true" ></i> </span><br>';
+
                     property_list+='<div style="display: flex;margin-top: 10px;" id="property-btn" class="property-btn">';
-                    property_list+='<span style=""><input class="more-filters" class="navbar-btn nav-button" style="padding: 10px 40px 10px;border-radius: 3px;width: 100%;font-weight: bold;border:2px solid rgb(189, 189, 189);background-color: rgba(255, 255, 255, 0.8);color: rgb(39, 39, 39);" type="submit" value="Contact"></span>';
-                    property_list+='<span style="margin-left: 3px;"><input class="more-filters" class="navbar-btn nav-button " style="padding: 10px 40px 10px;border-radius: 3px;width: 100%;font-weight: bold;border:2px solid rgb(189, 189, 189);background-color: rgba(255, 255, 255, 0.8);color: rgb(39, 39, 39);"type="submit" value="Save Property"></span>';
+                   // property_list+='<span style=""><input class="more-filters" class="navbar-btn nav-button" style="padding: 10px 40px 10px;border-radius: 3px;width: 100%;font-weight: bold;border:2px solid rgb(189, 189, 189);background-color: rgba(255, 255, 255, 0.8);color: rgb(39, 39, 39);" type="submit" value="Contact"></span>';
+                    //property_list+='<span style="margin-left: 3px;"><input class="more-filters" class="navbar-btn nav-button " style="padding: 10px 40px 10px;border-radius: 3px;width: 100%;font-weight: bold;border:2px solid rgb(189, 189, 189);background-color: rgba(255, 255, 255, 0.8);color: rgb(39, 39, 39);"type="submit" value="Save Property"></span>';
                     property_list+='</div>';
                     property_list+='</div>';
                     property_list+='</div>';
@@ -2392,6 +2462,19 @@ load_page_content(<?=$url_get_pn;?>);
 
    
 
+</script>
+<script>
+    $(document).ready(function(){
+  $("#heart").click(function(){
+    if($("#heart").hasClass("liked")){
+      $("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+      $("#heart").removeClass("liked");
+    }else{
+      $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+      $("#heart").addClass("liked");
+    }
+  });
+});
 </script>
 </body>
 </html>

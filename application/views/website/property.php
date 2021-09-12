@@ -43,7 +43,25 @@
     $this->load->view('website/header');
 ?>
     <style type="text/css">
-   
+    .thumb_class_src {
+    height: 472px;
+    width: 100%;
+    object-fit: cover;
+    padding: 4px;
+    border-radius: 33px;
+}
+   .fa-heart-o {
+  color: white;
+  cursor: pointer;
+  font-size:30px;
+}
+
+.fa-heart {
+  color: red;
+  cursor: pointer;
+  font-size:30px;
+
+}
    .thumb_class_src {
             height: 472px;
             width: 100%;
@@ -96,7 +114,18 @@
             opacity: 1;
         }
 
-        @media only screen and (max-width:992px) {
+        @media only screen and (max-width:992px) 
+        
+        
+        {
+
+            .thumb_class_src {
+    height: 472px;
+    width: 100%;
+    object-fit: cover;
+    padding: 4px;
+    border-radius: 23px;
+}
 
             .thumb_class_src {
                 height: 250px;
@@ -219,10 +248,7 @@
                         <div class="light-slide-item">
                             <div class="clearfix">
                                 <div class="favorite-and-print">
-                                <a class="add-to-fav" id="add-to-fav" href="#login-modal" data-toggle="modal"
-                                        style="box-shadow: 0px 0px 20px grey inset;">
-                                        <i class="fa fa-star-o"></i>
-                                    </a>
+                                <span id = heart><i class="fa fa-heart-o" aria-hidden="true" ></i> </span>
                                    
                                 </div>
 
@@ -1054,6 +1080,20 @@ $("#save_property_btn").click(function() {
         });
 
 
+    </script>
+
+    <script>
+        $(document).ready(function(){
+  $("#heart").click(function(){
+    if($("#heart").hasClass("liked")){
+      $("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+      $("#heart").removeClass("liked");
+    }else{
+      $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+      $("#heart").addClass("liked");
+    }
+  });
+});
     </script>
 </body>
 

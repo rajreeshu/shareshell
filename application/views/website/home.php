@@ -80,6 +80,13 @@
         margin-top: 250px;
 
     }
+    .slider-heading2 {
+        margin: auto;
+        width: 100%;
+        position: absolute;
+        margin-top: 250px;
+
+    }
 
     .slider-heading h1 {
         color: rgb(61, 61, 61);
@@ -366,15 +373,14 @@ margin-bottom: 0px;
         h3{
             font-size: 17px;
         }
+        .sub-heading{
+            font-size:30px !important;
+        }
 }
 
 </style>
 
-<div class="slider-heading">
-        <h1>Find your Dream Home in your favorite location</h1>
-        <p>Relaxedly end your search</p>
 
-    </div>
         <div class="slider-area" style="z-index:-1;">
             <div class="slider">
             <div id="bg-slider" class="owl-carousel owl-theme" style="transition: none;">
@@ -384,8 +390,21 @@ margin-bottom: 0px;
                 <div class="item"><img src="<?=base_url();?>assets/img/slide1/slider-image-2.jpg" alt="Shareshell_homepage"></div>
                 <div class="item"><img src="assets/img/slide1/slider-image-3.jpg" alt="Shareshell_affordable_luxury_renting"></div> -->
                 
-                <div class="item" ><img style="height:600px;object-fit: cover;" src="<?=base_url();?>assets/images/ShareShell Home Page Image 1332x540Pix.svg" alt="The Last of us"></div>
-                <div class="item"><img style="height:600px;object-fit: cover;" src="<?=base_url();?>assets/images/ShareShell Home Page Image 1332x540Pix -White.svg" alt="The Last of us"></div>
+            <div class="item" >
+                <div class="slider-heading">
+                   <h1>Find your Dream Home in your favorite location</h1>
+                   <p>Relaxedly end your search</p>
+                </div>
+                   <img style="height:600px;object-fit: cover;" src="<?=base_url();?>assets/images/ShareShell Home Page Image 1332x540Pix.svg" alt="The Last of us">
+            </div>
+                
+                   <div class="item">
+                   <div class="slider-heading">
+                   <h1>ONLY FOR <span style="color:white;font-size:57px;" class="sub-heading">BHUBANESWARIAN'S</span></h1><br>
+                   <p>Relaxedly end your search</p>
+                </div>
+                       <img style="height:600px;object-fit: cover;" src="<?=base_url();?>assets/images/dhauligiri.jpg" alt="The Last of us">
+                    </div>
 
             </div>
             </div>
