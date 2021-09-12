@@ -248,7 +248,7 @@
                         <div class="light-slide-item">
                             <div class="clearfix">
                                 <div class="favorite-and-print">
-                                <span id = heart><i class="fa fa-heart-o" aria-hidden="true" ></i> </span>
+                                <span id = "heart"><i class="fa fa-heart-o" aria-hidden="true" ></i> </span>
                                    
                                 </div>
 

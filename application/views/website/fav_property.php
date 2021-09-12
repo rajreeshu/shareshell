@@ -21,6 +21,70 @@
     #height{
         height: 150px;;
     }
+    body{
+    color: #908c8c;
+}
+.fa-heart-o {
+  color: #e80000;
+  cursor: pointer;
+  font-size:30px;
+}
+
+.fa-heart {
+  color: #e80000;
+  cursor: pointer;
+  font-size:30px;
+
+}
+.proerty-th-list .col-md-4 .item-entry {
+    width: 60%;
+    float: left;
+    padding-right: 15px;
+    padding-top: 17px;
+}
+.proerty-th .proerty-item .item-thumb img {
+    transition: all 0.2s linear 0s;
+    display: block;
+    position: relative;
+    width: 100%;
+    opacity: 1;
+    min-height: 225px;
+    max-height: 265px;
+    border-radius: 25px;
+    padding: 4px;
+}
+
+.proerty-th-list .proerty-price {
+    font-weight: 600;
+    color:#4D4B4B;
+    font-size: 30px;
+    padding-top:10px;
+}
+.properties-page .proerty-th .proerty-price {
+    font-weight: 600;
+    color:#4D4B4B;
+    font-size: 30px;
+    margin-top:-10px;
+
+
+}
+.properties-page .box-two {
+    overflow: hidden !important;
+    padding: 8px;
+}
+.proerty-th-list .col-md-4 .item-thumb img {
+    height: 260px;
+    border: 0px none;
+    object-fit: cover;
+    width: 100%;
+    padding-right: 12px;
+    padding: 14px;
+    border-radius: 38px !important;
+}
+.box-two{
+    border-radius: 30px !important;
+
+}
 </style>
 
 <body>
@@ -160,7 +224,7 @@ function load_page_content(page_no){
                         type_change="M";
                     }
 
-                    property_list+='<div class="col-sm-6 col-md-4 p0">';
+                    property_list+='<div class="col-sm-6 col-md-3 p0">';
                     property_list+='<div class="box-two proerty-item">'; 
                     property_list+='<div class="item-thumb">';
                     property_list+='<a href="<?=base_url('property/');?>'+this.property_id+"/"+slug_js(this.name)+'" ><img src="<?=base_url('utility/main_image');?>/'+get_thumb_name(this.main_image)+'" style="height:225px; object-fit: cover;"></a>';
