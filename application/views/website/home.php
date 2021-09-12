@@ -916,7 +916,8 @@ margin-bottom: 0px;
 
 <script type="text/javascript" >
         
-    var key="<?php echo $this->security->get_csrf_hash(); ?>";    
+    var key="<?php echo $this->security->get_csrf_hash(); ?>"; 
+    var user_id="<?=$this->session->userdata('user_id_shareshell');?>";   
     // console.log("1st key:"+key);
     var property_list="";
 
@@ -963,6 +964,7 @@ function load_page_content(){
         data:{
             "<?php echo $this->security->get_csrf_token_name();?>":key,
             // search_text:$("#search_box_home").val(),
+            user_id:user_id,
             items_per_page:7,
             page_no:1,
             filter_avail:"",

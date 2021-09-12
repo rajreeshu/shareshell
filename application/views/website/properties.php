@@ -1949,7 +1949,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
 
     var current_url=window.location.href;
 
-    var user_id="<?=$_SESSION['user_id_shareshell'];?>";
+    var user_id="<?=$this->session->userdata('user_id_shareshell');?>";
 
     
 
@@ -2474,6 +2474,10 @@ load_page_content(<?=$url_get_pn;?>);
     });
 
     function add_to_favo(property_id){
+        if(!user_id){
+            location.href="<?=base_url('main/log_user');?>";
+            return;
+        }
         $.ajax({
             url: "<?=base_url('main_helper/add_to_favorite');?>",
             type: "POST",

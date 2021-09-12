@@ -175,6 +175,7 @@ public function getallpropertylist($input){
 
 	$this->load->model('account_model');
 	$data['data']=$this->account_model->property_detail($input)->limit($input['items_per_page'],($input['page_no']-1)*$input['items_per_page'])->get('property_info')->result();
+	
 	$data['liked']=$this->db->select('property_id')->where('user_id',$input['user_id'])->get('favourite_property')->result();
 	$data['row_count']=$this->account_model->property_detail($input)->get('property_info')->num_rows();
 
@@ -235,6 +236,9 @@ public function show_fav_property($input){
 }
 
 public function add_to_fav($input){
+	if($input['user_id']==""){
+		return;
+	}
 	$early=$this->db->where(['user_id'=>$input['user_id'],'property_id'=>$input['property_id']])->get('favourite_property')->num_rows();
 	if(!$early){
 		$data['work']="added";
