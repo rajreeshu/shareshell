@@ -1003,7 +1003,7 @@
 
     $("#heart").click(function(){
         console.log("hj");
-        if(!user_id){
+        if(!user_id){ 
             location.href="<?=base_url('main/log_user');?>";
             return;
         }
@@ -1098,7 +1098,7 @@ $("#save_property_btn").click(function() {
 
     </script>
 
-    <script>
+    <!-- <script>
         $(document).ready(function(){
   $("#heart").click(function(){
     if($("#heart").hasClass("liked")){
@@ -1110,7 +1110,7 @@ $("#save_property_btn").click(function() {
     }
   });
 });
-    </script>
+    </script> -->
 </body>
 
 </html> 

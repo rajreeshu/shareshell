@@ -633,7 +633,7 @@ body{
 
 <div class="head">
     <h1 style="font-size:20px;margin-left:20px;">Make your searching easy with <br> smart search</h1>
-    <h2 style="color:red;">clear all filter</h2>
+    <h2 style="color:red;" onclick="location.href='<?=base_url('properties');?>'">clear all filter</h2>
     <span id="close_mobile_search_x" style="float:right; position: relative; top:-100px; right:20px; font-weight: bold; font-size:30px; cursor: pointer;"><img src="<?=base_url('assets/img/');?>close.png" alt=""></span>
 </div>
 
@@ -1089,7 +1089,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                                         <div class="" style=" justify-content: center;text-align: center;">
                                             <div class="more-filter" id="more-filter"
                                                 style="border:2px solid #535353;background-color: rgba(255, 255, 255, 0.8);width: 210px;font-weight: bold;color: #1b1b1b;height: 43px;margin-top: 5px;border-radius: 5px;margin-left:3px;">
-                                                <p style="margin-top: 7px;"><b>CLEAR ALL FILTER</b></p>
+                                                <p  onclick="location.href='<?=base_url('properties');?>'" style="margin-top: 7px;"><b>CLEAR ALL FILTER</b></p>
                                             </div>
                                         </div>
                                 </fieldset>

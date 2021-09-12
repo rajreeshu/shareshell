@@ -139,7 +139,7 @@
                             <div class="single-footer news-letter">
                                 <h4>Stay in touch</h4>
                                 <div class="footer-title-line"></div>
-                                <p>7872390186</br>
+                                <p>+91 7872390186</br>
                                 Monday - Saturday (9:00AM to 7:00PM IST)</br>
                                 Email: contact_us@shareshell.in</p>
                                 <!-- /input-group 
