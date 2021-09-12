@@ -1738,7 +1738,7 @@ proerty-th
     position: relative;
 }
 .proerty-th .proerty-item  .item-entry h5::after {
-    background: transparent url("../../assets/img/chevron-down.png") no-repeat scroll center center;
+    /* background: transparent url("../../assets/img/chevron-down.png") no-repeat scroll center center; */
     width: 15px;
     left: 20px;
     height: 7px;

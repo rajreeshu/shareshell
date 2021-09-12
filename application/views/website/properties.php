@@ -1949,24 +1949,26 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
 
     var current_url=window.location.href;
 
+    var user_id="<?=$_SESSION['user_id_shareshell'];?>";
+
     
 
    
 function on_resize(){
     if($(window).width() >= 1024){
 
-        $('.layout-grid').removeClass('active');
-        $('.layout-list').addClass('active');
-        $('#list-type').addClass('proerty-th-list');
-        $('#list-type').removeClass('proerty-th');
+        // $('.layout-grid').removeClass('active');
+        // $('.layout-list').addClass('active');
+        // $('#list-type').addClass('proerty-th-list');
+        // $('#list-type').removeClass('proerty-th');
         $(".price-range-mobile-filter").attr("id","");
         $(".price-range-pc-filter").attr("id","price-range");
         
     }else{
-        $('.layout-grid').addClass('active');
-        $('.layout-list').removeClass('active');
-        $('#list-type').removeClass('proerty-th-list');
-        $('#list-type').addClass('proerty-th');
+        // $('.layout-grid').addClass('active');
+        // $('.layout-list').removeClass('active');
+        // $('#list-type').removeClass('proerty-th-list');
+        // $('#list-type').addClass('proerty-th');
         $(".price-range-pc-filter").attr("id","");
         $(".price-range-mobile-filter").attr("id","price-range");
     }
@@ -1975,7 +1977,7 @@ on_resize();
 
 window.onresize = function() {
     on_resize();
-    console.log("resize");
+    // console.log("resize");
 }
 
     $("#link_import_style").attr("href","");
@@ -2260,7 +2262,7 @@ function load_page_content(page_no){
 
     window.history.replaceState(null, null, "<?=base_url("properties");?>?pn="+page_no+"&&s="+$("#search_box").val()+"&&status="+$("#filter_status").val()+"&&type="+$("#filter_type").val()+"&&city="+$("#filter_city").val()+"&&bhk="+filter_bhk_ajax+"&&furnish="+filter_furnish_ajax+"&&gender="+filter_genders_ajax+"&&bathroom="+filter_bathroom_ajax+"&&facing="+filter_facing_ajax+"&&sharing="+filter_sharing_ajax+"&&meal="+filter_meal_ajax+"&&prefered="+filter_prefered_ajax+"&&ameneties="+filter_ameneties_ajax+"&&price="+price_range);
 
-    console.log(window.location.href.indexOf("?"));
+    // console.log(window.location.href.indexOf("?"));
 
     var addon_array = [];
     
@@ -2286,6 +2288,7 @@ function load_page_content(page_no){
         async:false,
         data:{
             "<?php echo $this->security->get_csrf_token_name();?>":key, 
+            user_id:user_id,
             items_per_page:12,
             page_no:page_no,
 
@@ -2303,12 +2306,6 @@ function load_page_content(page_no){
             filter_avail:filter_genders_ajax,
             filter_meal:filter_meal_ajax,
             filter_prefered:filter_prefered_ajax,
-
-            
-            
-            
-            
-            
             // filter_addon:addon_array, 
             
             filter_sort:sort_by,
@@ -2329,10 +2326,27 @@ function load_page_content(page_no){
                 var dot_after_name="";
 
                 no_of_page=Math.ceil(data.row_count/12);
-                console.log(no_of_page);
+                // console.log(no_of_page);
+
+                var liked_arr=[];
+                $.each(data.liked, function(){
+                    liked_arr.push(this.property_id);
+                });
+                // console.log(liked_arr);
+                
+
 
                 $.each(data.data,function() {
                     
+                    var is_liked=liked_arr.indexOf(this.sn)+1;
+                    
+                    var heart_enable='<i class="fa fa-heart-o" aria-hidden="true"></i>';
+                    var liked_class='';
+                    if(is_liked){
+                        heart_enable='<i class="fa fa-heart" aria-hidden="true"></i>';
+                        liked_class="liked";
+                    }
+
                     type_change="";
                     if(this.avail=="combined"){
                         type_change="All";
@@ -2375,7 +2389,7 @@ function load_page_content(page_no){
                     property_list+='<p style="display: none;">'+limit_words(100,this.description)+' <a';
                     property_list+=' href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'">View Detailes</a> </p><br>';
                     property_list+='<span class="proerty-price pull-left" style=""> ₹ '+this.price + '</span>';
-                    property_list+='<span id = heart class="pull-right" ><i class="fa fa-heart-o" aria-hidden="true" ></i> </span><br>';
+                    property_list+='<span  class="heart pull-right '+liked_class+'" onclick="add_to_favo('+this.sn+')" data-property_sn="'+this.sn+'">'+heart_enable+' </span><br>';
 
                     property_list+='<div style="display: flex;margin-top: 10px;" id="property-btn" class="property-btn">';
                    // property_list+='<span style=""><input class="more-filters" class="navbar-btn nav-button" style="padding: 10px 40px 10px;border-radius: 3px;width: 100%;font-weight: bold;border:2px solid rgb(189, 189, 189);background-color: rgba(255, 255, 255, 0.8);color: rgb(39, 39, 39);" type="submit" value="Contact"></span>';
@@ -2459,19 +2473,55 @@ load_page_content(<?=$url_get_pn;?>);
         }
     });
 
+    function add_to_favo(property_id){
+        $.ajax({
+            url: "<?=base_url('main_helper/add_to_favorite');?>",
+            type: "POST",
+            async: false,
+            data: {
+                "<?php echo $this->security->get_csrf_token_name();?>": key, 
+                user_id:user_id,
+                property_id:property_id
+            },
+            dataType: "json",
+            success: function (data) {
+                key=data.key;
+                console.log(data);
+                // if(data.data){
+                //     // console.log(data.work);
+                //     if(data.work=="added"){
+                //         $(".add-to-fav").css('color',"#FDC600");
+                //         $(".add-to-fav").css('border-color',"#FDC600");
+                //         $(".add-to-fav").css('box-shadow',"0px 0px 20px #FDC600 inset");
 
+                //         $("#save_property_btn").children().html("Remove Choice");
+                //     }else if(data.work=="removed"){
+                //         // console.log(data);
+                //         $(".add-to-fav").css('color',"#FFF");
+                //         $(".add-to-fav").css('border-color',"#FFF");
+                //         $(".add-to-fav").css('box-shadow',"0px 0px 20px grey inset");
+
+                //         $("#save_property_btn").children().html("Save Property");
+                //     }
+                // }
+            },
+            error: function(data){
+                console.log(data);
+            }
+        });
+    }
    
 
 </script>
 <script>
     $(document).ready(function(){
-  $("#heart").click(function(){
-    if($("#heart").hasClass("liked")){
-      $("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
-      $("#heart").removeClass("liked");
+  $(".heart").click(function(){
+    if($(this).hasClass("liked")){
+      $(this).html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+      $(this).removeClass("liked");
     }else{
-      $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
-      $("#heart").addClass("liked");
+      $(this).html('<i class="fa fa-heart" aria-hidden="true"></i>');
+      $(this).addClass("liked");
     }
   });
 });

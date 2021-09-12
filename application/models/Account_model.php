@@ -175,6 +175,7 @@ public function getallpropertylist($input){
 
 	$this->load->model('account_model');
 	$data['data']=$this->account_model->property_detail($input)->limit($input['items_per_page'],($input['page_no']-1)*$input['items_per_page'])->get('property_info')->result();
+	$data['liked']=$this->db->select('property_id')->where('user_id',$input['user_id'])->get('favourite_property')->result();
 	$data['row_count']=$this->account_model->property_detail($input)->get('property_info')->num_rows();
 
     return $data;
