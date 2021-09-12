@@ -67,6 +67,10 @@
             flex: none;
             display: none;
         }
+        .asks-first-info {
+    color: #454545;
+    margin: 5px;
+}
 
     }
 
