@@ -481,9 +481,7 @@ margin-bottom: 0px;
        
     </div>
     
-    <div style="text-align: center;">
-
-<h3 style="color: rgb(20, 20, 20);"><b>Most valuable blogs on Real Estate</b></h3>
+    
 <!-- <div class="blog-heading">
     <div class="blog-images">
         <img src="<?=base_url('assets/images/blogs/');?>home-buying.jpg" alt="home-buying.jpg">
@@ -523,48 +521,7 @@ margin-bottom: 0px;
 
     </div>
 </div> -->
-<div class="blog-heading">
-            <div class="blog-images">
-                <img src="<?=base_url('assets/images/blogs/');?>home-buying.jpg" alt="home-buying.jpg" style="">
 
-                <p><b>HOME BUYING/INVESTING</b></p>
-
-
-            </div>
-
-            <div class="blog-images">
-                <img id="subheading" src="<?=base_url('assets/images/blogs/');?>decor.jfif" alt="Snow">
-
-                <p><b>HOME DECOR</b></p>
-
-
-
-            </div>
-            <div class="blog-images">
-                <img id="subheading" src="<?=base_url('assets/images/blogs/');?>home-maintenancee.jpg" alt="Mountains">
-
-                <p><b>HOME MAINTAINANCE</b></p>
-
-
-            </div>
-            <div class="blog-images">
-                <img id="subheading" src="<?=base_url('assets/images/blogs/');?>konstantin-evdokimov-UUYkTnQkn9c-unsplash.jpg" alt="Lights">
-
-                <p><b>HOME LOAN</b></p>
-
-
-            </div>
-            
-            <div class="blog-images">
-            <img id="subheading" src="<?=base_url('assets/images/blogs/');?>TREND.jpg" alt="Lights">
-
-            <p><b>TRENDING</b></p>
-
-
-        </div>
-
-        </div>
-</div>
 
         <!-- <div class="home-lager-shearch" style="background-color: rgb(252, 252, 252); padding-top: 25px; margin-top: -125px; opacity:1;">
             <div class="container">
@@ -657,6 +614,52 @@ margin-bottom: 0px;
                 </div>
             </div>
         </div>
+        
+        <div style="text-align: center;">
+
+<h3 style="color: rgb(20, 20, 20);"><b>Most valuable blogs on Real Estate</b></h3></div>
+        <div class="blog-heading">
+            <div class="blog-images">
+                <img src="<?=base_url('assets/images/blogs/');?>home-buying.jpg" alt="home-buying.jpg" style="">
+
+                <p><b>HOME BUYING/INVESTING</b></p>
+
+
+            </div>
+
+            <div class="blog-images">
+                <img id="subheading" src="<?=base_url('assets/images/blogs/');?>decor.jfif" alt="Snow">
+
+                <p><b>HOME DECOR</b></p>
+
+
+
+            </div>
+            <div class="blog-images">
+                <img id="subheading" src="<?=base_url('assets/images/blogs/');?>home-maintenancee.jpg" alt="Mountains">
+
+                <p><b>HOME MAINTAINANCE</b></p>
+
+
+            </div>
+            <div class="blog-images">
+                <img id="subheading" src="<?=base_url('assets/images/blogs/');?>konstantin-evdokimov-UUYkTnQkn9c-unsplash.jpg" alt="Lights">
+
+                <p><b>HOME LOAN</b></p>
+
+
+            </div>
+            
+            <div class="blog-images">
+            <img id="subheading" src="<?=base_url('assets/images/blogs/');?>TREND.jpg" alt="Lights">
+
+            <p><b>TRENDING</b></p>
+
+
+        </div>
+
+        </div>
+</div>
 
         <!--Welcome area -->
         <div class="Welcome-area">
