@@ -7,7 +7,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SHARESHELL| Contact page</title>
+    <title>ABOUT US | SHARESHELL</title>
     <meta name="description" content="SHARESHELL Company is launched in 2021, basically a property portal, dealing with every aspect of customers ' needs in the real estate industry.">
     <meta name="author" content="shareshell">
     <meta name="keyword" content="shareshell, about us, about shareshell">
