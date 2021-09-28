@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SHARESHELL| Home page</title>
+        <title>FAQ | SHARESHELL</title>
         <meta name="author" content="shareshell">
         <meta name="keyword" content="shareshell, shareshell faq, faq, frequently asked questions">
         <meta name="description" content="General Question you want to ask from shareshell">
