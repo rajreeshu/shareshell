@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Blogs Home</title>
+        <title>Blogs | ShareShell </title>
         <meta name="description" content="Know about Everything related to Real Estate on shareshell blogs">
         <meta name="author" content="shareshell">
         <meta name="keyword" content="shareshell, blogs, blog, shareshell blog, real estate blog, real estate">
