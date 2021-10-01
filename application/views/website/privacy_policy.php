@@ -7,7 +7,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SHARESHELL| Contact page</title>
+    <title>Privacy & Policy | SHARESHELL</title>
     <meta name="author" content="shareshell">
     <meta name="keyword" content="shareshell, privacy policy shareshell, privacy policy, shareshell policy">
     <meta name="description" content="Read our privacy policy here">
