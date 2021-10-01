@@ -16,7 +16,7 @@
 
   gtag('config', 'G-Y7VQ4L5MXN');
 </script>
-        <meta name="description" content="Eagerly searching for best houses for rent in your city? shareshell is the best platform to provide you the best place for residence.">
+        <meta name="description" content="Eagerly searching for best houses for rent in your city? Shareshell is the best platform to provide you the best place for residence.">
         <meta name="author" content="ShareShell">
         <meta name="keyword" content="Houses for rent, shareshell">
         <meta name="viewport" content="width=device-width, initial-scale=1">
