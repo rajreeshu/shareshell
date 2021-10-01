@@ -15,7 +15,7 @@
   display: inline-block;
   position: relative;
   width: 80px;
-  height: 80px;
+  height: 80px; 
 }
 .lds-ripple div {
   position: absolute;
@@ -51,6 +51,7 @@
     border:2px solid #FFC500; 
     border-radius:5px; 
     margin:3px;
+    margin-top:15px;
 }
 
     </style>
@@ -696,7 +697,8 @@
 <script type="text/javascript">
 
     var key="<?php echo $this->security->get_csrf_hash(); ?>";
-    
+    var property_insert_id="";
+
     $("#loader").hide();
 
     window.onbeforeunload = function() {
@@ -759,7 +761,7 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
             $("#next_btn").css('opacity', '0.3');
             
 ///////////            //temporarly removed
-            $("#next_btn").attr('disabled', '');
+            // $("#next_btn").attr('disabled', '');
 /////////// 
             $("#next_btn").css({
                 backgroundColor: '',
@@ -945,7 +947,7 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
         if((onPage==2) && (prop_description==""||prop_avail==""||prop_city==""||prop_furnish==""||min_bed==""||min_bath==""||min_balcony==""||floor_no==""||prop_veg==""||prop_address=="")){
             $("#next_btn").css('opacity', '0.3');
 ////////
-            $("#next_btn").attr('disabled', '');
+            // $("#next_btn").attr('disabled', '');
 ////////            
             $("#next_btn").css({
                 backgroundColor: '',
@@ -1014,7 +1016,7 @@ var events_arr=[];
         // console.log(arr_prop_img);
 
         // console.log(events_arr);
-        $("#prev_multi_image").append('<img src="<?=base_url();?>assets/img/default-property.jpg" id="prev_img'+property_image_no+'" class="prev_img" ><span class="remove_img_multi" id="remove_img_multi_'+property_image_no+'" data-remid="'+property_image_no+'" style="cursor: pointer;position:absolute; margin-left:-33px; margin-top:8px; height:25px; width:25px; padding-left:7px; padding-top:0px; color:#000; background:#fdc600; border-radius:3px; font-weight:bold; border:1px solid grey;"><span style=" position:absolute; margin-top:-2px;">X</span></span>');
+        $("#prev_multi_image").append('<span><img src="<?=base_url();?>assets/img/default-property.jpg" id="prev_img'+property_image_no+'" class="prev_img" ><span class="remove_img_multi" id="remove_img_multi_'+property_image_no+'" data-remid="'+property_image_no+'" style="cursor: pointer;position:absolute; margin-left:-33px; margin-top:8px; height:25px; width:25px; padding-left:7px; padding-top:0px; color:#000; background:#fdc600; border-radius:3px; font-weight:bold; border:1px solid grey;"><span style=" position:absolute; margin-top:-2px;">X</span></span><span style="width:100px; height:30px; background:#fdc600;color:white; font-weight:bold; padding-left:5px; padding-right:5px; position:relative; top:50px; left:-82px; cursor:pointer;" class="upload_img_cl">Upload</span></span>');
 
         previewFile("#property-images"+property_image_no,"#prev_img"+property_image_no);
        // $("#prev_img"+property_image_no).css('opacity',0.5);
@@ -1030,6 +1032,34 @@ var events_arr=[];
     }
     
 
+});
+$(document).on('click','.upload_img_cl',function(){
+    console.log("clicked");
+    var remid=$(this).siblings(".remove_img_multi").data('remid');
+    console.log(remid);
+
+    var j=remid-1;
+                    // while(j<arr_prop_img.length){
+                        filee=events_arr[arr_prop_img[j]-1].target.files[0];
+                        file_name_tra=filee.name;
+                        ext = filee.name.split(".").pop();
+                        // compress_image_jic('prev_img'+arr_prop_img[j],ext);
+                        // var tick = function(j) {
+                        //     return function() {
+                                // console.log(j);
+                                compress_image_jic('prev_img'+arr_prop_img[j],ext); 
+                                upload_image_jic('prev_img'+arr_prop_img[j],insert_id_submit_property+"_"+arr_prop_img[j]+"."+ext); 
+
+                                $(this).css('background-color',"");
+                                $(this).html("&#9989;");
+                                // console.log($(this));
+                        //     }
+                        // };
+                        // setTimeout(tick(j), 1000 * j);
+                        console.log('prev_img'+arr_prop_img[j]);
+                        // upload_image_jic('prev_img'+j);
+                        j++;
+                    // } 
 });
 
     $(document).on("click",".remove_img_multi",function(){
@@ -1098,7 +1128,7 @@ $("#form1").submit(function(e) {
                     main_img_ext=main_img_filee.name.split(".").pop();
 
                     
-                    upload_image_jic('main_img_prev',data.property_id+"."+main_img_ext); 
+                    // upload_image_jic('main_img_prev',data.property_id+"."+main_img_ext); 
 
                     var j=0;
                     while(j<arr_prop_img.length){
@@ -1106,14 +1136,14 @@ $("#form1").submit(function(e) {
                         file_name_tra=filee.name;
                         ext = filee.name.split(".").pop();
                         // compress_image_jic('prev_img'+arr_prop_img[j],ext);
-                        var tick = function(j) {
-                            return function() {
+                        // var tick = function(j) {
+                        //     return function() {
                                 // console.log(j);
                                 upload_image_jic('prev_img'+arr_prop_img[j],data.property_id+"_"+arr_prop_img[j]+"."+ext); 
                        
-                            }
-                        };
-                        setTimeout(tick(j), 1000 * j);
+                        //     }
+                        // };
+                        // setTimeout(tick(j), 1000 * j);
                         console.log('prev_img'+arr_prop_img[j]);
                         // upload_image_jic('prev_img'+j);
                         j++;
@@ -1133,13 +1163,37 @@ $("#form1").submit(function(e) {
 });
 
 //general
-
+var insert_id_submit_property="";
     $("#next_btn").click(function() {
         if(onPage==1){
             main_img_filee=main_img_event.target.files[0];
             main_img_file_name_tra=main_img_filee.name;
             main_img_ext=main_img_filee.name.split(".").pop();
             compress_image_jic('main_img_prev',main_img_ext); 
+        }
+        if(onPage==2&&property_insert_id==""){
+            $.ajax({
+                url:"<?=base_url('main_helper/insert_id_submit_property');?>",
+                type:"POST",
+                async:false,
+                data:{
+                    "<?php echo $this->security->get_csrf_token_name();?>":key,
+                    // "property_id":sn
+                    },
+                dataType:"json",
+                success:function(data){
+                    key=data.key;
+                    insert_id_submit_property=data.prop_id;
+                    upload_image_jic('main_img_prev',data.prop_id+"."+main_img_ext); 
+                    console.log(data);
+                    // return;
+                    
+                },
+                error:function(data){
+                    console.log(data);
+                    // result=data;
+                }
+            });
         }
         if(onPage==3){
             var j=0;

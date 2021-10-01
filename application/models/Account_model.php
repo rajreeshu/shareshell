@@ -11,7 +11,7 @@ class Account_model extends CI_Model{
             // $data['data']=password_verify($input['email']."//".$input['password'],$data['dbpass']->password);
         }else{
             $data['data']=0;
-        }
+        } 
 	    
 
         return $data;
@@ -30,6 +30,8 @@ class Account_model extends CI_Model{
 
     
 public function property_detail($input){
+
+	// return json_encode($out_put);
 
 	$this->db->select('sn,name,price,main_image,description,avail,city,status,type,address,min_bed,furnish');
 	
@@ -174,7 +176,33 @@ public function getallpropertylist($input){
 	$data['input']=$input; 
 
 	$this->load->model('account_model');
-	$data['data']=$this->account_model->property_detail($input)->limit($input['items_per_page'],($input['page_no']-1)*$input['items_per_page'])->get('property_info')->result();
+	
+	$handle = curl_init();
+
+         
+	// Set the url
+	curl_setopt($handle, CURLOPT_URL, 'https://shareshell-ai.searchme.tech/correct');
+	curl_setopt($handle, CURLOPT_POST, 1);
+	curl_setopt($handle, CURLOPT_POSTFIELDS,
+		"nam=".$input['search_text']);
+	// Set the result output to be a string.
+	curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+	 
+	$output = curl_exec($handle);
+	 
+	curl_close($handle);
+	// var_dump($output);
+
+	$data['correct'] ='';
+	$data['data']=[];
+	foreach(json_decode($output) as $out){
+		$data['correct'].=$out;
+		$input['search_text']=$out;
+		$data_arr=$this->account_model->property_detail($input)->limit($input['items_per_page'],($input['page_no']-1)*$input['items_per_page'])->get('property_info')->result();
+		// $data['data']=$data_arr;
+		$data['data']=array_merge($data['data'],$data_arr);
+	}
+	// $data['data']=$this->account_model->property_detail($input)->limit($input['items_per_page'],($input['page_no']-1)*$input['items_per_page'])->get('property_info')->result();
 	
 	$data['liked']=$this->db->select('property_id')->where('user_id',$input['user_id'])->get('favourite_property')->result();
 	$data['row_count']=$this->account_model->property_detail($input)->get('property_info')->num_rows();

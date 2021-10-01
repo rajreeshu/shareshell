@@ -13,7 +13,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
+ 
   gtag('config', 'G-Y7VQ4L5MXN');
 </script>
         <meta name="description" content="Eagerly searching for best houses for rent in your city? shareshell is the best platform to provide you the best place for residence.">
@@ -446,7 +446,7 @@ margin-bottom: 0px;
                 <img src="<?=base_url();?>assets/img/pointer.svg" alt="" style="height: 60px;text-align: center;width: 100%;opacity: 0.7;">
             </div>
             <div id="input" style="background-color: white;height: 40px;width: 500px;margin: 65px 3px;">
-            <input type="search" placeholder="search for hpuse,plot,pg" style="border-radius: 0;" id="search_box_home">
+            <input type="search" placeholder="search for house,plot,pg" style="border-radius: 0;" id="search_box_home">
             </div>
 
             <div class="ai-searching" style="background-color: rgb(190, 190, 190);border-radius: 0 0 7px 7px;width: 530px;position: absolute;margin-top: 115px;margin-left: -5px;padding: 10px;">

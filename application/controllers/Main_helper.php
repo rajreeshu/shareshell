@@ -3,6 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main_helper extends CI_Controller {  
 
+
+	public function insert_id_submit_property(){
+		$input=$this->security->xss_clean($this->input->post());
+		$this->db->insert('property_info',['name'=>'uploading...']);
+		$data['prop_id']=$this->db->insert_id();
+		$data['key']=$this->security->get_csrf_hash();
+		echo json_encode($data);
+
+	}
+
 	public function submit_property()
 	{
 		$input=$this->security->xss_clean($this->input->post());
@@ -225,7 +235,7 @@ public function get_property_data(){
 public function get_all_property_list(){
 	$input=$this->security->xss_clean($this->input->post());
 
-	$this->load->model('account_model');
+	$this->load->model('account_model'); 
 	$data=$this->account_model->getallpropertylist($input);
 
 	$data['key']=$this->security->get_csrf_hash();
@@ -702,7 +712,7 @@ public function delete_property_byid(){
 
 	if($this->security->xss_clean($this->session->userdata('user_id_shareshell'))){
 		$this->load->model('account_model');
-		$this->account_model->delete_property_by_id($input);
+		$this->account_model->delete_property_by_id($input); 
 	}
 
 	

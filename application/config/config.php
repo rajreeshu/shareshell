@@ -482,7 +482,9 @@ $config['csrf_exclude_uris'] = array('main_helper/upload_test',
                                     'api/update_password',
                                     'api/change_password',
                                     'api/signup_validate_data',
-                                    'api/submit_signup_data'
+                                    'api/submit_signup_data',
+                                    'api/all_blog_data_ml',
+                                    'api/all_search_suggest'
 
                                 );
 

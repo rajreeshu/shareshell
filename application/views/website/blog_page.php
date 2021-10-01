@@ -13,7 +13,7 @@ $img_explode=explode(".",$blog_image);
     <meta name="author" content="ShareShell">
     <meta name="keyword" content="<?=$head_tags;?>">
     <title><?=$head_heading;?> - Shareshell Blog</title>
-
+ 
     <!-- Facebook Meta Tags -->
 <meta property="og:url" content="<?=base_url();?>main/blog/<?=$blog_no;?>/<?=$blog_slug;?>">
 <meta property="og:type" content="website">
@@ -299,16 +299,16 @@ var key ="<?php echo $this->security->get_csrf_hash(); ?>";
                 }
 
                 //recommended
-                var recommended_blog="";
-                $.each(data.recommended_blogs,function(){
-                    recommended_blog+='<li><div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">';
-                    recommended_blog+='<a href="<?=base_url();?>/main/blog?id='+this.blog_id+'"><img src="<?=base_url();?>/utility/blog_image/'+get_thumb_name(this.blog_image)+'" alt="shareshell_'+this.blog_heading+'" style="object-fit:cover; height:60px; width:60px;"></a>';
-                    recommended_blog+='<span class="property-seeker"></span></div>';
-                    recommended_blog+='<div class="col-md-8 col-sm-8 col-xs-8 blg-entry" style="line-height:17px;">';
-                    recommended_blog+='<h6> <a href="<?=base_url();?>main/blog/'+this.blog_id+"/"+slug_js(this.blog_heading)+'/">'+this.blog_heading+' </a></h6>';
-                    recommended_blog+='<span class="property-price" style="margin-top:-15px;">'+limit_words(30,this.blog_body.replace(/<[^>]+>/g, ''))+'</span></div></li>';
-                });
-                $("#recommended_blogs").html(recommended_blog);
+                // var recommended_blog="";
+                // $.each(data.recommended_blogs,function(){
+                //     recommended_blog+='<li><div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">';
+                //     recommended_blog+='<a href="<?=base_url();?>/main/blog?id='+this.blog_id+'"><img src="<?=base_url();?>/utility/blog_image/'+get_thumb_name(this.blog_image)+'" alt="shareshell_'+this.blog_heading+'" style="object-fit:cover; height:60px; width:60px;"></a>';
+                //     recommended_blog+='<span class="property-seeker"></span></div>';
+                //     recommended_blog+='<div class="col-md-8 col-sm-8 col-xs-8 blg-entry" style="line-height:17px;">';
+                //     recommended_blog+='<h6> <a href="<?=base_url();?>main/blog/'+this.blog_id+"/"+slug_js(this.blog_heading)+'/">'+this.blog_heading+' </a></h6>';
+                //     recommended_blog+='<span class="property-price" style="margin-top:-15px;">'+limit_words(30,this.blog_body.replace(/<[^>]+>/g, ''))+'</span></div></li>';
+                // });
+                // $("#recommended_blogs").html(recommended_blog);
                 
                 
                 // console.log(data.prev_blog_id.blog_id);
@@ -402,6 +402,39 @@ var key ="<?php echo $this->security->get_csrf_hash(); ?>";
             }
     }); 
 });
+
+$.ajax({
+            url: "https://shareshell-ai.searchme.tech/blog_recomend",
+            type: "POST",
+            async: false,
+            data: {
+                "<?php echo $this->security->get_csrf_token_name();?>": key,
+                id: "<?= $blog_no;?>",
+                // commentor_id: "<?=$commentor_id;?>",
+                // comment:$("#comment_text").val(), 
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                // $.each(data,function(){
+                //     console.log(this[0]);
+                // });
+
+                var recommended_blog="";
+                $.each(data,function(){
+                    recommended_blog+='<li><div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">';
+                    recommended_blog+='<a href="<?=base_url();?>/main/blog?id='+this[0]+'"><img src="<?=base_url();?>/utility/blog_image/'+get_thumb_name(this[3])+'" alt="shareshell_'+this[1]+'" style="object-fit:cover; height:60px; width:60px;"></a>';
+                    recommended_blog+='<span class="property-seeker"></span></div>';
+                    recommended_blog+='<div class="col-md-8 col-sm-8 col-xs-8 blg-entry" style="line-height:17px;">';
+                    recommended_blog+='<h6> <a href="<?=base_url();?>main/blog/'+this[0]+"/"+slug_js(this[1])+'/">'+this[1]+' </a></h6>';
+                    recommended_blog+='<span class="property-price" style="margin-top:-15px;">'+limit_words(30,this[2].replace(/<[^>]+>/g, ''))+'</span></div></li>';
+                });
+                $("#recommended_blogs").html(recommended_blog);
+            },
+            error: function (data){
+                console.log(data);
+            }
+    });
 
 // let htmlString = "<p>Hello</p><a href='http://w3c.org'>W3C</a>"
 // let plainText = htmlString.replace(/<[^>]+>/g, '');

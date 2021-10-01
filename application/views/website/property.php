@@ -585,7 +585,7 @@
                                         <div class="col-xs-8 col-sm-8 ">
                                             <h3 class="dealer-name">
                                                 <a href="" id="agent_name" style="color:rgb(255, 255, 255);"></a>
-                                                <h5 style="color:#d8bf65;"><strong>918617897584</strong></h5>
+                                                <h5 style="color:#d8bf65;" id="prop_contact"></h5>
 
                                                 <span class="dealer-social-media">
                                                     <a class="twitter" target="_blank" href="" id="agent_twitter_link"></a>
@@ -886,12 +886,14 @@
                 $("#property_facing").html(data.data.facing);
                 $("#property_floor").html(data.data.floor_no);
                 $("#property_prefered").html(data.data.prefered);
+
                 
                 $("#property_furnish").html(data.data.furnish);
                 $(".property_type").html(data.data.type.toUpperCase());
                 $("#property_avail").html(data.data.avail.toUpperCase());
                 $("#lightgallery").append('<li class="col-xs-6 col-sm-4 col-md-3 col-4"  data-responsive="" id="main_img_slide" data-src="<?=base_url('utility/main_image');?>/' + data.data.main_image + '" ><a href=""><img src="<?=base_url('utility/main_image');?>/' + get_thumb_name(data.data.main_image) + '" class="img-responsive" id="main_img_slide_thumb" alt="Thumb-1" style="object-fit:cover;"></a></li>');
 
+                $("#prop_contact").html("<strong>"+data.data.contact+"</strong>")
                 var image_insert = "";
                 var lightgallery_data = "";
                 $.each(data.image, function () {

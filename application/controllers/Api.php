@@ -245,7 +245,7 @@ public function change_password(){
         $input=$this->security->xss_clean($this->input->post());
 
         $this->load->model('account_model');
-        $data=$this->account_model->changePassword_m($input);
+        $data=$this->account_model->changePassword_m($input); 
 
         echo json_encode($data);
     }else{
@@ -348,6 +348,34 @@ public function submit_signup_data(){
 }
 
 
+
+//machine learnign codes
+
+public function all_blog_data_ml(){
+    if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){        
+                
+        $this->verifytoken($this->input->post('token'));
+        $input=$this->security->xss_clean($this->input->post());
+        $data['data']=$this->db->select('blog_id,blog_heading as blog_title,blog_body as blog_content,blog_category,blog_tags,blog_image')->get('blog')->result();    
+        echo json_encode($data);
+    }else{
+        echo json_encode("You Are Not Allowed");
+    }  
+    
+}
+
+public function all_search_suggest(){
+    if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){        
+                
+        $this->verifytoken($this->input->post('token'));
+        $input=$this->security->xss_clean($this->input->post());
+        $data['data']=$this->db->select('name,address,landmark,city')->get('property_info')->result();    
+        echo json_encode($data);
+    }else{
+        echo json_encode("You Are Not Allowed");
+    }  
+    
+}
 
 
 
