@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row">
                 <div class="page-head-content">
-                    <h1 class="page-title">About Us</h1>
+					<h1 class="page-title"><b>About Us</b></h1>
                 </div>
             </div>
         </div>
