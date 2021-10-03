@@ -158,6 +158,9 @@ class Main extends CI_Controller {
 	}
 
 
+	public function sitemap(){
+		$this->load->view("website/sitemap");
+	}
 	public function my404(){
 		$this->load->view('website/404');
 	}
