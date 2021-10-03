@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SHARESHELL| Change Password</title>
+        <title>Change Password | ShareShell </title>
         
         <meta name="author" content="shareshell">
         <meta name="keyword" content="shareshell">

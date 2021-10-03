@@ -6,9 +6,9 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My Choice</title>
+    <title>My Choice | ShareShell</title>
     <meta name="author" content="shareshell">
-        <meta name="keyword" content="shareshell, favourite, my choice, favourite properties, sharesehll properties">
+        <meta name="keyword" content="shareshell, favourite, my choice, favourite properties, shareshell properties">
         <meta name="description" content="get your favourite properties at one place">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
