@@ -13,10 +13,10 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
- 
+
   gtag('config', 'G-Y7VQ4L5MXN');
 </script>
-        <meta name="description" content="Eagerly searching for best houses for rent in your city? Shareshell is the best platform to provide you the best place for residence.">
+        <meta name="description" content="Eagerly searching for best houses for rent in your city? shareshell is the best platform to provide you the best place for residence.">
         <meta name="author" content="ShareShell">
         <meta name="keyword" content="Houses for rent, shareshell">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -382,6 +382,70 @@ margin-bottom: 0px;
         }
 }
 
+
+
+
+.fa-heart-o {
+  color: #e80000;
+  cursor: pointer;
+  font-size:30px;
+}
+
+.fa-heart {
+  color: #e80000;
+  cursor: pointer;
+  font-size:30px;
+
+}
+.proerty-th-list .col-md-4 .item-entry {
+    width: 60%;
+    float: left;
+    padding-right: 15px;
+    padding-top: 17px;
+}
+.proerty-th .proerty-item .item-thumb img {
+    transition: all 0.2s linear 0s;
+    display: block;
+    position: relative;
+    width: 100%;
+    opacity: 1;
+    min-height: 225px;
+    max-height: 265px;
+    border-radius: 25px;
+    padding: 4px;
+}
+
+.proerty-th-list .proerty-price {
+    font-weight: 600;
+    color:#4D4B4B;
+    font-size: 30px;
+    padding-top:10px;
+}
+.properties-page .proerty-th .proerty-price {
+    font-weight: 600;
+    color:#4D4B4B;
+    font-size: 30px;
+    margin-top:-10px;
+
+
+}
+.properties-page .box-two {
+    overflow: hidden !important;
+    padding: 8px;
+}
+.proerty-th-list .col-md-4 .item-thumb img {
+    height: 260px;
+    border: 0px none;
+    object-fit: cover;
+    width: 100%;
+    padding-right: 12px;
+    padding: 14px;
+    border-radius: 38px !important;
+}
+.box-two{
+    border-radius: 30px !important;
+
+}
 </style>
 
 
@@ -1029,7 +1093,7 @@ function load_page_content(){
                     property_list+='<h5><a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'" >'+this.name.slice(0,16)+''+dot_after_name+'</a></h5>';
                     property_list+='<div class="dot-hr"></div>';
                     property_list+='<span class="pull-left"><b>'+capital_first(this.city)+' </b></span>';
-                    property_list+='<span class="proerty-price pull-right">&#8377; '+this.price.replace(/\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g, ',')+'</span>';
+                    property_list+='<span class="proerty-price pull-right">&#8377; '+this.price+'</span>';
                     property_list+='</div>';
                     property_list+='</div>';
                     property_list+='</div>';
