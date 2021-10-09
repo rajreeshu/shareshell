@@ -1029,7 +1029,7 @@ function load_page_content(){
                     property_list+='<h5><a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'" >'+this.name.slice(0,16)+''+dot_after_name+'</a></h5>';
                     property_list+='<div class="dot-hr"></div>';
                     property_list+='<span class="pull-left"><b>'+capital_first(this.city)+' </b></span>';
-                    property_list+='<span class="proerty-price pull-right">&#8377; '+this.price+'</span>';
+                    property_list+='<span class="proerty-price pull-right">&#8377; '+this.price.replace(/\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g, ',')+'</span>';
                     property_list+='</div>';
                     property_list+='</div>';
                     property_list+='</div>';

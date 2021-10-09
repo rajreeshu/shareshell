@@ -75,7 +75,7 @@ class Main_helper extends CI_Controller {
 
 		$db_array = array('listed_by' => $this->security->xss_clean($this->session->userdata('user_id_shareshell')),
 							
-							'main_image'=>'',
+							// 'main_image'=>'',
 							'name'	   => $input['propertyname'],
 							'price'	   => $input['propertyprice'],
 							// 'negoitable'=>$price_negoitable,
@@ -107,8 +107,11 @@ class Main_helper extends CI_Controller {
 							'listed_date'=>date('Y-m-d H:i:s')
 		 );
 
-		$insert_prop_data =$this->db->insert('property_info',$db_array);
-		$insertId = $this->db->insert_id();
+		// $insert_prop_data =$this->db->insert('property_info',$db_array);
+		// $insertId = $this->db->insert_id();
+
+		$insert_prop_data=$this->db->where('sn',$input['property_id'])->update('property_info',$db_array);
+		$insertId=$input['property_id'];
 
 		// $this->load->model('upload_model');
 		// $main_img_upload=$this->upload_model->upload_file($insertId,'jpg|png|jpeg','utility/main_image','main_img');

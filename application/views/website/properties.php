@@ -2396,7 +2396,7 @@ function load_page_content(page_no){
                    property_list+='<span class="pull-left" style="font-weight: 400;"><b>'+this.min_bed+' BHK '+this.type+'</b> for ';
                     property_list+='<b>'+this.status+'</b></span><br>';
                     property_list+='<div style="flex-direction: column;"></div>';
-                    property_list+= '<span class="pull-left" style="font-weight: 400;">kaling vihar,<b>'+this.city+'</b></span><br>';
+                    property_list+= '<span class="pull-left" style="font-weight: 400;">'+limit_words(12,this.address)+', <b>'+this.city+'</b></span><br>';
                     
                     property_list+='<span class="pull-left" style="font-weight: 400;"><b>';
                     property_list+=capital_first(this.furnish)+'</b><br></span><br>';
@@ -2404,7 +2404,7 @@ function load_page_content(page_no){
 
                     property_list+='<p style="display: none;">'+limit_words(100,this.description)+' <a';
                     property_list+=' href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'">View Detailes</a> </p><br>';
-                    property_list+='<span class="proerty-price pull-left" style=""> ₹ '+this.price + '</span>';
+                    property_list+='<span class="proerty-price pull-left" style=""> ₹ '+this.price.replace(/\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g, ',') + '</span>';
                     property_list+='<span  class="heart pull-right '+liked_class+'" onclick="add_to_favo('+this.sn+')" data-property_sn="'+this.sn+'">'+heart_enable+' </span><br>';
 
                     property_list+='<div style="display: flex;margin-top: 10px;" id="property-btn" class="property-btn">';

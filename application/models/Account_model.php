@@ -166,7 +166,7 @@ public function property_detail($input){
 		$this->db->where('price >',(int)$property_price[0]-10);
 		$this->db->where('price < ',(int)$property_price[1]+10);
 	}
-
+	$this->db->where('listed_by!=',"");
 	return $this->db->order_by($input['filter_sort'],$input['filter_sort_by']);
 
 }
@@ -174,6 +174,9 @@ public function property_detail($input){
 public function getallpropertylist($input){
 
 	$data['input']=$input; 
+	if(!isset($input['search_text'])){
+		$input['search_text']="";
+	}
 
 	$this->load->model('account_model');
 	
@@ -236,6 +239,8 @@ public function edit_userdata($input){
 public function my_propertydata($input){
 	$this->db->select('sn,listed_by,name,price,address,contact,main_image,description,avail,city,status,type,min_bed,addon,add_image,add_video');
 	$this->db->where('listed_by',$input['user_id']);
+	$this->db->where('listed_by!=',"");
+	$this->db->order_by('sn','DESC');
 	return $this->db->get('property_info')->result();
 }
 

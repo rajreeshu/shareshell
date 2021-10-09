@@ -243,7 +243,7 @@
                                                         <select id="property_facing" name="property_facing" class="selectpicker" data-live-search-style="begins" title="Select your city">
                                                             <option value="" selected>-Direction-</option>
                                                             <option value="north">North</option>
-                                                            <option value="south">South</option>
+                                                            <option value="south">South</option> 
                                                             <option value="east">East</option>
                                                             <option value="west">West</option>
                                                             <option value="north-east">North-East</option>
@@ -761,7 +761,7 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
             $("#next_btn").css('opacity', '0.3');
             
 ///////////            //temporarly removed
-            // $("#next_btn").attr('disabled', '');
+            $("#next_btn").attr('disabled', '');
 /////////// 
             $("#next_btn").css({
                 backgroundColor: '',
@@ -947,7 +947,7 @@ $('#main_img_prev').click(function(){ $('#main_img').trigger('click'); });
         if((onPage==2) && (prop_description==""||prop_avail==""||prop_city==""||prop_furnish==""||min_bed==""||min_bath==""||min_balcony==""||floor_no==""||prop_veg==""||prop_address=="")){
             $("#next_btn").css('opacity', '0.3');
 ////////
-            // $("#next_btn").attr('disabled', '');
+            $("#next_btn").attr('disabled', '');
 ////////            
             $("#next_btn").css({
                 backgroundColor: '',
@@ -1104,6 +1104,7 @@ $("#form1").submit(function(e) {
         get_all_value_3();
 
         var formData=new FormData(this);
+        formData.append("property_id",insert_id_submit_property);
             $("#finish_btn").hide();
             $("#loader").show();
 
@@ -1139,7 +1140,7 @@ $("#form1").submit(function(e) {
                         // var tick = function(j) {
                         //     return function() {
                                 // console.log(j);
-                                upload_image_jic('prev_img'+arr_prop_img[j],data.property_id+"_"+arr_prop_img[j]+"."+ext); 
+                                // upload_image_jic('prev_img'+arr_prop_img[j],data.property_id+"_"+arr_prop_img[j]+"."+ext); 
                        
                         //     }
                         // };

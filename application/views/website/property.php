@@ -813,7 +813,7 @@
                 $("#main_img_thumb").attr('data-thumb', '<?=base_url("utility/main_image/");?>' + get_thumb_name(data.data.main_image));
                 $("#main_img_slider").attr('src', '<?=base_url("utility/main_image/");?>' + data.data.main_image);
                 $("#property_city").html( data.data.city);
-                $("#property_price").html("&#8377 " + data.data.price);
+                $("#property_price").html("&#8377 " + data.data.price.replace(/\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g, ','));
                 $("#property_description").html(data.data.description);
                 $("#property_address").html(data.data.address+", "+data.data.city);
                 $("#property_landmark").html(data.data.landmark);

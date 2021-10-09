@@ -369,7 +369,7 @@ public function all_search_suggest(){
                 
         $this->verifytoken($this->input->post('token'));
         $input=$this->security->xss_clean($this->input->post());
-        $data['data']=$this->db->select('name,address,landmark,city')->get('property_info')->result();    
+        $data['data']=$this->db->select('name,address,landmark,city,description')->get('property_info')->result();    
         echo json_encode($data);
     }else{
         echo json_encode("You Are Not Allowed");

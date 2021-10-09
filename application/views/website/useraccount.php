@@ -1009,7 +1009,7 @@ $.ajax({
                 property_list+='<p style="margin-top: -5px;"><strong>Remove this Property</strong></p></div>';
                 property_list+='<a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'"><img src="<?=base_url('utility/main_image');?>/'+this.main_image+'" style="height:225px; object-fit: cover;"></a></div>';
                 property_list+='<div class="item-entry overflow">';
-                property_list+='<h5><a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'"> Super nice villa </a></h5>';
+                property_list+='<h5><a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'">'+this.name+' </a></h5>';
                 property_list+='<div class="dot-hr"></div><div style="flex-direction: column;"></div>';
                 property_list+='<span class="proerty-price pull-left" style="margin-top: -7px;"> Rs '+this.price+'</span><br>';
                 property_list+='<span class="pull-left" style="font-weight: 400;"><b> '+this.min_bed+' BHK Apartment</b> for  '+this.status+'<br> in '+this.city+'</span>';

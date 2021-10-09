@@ -233,7 +233,7 @@ function load_page_content(page_no){
                     property_list+='<h5><a href="<?=base_url('property/');?>'+this.property_id+"/"+slug_js(this.name)+'"> '+this.name.toUpperCase()+' </a></h5>';
                     property_list+='<div class="dot-hr"></div>';
                     property_list+='<span class="pull-left"><b> '+this.min_bed+' </b></span>';
-                    property_list+='<span class="proerty-price pull-right"> &#8377 '+this.price+'</span>';
+                    property_list+='<span class="proerty-price pull-right"> &#8377 '+this.price.replace(/\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g, ',')+'</span>';
                     property_list+='<p style="display: none; overflow: hidden; text-overflow: ellipsis;max-height: 72px;-webkit-line-clamp: 2;">'+this.description+'</p>';
                     property_list+='<div class="property-icon">';
                     property_list+='<span style="font-size:22px;"><b> &#9893;</b></span><span style="text-transform: capitalize;"> ( '+type_change+' ) |</span>';
