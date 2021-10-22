@@ -13,7 +13,7 @@
     
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html class="no-js" lang = "en"> 
     <head>
 <link rel="icon" href="<?=base_url('assets/img/logo-sm.jpg');?>" type="image/x-icon">
@@ -439,7 +439,7 @@
 
                             <div id="properties_ameneties"  style="display: flex; flex-direction: row; flex-wrap: wrap;padding:10px;">
                             <div style="display: flex;">
-
+ 
                                 <div class="amenities-icon">
                                     <div class="item"><img src="<?=base_url('assets/img/');?>employees.png" alt="">
                                         <p><b>Maintainance Staff</b></p>
@@ -657,9 +657,12 @@
 
                                
                             </div>
+                            
 
                             
                         </div>
+                        
+                            </div>
 
 
                     </aside>
@@ -720,6 +723,7 @@
 
         var key = "<?php echo $this->security->get_csrf_hash(); ?>";
         var user_id="<?=$user_id;?>";
+        // console.log("user_id: "+user_id);
 
         var property_by = "";
         var listed_by_id="";
@@ -1073,6 +1077,33 @@ $("#save_property_btn").click(function() {
         add_to_favo();
     }
 });
+
+
+function track_property_click(){
+
+    $.ajax({
+                url: "<?=base_url('main_helper/track_property_click');?>",
+                type: "POST",
+                async: false,
+                data: {
+                    "<?php echo $this->security->get_csrf_token_name();?>": key, 
+                    property_no:"<?= $property_no;?>",
+                    user_id:user_id,
+                    ip_address:"<?=$_SERVER['REMOTE_ADDR'];?>"
+                },
+                dataType: "json",
+                success: function (data) {
+                    key=data.key;
+                    console.log(data);
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+
+}
+
+track_property_click();
 
 
 

@@ -55,7 +55,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Hello : <span class="orange strong">YOUR NAME</span></h1>               
+                        <h1 class="page-title">Build your profile</h1>               
                     </div>
                 </div>
             </div>

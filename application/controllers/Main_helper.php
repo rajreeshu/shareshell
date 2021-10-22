@@ -11,7 +11,7 @@ class Main_helper extends CI_Controller {
 		$data['key']=$this->security->get_csrf_hash();
 		echo json_encode($data);
 
-	}
+	} 
 
 	public function submit_property()
 	{
@@ -748,7 +748,35 @@ public function contact_owner_email_send(){
 	echo json_encode($data);
 }
 
+public function track_search() {
+	$input=$this->security->xss_clean($this->input->post());
+	$data['input']=$input;
+	$available=$this->db->where(['query'=>$input['search_text'], 'ip'=>$input['ip_address']])->get('track_search_query')->num_rows();
+	if(!$available){
+		$this->db->insert('track_search_query',['query'=>$input['search_text'],'ip'=>$input['ip_address'],'date_time'=>date('Y-m-d H:i:s')]);
+	}
+	
 
+	$data['key'] =$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
+
+
+public function track_property_click() {
+	$input=$this->security->xss_clean($this->input->post());
+	$data['input']=$input;
+
+	$prev_data=$this->db->where(['property_no'=>$input['property_no'],'ip_address'=>$input['ip_address']])->get('track_property_open')->num_rows();
+	if(!$prev_data){
+		$this->db->insert('track_property_open',['property_no'=>$input['property_no'],'user_id'=>$input['user_id'],'ip_address'=>$input['ip_address'],'date_time'=>date('Y-m-d H:i:s')]);
+	}
+
+
+	
+
+	$data['key'] =$this->security->get_csrf_hash();
+	echo json_encode($data);
+}
 
 
 

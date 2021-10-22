@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="<?=base_url();?>assets/css/style-properties.css?v=3.3">
 <style type="text/css">
 body{
-    color: #908c8c;
+    color: #908c8c; 
 }
 .cateogary-button input {
     margin: auto;
@@ -2298,6 +2298,8 @@ function load_page_content(page_no){
         sort_by_val="DESC";
     }
 
+    search_box=$("#search_box").val();
+
     $.ajax({
         url:"<?=base_url('main_helper/get_all_property_list');?>",
         type:"POST",
@@ -2308,7 +2310,7 @@ function load_page_content(page_no){
             items_per_page:12,
             page_no:page_no,
 
-            search_text:$("#search_box").val(),
+            search_text:search_box,
             filter_price:price_range,
             filter_status:$("#filter_status").val(),
             filter_type:$("#filter_type").val(),
@@ -2334,7 +2336,7 @@ function load_page_content(page_no){
             success:function(data){
                 key=data.key;
 
-                console.log(data);
+                // console.log(data);
                 var property_list="";
                 var no_of_page="";
                 var no_of_page_code="";
@@ -2450,6 +2452,28 @@ function load_page_content(page_no){
                 console.log(data);
             }
         });
+
+        if(search_box!=""){
+            $.ajax({
+                url: "<?=base_url('main_helper/track_search');?>",
+                type: "POST",
+                async: false,
+                data: {
+                    "<?php echo $this->security->get_csrf_token_name();?>": key, 
+                    search_text:search_box,
+                    ip_address:"<?=$_SERVER['REMOTE_ADDR'];?>"
+                },
+                dataType: "json",
+                success: function (data) {
+                    key=data.key;
+                    // console.log(data);
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        }
+        
 }
 load_page_content(<?=$url_get_pn;?>);
 
@@ -2507,23 +2531,6 @@ load_page_content(<?=$url_get_pn;?>);
             success: function (data) {
                 key=data.key;
                 console.log(data);
-                // if(data.data){
-                //     // console.log(data.work);
-                //     if(data.work=="added"){
-                //         $(".add-to-fav").css('color',"#FDC600");
-                //         $(".add-to-fav").css('border-color',"#FDC600");
-                //         $(".add-to-fav").css('box-shadow',"0px 0px 20px #FDC600 inset");
-
-                //         $("#save_property_btn").children().html("Remove Choice");
-                //     }else if(data.work=="removed"){
-                //         // console.log(data);
-                //         $(".add-to-fav").css('color',"#FFF");
-                //         $(".add-to-fav").css('border-color',"#FFF");
-                //         $(".add-to-fav").css('box-shadow',"0px 0px 20px grey inset");
-
-                //         $("#save_property_btn").children().html("Save Property");
-                //     }
-                // }
             },
             error: function(data){
                 console.log(data);
