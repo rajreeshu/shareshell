@@ -54,8 +54,8 @@ body{
     opacity: 1;
     min-height: 225px;
     max-height: 265px;
-    border-radius: 25px;
-    padding: 4px;
+    border-radius: 14px;
+    padding: 1px;
 }
 
 .proerty-th-list .proerty-price {
@@ -86,7 +86,7 @@ body{
     border-radius: 38px !important;
 }
 .box-two{
-    border-radius: 30px !important;
+    border-radius: 14px !important;
 
 }
     .pagination_box{
@@ -382,6 +382,8 @@ body{
 
     @media only screen and (max-width: 700px) {
 
+ 
+
         
         .property-btn{
             display: none !important; 
@@ -620,11 +622,50 @@ body{
             top:-40px;
             display:block;
         }
+       
 
 
 
     }
 
+    #recommended{
+        background-color:white !important;
+        padding:13px;
+        border-radius:10px;
+    }
+
+    .sidebar-menu{
+        background-color:white !important;
+        padding:13px;
+        border-radius:10px;
+    }
+    .panel.sidebar-menu .panel-heading h3{
+    display: inline-block;
+    border-bottom: none;
+    line-height: 1.1;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 700px){
+#form-inline {
+    margin-top: -4px !important;
+    
+}
+.hr{
+    display:inline-block !important;
+}
+
+#recommended{
+        width: 100% !important;
+    }
+   
+}
+
+.hr{
+    display:none;
+}
 </style>
 </head>
 <body>
@@ -1749,7 +1790,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                                                 </button>
                                             </div>
                                         </div>
-                                        <hr>
+                                        <hr class="hr">
 
 
                                         <div class="row">
@@ -1764,13 +1805,25 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                                             </div>
                                         </div>
 
+                                        <div class="row"  style="margin-top:50px;">
+                                            <div class="col-xs-12">
+
+                                                <div class="col-md-4 col-lg-12">
+                                                    
+                                                <button class="appy-filter more-filter-mobile recommended-btn" id="more-filter-mobile">
+                                                  Recommended
+                                                </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
 
                                     </fieldset>
                                 </form>
                             </div>
                         </div>
 
-                        <!-- <div class="panel panel-default sidebar-menu " id="recommended">
+                        <div class="panel panel-default sidebar-menu " id="recommended">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Recommended</h3>
                             </div>
@@ -1779,10 +1832,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                                     <li>
                                         <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
                                             <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
+                                          
                                         </div>
                                         <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
                                             <h6> <a href="single.html">Super nice villa </a></h6>
@@ -1792,10 +1842,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                                     <li>
                                         <div class="col-md-3 col-sm-3  col-xs-3 blg-thumb p0">
                                             <a href="single.html"><img src="assets/img/demo/small-property-1.jpg" ></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
+                                            
                                         </div>
                                         <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
                                             <h6> <a href="single.html">Super nice villa </a></h6>
@@ -1805,10 +1852,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                                     <li>
                                         <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
                                             <a href="single.html"><img src="assets/img/demo/small-property-3.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
+                                          
                                         </div>
                                         <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
                                             <h6> <a href="single.html">Super nice villa </a></h6>
@@ -1819,10 +1863,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
                                     <li>
                                         <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
                                             <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
+                                         
                                         </div>
                                         <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
                                             <h6> <a href="single.html">Super nice villa </a></h6>
@@ -1832,7 +1873,7 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
 
                                 </ul>
                             </div>
-                        </div> -->
+                        </div> 
                     </div>
                 </div>
 
@@ -1958,6 +1999,8 @@ style="width: 100%; height: 2px;background-color:white ;position:fixed;bottom: 0
 
 
 ?>
+
+
 
 <script type="text/javascript">
     
@@ -2553,5 +2596,18 @@ load_page_content(<?=$url_get_pn;?>);
   });
 });
 </script>
+
+<script>
+    $(document).ready(function(){
+  $(".recommended-btn").click(function(){
+      $("#recommended").toggle();
+   
+  });
+});
+</script>
+
+
+
+
 </body>
 </html>
