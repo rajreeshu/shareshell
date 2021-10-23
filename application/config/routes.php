@@ -61,3 +61,4 @@ $route['contact'] = "main/contact";
 $route['faq'] = "main/faq";
 $route['account']="main/account";
 $route['blogs']="main/blogs";
+$route['sitemap.html']="main/sitemap";

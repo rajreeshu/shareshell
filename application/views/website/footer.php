@@ -81,6 +81,7 @@
                                     <li><a href="<?=base_url('contact')?>">Contact us</a></li> 
                                     <li><a href="<?=base_url('faq')?>">faq</a>  </li> 
                                     <li><a href="<?=base_url('main/termsconditions')?>">Terms and Conditions </a>  </li> 
+                                    <li><a href="<?=base_url('sitemap.html')?>">SiteMap </a>  </li> 
                                 </ul>
                             </div>
                         </div>
