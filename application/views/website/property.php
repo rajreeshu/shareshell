@@ -233,6 +233,48 @@
 
 
 }
+
+#recommended{
+        background-color:white !important;
+        padding:13px;
+        border-radius:10px;
+        margin-top:15px;
+    }
+
+    .sidebar-menu{
+        
+        border-radius:10px;
+    }
+    .panel.sidebar-menu .panel-heading h3{
+    display: inline-block;
+    border-bottom: none;
+    line-height: 1.1;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+#recommended_property_btn{
+    display:none;
+}
+
+@media only screen and (max-width: 700px){
+  
+    .sidebar-menu{
+        padding:14px;
+        border-radius:10px;
+    }
+    #recommended_property_btn{
+    display:block;
+}
+
+#recommended{
+        width: 100% !important;
+        display:none;
+    }
+   
+}
+
+
     </style>
 </head>
 
@@ -652,11 +694,69 @@
                                         Save Property
                                     </button>
                                 </div>
+
+                                <div class="save" id="recommended_property_btn">
+                                    <button style="background-color: #ffffff;height: 40px;width:70%;border-radius: 5px;color:#1f1f1f;font-weight: bold;border: 1px solid #8d8d8d;margin:auto;margin-left: 40px;margin-top: 15px;">
+                                        Recommended
+                                    </button>
+                                </div>
                                
                                
 
                                
                             </div>
+
+                            <div class="panel panel-default sidebar-menu " id="recommended">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Recommended</h3>
+                            </div>
+                            <div class="panel-body recent-property-widget">
+                                <ul>
+                                    <li>
+                                        <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
+                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
+                                          
+                                        </div>
+                                        <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
+                                            <h6> <a href="single.html">Super nice villa </a></h6>
+                                            <span class="property-price">3000000$</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-md-3 col-sm-3  col-xs-3 blg-thumb p0">
+                                            <a href="single.html"><img src="assets/img/demo/small-property-1.jpg" ></a>
+                                            
+                                        </div>
+                                        <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
+                                            <h6> <a href="single.html">Super nice villa </a></h6>
+                                            <span class="property-price">3000000$</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
+                                            <a href="single.html"><img src="assets/img/demo/small-property-3.jpg"></a>
+                                          
+                                        </div>
+                                        <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
+                                            <h6> <a href="single.html">Super nice villa </a></h6>
+                                            <span class="property-price">3000000$</span>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
+                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
+                                         
+                                        </div>
+                                        <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
+                                            <h6> <a href="single.html">Super nice villa </a></h6>
+                                            <span class="property-price">3000000$</span>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div> 
                             
 
                             
@@ -1128,6 +1228,15 @@ track_property_click();
             $("#contact-details").toggle(300);
         });
 
+
+    </script>
+
+    <script>
+          $("#recommended_property_btn").click(function(e){
+    e.preventDefault();
+      $("#recommended").toggle(800);
+   
+  });
 
     </script>
 
