@@ -2598,12 +2598,12 @@ load_page_content(<?=$url_get_pn;?>);
 </script>
 
 <script>
-    $(document).ready(function(){
-  $(".recommended-btn").click(function(){
+  $(".recommended-btn").click(function(e){
+    e.preventDefault();
       $("#recommended").toggle();
    
   });
-});
+
 </script>
 
 
