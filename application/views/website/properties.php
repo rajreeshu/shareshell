@@ -2600,7 +2600,7 @@ load_page_content(<?=$url_get_pn;?>);
 <script>
   $(".recommended-btn").click(function(e){
     e.preventDefault();
-      $("#recommended").toggle();
+      $("#recommended").toggle(800);
    
   });
 
