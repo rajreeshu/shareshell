@@ -9,6 +9,10 @@ class Main extends CI_Controller {
                 $this->check_logged_in();
         }
 
+	public function phpinfo(){
+		phpinfo();
+	}
+
 	public function index(){
 		
 		$this->load->view('website/home');	

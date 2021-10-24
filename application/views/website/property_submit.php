@@ -1149,7 +1149,7 @@ $("#form1").submit(function(e) {
                         // upload_image_jic('prev_img'+j);
                         j++;
                     } 
-                    window.location.href = 'property_submited';
+                    // window.location.href = 'property_submited';
                     console.log(data);
                 },
         
