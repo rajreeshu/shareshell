@@ -2436,7 +2436,7 @@ function load_page_content(page_no){
                     property_list+='<a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'"><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'" style="height:255px;max-width:100%; object-fit: cover;"></a>';
                     property_list+='</div>';
                     property_list+='<div class="item-entry overflow">';
-                    property_list+='<h5 style="font-size:25px;"><a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'">  '+this.name.slice(0,14)+''+dot_after_name+'  </a></h5>';
+                    property_list+='<h5 style="font-size:25px;"><a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'">  '+this.name.slice(0,11)+' '+dot_after_name+'  </a></h5>';
                    // property_list+='<div class="dot-hr"></div>';
                    property_list+='<span class="pull-left" style="font-weight: 400;"><b>'+this.min_bed+' BHK '+this.type+'</b> for ';
                     property_list+='<b>'+this.status+'</b></span><br>';

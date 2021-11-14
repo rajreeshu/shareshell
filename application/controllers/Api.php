@@ -6,7 +6,7 @@ class Api extends CI_Controller {
 
     public function __construct()
 	{
-		parent::__construct();	
+		parent::__construct();	 
 		
 	}
 
@@ -366,11 +366,31 @@ public function all_blog_data_ml(){
 
 public function all_search_suggest(){
     if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){        
+    // if (strtoupper($_SERVER['REQUEST_METHOD']) == 'GET'){        
                 
         // $this->verifytoken($this->input->post('token'));
         $input=$this->security->xss_clean($this->input->post());
-        $data['data']=$this->db->select('name,address,landmark,city,description')->get('property_info')->result(); 
-        $data['ids']=array_column($this->db->select('sn')->get('property_info')->result(),'sn');   
+        $data['ids']=array_column($this->db->select('sn')->get('property_info')->result(),'sn');  
+        $data['data']="";
+        $data['change_id']=0;
+
+
+        $myfile = fopen("ml_search_array.txt", "r");
+        $ml_search_array= fread($myfile,filesize("ml_search_array.txt"));
+        fclose($myfile);
+
+        if($ml_search_array!=implode(',',$data['ids'])){
+            $data['data']=$this->db->select('name,address,landmark,city,description')->get('property_info')->result();
+            $data['change_id']=1;
+            $myfile = fopen("ml_search_array.txt", "w") or die("Unable to open file!");
+            $fwrite_data=fwrite($myfile, implode(',',$data['ids']));
+            fclose($myfile);
+            
+        }
+
+
+         
+         
         echo json_encode($data);
     }else{
         echo json_encode("You Are Not Allowed");
