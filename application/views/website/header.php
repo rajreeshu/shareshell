@@ -128,7 +128,7 @@
                                             <div class="col-sm-3">                                               
                                                 <h5>More Links</h5>
                                                 <ul>
-                                                <li><a href="<?=base_url('main/myproperties');?>">Your properties</a>  </li>
+                                                <li><a href="<?=base_url('main/aboutus');?>">About Us</a>  </li>
                                                 <li><a href="<?=base_url('main/privacypolicy');?>">Privacy and Policy</a> </li>
                                                 <li><a href="<?=base_url('main/termsconditions');?>">Terms and Condition</a> </li>
                                                 </ul>
