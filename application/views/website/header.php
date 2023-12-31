@@ -123,6 +123,7 @@
                                             <ul>
                                                 <li><a href="<?=base_url('main/testimonial');?>">testimonials</a> </li>
                                             </ul>
+                                            
                                         </div>
                                         <div class="col-sm-2"></div>
                                             <div class="col-sm-3">                                               
@@ -131,6 +132,9 @@
                                                 <li><a href="<?=base_url('main/aboutus');?>">About Us</a>  </li>
                                                 <li><a href="<?=base_url('main/privacypolicy');?>">Privacy and Policy</a> </li>
                                                 <li><a href="<?=base_url('main/termsconditions');?>">Terms and Condition</a> </li>
+                                                
+                                                <li><a href="<?=base_url('main/blog_admin_login');?>">Blog Admin</a> </li>
+                                            
                                                 </ul>
                                             </div>
                                         </div>

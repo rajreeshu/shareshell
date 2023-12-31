@@ -27,8 +27,8 @@ class Email_model extends CI_Model{
 	$config = array();
         $config['protocol'] = 'smtp';
         $config['smtp_host'] = 'ssl://smtp.gmail.com';
-        $config['smtp_user'] = 'shareshell07@gmail.com';
-        $config['smtp_pass'] = 'Share@123india';
+        $config['smtp_user'] = 'dirosweb@gmail.com';
+        $config['smtp_pass'] = 'iusk mieo nawk chup';
         $config['smtp_port'] = 465;
 		$config['charset']    = 'utf-8';
         $config['validation'] = TRUE; 
@@ -66,8 +66,8 @@ class Email_model extends CI_Model{
 		$config = array();
         $config['protocol'] = 'smtp';
         $config['smtp_host'] = 'ssl://smtp.gmail.com';
-        $config['smtp_user'] = 'shareshell07@gmail.com';
-        $config['smtp_pass'] = 'Share@123india';
+        $config['smtp_user'] = 'dirosweb@gmail.com';
+        $config['smtp_pass'] = 'iusk mieo nawk chup';
         $config['smtp_port'] = 465;
 		$config['charset']    = 'utf-8';
         $config['validation'] = TRUE; 
@@ -88,8 +88,8 @@ class Email_model extends CI_Model{
 		$config = array();
 			$config['protocol'] = 'smtp';
 			$config['smtp_host'] = 'ssl://smtp.gmail.com';
-			$config['smtp_user'] = 'shareshell07@gmail.com';
-			$config['smtp_pass'] = 'Share@123india';
+			$config['smtp_user'] = 'dirosweb@gmail.com';
+			$config['smtp_pass'] = 'iusk mieo nawk chup';
 			$config['smtp_port'] = 465;
 			$config['charset']    = 'utf-8';
 			$config['validation'] = TRUE; 

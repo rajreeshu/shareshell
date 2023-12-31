@@ -711,7 +711,7 @@
                                 <h3 class="panel-title">Recommended</h3>
                             </div>
                             <div class="panel-body recent-property-widget">
-                                <ul>
+                                <ul id="recommendationList">
                                     <li>
                                         <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
                                             <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
@@ -1237,6 +1237,64 @@ track_property_click();
       $("#recommended").toggle(800);
    
   });
+  
+  
+  $.ajax({
+        url:"<?=base_url('main_helper/get_all_property_list');?>",
+        type:"POST",
+        async:false,
+        data:{
+            "<?php echo $this->security->get_csrf_token_name();?>":key,
+            // search_text:$("#search_box_home").val(),
+            user_id:user_id,
+            items_per_page:7,
+            page_no:1,
+            filter_avail:"",
+            filter_city:"",
+            filter_status:"",
+            filter_price:"",
+            filter_addon:'',
+            filter_bathroom:"",
+            filter_facing:"",
+            filter_sharing:"",
+            filter_avail:"",
+            filter_meal:"",
+            filter_prefered:"",
+            filter_sort:'sn',
+            filter_sort_by:'DESC'
+
+            },
+            dataType:"json",
+            // processData:false,
+            // contentType:false,
+
+            success:function(data){
+                key=data.key;
+
+                console.log(data);
+                // console.log($("#price-range").val());
+                var property_list="";
+                var dot_after_name="";
+
+                $.each(data.data,function() {
+                    
+                   
+
+                    thumb_img=this.main_image.split('.').slice(0, -1).join('.')+"_thumb."+this.main_image.substr(this.main_image.lastIndexOf('.') + 1);
+                    property_list+='<li><div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">';
+                    property_list+=' <a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'"><img src="<?=base_url('utility/main_image');?>/'+thumb_img+'"></a>';
+                    property_list+='</div><div class="col-md-8 col-sm-8 col-xs-8 blg-entry"><h6>';
+                    property_list+='<a href="<?=base_url('property/');?>'+this.sn+"/"+slug_js(this.name)+'">'+this.name.slice(0,16)+''+dot_after_name+'</a></h6>';
+                    property_list+='<span class="property-price">&#8377; '+this.price+'</span></div></li>';
+
+                });
+                $("#recommendationList").html(property_list);
+                // console.log(property_list);
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
 
     </script>
 

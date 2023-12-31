@@ -397,7 +397,7 @@ document.getElementById("blog_image").addEventListener("change", readFile, false
                 upload_image_jic(data.blog_id);
                 key=data.key;
                 alert("blog Submitted");
-                location.href="<?=base_url('main/blog?id=');?>"+data.blog_id;
+                location.href="<?=base_url('main/blog/');?>"+data.blog_id;
             },
             error:function(data){
                 console.log(data);
